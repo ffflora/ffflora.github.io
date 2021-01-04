@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My New Hugo Site</title>
-    <link>http://example.org/tags/</link>
-    <description>Recent content in Tags on My New Hugo Site</description>
+    <title>Tags on Flora Jiang</title>
+    <link>https://ffflora.cat/tags/</link>
+    <description>Recent content in Tags on Flora Jiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 02 Jan 2021 22:04:56 -0800</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ffflora.cat/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>untagged</title>
-      <link>http://example.org/tags/untagged/</link>
+      <link>https://ffflora.cat/tags/untagged/</link>
       <pubDate>Sat, 02 Jan 2021 22:04:56 -0800</pubDate>
       
-      <guid>http://example.org/tags/untagged/</guid>
+      <guid>https://ffflora.cat/tags/untagged/</guid>
       <description></description>
     </item>
     
