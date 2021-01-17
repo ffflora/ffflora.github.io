@@ -7,10 +7,9 @@ images:
 tags:
 - AWS
 - Data Analytics
-
+categories:	
+- Data Science
 ---
-
-# 
 
 The challenges identified in many data analysis solutions can be summarized by five key challenges: **volume**, **velocity**, **variety**, **veracity**, and **value**.
 

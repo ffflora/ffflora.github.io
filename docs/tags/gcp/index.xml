@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Flora Jiang</title>
-    <link>https://ffflora.cat/</link>
-    <description>Recent content on Flora Jiang</description>
+    <title>GCP on Flora Jiang</title>
+    <link>https://ffflora.cat/tags/gcp/</link>
+    <description>Recent content in GCP on Flora Jiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 14 Jan 2021 00:19:31 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2019 21:30:55 -0700</lastBuildDate>
     
-	<atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ffflora.cat/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Intro to Data Analytics Fundamental with AWS Solutions</title>
-      <link>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</link>
-      <pubDate>Thu, 14 Jan 2021 00:19:31 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</guid>
-      <description>The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
-Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
-    </item>
     
     <item>
       <title>How to Use Auto Completion in GCP</title>

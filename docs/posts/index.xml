@@ -522,5 +522,31 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
 ]]></content>
         </item>
         
+        <item>
+            <title>How to Use Auto Completion in GCP</title>
+            <link>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</link>
+            <pubDate>Wed, 28 Aug 2019 21:30:55 -0700</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</guid>
+            <description>Auto-completion gcloud interactive has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.
+Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.
+Install the beta components:
+gcloud components install beta Enter the gcloud interactive mode:
+gcloud beta interactive When using the interactive mode, click on the Tab key to complete file path and resource arguments.</description>
+            <content type="html"><![CDATA[<h2 id="auto-completion">Auto-completion</h2>
+<p><code>gcloud interactive</code> has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.</p>
+<p>Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.</p>
+<p>Install the beta components:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">gcloud components install beta
+</code></pre></div><p>Enter the gcloud interactive mode:</p>
+<pre><code>gcloud beta interactive
+</code></pre><p>When using the interactive mode, click on the <strong>Tab</strong> key to complete file path and resource arguments. If a dropdown menu appears, use the <strong>Tab</strong> key to move through the list, and the <strong>Space bar</strong> to select your choice.</p>
+<p>Try it out! Start typing the following command, using auto-complete to finish the command:</p>
+<pre><code>gcloud compute instances describe &lt;your_vm&gt;
+</code></pre><p>Across the bottom of Cloud Shell you can see the shortcut to toggles this feature. Try out the F2 toggle:</p>
+<p><code>F2</code>: help: STATE Toggles the active help section, ON when enabled, OFF when disabled.</p>
+]]></content>
+        </item>
+        
     </channel>
 </rss>

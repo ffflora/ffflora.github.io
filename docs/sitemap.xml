@@ -34,6 +34,22 @@
   
   <url>
     <loc>https://ffflora.cat/categories/</loc>
+    <lastmod>2019-08-28T21:30:55-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/categories/data-science/</loc>
+    <lastmod>2019-08-28T21:30:55-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/gcp/</loc>
+    <lastmod>2019-08-28T21:30:55-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</loc>
+    <lastmod>2019-08-28T21:30:55-07:00</lastmod>
   </url>
   
   <url>
