@@ -17,8 +17,7 @@
             <guid>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</guid>
             <description>The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
 Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
-            <content type="html"><![CDATA[<h1 id="heading"></h1>
-<p>The challenges identified in many data analysis solutions can be summarized by five key challenges: <strong>volume</strong>, <strong>velocity</strong>, <strong>variety</strong>, <strong>veracity</strong>, and <strong>value</strong>.</p>
+            <content type="html"><![CDATA[<p>The challenges identified in many data analysis solutions can be summarized by five key challenges: <strong>volume</strong>, <strong>velocity</strong>, <strong>variety</strong>, <strong>veracity</strong>, and <strong>value</strong>.</p>
 <h2 id="volume---data-storage">Volume - Data Storage</h2>
 <ul>
 <li><strong>Structured</strong>(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table.</li>

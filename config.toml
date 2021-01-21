@@ -11,7 +11,7 @@ PygmentsStyle = "monokai"
 #rssLimit  = 10  # Maximum number of items in the RSS feed.
 #copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 #International License." # This message is only used by the RSS template.
 
-# googleAnalytics = "UA-146589116-1"
+# googleAnalytics = "G-Z3XFP3QB3N"
 # disqusShortname = "ffflora-github-io"
 
 archetypeDir = "archetypes"
@@ -142,7 +142,7 @@ disableHugoGeneratorInject = false
 
 [languages]
   [languages.en]
-    subtitle  = "Hello Friend NG Theme"
+    subtitle  = "You're in the Right Place!⛱️"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
