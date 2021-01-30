@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AWS on Flora Jiang</title>
-    <link>https://ffflora.cat/tags/aws/</link>
-    <description>Recent content in AWS on Flora Jiang</description>
+    <title>Machine Learning on Flora Jiang</title>
+    <link>https://ffflora.cat/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on Flora Jiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 30 Jan 2021 00:20:32 -0800</lastBuildDate>
     
-	<atom:link href="https://ffflora.cat/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ffflora.cat/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,16 +22,6 @@
 Domain 1: Data Engineering Create Data Repo for Machine Learning Identify and implement a data ingestion solution To use the data for ML, you need to ingest it into a service like Amazon S3
 Batch and stream processing are two kinds of data ingestion.
 Batch processing Batch processing periodically collects and groups source data.With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3.</description>
-    </item>
-    
-    <item>
-      <title>Intro to Data Analytics Fundamental with AWS Solutions</title>
-      <link>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</link>
-      <pubDate>Thu, 14 Jan 2021 00:19:31 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</guid>
-      <description>The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
-Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
     </item>
     
   </channel>

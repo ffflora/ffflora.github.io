@@ -6,8 +6,463 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 14 Jan 2021 00:19:31 -0800</lastBuildDate>
+        <lastBuildDate>Sat, 30 Jan 2021 00:20:32 -0800</lastBuildDate>
         <atom:link href="https://ffflora.cat/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Aws Machine Learning Exam Readiness with Sample Questions</title>
+            <link>https://ffflora.cat/posts/2021/01/aws-machine-learning-exam-readiness-with-sample-questions/</link>
+            <pubDate>Sat, 30 Jan 2021 00:20:32 -0800</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2021/01/aws-machine-learning-exam-readiness-with-sample-questions/</guid>
+            <description>These are my study notes directly from AWS Training cource - AWS Machine Learning Exam Readiness.
+Domain 1: Data Engineering Create Data Repo for Machine Learning Identify and implement a data ingestion solution To use the data for ML, you need to ingest it into a service like Amazon S3
+Batch and stream processing are two kinds of data ingestion.
+Batch processing Batch processing periodically collects and groups source data.With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3.</description>
+            <content type="html"><![CDATA[<p>These are my study notes directly from AWS Training cource - <em>AWS Machine Learning Exam Readiness</em>.</p>
+<h2 id="domain-1-data-engineering">Domain 1: Data Engineering</h2>
+<h3 id="create-data-repo-for-machine-learning">Create Data Repo for Machine Learning</h3>
+<h3 id="identify-and-implement-a-data-ingestion-solution"><strong>Identify and implement a data ingestion solution</strong></h3>
+<p>To use the data for ML, you need to ingest it into a service like Amazon S3</p>
+<p><strong>Batch</strong> and <strong>stream</strong> processing are two kinds of data ingestion.</p>
+<h4 id="batch-processing">Batch processing</h4>
+<p><!-- raw HTML omitted -->Batch processing periodically collects and groups source data.<!-- raw HTML omitted --></p>
+<p>With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3. Batch processing is typically used when there is no real need for real-time or near-real-time data, because it is generally easier and more affordably implemented than other ingestion options.</p>
+<h4 id="aws-solutions">AWS Solutions:</h4>
+<p>AWS <strong>Glue</strong>(ETL tool), AWS <strong>Database Migration</strong>, AWS <strong>Step Functions</strong>.</p>
+<p>(You can automate various ETL tasks that involve complex workflows by using AWS Step Functions.)</p>
+<h4 id="stream-processing">Stream Processing</h4>
+<p><!-- raw HTML omitted -->Stream processing manipulates and loads data as it’s recognized in real time.<!-- raw HTML omitted --></p>
+<h4 id="aws-solutions-1">AWS Solutions:</h4>
+<p>**Amazon Kinesis **</p>
+<h3 id="identify-and-implement-a-data-transformation-solution"><strong>Identify and implement a data transformation solution</strong></h3>
+<h5 id="some-solutions">Some Solutions:</h5>
+<ul>
+<li>Using Apache Spark on Amazon EMR provides a managed framework</li>
+</ul>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210114223729670.png?raw=true" alt="image-20210114223729670"></p>
+<ul>
+<li>
+<p>If your datasets or computations are not optimally compatible with SQL, you can use AWS Glue to seamlessly run Spark jobs (Scala and Python support) on data stored in your Amazon S3 buckets.</p>
+</li>
+<li>
+<p>You can store a single source of data in Amazon S3 and perform ad hoc analysis.</p>
+<p>This reference architecture shows how AWS services for big data and ML can help build a scalable analytical layer for healthcare data. Customers can store a single source of data in Amazon S3 and perform ad hoc analysis with Athena, integrate with a data warehouse on Amazon Redshift, build a visual dashboard for metrics using Amazon QuickSight, and build an ML model to predict readmissions using Amazon SageMaker. By not moving the data around and connecting to it using different services, customers avoid building redundant copies of the same data.<img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210114224855633.png?raw=true" alt="image-20210114224855633"></p>
+</li>
+</ul>
+<h3 id="sample-questions">Sample Questions</h3>
+<ol>
+<li>
+<p>A data engineer needs to create a <strong>cost-effective</strong> data pipeline solution that ingests <strong>unstructured data from various sources</strong> and stores it for downstream analytics applications and ML. The solution should include a data store <strong>where the processed data is highly available for at least one year</strong>, so that data analysts and data scientists can run analytics and ML workloads on the most recent data. For compliance reasons, the solution should include both processed and raw data. The raw data does not need to be accessed regularly, but when needed, should be <strong>accessible within 24 hours.</strong></p>
+<p><strong>ANS</strong>:</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210114225713429.png?raw=true" alt="image-20210114225713429"></p>
+</li>
+<li>
+<p>An ad-tech company has hired a data engineer to create and maintain a machine learning pipeline for its clickstream data. The data will be gathered <strong>from various sources,</strong> including on premises, and will need to be <strong>streamed</strong> to the company’s <strong>Amazon EMR instances</strong> for further processing.</p>
+<p><strong>ANS</strong>:</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210114230019872.png?raw=true" alt="image-20210114230019872"></p>
+</li>
+<li>
+<p>A transportation company currently uses Amazon EMR with Apache Spark for some of its data transformation workloads. It transforms columns of geographical data (like latitudes and longitudes) and adds columns to segment the data into different clusters per city to attain additional features for the k-nearest neighbors algorithm being used.</p>
+<p>The company wants less operational overhead for their transformation pipeline. They want a new solution that does not make significant changes to the current pipeline and only requires minimal management.</p>
+<p>What AWS services should the company use to build this new pipeline?</p>
+<ul>
+<li><strong>Use AWS Glue to transform files. Use Amazon S3 as the destination.</strong> ✅</li>
+<li>Use AWS Glue to transform files. Use Amazon EMR HDFS as the destination. ❌</li>
+<li>Use Amazon EMR to transform files. Use Amazon S3 as the destination. ❌</li>
+<li>Use Lambda to transform files. Use Amazon EMR HDFS as the destination. ❌</li>
+</ul>
+</li>
+</ol>
+<h2 id="domain-2-eda">Domain 2: EDA</h2>
+<h3 id="sample-questions-1">Sample Questions:</h3>
+<ol>
+<li>
+<p>A team of data scientists in a company focusing on security and smart home devices created an ML model that can classify guest types at a front door using a video doorbell. The team is getting an accuracy of 96.23% on the validation dataset.</p>
+<p>However, when the team tested this model in production, images were classified with a much lower accuracy. That was due to weather: The changing seasons had an impact on the quality of production images.</p>
+<p>What can the team do to improve their model?</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210118003049500.png?raw=true" alt="image-20210118003049500"></p>
+</li>
+<li>
+<p>A team of data scientists in a financial company wants to predict the risk for their incoming customer loan applications. The team has decided to do this by applying the <strong>XGBoost</strong> algorithm, which will predict the probability that a customer will default on a loan. In order to create this solution, the team wants to first <strong>merge the customer application data with demographic and location data</strong> before feeding it into the model.</p>
+<p>However, the <strong>dimension of this data is really large</strong>, and the team wants to <strong>keep only those features that are the most relevant</strong> to the prediction.</p>
+<p>What techniques can the team use to reach the goal? (Select TWO.)</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210118003924933.png?raw=true" alt="image-20210118003924933"></p>
+<ul>
+<li>AWS glue doesn&rsquo;t have that shit.</li>
+<li>clustering doesn&rsquo;t help with dimensionality reduction.</li>
+<li><strong>A</strong> helps the dimensionality problem, but doesn&rsquo;t help the feature selection problem.</li>
+</ul>
+</li>
+<li>
+<p>A social networking organization wants to analyze all the comments and likes from its users to flag offensive language on the site. The organization’s data science team wants to use a Long Short-term Memory (LSTM) architecture to classify the raw sentences from the comments into one of two categories: offensive and non-offensive.</p>
+<p>What should the team do to prepare the data for the LSTM?</p>
+<ul>
+<li>Vectorize the sentences. Transform them into numerical sequences. Use the sentences as the input. ❌</li>
+<li>Convert the individual sentences into numerical sequences starting from the number 1 for each word in a sentence. Use the sentences as the input. ❌</li>
+<li>Convert the individual sentences into sequences of words. Use those as the input. ❌</li>
+<li><strong>Vectorize the sentences. Transform them into numerical sequences with a padding. Use the sentences as the input. ✅</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="domain-3-modeling">Domain 3: Modeling</h2>
+<h3 id="31-frame-business-problems-as-ml-problems">3.1 Frame Business Problems as ML problems</h3>
+<p>Regression problem(prediction) vs classification problem</p>
+<h3 id="32-select-the-appropriate-models-for-an-ml-problem">3.2 <strong>Select the appropriate model(s) for an ML problem</strong></h3>
+<p>Amazon <strong>SageMaker</strong> provides a few built-in algorithms that work for <strong>classification</strong> situations: <strong>Linear Learner, XGBoost, and K-Nearest Neighbors.</strong> <strong>XGBoost</strong>, for instance, is an open-source implementation of the gradient-boosted trees algorithm. <strong>Gradient boosting is a supervised learning algorithm that attempts to accurately predict a target variable by combining an ensemble of estimates from a set of simpler, weaker models.</strong></p>
+<p>In terms of the built-in Amazon <strong>SageMaker</strong> algorithms you could choose for <strong>regression problems</strong>, it’s pretty similar. Again, you could choose <strong>Linear Learner and XGBoost.</strong> <!-- raw HTML omitted -->The difference is that you set the hyperparameters to direct these algorithms to produce quantitative results.<!-- raw HTML omitted --></p>
+<p><strong>There are Amazon SageMaker built-in algorithms for natural language processing:</strong></p>
+<ul>
+<li><strong>BlazingText</strong> algorithm provides highly optimized implementations of the <strong>Word2vec</strong> and text classification algorithms.</li>
+<li><strong>Sequence2sequence</strong> is a <strong>supervised</strong> learning algorithm where the input is a sequence of tokens (for example, text, audio) and the output generated is another sequence of tokens.</li>
+<li><strong>Object2Vec</strong> generalizes the well-known Word2Vec embedding technique for words that are optimized in the Amazon SageMaker BlazingText algorithm.</li>
+</ul>
+<p><strong>There are Amazon SageMaker built-in algorithms for computer vision:</strong></p>
+<ul>
+<li>Image classification is a supervised learning algorithm used to classify images.</li>
+<li>Object detection algorithm detects and classifies objects in images using a single deep neural network. It is a supervised learning algorithm that takes images as input and identifies all instances of objects within the image scene. The object is categorized into one of the classes in a specified collection with a confidence score that it belongs to the class. Its location and scale in the image are indicated by a rectangular bounding box.</li>
+<li>Semantic segmentation algorithm tags every pixel in an image with a class label from a predefined set of classes.</li>
+</ul>
+<h4 id="other-options-for-training-algorithms"><strong>Other options for training algorithms</strong></h4>
+<ul>
+<li>Use Apache Spark with Amazon SageMaker</li>
+<li>Submit custom code to train a model with a deep learning framework like TensorFlow or Apache MXNet</li>
+<li>Use your own custom algorithm and put the code together as a Docker image</li>
+<li>Subscribe to an algorithm from AWS Marketplace</li>
+</ul>
+<h3 id="33-train-ml-models"><strong>3.3: Train ML models</strong></h3>
+<p>Cross Validation</p>
+<p>Sage Maker</p>
+<h3 id="34-perform-hyperparameter-optimization"><strong>3.4: Perform hyperparameter optimization</strong></h3>
+<h4 id="what-are-hyperparameters"><strong>What are hyperparameters?</strong></h4>
+<p>Hyperparameters are the knobs or settings that can be tuned before running a training job to control the behavior of an ML algorithm. They can have a big impact on model training as it relates to training time, model convergence, and model accuracy. Unlike model parameters that are derived from the training job, the values of hyperparameters do not change during the training.</p>
+<h4 id="there-are-different-categories-of-hyperparameters"><strong>There are different categories of hyperparameters</strong></h4>
+<h5 id="model-hyperparameters">Model hyperparameters</h5>
+<p>Model hyperparameters define the model itself—Attributes of a neural network architecture like filter size, pooling, stride, padding</p>
+<h5 id="optimizer-hyperparameters">Optimizer hyperparameters</h5>
+<p>Optimizer hyperparameters, are related to how the model learn the patterns based on data and are used for a neural network model. These types of hyperparameters include optimizers like gradient descent and stochastic gradient descent, or even optimizers using momentum like Adam or initializing the parameter weights using methods like Xavier initialization or He initialization</p>
+<h5 id="data-hyperparameters">Data hyperparameters</h5>
+<p>Data hyperparameters are related to the attributes of the data, often used when you don’t have enough data or enough variation in data—Data augmentation techniques like cropping, resizing</p>
+<h4 id="tuning-hyperparameters-can-be-very-labor-intensive"><strong>Tuning hyperparameters can be very labor-intensive</strong></h4>
+<p>Traditionally, this was done <strong>manually</strong>: someone who has domain experience related to that hyperparameter and the use case would manually select the hyperparameters based on their intuition and experience. Then they would train the model and score it on the validation data. This process would be repeated over and over again until satisfactory results are achieved.</p>
+<p><strong>A better way  is to use search methods to tune hyperparameters</strong>:</p>
+<p><strong>Grid search and Random search</strong></p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210124232631210.png?raw=true" alt="image-20210124232631210"></p>
+<ul>
+<li>Grid Search: you can set up a grid made of hyperparams and their different values. For each possible combination, a model is trained and a score is produced on the validation data. With this approach, every single combination of the given possible hyperparams values is tried. Therefore this method could be very inefficient.</li>
+<li>Random Search: similar to grid search, but random combinations are selected. You can set the number of search iterations based on time and resource constrains.</li>
+</ul>
+<h4 id="aws-solution-sagemaker">AWS Solution: SageMaker</h4>
+<p>Then there’s automated hyperparameter tuning, which uses methods like gradient descent, Bayesian optimization, and evolutionary algorithms to conduct a guided search for the best hyperparameter settings.</p>
+<h3 id="35-evaluate-ml-models"><strong>3.5: Evaluate ML models</strong></h3>
+<h4 id="confusion-matrix">Confusion Matrix</h4>
+<h3 id="metrics-for-classification-problems-">**Metrics for classification problems **</h3>
+<p><strong>Accuracy is the ratio of correct predictions to total number of predictions</strong></p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210124235038069.png?raw=true" alt="image-20210124235038069"></p>
+<p><strong>Precision is the proportion of positive predictions that are actually correct</strong><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210124235458004.png?raw=true" alt="image-20210124235458004"></p>
+<p><strong>Recall is the proportion of correct sets that are identified as positive</strong></p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210124235541375.png?raw=true" alt="image-20210124235541375"></p>
+<p><strong>Additional metrics include:</strong></p>
+<ul>
+<li>F1 score:</li>
+</ul>
+<p>$$
+(2<em>Precision</em>Recall)/(Precision+Recall)
+$$</p>
+<ul>
+<li>AUC(Area under the Curve) - Receiver Operator Curve(ROC)</li>
+</ul>
+<h3 id="sample-questions-2">Sample Questions</h3>
+<ol>
+<li>
+<p>An oil and natural gas company is using machine learning to discover prime locations for drilling. The company has <strong>chosen Amazon SageMaker as its service</strong> for creating machine learning models. The company’s data scientists are <strong>using notebook instances to develop those models</strong>. However, the data scientists spend a long time waiting for the training jobs to complete.</p>
+<p>The company wants <strong>improve this idle time to more effectively iterate on the models</strong> with <strong>minimal</strong> change to the code to enable data scientists to <strong>quickly</strong> experiment with their models without having to wait for the training job to load the data and train the model.</p>
+<p>What should the team of data scientists do to solve this issue?</p>
+<ul>
+<li>Use Amazon SageMaker in-built algorithms. ❌</li>
+<li>Use Amazon SageMaker Estimators in local mode to train the models. ✅</li>
+<li>Change the training job to use Pipe Mode to improve the time it takes to train the model. ❌</li>
+<li>Create the models on local laptops. Then, port the code over to use Amazon SageMaker. ❌</li>
+</ul>
+<p><strong>Notes</strong>:</p>
+<p>A &amp; C are for training algos, they can&rsquo;t help DS to quickly experiment the models.</p>
+<p>B is to avoid the loading time for data.</p>
+</li>
+<li>
+<p>A data scientist trained an XGBoost model to classify internal documents for further inquiry, and now wants to evaluate the <strong>model’s</strong> <strong>performance</strong> by looking at the results <strong>visually</strong>.</p>
+<p>What technique should the data scientist use in this situation?</p>
+<ul>
+<li>Scatterplot to visualize the predicted labels versus the true label. ❌</li>
+<li>Correlation matrix to visualize the predicted labels versus the true label. ❌</li>
+<li>Confusion matrix to visualize the predicted labels ✅</li>
+<li>Box plot to visualize the predicted labels (X axis) versus the true labels (Y axis). ❌</li>
+</ul>
+</li>
+<li>
+<p>A manufacturing company wants to increase the longevity of its factory machines by predicting when a machine part is about to stop working, jeopardizing the health of the machine. The company’s team of Data Scientists will build an ML model to accomplish this goal. The model will be trained on data made up of consumption metrics from similar factory machines, and will span a time frame from one hour before a machine part broke down to five minutes after the part degraded.</p>
+<p>What kind of machine learning algorithm should the company use to build this model?</p>
+<ul>
+<li>Convolutional neural network (CNN) ❌</li>
+<li>Amazon SageMaker DeepAR ✅</li>
+<li>Scikit Learn Random Forest ❌</li>
+<li>SciKit Learn Regression ❌</li>
+</ul>
+</li>
+<li>
+<p>A Data Scientist working for an autonomous vehicle company is building an ML model to detect and label people and various objects (for instance, cars and traffic signs) that may be encountered on a street. The Data Scientist has a dataset made up of labeled images, which will be used to train their machine learning model.</p>
+<p>What kind of ML algorithm should be used?</p>
+<ul>
+<li>Instance segmentation ✅</li>
+<li>Image localization ❌</li>
+<li>Image classification ❌</li>
+<li>Semantic segmentation ❌</li>
+</ul>
+</li>
+<li>
+<p>A Data Scientist is training a convolutional neural network model to detect incoming employees at the company’s front gate using a camera so that the system opens for them automatically. However, the model is taking too long to converge and the error oscillates for more than 10 epochs.</p>
+<p>What should the Data Scientist do to improve upon this situation? (Select TWO.)</p>
+<ul>
+<li>Increase batch size ❌</li>
+<li>Add more epochs ❌</li>
+<li>Decrease weight decay ❌</li>
+<li>Normalize the images before training ✅</li>
+<li>Add batch normalization  ✅</li>
+</ul>
+</li>
+</ol>
+<h2 id="domain-4-ml-implementation-and-operations"><strong>Domain 4: ML Implementation and Operations</strong></h2>
+<h3 id="41-build-ml-solutions-for-performance-availability-scalability-resiliency-and-fault-tolerance"><strong>4.1: Build ML solutions for performance, availability, scalability, resiliency, and fault tolerance</strong></h3>
+<h4 id="high-availability-and-fault-tolerance"><strong>High availability and fault tolerance</strong></h4>
+<p>At the heart of designing for failure are two concepts known as high availability and fault tolerance.</p>
+<p>In a highly available solution, the system will continue to function even when any component of the architecture stops working. A key aspect of high availability is fault tolerance, which, when built into an architecture, ensures that applications will continue to function without degradation in performance, despite the complete failure of any component of the architecture.</p>
+<p><!-- raw HTML omitted --></p>
+<h4 id="one-method-of-achieving-high-availability-and-fault-tolerance-is-loose-coupling"><strong>One method of achieving high availability and fault tolerance is loose coupling</strong></h4>
+<p>With a loosely coupled, distributed system, the failure of one component can be managed in between your application tiers so that the faults do not spread beyond that single point. Loose coupling is often <strong>achieved by making sure application components are independent of each other</strong>. For example, you should always decouple your storage layer with your compute layer because a training job only requires minimal time, but storing data is permanent. Decoupling helps turn off the compute resources when they are not needed.</p>
+<p><strong>Loosely &amp; tightly coupled system:</strong></p>
+<p>Tightly coupled:</p>
+<ul>
+<li>More interdependency</li>
+<li>More coordination</li>
+<li>More information</li>
+</ul>
+<p>⬇️</p>
+<p>Loosely coupled:</p>
+<ul>
+<li>Less interdependency</li>
+<li>Less coordination</li>
+<li>Less information</li>
+</ul>
+<h4 id="queues-are-used-in-loose-coupling-to-pass-messages-between-components"><strong>Queues are used in loose coupling to pass messages between components</strong></h4>
+<p>AWS SQS (queue service), AWS Step Function(workflow service)</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210125160545179.png?raw=true" alt="image-20210125160545179"></p>
+<h4 id="amazon-cloudwatch-helps-you-monitor-your-system"><strong>Amazon CloudWatch helps you monitor your system</strong></h4>
+<h4 id="aws-cloudtrail-captures-api-calls-and-related-events"><strong>AWS CloudTrail captures API calls and related events</strong></h4>
+<p>AWS CloudTrail captures API calls and related events made by or on behalf of your AWS account and delivers the log files to an Amazon S3 bucket that you specify. You can identify which users and accounts called AWS, the source IP address from which the calls were made, and when the calls occurred.</p>
+<h4 id="you-can-design-for-failure-of-any-individual-component-by-leveraging-key-aws-services-and-features-">**You can design for failure of any individual component by leveraging key AWS services and features **</h4>
+<h5 id="aws-glue-and-emr">AWS GLUE and EMR</h5>
+<p><!-- raw HTML omitted -->You should decouple your ETL process from the ML pipeline. The compute power needed for ML isn’t the same as what you’d need for an ETL process—they have very different requirements.<!-- raw HTML omitted --></p>
+<ul>
+<li>An ETL process needs to read in files from multiple formats, transform them as needed, and then write them back to a persistent storage. Keep in mind that reading and writing takes a lot of memory and disk I/O, so when you decouple your ETL process, <strong>use a framework like Apache Spark</strong>, which can handle large amounts of data easily for ETL.</li>
+<li>Training, on the other hand, may require GPUs which are much more suited to handle the training requirements than CPUs. However, GPUs are less cost-effective to keep running when a model is not being trained. <strong>So you can make use of this decoupled architecture by simply using an ETL service like AWS Glue or Amazon EMR, which use Apache Spark for your ETL jobs and Amazon SageMaker to train, test, and deploy your models.</strong></li>
+</ul>
+<h5 id="ams-sagemaker-endpoints">AMS SageMaker Endpoints</h5>
+<p>To ensure a highly available ML serving endpoint, deploy Amazon SageMaker endpoints backed by multiple instances across Availability Zones.</p>
+<p><!-- raw HTML omitted --></p>
+<h5 id="ams-sagemaker">AMS SageMaker</h5>
+<p>Amazon SageMaker makes it easy to containerize ML models for both training and inference. In doing so, you can create ML models made up of loosely coupled, distributed services that can be placed on any number of platforms, or close to the data that the applications are analyzing.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210125170039194.png?raw=true" alt="image-20210125170039194"></p>
+<h5 id="aws-auto-scaling">AWS Auto Scaling</h5>
+<p>Use AWS Auto Scaling <strong>to build scalable solutions by configuring automatic scaling</strong> for the AWS resources such as Amazon SageMaker endpoints that are part of your application in response to the changes in traffic to your application.</p>
+<p>With AWS Auto Scaling, you configure and manage scaling for your resources through a scaling plan. The scaling plan uses dynamic scaling and predictive scaling to automatically scale your application’s resources.</p>
+<p><strong>This ensures that you add the required computing power to handle the load</strong> on your application, and <strong>then remove it when it&rsquo;s no longer required</strong>. The scaling plan lets you choose scaling strategies to define how to optimize your resource utilization. You can optimize for availability, for cost, or a balance of both.</p>
+<p>As you increase the number of concurrent prediction requests, at some point the endpoint responds more slowly and eventually errors out for some requests. Automatically scaling the endpoint avoids these problems and improves prediction throughput. When the endpoint scales out, Amazon SageMaker automatically spreads instances across multiple Availability Zones. This provides Availability Zone-level fault tolerance and protects from an individual instance failure.</p>
+<p>If the endpoint has only a moderate load, you can run it on a single instance and still get good performance. Use automatic scaling to ensure high availability during traffic fluctuations without having to constantly provision for peak traffic. For production workloads, use at least two instances. Because Amazon SageMaker automatically spreads the endpoint instances across multiple Availability Zones, a minimum of two instances ensures high availability and provides individual fault tolerance.</p>
+<p><strong>To determine the scaling policy for automatic scaling in Amazon SageMaker, test for how much load (RPS) the endpoint can sustain. Then configure automatic scaling and observe how the model behaves when it scales out. Expected behavior is lower latency and fewer or no errors with automatic scaling.</strong></p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210125170232859.png?raw=true" alt="image-20210125170232859"></p>
+<p>Remark:</p>
+<h5 id="auto-scaling-group"><strong>Auto Scaling Group</strong></h5>
+<p>What is ASG?</p>
+<p>In real life, the load on your websites and app can change; in the cloud, you can create and get rid of servers very quickly.</p>
+<p>ASG is used to:</p>
+<ul>
+<li>Scale out(which is add EC2 instances) to match an increased load.</li>
+<li>Scale in (which is remove EC2 instances) to match a decreased load.</li>
+<li>Ensure we have a min and max number of machines running</li>
+<li>Automatically register new instances to a load balancer</li>
+</ul>
+<h3 id="42-recommend-and-implement-the-appropriate-ml-services-and-features-for-a-given-problem"><strong>4.2: Recommend and implement the appropriate ML services and features for a given problem</strong></h3>
+<h4 id="the-stack-for-amazon-machine-learning-has-three-tiers"><strong>The stack for Amazon machine learning has three tiers</strong></h4>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210125212450908.png?raw=true" alt="image-20210125212450908"></p>
+<h5 id="ml-frameworks--infrastructure">ML frameworks + infrastructure</h5>
+<p>The bottom tier of the stack is for expert ML practitioners who work at the framework level. To work with these frameworks, you are comfortable building, training, tuning, and deploying ML models on the metal, so to speak. ML frameworks are the foundation from which innovation in ML is designed. The focus here is on making it easier for you to connect more broadly to the AWS ecosystem, whether that’s about pulling in IoT data from AWS IOT Greengrass, accessing state-of-the art chips (P3), or leveraging elastic inference.</p>
+<p><strong>The vast majority of deep learning and ML in the cloud is done on P3 instances in AWS</strong>. You can use whichever ML deep learning framework you like, but some popular options are TensorFlow, MXNet, and PyTorch, which are all supported on AWS.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210125215339947.png?raw=true" alt="image-20210125215339947"></p>
+<h5 id="ml-services">ML Services</h5>
+<p>AWS SageMaker is the heart of this tier.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210125220216005.png?raw=true" alt="image-20210125220216005"></p>
+<h5 id="ai-services">AI Services</h5>
+<p>AWS services in the top tier are for customers who really don&rsquo;t want to deal with building and training their ML models. All of that has been abstracted away, leaving you with easy-to-use services designed to help you deal with common ML problems in various domains, like computer vision, NLP, and time series forecasting.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210125220258775.png?raw=true" alt="image-20210125220258775"></p>
+<h5 id="amazon-ai-services">Amazon AI services</h5>
+<ul>
+<li>Amazon Translate</li>
+<li>Amazon Lex</li>
+<li>Amazon Polly</li>
+<li>Amazon Transcribe</li>
+<li>Amazon Rekognition</li>
+<li>Amazon Comprehend</li>
+</ul>
+<h3 id="43-apply-basic-aws-security-practices-to-ml-solutions"><strong>4.3: Apply Basic AWS security practices to ML solutions</strong></h3>
+<h4 id="below-is-a-summary-of-security-features-integrated-with-amazon-sagemaker"><strong>Below is a summary of security features integrated with Amazon SageMaker</strong></h4>
+<ul>
+<li>Authentication
+<ul>
+<li>IAM federation</li>
+</ul>
+</li>
+<li>Gaining insight
+<ul>
+<li>Restrict access by IAM policy and condition keys</li>
+</ul>
+</li>
+<li>Audit
+<ul>
+<li>API logs to AWS CloudTrail - exception of InvokeEndpoint</li>
+</ul>
+</li>
+<li>Data Protection at rest
+<ul>
+<li>AWS KMS-based encryption for:
+<ul>
+<li>Notebooks</li>
+<li>Training jobs</li>
+<li>Amazon S3 location to store modelsEndpoint</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Protection at motion
+<ul>
+<li>HTTPS for:
+<ul>
+<li>API/console</li>
+<li>Notebooks</li>
+<li>VPC-enabled</li>
+<li>Interface endpoint</li>
+<li>Limit by IPTraining jobs/endpoints</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="44-deploy-and-operationalize-ml-solutions"><strong>4.4: Deploy and operationalize ML solutions</strong></h3>
+<h4 id="deploying-a-model-using-amazon-sagemaker-hosting-services-is-a-three-step-process"><strong>Deploying a model using Amazon SageMaker hosting services is a three-step process</strong></h4>
+<h5 id="create-a-model-in-amazon-sagemaker">Create a model in Amazon SageMaker</h5>
+<p>You need:</p>
+<ul>
+<li>The Amazon S3 path where the model artifacts are stored</li>
+<li>The Docker registry path for the image that contains the inference code</li>
+<li>A name that you can use for subsequent deployment steps</li>
+</ul>
+<h5 id="create-an-endpoint-configuration-for-an-https-endpoint">Create an endpoint configuration for an HTTPS endpoint</h5>
+<p>You need:</p>
+<ul>
+<li>The name of one or more models in production variants</li>
+<li>The ML compute instances that you want Amazon SageMaker to launch to host each production variant. When hosting models in production, you can configure the endpoint to elastically scale the deployed ML compute instances. For each production variant, you specify the number of ML compute instances that you want to deploy. When you specify two or more instances, Amazon SageMaker launches them in multiple Availability Zones. This ensures continuous availability. Amazon SageMaker manages deploying the instances.</li>
+</ul>
+<h5 id="create-an-https-endpoint">Create an HTTPS endpoint</h5>
+<p>You need to provide the endpoint configuration to Amazon SageMaker. The service launches the ML compute instances and deploys the model or models as specified in the configuration.</p>
+<h4 id="you-may-want-to-pay-extra-attention-to-the-following-points-when-youre-delivering-an-ml-model-into-a-production-environment"><strong>You may want to pay extra attention to the following points when you’re delivering an ML model into a production environment:</strong></h4>
+<ul>
+<li>Apply software engineering disciplines. Add error recovery code and make sure that tests for unexpected data inputs exist. Perform the same kind of unit testing, quality assurance, and user acceptance testing that is performed for other systems. If the ML system has moved from the research stage to development, some of these expected software engineering practices might have been inconsistently applied. Automate this system using common DevOps tools like AWS CodeBuild and AWS CodeCommit.</li>
+<li>Track, identify, and account for changes in data sources. The data might change over time. One change in data type in one source can break the whole pipeline. Changes in software that produces a data source can have flow-on effects.</li>
+<li>Perform ongoing monitoring and evaluation of results. Evaluate the expectations versus the results of the ML system. Build methods to check the error rate and the classes of errors being made against project expectations. If the overall error rate is the same, are the same proportions of the different classes of errors still the same? Is model drift occurring?</li>
+<li>Create methods to collect data from production inferences that can be used to improve future models.</li>
+</ul>
+<h4 id="amazon-sagemaker-supports-automatic-scaling-for-production-variants"><strong>Amazon SageMaker supports automatic scaling for production variants</strong></h4>
+<p>Amazon SageMaker supports automatic scaling for production variants. Automatic scaling dynamically adjusts the number of instances provisioned for a production variant in response to changes in your workload. When the workload increases, automatic scaling brings more instances online. When the workload decreases, automatic scaling removes unnecessary instances so that you don&rsquo;t pay for provisioned variant instances that you aren&rsquo;t using.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210126003729710.png?raw=true" alt="image-20210126003729710"></p>
+<h4 id="define-and-apply-a-scaling-policy-that-uses-amazon-cloudwatch-metrics"><strong>Define and apply a scaling policy that uses Amazon CloudWatch metrics</strong></h4>
+<ul>
+<li>Automatic scaling uses the policy to adjust the number of instances up or down in response to actual workloads</li>
+<li>You can use the AWS Management Console to apply a scaling policy based on a predefined metric</li>
+<li>A predefined metric is defined in an enumeration so you can specify it by name in code or use it in the console</li>
+<li>Always <strong>load-test</strong> your automatic scaling configuration to ensure that it works correctly before using it to manage production traffic</li>
+</ul>
+<h3 id="sample-questions-3">Sample Questions:</h3>
+<ol>
+<li>
+<p>A sports and betting company uses machine learning to predict the odds of winning during sporting events. It uses the Amazon SageMaker endpoint to serve its production model. The endpoint is on an m5.8xlarge instance.</p>
+<p>What can the company do to ensure that this endpoint is highly available, while using the most cost-effective and easily managed solution?</p>
+<ul>
+<li>Create another endpoint. Put the two endpoints behind an Application Load Balancer. ❌</li>
+<li>Increase the number of instances associated with the endpoint to more than one. ✅</li>
+<li>Increase the instance size to m5.16 x-large. ❌</li>
+<li>Add an elastic inference to the endpoint. ❌</li>
+</ul>
+</li>
+<li>
+<p>A healthcare company wants to deploy an ensemble of models behind a single endpoint with minimal management. The models include an XGBoost model trained on one of its structured datasets and a CNN model trained on an image dataset.</p>
+<p>Which solution can the company use to reach this objective?</p>
+<ul>
+<li>
+<p>Create an AWS Lambda function with Amazon API Gateway that preprocesses the incoming data. The function then creates the prediction from all the ensemble models. And finally, it returns the prediction. ✅</p>
+</li>
+<li>
+<p>Create an AWS Deep Learning container that preprocesses the incoming data. The container then creates the prediction from all the ensemble models. And finally, it returns the prediction. ❌</p>
+</li>
+<li>
+<p>Create an Amazon EC2 instance with the AWS Deep Learning AMI that preprocesses the incoming data. The instance then creates the prediction from all the ensemble models. And finally, it returns the prediction. ❌</p>
+</li>
+<li>
+<p>Create an Amazon SageMaker endpoint that preprocesses the incoming data. The endpoint then creates the prediction from all the ensemble models. And finally, it returns the prediction. ❌</p>
+</li>
+</ul>
+</li>
+<li>
+<p>A Machine Learning Engineer created a pipeline for training an ML model using an Amazon SageMaker training job. The training job began successfully, but then failed after running for five minutes.</p>
+<p>How should the Engineer begin to debug this issue? (Select TWO.)</p>
+<ul>
+<li>Check AWS CloudTrail logs to check the error that caused the training to fail</li>
+<li>Log into the Amazon SageMaker training job instance and check the job history</li>
+<li>Go to Amazon CloudWatch logs and check the logs for the given training job ✅</li>
+<li>Check the error in the given training job directly in the Amazon SageMaker console</li>
+<li>Call the <strong>DescribeJob API</strong> to check the FailureReason option✅</li>
+</ul>
+</li>
+<li>
+<p>A news organization wants to extract metadata from its articles and blogs and index that metadata in Amazon Elasticsearch Service (Amazon ES) to enable faster searches.</p>
+<p>What AWS service can the organization use to achieve this goal?</p>
+<ul>
+<li>Amazon Textract</li>
+<li>Amazon Personalize</li>
+<li>Amazon Rekognition Image</li>
+<li>Amazon Comprehend ✅</li>
+</ul>
+</li>
+<li>
+<p>A news organization wants to extract metadata from its articles and blogs and index that metadata in Amazon Elasticsearch Service (Amazon ES) to enable faster searches.</p>
+<p>What AWS service can the organization use to achieve this goal?</p>
+<ul>
+<li>Amazon Textract</li>
+<li>Amazon Personalize</li>
+<li>Amazon Rekognition Image</li>
+<li>Amazon Comprehend ✅</li>
+</ul>
+</li>
+<li>
+<p>A machine translation company is deploying its language translation models behind an Amazon SageMaker endpoint. The company wants to deploy a solution directly on its website so that users can input text in one language and have it translated into a second language. The company wants to reach a solution with minimal maintenance and latency for spiky traffic times.</p>
+<p>How should the company architect this solution?</p>
+<ul>
+<li>Create a function on an Amazon EC2 instance that uses CURL to call the InvokeEndpoint API. Call the Amazon EC2 instance from the website.</li>
+<li>Use Lambda to call InvokeEndpoint. Use the Amazon API Gateway URL to call the AWS Lambda function. ✅</li>
+<li>Use Amazon SageMaker InvokeEndpoint with API Gateway</li>
+<li>Install the sagemaker-runtime library on the web server. Call InvokeEndpoint from the webserver.</li>
+</ul>
+</li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>Intro to Data Analytics Fundamental with AWS Solutions</title>
