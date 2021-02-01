@@ -1,13 +1,121 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on Flora Jiang</title>
+        <title>Posts on Flora Wenyao Jiang</title>
         <link>https://ffflora.cat/posts/</link>
-        <description>Recent content in Posts on Flora Jiang</description>
+        <description>Recent content in Posts on Flora Wenyao Jiang</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 30 Jan 2021 00:20:32 -0800</lastBuildDate>
+        <lastBuildDate>Sun, 31 Jan 2021 19:29:26 -0800</lastBuildDate>
         <atom:link href="https://ffflora.cat/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>AWS Machine Learning Specialty Prep List</title>
+            <link>https://ffflora.cat/posts/2021/01/aws-machine-learning-specialty-prep-list/</link>
+            <pubDate>Sun, 31 Jan 2021 19:29:26 -0800</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2021/01/aws-machine-learning-specialty-prep-list/</guid>
+            <description>Here are some resources I collected for better preparing the AWS Machine Learning Specialty Exam.
+Practical experience aws/amazon-sagemaker-examples
+Object Detection with Amazon Sagemaker
+AWS Training offers digital courses on machine learning (ML).   Data Analytics Fundamentals
+  Exam Readiness: AWS Certified Machine Learning - Specialty
+  Deep Learning on AWS
+  Elements of Data Science
+  Math for Machine Learning
+  Linear and Logistic Regression</description>
+            <content type="html"><![CDATA[<p>Here are some resources I collected for better preparing the AWS Machine Learning Specialty Exam.</p>
+<h3 id="practical-experience">Practical experience</h3>
+<p><a href="https://github.com/aws">aws</a>/<strong><a href="https://github.com/aws/amazon-sagemaker-examples">amazon-sagemaker-examples</a></strong></p>
+<p><a href="https://www.coursera.org/projects/object-detection-sagemaker">Object Detection with Amazon Sagemaker</a></p>
+<h3 id="aws-training-offers-digital-courses-on-machine-learning-ml">AWS Training offers digital courses on machine learning (ML).</h3>
+<ul>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.aws.training/Details/eLearning?id=35364">Data Analytics Fundamentals</a></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.aws.training/Details/eLearning?id=42183">Exam Readiness: AWS Certified Machine Learning - Specialty</a></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/training/course-descriptions/deep-learning/">Deep Learning on AWS</a></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.aws.training/Details/eLearning?id=26598">Elements of Data Science</a></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.aws.training/Details/eLearning?id=26597">Math for Machine Learning</a></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.aws.training/Details/eLearning?id=26599">Linear and Logistic Regression</a></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.aws.training/Details/eLearning?id=12531">Machine Learning Use Case</a></p>
+</li>
+</ul>
+<h3 id="aws-whitepapers">AWS whitepapers</h3>
+<blockquote>
+<p>The following are whitepapers that have been written about ML and deep learning that you will want to read as part of your exam study:</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://d1.awsstatic.com/whitepapers/Deep_Learning_on_AWS.pdf?did=wp_card&amp;trk=wp_card">Deep Learning on AWS</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://d1.awsstatic.com/whitepapers/aws-power-ml-at-scale.pdf?did=wp_card&amp;trk=wp_card">Power machine learning at scale</a></li>
+</ul>
+<h3 id="aws-documentation">AWS documentation</h3>
+<blockquote>
+<p>Review the following AWS service documentation as part of your study:</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/sagemaker/?id=docs_gateway">Amazon SageMaker</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/dlami/?id=docs_gateway">Deep Learning AMI</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/polly/?id=docs_gateway">Amazon Polly</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/lex/?id=docs_gateway">Amazon Lex</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/transcribe/?id=docs_gateway">Amazon Transcribe</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/translate/?id=docs_gateway">Amazon Translate</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/rekognition/?id=docs_gateway">Amazon Rekognition</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://docs.aws.amazon.com/s3/?id=docs_gateway">Amazon S3</a></li>
+</ul>
+<h3 id="service-faqs">Service FAQs</h3>
+<blockquote>
+<p>Here are links to service FAQs that have some helpful information when looking to better understand ML-related AWS services:</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/sagemaker/faqs/">AWS SageMaker FAQ</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/comprehend/faqs/">AWS Comprehend FAQ</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/lex/faqs/">AWS Lex FAQ</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/polly/faqs/">AWS Polly FAQ</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/rekognition/faqs/">AWS Rekognition FAQ</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/translate/faqs/">AWS Translate FAQ</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/transcribe/faqs/">AWS Transcribe FAQ</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://aws.amazon.com/deeplens/faqs/">AWS DeepLens FAQ</a></li>
+</ul>
+<h3 id="aws-blogs">AWS blogs</h3>
+<blockquote>
+<p>There is an <a href="https://aws.amazon.com/blogs/machine-learning/">AWS machine learning blog</a> that you should read as part of your exam study.</p>
+</blockquote>
+<h3 id="official-exam-guide-sample-exam-questions">Official Exam Guide, sample exam questions</h3>
+<ul>
+<li><input disabled="" type="checkbox"> [Download the exam guide](<a href="https://d1.awsstatic.com/training-and-certification/docs-ml/AWS">https://d1.awsstatic.com/training-and-certification/docs-ml/AWS</a> Certified Machine Learning - Specialty_Exam Guide (1).pdf)</li>
+<li><input disabled="" type="checkbox"> <a href="https://d1.awsstatic.com/training-and-certification/docs-ml/AWS-Certified-Machine-Learning-Specialty_Sample-Questions.pdf">Download the sample questions</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://www.udemy.com/course/aws-certified-machine-learning-specialty-full-practice-exams/">Udemy - AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://amazonmr.au1.qualtrics.com/reports/RC/public/YW1hem9ubXItNWQ0YWQzYTViZjczMDIwMDBmNTc4ZWY3LVVSX2RvRFVNUlZZS1NtQjUyWg==">Exam Readiness</a></li>
+</ul>
+<h3 id="other-videos">Other Videos</h3>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://www.youtube.com/playlist?list=PLhr1KZpdzukcOr_6j_zmSrvYnLUtgqsZz">Amazon SageMaker Deep Dive Series</a></li>
+</ul>
+<h1 id="-٩-ω-و-">＼＼\ ٩( &lsquo;ω&rsquo; )و //／／</h1>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Aws Ml Exam Sample</title>
+            <link>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</link>
+            <pubDate>Sat, 30 Jan 2021 00:26:01 -0800</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</guid>
+            <description></description>
+            <content type="html"><![CDATA[]]></content>
+        </item>
         
         <item>
             <title>Aws Machine Learning Exam Readiness with Sample Questions</title>

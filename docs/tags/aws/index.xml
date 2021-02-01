@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AWS on Flora Jiang</title>
+    <title>AWS on Flora Wenyao Jiang</title>
     <link>https://ffflora.cat/tags/aws/</link>
-    <description>Recent content in AWS on Flora Jiang</description>
+    <description>Recent content in AWS on Flora Wenyao Jiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 30 Jan 2021 00:20:32 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 31 Jan 2021 19:29:26 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS Machine Learning Specialty Prep List</title>
+      <link>https://ffflora.cat/posts/2021/01/aws-machine-learning-specialty-prep-list/</link>
+      <pubDate>Sun, 31 Jan 2021 19:29:26 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/01/aws-machine-learning-specialty-prep-list/</guid>
+      <description>Here are some resources I collected for better preparing the AWS Machine Learning Specialty Exam.
+Practical experience aws/amazon-sagemaker-examples
+Object Detection with Amazon Sagemaker
+AWS Training offers digital courses on machine learning (ML).   Data Analytics Fundamentals
+  Exam Readiness: AWS Certified Machine Learning - Specialty
+  Deep Learning on AWS
+  Elements of Data Science
+  Math for Machine Learning
+  Linear and Logistic Regression</description>
+    </item>
     
     <item>
       <title>Aws Machine Learning Exam Readiness with Sample Questions</title>

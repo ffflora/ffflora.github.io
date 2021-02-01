@@ -1,6 +1,6 @@
 baseURL = "https://ffflora.cat/"
 languageCode = "en-us"
-title = "Flora Jiang"
+title = "Flora Wenyao Jiang"
 theme = "hello-friend-ng"
 publishdir = "docs"
 paginate = 10
@@ -95,7 +95,7 @@ disableHugoGeneratorInject = false
   # Custom footer 
   # If you want, you can easily override the default footer with your own content. 
   #
-   footerLeft = "Powered by <a href=\"http://gohugo.io\">Hugo</a>"
+  # footerLeft = "Powered by <a href=\"http://gohugo.io\">Hugo</a>"
    footerRight = "Made with &#10084;"
 
   # Colors for favicons
@@ -142,17 +142,17 @@ disableHugoGeneratorInject = false
 
 [languages]
   [languages.en]
-    subtitle  = "You're in the Right Place!⛱️"
+    subtitle  = "Personal Website⛱️"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
 
 
 [menu]
-  [[menu.main]]
-    identifier = "about"
-    name       = "About"
-    url        = "about/"
+#  [[menu.main]]
+#    identifier = "about"
+#    name       = "About"
+#    url        = "about/"
   [[menu.main]]
     identifier = "posts"
     name       = "Posts"
