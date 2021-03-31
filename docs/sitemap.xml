@@ -3,6 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ffflora.cat/categories/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/categories/front-end/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/notes/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/posts/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/problem-solving/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/react.js/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/</loc>
+    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/posts/2021/02/aws-sagemaker-deep-dive/</loc>
+    <lastmod>2021-02-06T17:02:04-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/untagged/</loc>
+    <lastmod>2021-02-06T17:02:04-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ffflora.cat/tags/aws/</loc>
     <lastmod>2021-01-31T19:29:26-08:00</lastmod>
   </url>
@@ -13,17 +68,7 @@
   </url>
   
   <url>
-    <loc>https://ffflora.cat/categories/</loc>
-    <lastmod>2021-01-31T19:29:26-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ffflora.cat/categories/data-science/</loc>
-    <lastmod>2021-01-31T19:29:26-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/</loc>
     <lastmod>2021-01-31T19:29:26-08:00</lastmod>
   </url>
   
@@ -33,22 +78,7 @@
   </url>
   
   <url>
-    <loc>https://ffflora.cat/posts/</loc>
-    <lastmod>2021-01-31T19:29:26-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/tags/</loc>
-    <lastmod>2021-01-31T19:29:26-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</loc>
-    <lastmod>2021-01-30T00:26:01-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/tags/untagged/</loc>
     <lastmod>2021-01-30T00:26:01-08:00</lastmod>
   </url>
   

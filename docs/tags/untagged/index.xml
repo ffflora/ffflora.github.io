@@ -7,13 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 30 Jan 2021 00:26:01 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 06 Feb 2021 17:02:04 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Aws Ml Exam Sample</title>
+      <title>AWS SageMaker Deep Dive</title>
+      <link>https://ffflora.cat/posts/2021/02/aws-sagemaker-deep-dive/</link>
+      <pubDate>Sat, 06 Feb 2021 17:02:04 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/02/aws-sagemaker-deep-dive/</guid>
+      <description>This post consist of the notes that are based on the series of AWS SageMaker videos provided by Amazon Web Services Amazon SageMaker Technical Deep Dive Series.
+Fully-Managed Notebook Instances with Amazon SageMaker Create your Notebook Instance:
+ Pick the right family:  t - tiny &amp;lt; m, c - computed optimized, p - GPU   Pick the right size:  From medium to very very large.   Pick the right version:  ml.</description>
+    </item>
+    
+    <item>
+      <title>AWS Ml Exam Sample</title>
       <link>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</link>
       <pubDate>Sat, 30 Jan 2021 00:26:01 -0800</pubDate>
       
