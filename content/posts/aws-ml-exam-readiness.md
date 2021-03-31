@@ -1,5 +1,5 @@
 ---
-title: "Aws Machine Learning Exam Readiness with Sample Questions"
+title: "AWS Machine Learning Exam Readiness with Sample Questions"
 date: 2021-01-30T00:20:32-08:00
 draft: false
 toc: false
