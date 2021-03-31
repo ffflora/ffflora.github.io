@@ -76,7 +76,7 @@ This series of posts summaries the problems/issues I met during work, and the so
 
    Chart looks like:
 
-   ![image-20210324014548148](/Users/flora/Library/Application Support/typora-user-images/image-20210324014548148.png)
+   ![image-20210324014548148](https://github.com/ffflora/data-science-notes/blob/master/archived-pics/blog/1.png?raw=true)
 
 2. How to parse data and get color ranges so that the colors in the table are dynamically changed based on the value in the cell?
 
@@ -128,4 +128,4 @@ This series of posts summaries the problems/issues I met during work, and the so
 
    
 
-   ![image-20210330155336896](/Users/flora/Library/Application Support/typora-user-images/image-20210330155336896.png)
+   ![image-20210330155336896](https://github.com/ffflora/data-science-notes/blob/master/archived-pics/blog/2.png?raw=true)
