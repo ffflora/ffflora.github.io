@@ -16,51 +16,25 @@
             
             <guid>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</guid>
             <description>This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExpress component and render out a series of area charts?
+  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
-[ { &amp;#34;period_index&amp;#34;: 1448, &amp;#34;breakdown&amp;#34;: { &amp;#34;sessions&amp;#34;: 16254.0, &amp;#34;conversions&amp;#34;: 3762.0, &amp;#34;average page views&amp;#34;: 1.762827611664821, &amp;#34;average time on page&amp;#34;: 91.99095607235142, &amp;#34;new users&amp;#34;: 13789.0, &amp;#34;quality sessions&amp;#34;: 2239.</description>
+type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&amp;gt; { if (data.</description>
             <content type="html"><![CDATA[<p>This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.</p>
 <ol>
 <li>
-<p>How do I parse a <code>.json</code> data file to pass into this DevExpress component and render out a series of area charts?</p>
+<p>How do I parse a <code>.json</code> data file to pass into <a href="https://js.devexpress.com/Demos/WidgetsGallery/Demo/Charts/Area/React/Light/">this</a> DevExtreme component and render out a series of area charts?</p>
 <p>Data looks like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#f92672">&#34;period_index&#34;</span>: <span style="color:#ae81ff">1448</span>,
-        <span style="color:#f92672">&#34;breakdown&#34;</span>: {
-            <span style="color:#f92672">&#34;sessions&#34;</span>: <span style="color:#ae81ff">16254.0</span>,
-            <span style="color:#f92672">&#34;conversions&#34;</span>: <span style="color:#ae81ff">3762.0</span>,
-            <span style="color:#f92672">&#34;average page views&#34;</span>: <span style="color:#ae81ff">1.762827611664821</span>,
-            <span style="color:#f92672">&#34;average time on page&#34;</span>: <span style="color:#ae81ff">91.99095607235142</span>,
-            <span style="color:#f92672">&#34;new users&#34;</span>: <span style="color:#ae81ff">13789.0</span>,
-            <span style="color:#f92672">&#34;quality sessions&#34;</span>: <span style="color:#ae81ff">2239.0</span>
-        }
-    },
-    {
-        <span style="color:#f92672">&#34;period_index&#34;</span>: <span style="color:#ae81ff">1449</span>,
-        <span style="color:#f92672">&#34;breakdown&#34;</span>: {
-            <span style="color:#f92672">&#34;sessions&#34;</span>: <span style="color:#ae81ff">26091.0</span>,
-            <span style="color:#f92672">&#34;conversions&#34;</span>: <span style="color:#ae81ff">5533.0</span>,
-            <span style="color:#f92672">&#34;average page views&#34;</span>: <span style="color:#ae81ff">1.5476601126825342</span>,
-            <span style="color:#f92672">&#34;average time on page&#34;</span>: <span style="color:#ae81ff">58.877505653290406</span>,
-            <span style="color:#f92672">&#34;new users&#34;</span>: <span style="color:#ae81ff">23540.0</span>,
-            <span style="color:#f92672">&#34;quality sessions&#34;</span>: <span style="color:#ae81ff">3204.0</span>
-        }
-    },
-  <span style="color:#960050;background-color:#1e0010">...</span>
-]
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#a6e22e">type</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">period_index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">type</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">period_index</span>: <span style="color:#66d9ef">number</span>,
   <span style="color:#a6e22e">breakdown</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">sessions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-    <span style="color:#a6e22e">conversions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-    <span style="color:#a6e22e">avg_page_views</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-    <span style="color:#a6e22e">avg_time_on_page</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-    <span style="color:#a6e22e">new_users</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
+    <span style="color:#a6e22e">sessions</span>: <span style="color:#66d9ef">number</span>,
+    <span style="color:#a6e22e">conversions</span>: <span style="color:#66d9ef">number</span>,
+    <span style="color:#a6e22e">avg_page_views</span>: <span style="color:#66d9ef">number</span>,
+    <span style="color:#a6e22e">avg_time_on_page</span>: <span style="color:#66d9ef">number</span>,
+    <span style="color:#a6e22e">new_users</span>: <span style="color:#66d9ef">number</span>,
   }
 }[]
-   
-<span style="color:#a6e22e">parseData</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">any</span>) =&gt; {
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#a6e22e">parseData</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">any</span>) =&gt; {
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
     <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sampleData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>];
     <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">sampleData</span>.<span style="color:#a6e22e">breakdown</span>);
@@ -100,7 +74,56 @@ Data looks like:
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moment</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">month</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#e6db74">&#34;M&#34;</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;MMMM&#39;</span>)
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">date</span>
 }
-</code></pre></div></li>
+</code></pre></div><p>Chart looks like:</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/blog/1.png?raw=true" alt="image-20210324014548148"></p>
+</li>
+<li>
+<p>How to parse data and get color ranges so that the colors in the table are dynamically changed based on the value in the cell?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">COLUMNS</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#e6db74">&#39;count&#39;</span>, <span style="color:#e6db74">&#39;Clicks&#39;</span>, <span style="color:#e6db74">&#39;Conversions&#39;</span>, <span style="color:#e6db74">&#39;Cost&#39;</span>, <span style="color:#e6db74">&#39;avg_cpm&#39;</span>, <span style="color:#e6db74">&#39;avg_cpc&#39;</span>, <span style="color:#e6db74">&#39;avg_cpa&#39;</span>]
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">COLOR</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;#1c558e&#39;</span>
+   
+   
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getColorRanges</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DataType</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>[][] =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRanges</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLUMNS</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">col</span> =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">col</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;value&#39;</span>) <span style="color:#66d9ef">return</span> [] <span style="color:#75715e">//keywords, do nothing. 
+</span><span style="color:#75715e"></span>   
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sorted</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>
+      .<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DataType</span>) =&gt; <span style="color:#a6e22e">x</span>[<span style="color:#a6e22e">col</span>])
+      .<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>, <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>);
+   
+    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">sorted</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">sorted</span>[<span style="color:#a6e22e">sorted</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]];
+  })
+   
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">colorRanges</span>
+}
+   
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRanges</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getColorRanges</span>(<span style="color:#a6e22e">data</span>);
+   
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getBackgroundColor</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">column</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLUMNS</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">column</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorRanges</span>[<span style="color:#a6e22e">columnIndex</span>];
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">min</span>, <span style="color:#a6e22e">max</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorRange</span>;
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">value</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">min</span>) <span style="color:#f92672">/</span> (<span style="color:#a6e22e">max</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">min</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLOR</span> <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">ceil</span>(<span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">127</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">16</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">opacity</span> <span style="color:#f92672">=</span> (<span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">127</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">255</span>
+  <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">color</span>, <span style="color:#a6e22e">opacity</span>];
+}
+<span style="color:#75715e">// inside the devExpress data Grid component, there&#39;s a config is called `cellRender`, where you can adjust the style and/or render config for cells.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">cellRender</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">cell</span> =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">columnWithDollar</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Cost&#39;</span>, <span style="color:#e6db74">&#39;CPC&#39;</span>, <span style="color:#e6db74">&#39;CPM&#39;</span>, <span style="color:#e6db74">&#39;CPA&#39;</span>]
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">caption</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">column</span>
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">col</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;value&#39;</span>) {
+          <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">backgroundColor</span>, <span style="color:#a6e22e">opacity</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">getBackgroundColor</span>(<span style="color:#a6e22e">col</span>, <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]);
+         <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">cellElement</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">backgroundColor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">backgroundColor</span>
+         <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">opacity</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.9</span>) {
+           <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">cellElement</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;#ddd&#39;</span>
+  }
+  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">columnWithDollar</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">caption</span>) <span style="color:#f92672">?</span> 		(<span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;$0,0.00&#39;</span>)) <span style="color:#f92672">:</span> (<span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;0,0&#39;</span>)));
+  }
+  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]
+  }}
+</code></pre></div><p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/blog/2.png?raw=true" alt="image-20210330155336896"></p>
+</li>
 </ol>
 ]]></content>
         </item>
@@ -283,10 +306,10 @@ AWS Training offers digital courses on machine learning (ML).   Data Analytics F
 </blockquote>
 <h3 id="official-exam-guide-sample-exam-questions">Official Exam Guide, sample exam questions</h3>
 <ul>
-<li><input disabled="" type="checkbox"> [Download the exam guide](<a href="https://d1.awsstatic.com/training-and-certification/docs-ml/AWS">https://d1.awsstatic.com/training-and-certification/docs-ml/AWS</a> Certified Machine Learning - Specialty_Exam Guide (1).pdf)</li>
+<li><input disabled="" type="checkbox"> <a href="https://d1.awsstatic.com/training-and-certification/docs-ml/AWS-Certified-Machine-Learning-Specialty_Exam-Guide.pdf">Download the exam guide</a></li>
 <li><input disabled="" type="checkbox"> <a href="https://d1.awsstatic.com/training-and-certification/docs-ml/AWS-Certified-Machine-Learning-Specialty_Sample-Questions.pdf">Download the sample questions</a></li>
 <li><input disabled="" type="checkbox"> <a href="https://www.udemy.com/course/aws-certified-machine-learning-specialty-full-practice-exams/">Udemy - AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://amazonmr.au1.qualtrics.com/reports/RC/public/YW1hem9ubXItNWQ0YWQzYTViZjczMDIwMDBmNTc4ZWY3LVVSX2RvRFVNUlZZS1NtQjUyWg==">Exam Readiness</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://amazonmr.au1.qualtrics.com/reports/RC/public/YW1hem9ubXItNWQ0YWQzYTViZjczMDIwMDBmNTc4ZWY3LVVSX2RvRFVNUlZZS1NtQjUyWg==">Exam Readiness - Sample Questions</a></li>
 </ul>
 <h3 id="other-videos">Other Videos</h3>
 <ul>
@@ -294,16 +317,6 @@ AWS Training offers digital courses on machine learning (ML).   Data Analytics F
 </ul>
 <h1 id="-٩-ω-و-">＼＼\ ٩( &lsquo;ω&rsquo; )و //／／</h1>
 ]]></content>
-        </item>
-        
-        <item>
-            <title>AWS Ml Exam Sample</title>
-            <link>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</link>
-            <pubDate>Sat, 30 Jan 2021 00:26:01 -0800</pubDate>
-            
-            <guid>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</guid>
-            <description></description>
-            <content type="html"><![CDATA[]]></content>
         </item>
         
         <item>

@@ -23,14 +23,5 @@ Fully-Managed Notebook Instances with Amazon SageMaker Create your Notebook Inst
  Pick the right family:  t - tiny &amp;lt; m, c - computed optimized, p - GPU   Pick the right size:  From medium to very very large.   Pick the right version:  ml.</description>
     </item>
     
-    <item>
-      <title>AWS Ml Exam Sample</title>
-      <link>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</link>
-      <pubDate>Sat, 30 Jan 2021 00:26:01 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

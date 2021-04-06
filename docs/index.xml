@@ -19,9 +19,9 @@
       
       <guid>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</guid>
       <description>This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExpress component and render out a series of area charts?
+  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
-[ { &amp;#34;period_index&amp;#34;: 1448, &amp;#34;breakdown&amp;#34;: { &amp;#34;sessions&amp;#34;: 16254.0, &amp;#34;conversions&amp;#34;: 3762.0, &amp;#34;average page views&amp;#34;: 1.762827611664821, &amp;#34;average time on page&amp;#34;: 91.99095607235142, &amp;#34;new users&amp;#34;: 13789.0, &amp;#34;quality sessions&amp;#34;: 2239.</description>
+type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&amp;gt; { if (data.</description>
     </item>
     
     <item>
@@ -50,15 +50,6 @@ AWS Training offers digital courses on machine learning (ML).   Data Analytics F
   Elements of Data Science
   Math for Machine Learning
   Linear and Logistic Regression</description>
-    </item>
-    
-    <item>
-      <title>AWS Ml Exam Sample</title>
-      <link>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</link>
-      <pubDate>Sat, 30 Jan 2021 00:26:01 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/posts/2021/01/aws-ml-exam-sample/</guid>
-      <description></description>
     </item>
     
     <item>
