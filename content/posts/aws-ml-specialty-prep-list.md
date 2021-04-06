@@ -69,10 +69,10 @@ Here are some resources I collected for better preparing the AWS Machine Learnin
 
 ### Official Exam Guide, sample exam questions
 
-- [ ] [Download the exam guide](https://d1.awsstatic.com/training-and-certification/docs-ml/AWS Certified Machine Learning - Specialty_Exam Guide (1).pdf)
+- [ ] [Download the exam guide](https://d1.awsstatic.com/training-and-certification/docs-ml/AWS-Certified-Machine-Learning-Specialty_Exam-Guide.pdf)
 - [ ] [Download the sample questions](https://d1.awsstatic.com/training-and-certification/docs-ml/AWS-Certified-Machine-Learning-Specialty_Sample-Questions.pdf)
 - [ ] [Udemy - AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS](https://www.udemy.com/course/aws-certified-machine-learning-specialty-full-practice-exams/)
-- [ ] [Exam Readiness](https://amazonmr.au1.qualtrics.com/reports/RC/public/YW1hem9ubXItNWQ0YWQzYTViZjczMDIwMDBmNTc4ZWY3LVVSX2RvRFVNUlZZS1NtQjUyWg==)
+- [ ] [Exam Readiness - Sample Questions](https://amazonmr.au1.qualtrics.com/reports/RC/public/YW1hem9ubXItNWQ0YWQzYTViZjczMDIwMDBmNTc4ZWY3LVVSX2RvRFVNUlZZS1NtQjUyWg==)
 
 ### Other Videos
 
