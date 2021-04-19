@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 24 Mar 2021 00:08:29 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 13 Apr 2021 23:26:49 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://ffflora.cat/categories/data-science/</link>
+      <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/categories/data-science/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Front-End</title>
@@ -18,15 +27,6 @@
       <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
       
       <guid>https://ffflora.cat/categories/front-end/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Science</title>
-      <link>https://ffflora.cat/categories/data-science/</link>
-      <pubDate>Sun, 31 Jan 2021 19:29:26 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/categories/data-science/</guid>
       <description></description>
     </item>
     

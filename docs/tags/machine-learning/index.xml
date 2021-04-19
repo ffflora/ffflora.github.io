@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 31 Jan 2021 19:29:26 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 13 Apr 2021 23:26:49 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS Machine Learning Specialty Knowledge Pickup</title>
+      <link>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</link>
+      <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</guid>
+      <description>Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+where
+incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
+outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
+  Glue cannot write the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
+    </item>
     
     <item>
       <title>AWS Machine Learning Specialty Prep List</title>

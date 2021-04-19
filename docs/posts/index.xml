@@ -6,8 +6,92 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 24 Mar 2021 00:08:29 -0700</lastBuildDate>
+        <lastBuildDate>Tue, 13 Apr 2021 23:26:49 -0700</lastBuildDate>
         <atom:link href="https://ffflora.cat/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>AWS Machine Learning Specialty Knowledge Pickup</title>
+            <link>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</link>
+            <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</guid>
+            <description>Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+where
+incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
+outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
+  Glue cannot write the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
+            <content type="html"><![CDATA[<h1 id="data-engineering">Data Engineering</h1>
+<ol>
+<li>
+<p>In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)</p>
+<p>where</p>
+<p>incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.</p>
+<p>outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.</p>
+</li>
+<li>
+<p>Glue cannot write the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format. Apache Spark (running on the EMR cluster in this use-case) can write the output in RecorIO-Protobuf format.</p>
+</li>
+<li>
+<p>Converting the data to recordIO-protobuf file type can significantly improve the training time with a marginal increase in cost to store the recordIO-protobuf data on S3. Spinning up EMR clusters would be costly and require complex infrastructure maintenance.</p>
+</li>
+<li>
+<p>For those SageMaker supervised learning algorithms which require the training data to be in CSV format, the target variable should be in the first column and it should not have a header record.</p>
+</li>
+<li>
+<p>Kinesis Firehose can transform data to Parquet format and store it on S3 without provisioning any servers. Also this transformed data can be read into an Athena Table via a Glue Crawler and then the underlying data is readily available for ad-hoc analysis. Although Glue ETL Job can transform the source data to Parquet format, it is best suited for batch ETL use cases and it’s not meant to process streaming data. EMR cluster is not an option as the company does not want to manage the underlying infrastructure.</p>
+</li>
+<li>
+<p>Kinesis Data Firehose is used for streaming data scenarios. AWS Glue ML Transforms job can perform deduplication in a serverless fashion.</p>
+</li>
+<li>
+<p>There is no such thing as a LOAD command for Redshift. COPY is much faster than insert. UNLOAD is used to write the results of a Redshift query to one or more text files on Amazon S3.</p>
+</li>
+</ol>
+<h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
+<ol>
+<li>
+<p>In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.</p>
+<p><a href="http://www.svds.com/learning-imbalanced-classes/">http://www.svds.com/learning-imbalanced-classes/</a></p>
+<p><a href="https://stats.stackexchange.com/questions/235808/binary-classification-with-strongly-unbalanced-classes">https://stats.stackexchange.com/questions/235808/binary-classification-with-strongly-unbalanced-classes</a></p>
+</li>
+<li>
+<p>A data warehouse can only store structured data whereas a data lake can store structured, semi-structured and unstructured data.</p>
+</li>
+<li>
+<p>Great reference for the most common probability distributions: <a href="https://medium.com/@srowen/common-probability-distributions-347e6b945ce4">Common Probability Distributions: The Data Scientist’s Crib Sheet</a></p>
+</li>
+<li>
+<p>You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:</p>
+<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html">https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html</a></p>
+</li>
+<li>
+<p>Tf-idf is a statistical technique frequently used in Machine Learning areas such as text-summarization and classification. Tf-idf measures the relevance of a word in a document compared to the entire corpus of documents. You have a corpus (D) containing the following documents:</p>
+<p>Document 1 (d1) : “A quick brown fox jumps over the lazy dog. What a fox!”</p>
+<p>Document 2 (d2) : “A quick brown fox jumps over the lazy fox. What a fox!”</p>
+<p>Which of the following statements is correct:</p>
+<ul>
+<li>Using tf-idf, the word “fox” is equally relevant for both document d1 and document d2</li>
+</ul>
+<p>tf is the frequency of any &ldquo;term&rdquo; in a given &ldquo;document&rdquo;. Using this definition, we can compute the following:</p>
+<p>tf(“fox”, d1) = 2/12 , as the word &ldquo;fox&rdquo; appears twice in the first document which has a total of 12 words</p>
+<p>tf(“fox”, d2) = 3/12 , as the word &ldquo;fox&rdquo; appears thrice in the second document which has a total of 12 words</p>
+<p>An idf is constant per corpus (in this case, the corpus consists of 2 documents) , and accounts for the ratio of documents that include that specific &ldquo;term&rdquo;. Using this definition, we can compute the following:</p>
+<p>idf(“fox”, D) = log(2/2) = 0 , as the word &ldquo;fox&rdquo; appears in both the documents in the corpus</p>
+<p>Now,</p>
+<p>tf-idf(“fox”, d1, D) = tf(“fox”, d1) * idf(“fox”, D) = (2/12) * 0 = 0</p>
+<p>tf-idf(“fox”, d2, D) = tf(“fox”, d2) * idf(“fox”, D) = (3/12) * 0 = 0</p>
+<p>Using tf-idf, the word “fox” is equally relevant (or just irrelevant!) for both document d1 and document d2</p>
+<p>You can further read about tf-idf on this reference link:</p>
+<p><a href="https://en.wikipedia.org/wiki/Tf">https://en.wikipedia.org/wiki/Tf</a>–idf</p>
+</li>
+<li>
+<p>Logarithm transformation and Standardization are the correct techniques to address outliers in data. Please review this reference link:</p>
+<p><a href="https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114">https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114</a></p>
+</li>
+<li></li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>React.js Related Notes (1)</title>
