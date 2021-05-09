@@ -13,6 +13,8 @@ categories:
 
 
 
+This notes is some catchups for better prep for AWS machine learning specialty cert.
+
 # Data Engineering
 
 1. In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
@@ -23,7 +25,7 @@ categories:
 
    outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
 
-2. Glue cannot write the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format. Apache Spark (running on the EMR cluster in this use-case) can write the output in RecorIO-Protobuf format.
+2. **Glue cannot write the output in RecordIO-Protobuf forma**t. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format. Apache Spark (running on the EMR cluster in this use-case) can write the output in RecorIO-Protobuf format.
 
 3. Converting the data to recordIO-protobuf file type can significantly improve the training time with a marginal increase in cost to store the recordIO-protobuf data on S3. Spinning up EMR clusters would be costly and require complex infrastructure maintenance.
 
@@ -31,9 +33,21 @@ categories:
 
 5. Kinesis Firehose can transform data to Parquet format and store it on S3 without provisioning any servers. Also this transformed data can be read into an Athena Table via a Glue Crawler and then the underlying data is readily available for ad-hoc analysis. Although Glue ETL Job can transform the source data to Parquet format, it is best suited for batch ETL use cases and it’s not meant to process streaming data. EMR cluster is not an option as the company does not want to manage the underlying infrastructure.
 
-6. Kinesis Data Firehose is used for streaming data scenarios. AWS Glue ML Transforms job can perform deduplication in a serverless fashion.
+6. **Kinesis Data Firehose is used for streaming data scenarios**. **AWS Glue ML Transforms job can perform deduplication** in a serverless fashion.
 
 7. There is no such thing as a LOAD command for Redshift. COPY is much faster than insert. UNLOAD is used to write the results of a Redshift query to one or more text files on Amazon S3.
+
+8. If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify `ShardedByS3Key` for S3DataDistributionType field.
+
+9. Kinesis Product Library provides built-in performance benefits and ease of use advantages. Please review more details here:
+
+   https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html#developing-producers-with-kpl-advantage
+
+10. Kinesis Data Streams PutRecord API uses name of the stream, a partition key and the data blob whereas Kinesis Data Firehose PutRecord API uses the name of the delivery stream and the data record.
+
+11. Hyperparameters should be tuned against the Validation Set.
+
+
 
 # Exploratory Data Analysis 
 
@@ -94,6 +108,95 @@ categories:
 6. Logarithm transformation and Standardization are the correct techniques to address outliers in data. Please review this reference link:
 
    https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114
+   
+7. ElasticSearch, EMR and EC2 are not “serverless”. 
 
-7. 
+8. The best way to engineer the cyclical features is to represent these as (x,y) coordinates on a circle using sin and cos functions. Please review this technique in more detail here -
 
+    http://blog.davidkaleko.com/feature-engineering-cyclical-features.html
+
+9. Interquartile Range (IQR) = Q3-Q1 
+
+    Minimum outlier cutoff = Q1 - 1.5 * IQR 
+
+    Maximum outlier cutoff = Q3 + 1.5 * IQR 
+
+    More details on the box plot statistical characteristics:
+
+    https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
+
+    
+
+
+# Modeling
+
+1. Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words. 
+
+2. **Incremental Training** in Amazon SageMaker
+
+   Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model. Incremental training saves both time and resources.
+
+   Use incremental training to:
+
+   - Train a new model using an expanded dataset that contains an underlying pattern that was not accounted for in the previous training and which resulted in poor model performance.
+   - Use the model artifacts or a portion of the model artifacts from a popular publicly available model in a training job. You don't need to train a new model from scratch.
+   - Resume a training job that was stopped.
+   - Train several variants of a model, either with different hyperparameter settings or using different datasets.
+
+3. Blazing Text algorithm can be used in both supervised and unsupervised learning modes.
+
+4. SageMaker DeepAR algorithm specializes in forecasting new product performance. 
+
+5. Specificity = (True Negatives / (True Negatives + False Positives))
+
+   If the model has a high specificity, it implies that all false positives (think of it as false alarms) have been weeded out. In other words, the **specificity** of a test refers to how well the test identifies those who have not indulged in substance abuse.
+
+   Please read this excellent reference article for more details:
+
+   https://www.statisticshowto.datasciencecentral.com/sensitivity-vs-specificity-statistics/
+
+6. LDA: Observations are referred to as documents. The feature set is referred to as vocabulary. A feature is referred to as a word. And the resulting categories are referred to as topics.
+
+7. **mode** is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+
+8. Factorization Machines algorithm specializes in building recommendation systems.
+
+9. Image Classification is used to classify images into multiple classes such as cat vs dog. Object Detection is used to detect objects in an image. Semantic Segmentation is used for pixel level analysis of an image and it can be used in this computer vision system to detect misalignment
+
+10. feature_dim and k are the required hyperparameters for the SageMaker K-means algorithm
+
+11. When you use automatic model tuning, the linear learner internal tuning mechanism is turned off automatically. This sets the number of parallel models, num_models, to 1.
+
+12. AUC/ROC  is the best evaluation metric for a binary classification model. this metric does not require you to set a classification threshold.
+
+    For imbalanced datasets, you are better off using another metric called - **PR AUC** - that is also used in production systems for a highly imbalanced dataset, where the fraction of positive class is small, such as in case of credit card fraud detection.
+
+13. You can think of L1 as reducing the number of features in the model altogether. L2 “regulates” the feature weight instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:
+
+    https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c
+
+14. Factorization Machine can be used to capture click patterns for a click prediction system:
+
+15. The residuals plot would indicate any trend of underestimation or overestimation. Both Mean Absolute Error and RMSE would only give the error magnitude. AUC is a metric used for classification models.
+
+16. LDA is a "bag-of-words" model, which means that the order of words does not matter
+
+    
+
+#  ML Implementation and Operation
+
+1. Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+
+2. Neo currently supports image classification models exported as frozen graphs from TensorFlow, MXNet, or PyTorch, and XGBoost models.:
+
+   https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html
+
+3. The default Sagemaker IAM role gets permissions to access any bucket that has sagemaker in the name. If you add a policy to the role that grants the SageMaker service principal S3FullAccess permission, the name of the bucket does not need to contain sagemaker. Granting public access to S3 bucket is not recommended. You can read further on this -
+
+   https://docs.aws.amazon.com/sagemaker/latest/dg/gs-config-permissions.html
+
+4. version tag should be used in the Registry Paths:
+
+   “:1” is the correct version tag for **production** systems.
+
+5. SageMaker does not support resource based policies. You can create a role to delegate access or provide access via identity federation. 

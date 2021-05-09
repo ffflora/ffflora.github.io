@@ -18,7 +18,8 @@
       <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</guid>
-      <description>Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+      <description>This notes is some catchups for better prep for AWS machine learning specialty cert.
+Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
