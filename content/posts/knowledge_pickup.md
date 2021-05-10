@@ -200,3 +200,27 @@ This notes is some catchups for better prep for AWS machine learning specialty c
    “:1” is the correct version tag for **production** systems.
 
 5. SageMaker does not support resource based policies. You can create a role to delegate access or provide access via identity federation. 
+
+6. If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify `ShardedByS3Key` for S3DataDistributionType field.
+
+7. There are no inter-node communications for batch processing, so inter-node traffic encryption is not required. SSH and AWS-SSE are not used for inter-node traffic encryption.
+
+8. If the value of the objective metric for the current training job is worse (higher when minimizing or lower when maximizing the objective metric) than the median value of running averages of the objective metric for previous training jobs up to the same epoch, Amazon SageMaker stops the current training job.
+
+9. Within an inference pipeline model, Amazon SageMaker handles invocations as a sequence of HTTP requests.
+
+10. Only three built-in algorithms currently support incremental training: Object Detection Algorithm, Image Classification Algorithm, and Semantic Segmentation Algorithm:
+
+11. By using Amazon Elastic Inference (EI), you can speed up the throughput and decrease the latency of getting real-time inferences from your deep learning models that are deployed as Amazon SageMaker hosted models, but at a fraction of the cost of using a GPU instance for your endpoint.
+
+12. Network isolation is not supported by the following managed Amazon SageMaker containers as they require access to Amazon S3:
+
+    Chainer
+
+    PyTorch
+
+    Scikit-learn
+
+    Amazon SageMaker Reinforcement Learning
+
+    

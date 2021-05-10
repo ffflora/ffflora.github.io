@@ -202,6 +202,31 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <li>
 <p>SageMaker does not support resource based policies. You can create a role to delegate access or provide access via identity federation.</p>
 </li>
+<li>
+<p>If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify <code>ShardedByS3Key</code> for S3DataDistributionType field.</p>
+</li>
+<li>
+<p>There are no inter-node communications for batch processing, so inter-node traffic encryption is not required. SSH and AWS-SSE are not used for inter-node traffic encryption.</p>
+</li>
+<li>
+<p>If the value of the objective metric for the current training job is worse (higher when minimizing or lower when maximizing the objective metric) than the median value of running averages of the objective metric for previous training jobs up to the same epoch, Amazon SageMaker stops the current training job.</p>
+</li>
+<li>
+<p>Within an inference pipeline model, Amazon SageMaker handles invocations as a sequence of HTTP requests.</p>
+</li>
+<li>
+<p>Only three built-in algorithms currently support incremental training: Object Detection Algorithm, Image Classification Algorithm, and Semantic Segmentation Algorithm:</p>
+</li>
+<li>
+<p>By using Amazon Elastic Inference (EI), you can speed up the throughput and decrease the latency of getting real-time inferences from your deep learning models that are deployed as Amazon SageMaker hosted models, but at a fraction of the cost of using a GPU instance for your endpoint.</p>
+</li>
+<li>
+<p>Network isolation is not supported by the following managed Amazon SageMaker containers as they require access to Amazon S3:</p>
+<p>Chainer</p>
+<p>PyTorch</p>
+<p>Scikit-learn</p>
+<p>Amazon SageMaker Reinforcement Learning</p>
+</li>
 </ol>
 ]]></content>
         </item>
