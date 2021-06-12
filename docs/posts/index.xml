@@ -228,6 +228,163 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>Amazon SageMaker Reinforcement Learning</p>
 </li>
 </ol>
+<hr>
+<h1 id="other">Other</h1>
+<h2 id="model-performance-evaluation">Model Performance Evaluation</h2>
+<h3 id="regression-model">Regression Model</h3>
+<ol>
+<li>MSE</li>
+<li>RMSE</li>
+</ol>
+<p><strong>Residual</strong> is Actual - Predicted.</p>
+<p><strong>MSE</strong> is the mean value of (sumation of each residual^2)</p>
+<p><strong>RMSE</strong> is rooted MSE</p>
+<h3 id="binary-model-and-multiclass-classifier">Binary Model and Multiclass Classifier</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->The actual output of many binary classification algorithms is a prediction score. The score indicates the system’s certainty that the given observation belongs to the positive class<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>To convert this raw score to a positive or negative class, we need to specify a <strong>cut-off</strong>. A sample with score greater than the cut-off is classified as positive class and a sample with score less than the cut-off is classified as negative class.</p>
+<p>Instead of manually performing this step, we can compute &ldquo;AUC&rdquo; metric.  AUC refers to Area Under Curve.  <strong>The curve here refers to the plot that has Probability of False Alarm (False Positive Rate) in X-Axis and Probability of Detection (Recall) in Y-Axis.</strong> By plotting False Alarm vs Recall at different cut-off thresholds, we can form a curve.  It measures the ability of the model to predict a higher score for positive examples as compared to negative examples. Since AUC is independent of the selected threshold, you can get a sense of the prediction performance of your model from the AUC metric without picking a threshold.</p>
+<p>Common Techniques for evaluating performance:</p>
+<ol>
+<li>
+<p>Visually observe raw score using Plots</p>
+</li>
+<li>
+<p>Evaluate Area Under Curve (AUC) Metric</p>
+</li>
+<li>
+<p>Confusion Matrix</p>
+</li>
+</ol>
+<h2 id="sagemaker-service-overview">SageMaker Service Overview</h2>
+<script type="text/javascript" src= '//js/pdf-js/build/pdf.js'></script>
+<style>
+#the-canvas {
+  border: 1px solid black;
+  direction: ltr;
+  width: 100%;
+  height: auto;
+}
+#paginator{
+    text-align: center;
+    margin-bottom: 10px;
+}
+</style>
+
+<div id="paginator">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+    &nbsp; &nbsp;
+    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+</div>
+<div id="embed-pdf-container">
+    <canvas id="the-canvas"></canvas>
+</div>
+
+<script type="text/javascript">
+window.onload = function() {
+
+
+var url = "https:\/\/ffflora.cat\/" + '.\/hugo-embed-pdf-sample.pdf';
+var hidePaginator = "";
+
+
+var pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https:\/\/ffflora.cat\/" + '/js/pdf-js/build/pdf.worker.js';
+
+
+var pdfDoc = null,
+    pageNum = 1,
+    pageRendering = false,
+    pageNumPending = null,
+    scale = 3,
+    canvas = document.getElementById('the-canvas'),
+    ctx = canvas.getContext('2d');
+
+
+
+function renderPage(num) {
+  pageRendering = true;
+  
+  pdfDoc.getPage(num).then(function(page) {
+    var viewport = page.getViewport({scale: scale});
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    
+    var renderContext = {
+      canvasContext: ctx,
+      viewport: viewport
+    };
+    var renderTask = page.render(renderContext);
+
+    
+    renderTask.promise.then(function() {
+      pageRendering = false;
+      if (pageNumPending !== null) {
+        
+        renderPage(pageNumPending);
+        pageNumPending = null;
+      }
+    });
+  });
+
+  
+  document.getElementById('page_num').textContent = num;
+}
+
+
+
+function queueRenderPage(num) {
+  if (pageRendering) {
+    pageNumPending = num;
+  } else {
+    renderPage(num);
+  }
+}
+
+
+
+if (hidePaginator == "true") {
+  document.getElementById("paginator").style.display = 'none';
+}
+
+
+
+function onPrevPage() {
+  if (pageNum <= 1) {
+    return;
+  }
+  pageNum--;
+  queueRenderPage(pageNum);
+}
+document.getElementById('prev').addEventListener('click', onPrevPage);
+
+
+
+function onNextPage() {
+  if (pageNum >= pdfDoc.numPages) {
+    return;
+  }
+  pageNum++;
+  queueRenderPage(pageNum);
+}
+document.getElementById('next').addEventListener('click', onNextPage);
+
+
+
+pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+  pdfDoc = pdfDoc_;
+  document.getElementById('page_count').textContent = pdfDoc.numPages;
+
+  
+  renderPage(pageNum);
+});
+}
+
+</script>
+
 ]]></content>
         </item>
         

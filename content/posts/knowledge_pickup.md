@@ -224,3 +224,165 @@ This notes is some catchups for better prep for AWS machine learning specialty c
     Amazon SageMaker Reinforcement Learning
 
     
+
+---
+
+# Summary
+
+## Model Performance Evaluation
+
+### Regression Model
+
+1. MSE
+2. RMSE
+
+**Residual** is Actual - Predicted.
+
+**MSE** is the mean value of (sumation of each residual^2)
+
+**RMSE** is rooted MSE
+
+### Binary Model and Multiclass Classifier 
+
+<q><i>The actual output of many binary classification algorithms is a prediction score. The score indicates the system’s certainty that the given observation belongs to the positive class</i></q>
+
+To convert this raw score to a positive or negative class, we need to specify a **cut-off**. A sample with score greater than the cut-off is classified as positive class and a sample with score less than the cut-off is classified as negative class.
+
+ Instead of manually performing this step, we can compute "AUC" metric.  AUC refers to Area Under Curve.  **The curve here refers to the plot that has Probability of False Alarm (False Positive Rate) in X-Axis and Probability of Detection (Recall) in Y-Axis.** By plotting False Alarm vs Recall at different cut-off thresholds, we can form a curve.  It measures the ability of the model to predict a higher score for positive examples as compared to negative examples. Since AUC is independent of the selected threshold, you can get a sense of the prediction performance of your model from the AUC metric without picking a threshold.
+
+Common Techniques for evaluating performance:
+
+1. Visually observe raw score using Plots
+2. Evaluate Area Under Curve (AUC) Metric
+
+3. Confusion Matrix
+
+
+
+
+
+## SageMaker Service Overview
+
+### Data Copy from S3 to Training Instance 
+
+**File Mode:**
+
+- Training job copies entire dataset from S3 to training instance
+- Space Needed: Entire data set + Final model artifacts
+
+**Pipe Mode**: 
+
+- Training job streams data from S3 to training instance 
+- Faster start time and Better Throughput 
+- Space Needed: Final model artifacts
+
+### Data Format in SageMaker
+
+#### Training Data Format
+
+CSV
+
+RecordIO: Data types needs to be int32, float 32, float 64
+
+Algorithm Specipic formats( LibSVM, JSON, Parquet)
+
+Data needs to be stored in S3
+
+#### Infetence Format
+
+CSV
+
+JSON
+
+RecordIO
+
+## SageMaker Build-in Algos
+
+**BlazingText**
+
+Unsupervised -> word2vec
+
+Supervised -> multiclass, multilebel classification
+
+{{< image src="/1.png"  position="center" style="border-radius: 8px;" >}}
+
+**Object2Vec**
+
+Supervised -> Classification, Regression 
+
+**Factorization Machines**
+
+Supervised -> Classification, Regression
+
+**K-Nearest Neighbors**
+
+Supervised -> Classification, Regression
+
+**Linear Learner**
+
+Supervised -> Classification, Regression
+
+**XGBoost**
+
+Supervised -> Classification, Regression
+
+**DeepAR**
+
+Supervised -> Timeseries Forecasting 
+
+**Object Detection**
+
+Supervised -> Classification 
+
+**Image Classification**
+
+Supervised -> Classification 
+
+**Semantic Segmentation**
+
+Supervised -> Classification 
+
+**Seq2Seq**
+
+Supervised -> Convert seq of tokens to another seq to tokens
+
+**K-Means**
+
+Unsupervised -> clsutering 
+
+**LDA**
+
+Unsupervised -> Topic Moeling (Document level)
+
+**Neural Topic Model(NTM)**
+
+Unsupervised -> Topic modeling, similiar to LDA
+
+**PCA: Principal Component Analysis**
+
+Unsupervised -> Dimensioality reduction 
+
+**Random Cut Forest**
+
+Unsupervised -> anomaly detection 
+
+**IP Insights**
+
+Unsupervised -> Detect unusual network activity 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
