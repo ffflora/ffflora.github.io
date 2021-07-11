@@ -171,7 +171,7 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     For imbalanced datasets, you are better off using another metric called - **PR AUC** - that is also used in production systems for a highly imbalanced dataset, where the fraction of positive class is small, such as in case of credit card fraud detection.
 
-13. You can think of L1 as reducing the number of features in the model altogether. L2 “regulates” the feature weight instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:
+13. **You can think of L1 as reducing the number of features in the model altogether. L2 “regulates” the feature weight instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:**
 
     https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c
 
@@ -223,7 +223,12 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     Amazon SageMaker Reinforcement Learning
 
-    
+13. IAM does not allow nesting or hierarchy of groups.
+14. Group is not considered identity, and you cannot grant access to a group in a resource-based policy. With Resource-based policy, you can grant access to users, roles and other accounts
+15. Attribute-Based Access Control (ABAC) is an authorization strategy that defines permissions based on attributes (or tags). You can structure polices to allow operations when the principal's tag matches the resource tag. This approach is useful in an environment that is growing or changing rapidly. For example, you can check the cost center of an employee with that of the resource and allow access only if the cost center's match. RBAC, on the other hand, requires ongoing maintenance to update the resource list.
+16. For the EC2 instance, IAM Role is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  DynamoDB does not support resource-based policy.
+
+
 
 ---
 
@@ -296,6 +301,8 @@ JSON
 
 RecordIO
 
+{{< image src="/1.png"  position="center" style="border-radius: 8px;" >}}
+
 ## SageMaker Build-in Algos
 
 **BlazingText**
@@ -303,8 +310,6 @@ RecordIO
 Unsupervised -> word2vec
 
 Supervised -> multiclass, multilebel classification
-
-{{< image src="/1.png"  position="center" style="border-radius: 8px;" >}}
 
 **Object2Vec**
 
@@ -370,13 +375,71 @@ Unsupervised -> anomaly detection
 
 Unsupervised -> Detect unusual network activity 
 
+## Some Terms
+
+**Early stopping**: the model trains until it stops improving.
+
+**Bias:** does not match the reality.
+
+**High bias:** The model doesn't learn from data, and it translate to large training and validation errors. In other words, the model is **underfitting.** Should **decrease** regularizations.
+
+**Variance:** Measures how well the algorithm generalizes from the data, it's the difference between the validation data and training data. 
+
+**High Variance:** Validation error is high but training error is low: overfitting. Should **increase** regularizations.
+
+**Regularization**: tone down the overdependence of specific features.
+
+**L1 Regularization: ** Algorithm aggresively eliminates features that are not important. Useful in large demension dataset - reduce the number of features. 
+
+**L2 Regularization:** Algorithm simply reuces the weight of features. It allows other features to influence outcome. 
+
+**XGBoost Regularization:**	**alpha:** L1 regularization. Default 0; **lambda:** L2 regularization, default 1.
+
+## PCA
+
+**Normalization:** The normalization transformer normalizes numeric variables to have a mean of zero and variance of one.
+
+### PCA on SageMaker 
+
+#### Two Modes 
+
+- **Regular** - Good for Sparse Data and Moderate sized datasets 
+
+- **Random** - Good for very large datasets – uses approximation algorithm
 
 
 
+## Factorization Machine 
 
- 
+Factorization Machine algorithm is optimized for handling **high dimensional sparse** datasets.
 
+Supports Regression and Classification. 
 
+Personalize Content - “predict” ratings/likeness 
+
+- Click Prediction for Ad-Placement 
+- Product recommendation for user 
+- Movie recommendation 
+- News/Social Media Feed personalization for users
+
+### Factorization Machine – Data Format 
+
+**Input**: recordio-protobuf (with Float32 values) 
+
+Inference: json recordio-protobuf
+
+## Random Cut Forest
+
+- Unsupervised algorithm to detect outliers or anomalous data points 
+- Tree based ensemble method 
+- Support for Timeseries data 
+- Assigns an anomaly score for each data point
+
+### RCF Uses 
+
+- Traffic spike due to rush hour or accident 
+- DDoS attack detection 
+- Unauthorized data transfer detection
 
 
 
