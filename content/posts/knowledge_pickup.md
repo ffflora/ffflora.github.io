@@ -347,9 +347,13 @@ Supervised -> Classification
 
 Supervised -> Classification 
 
+it can detect objects in an image, shape of each object along with location and pixels that are part of the object. 
+
 **Seq2Seq**
 
 Supervised -> Convert seq of tokens to another seq to tokens
+
+Seq2Seq algorithm is used for text summarization – It accepts a series of tokens as input and outputs another sequence of tokens.
 
 **K-Means**
 

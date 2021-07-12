@@ -169,7 +169,7 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>For imbalanced datasets, you are better off using another metric called - <strong>PR AUC</strong> - that is also used in production systems for a highly imbalanced dataset, where the fraction of positive class is small, such as in case of credit card fraud detection.</p>
 </li>
 <li>
-<p>You can think of L1 as reducing the number of features in the model altogether. L2 “regulates” the feature weight instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:</p>
+<p><strong>You can think of L1 as reducing the number of features in the model altogether. L2 “regulates” the feature weight instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:</strong></p>
 <p><a href="https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c">https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c</a></p>
 </li>
 <li>
@@ -227,9 +227,21 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>Scikit-learn</p>
 <p>Amazon SageMaker Reinforcement Learning</p>
 </li>
+<li>
+<p>IAM does not allow nesting or hierarchy of groups.</p>
+</li>
+<li>
+<p>Group is not considered identity, and you cannot grant access to a group in a resource-based policy. With Resource-based policy, you can grant access to users, roles and other accounts</p>
+</li>
+<li>
+<p>Attribute-Based Access Control (ABAC) is an authorization strategy that defines permissions based on attributes (or tags). You can structure polices to allow operations when the principal&rsquo;s tag matches the resource tag. This approach is useful in an environment that is growing or changing rapidly. For example, you can check the cost center of an employee with that of the resource and allow access only if the cost center&rsquo;s match. RBAC, on the other hand, requires ongoing maintenance to update the resource list.</p>
+</li>
+<li>
+<p>For the EC2 instance, IAM Role is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  DynamoDB does not support resource-based policy.</p>
+</li>
 </ol>
 <hr>
-<h1 id="other">Other</h1>
+<h1 id="summary">Summary</h1>
 <h2 id="model-performance-evaluation">Model Performance Evaluation</h2>
 <h3 id="regression-model">Regression Model</h3>
 <ol>
@@ -256,135 +268,118 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 </li>
 </ol>
 <h2 id="sagemaker-service-overview">SageMaker Service Overview</h2>
-<script type="text/javascript" src= '//js/pdf-js/build/pdf.js'></script>
-<style>
-#the-canvas {
-  border: 1px solid black;
-  direction: ltr;
-  width: 100%;
-  height: auto;
-}
-#paginator{
-    text-align: center;
-    margin-bottom: 10px;
-}
-</style>
+<h3 id="data-copy-from-s3-to-training-instance">Data Copy from S3 to Training Instance</h3>
+<p><strong>File Mode:</strong></p>
+<ul>
+<li>Training job copies entire dataset from S3 to training instance</li>
+<li>Space Needed: Entire data set + Final model artifacts</li>
+</ul>
+<p><strong>Pipe Mode</strong>:</p>
+<ul>
+<li>Training job streams data from S3 to training instance</li>
+<li>Faster start time and Better Throughput</li>
+<li>Space Needed: Final model artifacts</li>
+</ul>
+<h3 id="data-format-in-sagemaker">Data Format in SageMaker</h3>
+<h4 id="training-data-format">Training Data Format</h4>
+<p>CSV</p>
+<p>RecordIO: Data types needs to be int32, float 32, float 64</p>
+<p>Algorithm Specipic formats( LibSVM, JSON, Parquet)</p>
+<p>Data needs to be stored in S3</p>
+<h4 id="infetence-format">Infetence Format</h4>
+<p>CSV</p>
+<p>JSON</p>
+<p>RecordIO</p>
 
-<div id="paginator">
-    <button id="prev">Previous</button>
-    <button id="next">Next</button>
-    &nbsp; &nbsp;
-    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
-<div id="embed-pdf-container">
-    <canvas id="the-canvas"></canvas>
-</div>
-
-<script type="text/javascript">
-window.onload = function() {
+    <img src="/1.png"  class="center"  style="border-radius: 8px;"  />
 
 
-var url = "https:\/\/ffflora.cat\/" + '.\/hugo-embed-pdf-sample.pdf';
-var hidePaginator = "";
-
-
-var pdfjsLib = window['pdfjs-dist/build/pdf'];
-
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = "https:\/\/ffflora.cat\/" + '/js/pdf-js/build/pdf.worker.js';
-
-
-var pdfDoc = null,
-    pageNum = 1,
-    pageRendering = false,
-    pageNumPending = null,
-    scale = 3,
-    canvas = document.getElementById('the-canvas'),
-    ctx = canvas.getContext('2d');
-
-
-
-function renderPage(num) {
-  pageRendering = true;
-  
-  pdfDoc.getPage(num).then(function(page) {
-    var viewport = page.getViewport({scale: scale});
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-
-    
-    var renderContext = {
-      canvasContext: ctx,
-      viewport: viewport
-    };
-    var renderTask = page.render(renderContext);
-
-    
-    renderTask.promise.then(function() {
-      pageRendering = false;
-      if (pageNumPending !== null) {
-        
-        renderPage(pageNumPending);
-        pageNumPending = null;
-      }
-    });
-  });
-
-  
-  document.getElementById('page_num').textContent = num;
-}
-
-
-
-function queueRenderPage(num) {
-  if (pageRendering) {
-    pageNumPending = num;
-  } else {
-    renderPage(num);
-  }
-}
-
-
-
-if (hidePaginator == "true") {
-  document.getElementById("paginator").style.display = 'none';
-}
-
-
-
-function onPrevPage() {
-  if (pageNum <= 1) {
-    return;
-  }
-  pageNum--;
-  queueRenderPage(pageNum);
-}
-document.getElementById('prev').addEventListener('click', onPrevPage);
-
-
-
-function onNextPage() {
-  if (pageNum >= pdfDoc.numPages) {
-    return;
-  }
-  pageNum++;
-  queueRenderPage(pageNum);
-}
-document.getElementById('next').addEventListener('click', onNextPage);
-
-
-
-pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-  pdfDoc = pdfDoc_;
-  document.getElementById('page_count').textContent = pdfDoc.numPages;
-
-  
-  renderPage(pageNum);
-});
-}
-
-</script>
-
+<h2 id="sagemaker-build-in-algos">SageMaker Build-in Algos</h2>
+<p><strong>BlazingText</strong></p>
+<p>Unsupervised -&gt; word2vec</p>
+<p>Supervised -&gt; multiclass, multilebel classification</p>
+<p><strong>Object2Vec</strong></p>
+<p>Supervised -&gt; Classification, Regression</p>
+<p><strong>Factorization Machines</strong></p>
+<p>Supervised -&gt; Classification, Regression</p>
+<p><strong>K-Nearest Neighbors</strong></p>
+<p>Supervised -&gt; Classification, Regression</p>
+<p><strong>Linear Learner</strong></p>
+<p>Supervised -&gt; Classification, Regression</p>
+<p><strong>XGBoost</strong></p>
+<p>Supervised -&gt; Classification, Regression</p>
+<p><strong>DeepAR</strong></p>
+<p>Supervised -&gt; Timeseries Forecasting</p>
+<p><strong>Object Detection</strong></p>
+<p>Supervised -&gt; Classification</p>
+<p><strong>Image Classification</strong></p>
+<p>Supervised -&gt; Classification</p>
+<p><strong>Semantic Segmentation</strong></p>
+<p>Supervised -&gt; Classification</p>
+<p>it can detect objects in an image, shape of each object along with location and pixels that are part of the object.</p>
+<p><strong>Seq2Seq</strong></p>
+<p>Supervised -&gt; Convert seq of tokens to another seq to tokens</p>
+<p>Seq2Seq algorithm is used for text summarization – It accepts a series of tokens as input and outputs another sequence of tokens.</p>
+<p><strong>K-Means</strong></p>
+<p>Unsupervised -&gt; clsutering</p>
+<p><strong>LDA</strong></p>
+<p>Unsupervised -&gt; Topic Moeling (Document level)</p>
+<p><strong>Neural Topic Model(NTM)</strong></p>
+<p>Unsupervised -&gt; Topic modeling, similiar to LDA</p>
+<p><strong>PCA: Principal Component Analysis</strong></p>
+<p>Unsupervised -&gt; Dimensioality reduction</p>
+<p><strong>Random Cut Forest</strong></p>
+<p>Unsupervised -&gt; anomaly detection</p>
+<p><strong>IP Insights</strong></p>
+<p>Unsupervised -&gt; Detect unusual network activity</p>
+<h2 id="some-terms">Some Terms</h2>
+<p><strong>Early stopping</strong>: the model trains until it stops improving.</p>
+<p><strong>Bias:</strong> does not match the reality.</p>
+<p><strong>High bias:</strong> The model doesn&rsquo;t learn from data, and it translate to large training and validation errors. In other words, the model is <strong>underfitting.</strong> Should <strong>decrease</strong> regularizations.</p>
+<p><strong>Variance:</strong> Measures how well the algorithm generalizes from the data, it&rsquo;s the difference between the validation data and training data.</p>
+<p><strong>High Variance:</strong> Validation error is high but training error is low: overfitting. Should <strong>increase</strong> regularizations.</p>
+<p><strong>Regularization</strong>: tone down the overdependence of specific features.</p>
+<p>**L1 Regularization: ** Algorithm aggresively eliminates features that are not important. Useful in large demension dataset - reduce the number of features.</p>
+<p><strong>L2 Regularization:</strong> Algorithm simply reuces the weight of features. It allows other features to influence outcome.</p>
+<p><strong>XGBoost Regularization:</strong>	<strong>alpha:</strong> L1 regularization. Default 0; <strong>lambda:</strong> L2 regularization, default 1.</p>
+<h2 id="pca">PCA</h2>
+<p><strong>Normalization:</strong> The normalization transformer normalizes numeric variables to have a mean of zero and variance of one.</p>
+<h3 id="pca-on-sagemaker">PCA on SageMaker</h3>
+<h4 id="two-modes">Two Modes</h4>
+<ul>
+<li>
+<p><strong>Regular</strong> - Good for Sparse Data and Moderate sized datasets</p>
+</li>
+<li>
+<p><strong>Random</strong> - Good for very large datasets – uses approximation algorithm</p>
+</li>
+</ul>
+<h2 id="factorization-machine">Factorization Machine</h2>
+<p>Factorization Machine algorithm is optimized for handling <strong>high dimensional sparse</strong> datasets.</p>
+<p>Supports Regression and Classification.</p>
+<p>Personalize Content - “predict” ratings/likeness</p>
+<ul>
+<li>Click Prediction for Ad-Placement</li>
+<li>Product recommendation for user</li>
+<li>Movie recommendation</li>
+<li>News/Social Media Feed personalization for users</li>
+</ul>
+<h3 id="factorization-machine--data-format">Factorization Machine – Data Format</h3>
+<p><strong>Input</strong>: recordio-protobuf (with Float32 values)</p>
+<p>Inference: json recordio-protobuf</p>
+<h2 id="random-cut-forest">Random Cut Forest</h2>
+<ul>
+<li>Unsupervised algorithm to detect outliers or anomalous data points</li>
+<li>Tree based ensemble method</li>
+<li>Support for Timeseries data</li>
+<li>Assigns an anomaly score for each data point</li>
+</ul>
+<h3 id="rcf-uses">RCF Uses</h3>
+<ul>
+<li>Traffic spike due to rush hour or accident</li>
+<li>DDoS attack detection</li>
+<li>Unauthorized data transfer detection</li>
+</ul>
 ]]></content>
         </item>
         
