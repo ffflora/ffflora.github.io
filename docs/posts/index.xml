@@ -61,6 +61,21 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <li>
 <p>Hyperparameters should be tuned against the Validation Set.</p>
 </li>
+<li>
+<p>While you can use Spot instances on any node type, a Spot interruption on the Master node requires terminating the entire cluster, and on a Core node, it can lead to HDFS data loss.</p>
+</li>
+<li>
+<p>Athena performs much more efficiently and at lower cost when using columnar formats such as Parquet or ORC, and that Kinesis Firehose has the ability to convert JSON data to Parquet or ORC format on the fly.</p>
+</li>
+<li>
+<p>Kinesis cheatsheet <a href="https://tutorialsdojo.com/amazon-kinesis/">https://tutorialsdojo.com/amazon-kinesis/</a></p>
+</li>
+<li>
+<p>Amazon <strong>FSx</strong> for <strong>Lustre</strong> <!-- raw HTML omitted -->speeds up your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds<!-- raw HTML omitted -->. The first time you run a training job, Amazon FSx for Lustre automatically copies data from Amazon S3 and makes it available to Amazon SageMaker. Additionally, the same Amazon FSx file system can be used for subsequent iterations of training jobs on Amazon SageMaker, preventing repeated downloads of common Amazon S3 objects. Because of this, Amazon FSx has the most benefit to training jobs that have training sets in Amazon S3 and in workflows where training jobs must be run several times using different training algorithms or parameters to see which gives the best result.</p>
+</li>
+<li>
+<p><strong>AWS Database Migration Service (AWS DMS)</strong> is a cloud service that makes it easy to migrate relational databases, data warehouses, NoSQL databases, and other types of data stores. You can use AWS DMS to migrate your data into the AWS Cloud, between on-premises instances (through an AWS Cloud setup), or between combinations of cloud and on-premises setups. With AWS DMS, you can perform one-time migrations, and you can replicate ongoing changes to keep sources and targets in sync.</p>
+</li>
 </ol>
 <h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
 <ol>
@@ -181,6 +196,18 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <li>
 <p>LDA is a &ldquo;bag-of-words&rdquo; model, which means that the order of words does not matter</p>
 </li>
+<li>
+<p>A <strong>&ldquo;vanishing gradient&rdquo;</strong> results from multiplying together many small derivates of the sigmoid activation function in multiple layers. ReLU does not have a small derivative, and avoids this problem.</p>
+</li>
+<li>
+<p><strong>Transfer learning</strong> generally involves using an existing model, or adding additional layers on top of one. Retraining the whole thing isn&rsquo;t transfer learning, and incremental training isn&rsquo;t something Rekognition supports</p>
+</li>
+<li>
+<p>A learning rate that is too large may overshoot the true minima, while a learning rate that is too small will slow down convergence.</p>
+</li>
+<li>
+<p><strong>Music</strong> is fundamentally a <!-- raw HTML omitted -->time-series<!-- raw HTML omitted --> problem, which <strong>RNN&rsquo;s</strong> (recurrent neural networks) are best suited for. You might see the term <strong>LSTM</strong> used as well, which is a specific kind of RNN.</p>
+</li>
 </ol>
 <h1 id="ml-implementation-and-operation">ML Implementation and Operation</h1>
 <ol>
@@ -239,6 +266,44 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <li>
 <p>For the EC2 instance, IAM Role is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  DynamoDB does not support resource-based policy.</p>
 </li>
+<li>
+<p>XGBoost is a CPU-only algorithm, and won&rsquo;t benefit from the GPU&rsquo;s of a P3 or P2. It is also memory-bound, making M4 a better choice than C4.</p>
+</li>
+<li>
+<p>With <strong>Pipe</strong> input mode, your data is fed on-the-fly into the algorithm container <!-- raw HTML omitted -->without involving any disk I/O<!-- raw HTML omitted -->. This approach shortens the lengthy download process and dramatically reduces startup time. <!-- raw HTML omitted -->It also offers generally better read throughput than File input mode.<!-- raw HTML omitted --> This is because your data is fetched from Amazon S3 by a highly optimized <!-- raw HTML omitted -->multi-threaded<!-- raw HTML omitted --> background process. It also allows you to train on datasets that are much larger than the 16 TB Amazon Elastic Block Store (EBS) volume size limit.</p>
+<p><strong>Pipe mode enables the following:</strong></p>
+<p>- <!-- raw HTML omitted --><strong>Shorter startup</strong><!-- raw HTML omitted --> times because the data is being streamed instead of being downloaded to your training instances.</p>
+<p>- <strong>Higher I/O throughputs</strong> due to high-performance streaming agent.</p>
+<p>- Virtually limitless data processing capacity.</p>
+<p>With Pipe mode, the startup time is reduced significantly from 11.5 minutes to 1.5 minutes in most experiments. Also, the overall I/O throughput is at least twice as fast as that of File mode. Both of these improvements made a positive impact on the total training time, which is reduced by up to 35%.</p>
+<p><strong>File mode is the default mode for training a model in Amazon SageMaker.</strong></p>
+</li>
+<li>
+<p>You can use <strong>Amazon CloudWatch API</strong> operations to send the training metrics to CloudWatch, and create a dashboard of those metrics. Lastly, use Amazon Simple Notification Service (Amazon SNS) to send a notification when the model is overfitting.</p>
+</li>
+<li>
+<p>The <strong><code>dropout</code></strong> hyperparameter refers to the dropout probability for network layers. <em>A</em> dropout is a form of regularization used in neural networks that <!-- raw HTML omitted -->reduces overfitting by trimming codependent neurons.<!-- raw HTML omitted --></p>
+<p>This is an optional parameter in Amazon SageMaker <strong>Object2vec</strong>. <strong>Increasing the value of this parameter may say solve the overfitting of the model.</strong></p>
+<p><strong>L1 regularization</strong> method is <strong>not</strong> available to Amazon SageMaker <strong>Object2vec</strong>. This is used for simple regression models like a Linear learner.</p>
+</li>
+<li>
+<p>With the <strong>Lifecycle configuration</strong> feature in Amazon SageMaker, you can automate these customizations to be applied at different phases of the lifecycle of an instance. For example, you can write a script to install a list of libraries and, using the Lifecycle configuration feature, configure the scripts to automatically execute every time your notebook instance is started. Similarly, you can choose to automatically run the script only once when the notebook instance is created.</p>
+</li>
+<li>
+<p>The performance of deep learning neural networks often improves with the amount of data available.</p>
+<p><strong>Data augmentatio</strong>n is a technique to artificially create new training data from existing training data. <!-- raw HTML omitted -->This is done by applying domain-specific techniques to examples from the training data that create new and different training examples.<!-- raw HTML omitted --></p>
+<p>Image data augmentation is perhaps the most well-known type of data augmentation and involves creating transformed versions of images in the training dataset that belong to the same class as the original image.</p>
+</li>
+<li>
+<p>T-SNE is used to preprocess a dataset that contains highly correlated variables.</p>
+</li>
+<li>
+<p><strong>Apache Spark</strong> is a fast and general engine for large-scale data processing. Amazon EMR features Amazon EMR runtime for Apache Spark, a performance-optimized runtime environment for Apache Spark that is active by default on Amazon EMR clusters.</p>
+<p>Apache Spark is a distributed processing framework and programming model that helps you do machine learning, stream processing, or graph analytics using Amazon EMR clusters.</p>
+<p><strong>Apache ZooKeeper</strong> is a centralized service for maintaining configuration information and providing distributed synchronization to distributed applications.</p>
+<p><strong>Apache MXNet</strong> is an open-source, deep learning framework.</p>
+<p><strong>Apache Pig</strong> is more suitable for running big data analysis.</p>
+</li>
 </ol>
 <hr>
 <h1 id="summary">Summary</h1>
@@ -286,6 +351,52 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>RecordIO: Data types needs to be int32, float 32, float 64</p>
 <p>Algorithm Specipic formats( LibSVM, JSON, Parquet)</p>
 <p>Data needs to be stored in S3</p>
+<table>
+<thead>
+<tr>
+<th align="left">ContentTypes for Built-in Algorithms</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ContentType</td>
+<td align="left">Algorithm</td>
+</tr>
+<tr>
+<td align="left">application/x-image</td>
+<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+</tr>
+<tr>
+<td align="left">application/x-recordio</td>
+<td align="left">Object Detection Algorithm</td>
+</tr>
+<tr>
+<td align="left">application/x-recordio-protobuf</td>
+<td align="left">Factorization Machines, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, Sequence-to-Sequence</td>
+</tr>
+<tr>
+<td align="left">application/<strong>jsonlines</strong></td>
+<td align="left">BlazingText, DeepAR</td>
+</tr>
+<tr>
+<td align="left">image/<strong>jpeg</strong></td>
+<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+</tr>
+<tr>
+<td align="left">image/<strong>png</strong></td>
+<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+</tr>
+<tr>
+<td align="left">text/<strong>csv</strong></td>
+<td align="left">IP Insights, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, XGBoost</td>
+</tr>
+<tr>
+<td align="left">text/<strong>libsvm</strong></td>
+<td align="left">XGBoost</td>
+</tr>
+</tbody>
+</table>
 <h4 id="infetence-format">Infetence Format</h4>
 <p>CSV</p>
 <p>JSON</p>
