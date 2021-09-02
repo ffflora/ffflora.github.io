@@ -25,13 +25,13 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
    outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
 
-2. **Glue cannot write the output in RecordIO-Protobuf forma**t. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format. Apache Spark (running on the EMR cluster in this use-case) can write the output in RecorIO-Protobuf format.
+2. **Glue <u>cannot</u> write the output in RecordIO-Protobuf forma**t. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and **it cannot write data in RecorIO-Protobuf format**. Apache Spark (running on the EMR cluster in this use-case) can write the output in RecorIO-Protobuf format.
 
 3. Converting the data to recordIO-protobuf file type can significantly improve the training time with a marginal increase in cost to store the recordIO-protobuf data on S3. Spinning up EMR clusters would be costly and require complex infrastructure maintenance.
 
 4. For those SageMaker supervised learning algorithms which require the training data to be in CSV format, the target variable should be in the first column and it should not have a header record. 
 
-5. Kinesis Firehose can transform data to Parquet format and store it on S3 without provisioning any servers. Also this transformed data can be read into an Athena Table via a Glue Crawler and then the underlying data is readily available for ad-hoc analysis. Although Glue ETL Job can transform the source data to Parquet format, it is best suited for batch ETL use cases and it’s not meant to process streaming data. EMR cluster is not an option as the company does not want to manage the underlying infrastructure.
+5. Kinesis Firehose can transform data to **Parquet** format and store it on S3 without provisioning any servers. Also this transformed data can be read into an Athena Table <u>via a Glue Crawler</u> and then the underlying data is readily available for ad-hoc analysis. Although Glue ETL Job can transform the source data to Parquet format, it is best suited for batch ETL use cases and it’s not meant to process streaming data. EMR cluster is not an option as the company does not want to manage the underlying infrastructure.
 
 6. **Kinesis Data Firehose is used for streaming data scenarios**. **AWS Glue ML Transforms job can perform deduplication** in a serverless fashion.
 
@@ -49,13 +49,98 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
 12. While you can use Spot instances on any node type, a Spot interruption on the Master node requires terminating the entire cluster, and on a Core node, it can lead to HDFS data loss.
 
-13. Athena performs much more efficiently and at lower cost when using columnar formats such as Parquet or ORC, and that Kinesis Firehose has the ability to convert JSON data to Parquet or ORC format on the fly.
+13. Athena performs much more efficiently and at lower cost when using columnar formats such as Parquet or ORC, and that Kinesis Firehose has the ability to convert **JSON** <u>data to Parquet or ORC format on the fly.</u>
 
-14. Kinesis cheatsheet https://tutorialsdojo.com/amazon-kinesis/
+14. Kinesis Data Firehose needs the following three elements to convert the input data format to Parquet/ORC format:
 
-15. Amazon **FSx** for **Lustre** <u>speeds up your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds</u>. The first time you run a training job, Amazon FSx for Lustre automatically copies data from Amazon S3 and makes it available to Amazon SageMaker. Additionally, the same Amazon FSx file system can be used for subsequent iterations of training jobs on Amazon SageMaker, preventing repeated downloads of common Amazon S3 objects. Because of this, Amazon FSx has the most benefit to training jobs that have training sets in Amazon S3 and in workflows where training jobs must be run several times using different training algorithms or parameters to see which gives the best result.
+    1) **Deserializer to read JSON data** (Input must be in JSON only, If not use a lambda to convert to JSON),
 
-16. **AWS Database Migration Service (AWS DMS)** is a cloud service that makes it easy to migrate relational databases, data warehouses, NoSQL databases, and other types of data stores. You can use AWS DMS to migrate your data into the AWS Cloud, between on-premises instances (through an AWS Cloud setup), or between combinations of cloud and on-premises setups. With AWS DMS, you can perform one-time migrations, and you can replicate ongoing changes to keep sources and targets in sync.
+    2) Schema using **AWS Glue to interpret the input data,**
+
+    3) Serializer to convert the data to target columnar storage format (Parquet/ORC).
+
+15. Kinesis cheatsheet https://tutorialsdojo.com/amazon-kinesis/
+
+16. Amazon **FSx** for **Lustre** <u>speeds up your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds</u>. The first time you run a training job, Amazon FSx for Lustre automatically copies data from Amazon S3 and makes it available to Amazon SageMaker. Additionally, the same Amazon FSx file system can be used for subsequent iterations of training jobs on Amazon SageMaker, preventing repeated downloads of common Amazon S3 objects. Because of this, Amazon FSx has the most benefit to training jobs that have training sets in Amazon S3 and in workflows where training jobs must be run several times using different training algorithms or parameters to see which gives the best result.
+
+17. **AWS Database Migration Service (AWS DMS)** is a cloud service that makes it easy to migrate relational databases, data warehouses, NoSQL databases, and other types of data stores. You can use AWS DMS to migrate your data into the AWS Cloud, between on-premises instances (through an AWS Cloud setup), or between combinations of cloud and on-premises setups. With AWS DMS, you can perform one-time migrations, and you can replicate ongoing changes to keep sources and targets in sync.
+
+    - continuous Data Replication
+    - No data transformation (ETL jobs needs to be done later somewhere else.)
+    - once the data is in AWS, you can use Glue to transform it. 
+
+18. **KCL** helps you consume and process data from a **Kinesis data stream** by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding. The KCL takes care of all of these subtasks so that you can focus your efforts on **writing your custom** record-processing logic.
+
+19. **Amazon Kinesis Data Firehose** **<u>*buffers incoming streaming*</u>** data to a certain size or for a certain period of time before delivering it to destinations. You can configure the buffer size and buffer interval while creating your delivery stream.
+
+    Buffer size is in MBs and ranges from <u>1MB to 128MB</u> for Amazon S3 destination and <u>**1MB to 100MB**</u> for Amazon Elasticsearch Service destination. Buffer interval is in seconds and ranges from **60 seconds to 900 seconds**. Please note that in circumstances where data delivery to destination is falling behind data writing to a delivery stream, Firehose raises buffer size dynamically to catch up and make sure that all data is delivered to the destination.
+
+    ![img](https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-04_16-41-13-3dcfe5855fa5c240d34bedca038dcb9b.JPG)
+
+20. The **S3 Standard-IA** storage class is designed for long-lived and infrequently accessed data. (IA stands for *infrequent access*.) S3 Standard-IA is available for millisecond access (same as the S3 Standard storage class). Amazon S3 charges a retrieval fee for these objects, so they are most suitable for infrequently accessed data.
+
+    Amazon S3 Glacier Deep Archive does not provide immediate access. Expedited retrievals may still take **hours** to complete.
+
+21. **Amazon Athena** is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run.
+
+    Athena can run queries to analyze unstructured, semi-structured, and structured data stored in S3.
+
+22. Kinesis Firehose Data Delivery Failure Handing 
+
+    ![](https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-05_02-32-25-005129db5966b762cc65018c53796c0e.JPG)
+
+23. In Kenisis Data Stream, the minimum value of a stream’s time period is 24 hours, but this can be increased up to 8760 hours (365 days).
+
+24. Firehose can deliver data to **S3, Elastic Search, Splunk, Redshift, and HTTP Endpoints.** Athena is not a database, and Firehose doesn't deliver data to DynamoDB.
+
+25. **AWS Lake formation** integrates with the following services which also accepts the lake formation permissions:
+
+    1) AWS Glue,
+
+    2) Amazon Athena,
+
+    3) Amazon Redshift Spectrum,
+
+    4) Amazon Quicksight,
+
+    5) Amazon EMR and
+
+    6) AWS Glue DataBrew. 
+
+26. Data storage for machine learning modeling could be from **S3**, **Amazon Fsx for Lustre, and Amazon EFS.**
+
+27. **Firehose** can convert the data from **JSON to ORC or Parquet format.** If the input data is other than JSON, like CSV or text, then the **lambda** function is used to transform the data to JSON format first.
+
+28. **An EMR cluster has three nodes:**
+
+    1) **Master** node - Runs and manages the master components of distributed applications.
+
+    2) **Core** node - Coordinates the data storage as part of the HDFS file system with the task nodes.
+
+    3) **Task** nodes - Optional nodes, and can be added to perform parallel computation tasks on data.
+
+    Task nodes can be used with <u>spot EC2 instances, as they can be used and removed whenever required, and this does not affect the working of other nodes.</u>
+
+    Using spot instances can provide a huge cost saving compared to the on-demand and reserved instances, as this spares the EC2 instances once the job is done. The master and core nodes can't be used with the spot instances, as their availability is a must requirement for the EMR cluster.
+
+29. **EMR Storage**
+
+    - HDFS
+    - EMRFS: access to S3 as if it were HDFS
+    - Local file system 
+    - EBS for HDFS
+
+30. In Kinesis Data Stream, the minimum value of a stream’s time period is **24** hours, but this can be increased up to **8760** hours (**365** days).
+
+31. ![img](https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_05-31-48-e1d0b84a350d082ddd023606a22f2432.jpg)
+
+    Kinesis Data Firehose requires only Stream Data Name and the Data Record, whereas the Kinesis Data Stream needs ShardId, Partition Key, and the Data Record.
+
+    Also, Kinesis Firehose scales automatically depending on the input data stream, without any need to manually increase the ingestion size.
+
+32. Using SQS would require implementing substantial functionality on top of SQS, and AWS **Batch is only designed for scheduling and allocating the resources needed for batch processing.**
+
+33. Glue's **FindMatches** feature is a new way to perform de-duplication as part of Glue ETL, and is a simple, server-less solution to the problem.
 
     
 
@@ -68,6 +153,8 @@ This notes is some catchups for better prep for AWS machine learning specialty c
    https://stats.stackexchange.com/questions/235808/binary-classification-with-strongly-unbalanced-classes
 
 2. A data warehouse can only store structured data whereas a data lake can store structured, semi-structured and unstructured data.  
+
+    **<u>Data lakes</u>** provides schema on **read** access, whereas <u>**data warehouse**</u> provides schema on **write**.
 
 3. Great reference for the most common probability distributions: [Common Probability Distributions: The Data Scientist’s Crib Sheet](https://medium.com/@srowen/common-probability-distributions-347e6b945ce4)
 
@@ -118,14 +205,18 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 6. Logarithm transformation and Standardization are the correct techniques to address outliers in data. Please review this reference link:
 
    https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114
-   
+
 7. ElasticSearch, EMR and EC2 are not “serverless”. 
 
 8. The best way to engineer the cyclical features is to represent these as (x,y) coordinates on a circle using sin and cos functions. Please review this technique in more detail here -
 
     http://blog.davidkaleko.com/feature-engineering-cyclical-features.html
 
-9. Interquartile Range (IQR) = Q3-Q1 
+9. Q1 = 1/4 x (N+1)th term
+
+    Q3 = 3/4 x (N+1)th term
+
+    Interquartile Range (IQR) = Q3-Q1 
 
     Minimum outlier cutoff = Q1 - 1.5 * IQR 
 
@@ -135,7 +226,55 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 
-    
+10. The Multiple Imputations by Chained Equations (MICE) algorithm is a robust, informative method of dealing with missing data in your datasets. This procedure imputes or 'fills in' the missing data in a dataset through an iterative series of predictive models. Each specified variable in the dataset is imputed in each iteration using the other variables in the dataset. These iterations will be run continuously until convergence has been met.In General, MICE is a better imputation method than naive approaches (filling missing values with 0, dropping columns).
+
+11. QuickSight supports UTF-8 file encoding, **but not UTF-8 (with BOM)**.
+
+12. Quicksight supports the following file formats only: **CSV/TSV, ELF/CLF, JSON, XLSX**.
+
+13. **F0.5-Measure** (beta=0.5): More weight on precision, less weight on recall.
+
+     **F1-Measure** (beta=1.0): Balance the weight on precision and recall.
+
+     **F2-Measure** (beta=2.0): Less weight on precision, more weight on recall
+
+     ![img](https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_07-55-05-6516021657c5e962ac6ca87cdd939d92.jpg)
+
+14. The Recall is also called **Sensitivity, Hit Rate, and True Positive Rate.**
+
+     **Positive Predictive Value (PPV)** is the same as Precision.
+
+15. The Receiver Operating Characteristic - **ROC**, true positive rate & false positive rate - determines the ability of a binary classification model, as its discrimination threshold is varied.
+
+16. As per sklearn, the minority class is considered as the positive class. Hence, in cases with fraudulent data, a fraud transaction is considered as a positve class. Similary, in diagnostics, a disease detected is considered positive.
+
+17. **Type 2** error is also known as **False Negative.**
+
+     A Null hypothesis assumes positive for no-change/default (No Fraud, Healthy, Not Guilty), and a negative for change/non-default (Not Healthy, Fraud, Guilty) outcome.
+
+     A type 2 error occurs when the null hypothesis is false but is falsely accepted. This corresponds to the False-negative in classification, where a negative is considered for no-change/default (No Fraud, Healthy, Non-Guilty), etc.
+
+     A type 1 error occurs when the null hypothesis is true but is falsely rejected.
+
+18. **Miss Rate is also known as the False Negative Rate**. It is given as FN/FN+TP (FN =False Negative, TP = True Positive).
+
+     As the False Negatives are undesired and should be reduced to zero for an ideal model, the value of the miss rate in the ideal case will approach zero.
+
+19. If there are no outliers, MAE (Mean Absolute Error) will be more suitable  for comparison of performances of various models, as the error remains linear in this case. And if there are outliers RMSE will be preferred.
+
+20. For **stochastic gradient descent**, the batch size equals **1**.
+
+     For **batch gradient descen**t, the **batch size equals the size of the training set**.
+
+     And, for **mini-batch gradient descent,** the batch size is greater than 1 but less than the size of the training set.
+
+21. The small batch size can result:
+
+     1) Faster updates in the model weights
+
+     2) Noise and oscillations in the training process, which might be able to escape the local minima
+
+22. Deep learning is better suited to the imputation of categorical data. Square footage is numerical, which is better served by kNN.
 
 
 # Modeling
@@ -195,11 +334,21 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
 18. **Transfer learning** generally involves using an existing model, or adding additional layers on top of one. Retraining the whole thing isn't transfer learning, and incremental training isn't something Rekognition supports 
 
-19. A learning rate that is too large may overshoot the true minima, while a learning rate that is too small will slow down convergence.
+19. **A learning rate that is too large may overshoot the true minima, while a learning rate that is too small will slow down convergence.**
 
 20. **Music** is fundamentally a <u>time-series</u> problem, which **RNN's** (recurrent neural networks) are best suited for. You might see the term **LSTM** used as well, which is a specific kind of RNN.
 
-    
+21. Custom entity recognition extends the capability of **Amazon Comprehend** by enabling you to identify new entity types not supported as one of the preset generic entity types. This means that in addition to identifying entity types such as LOCATION, DATE, PERSON, and so on, you can analyze documents and extract entities like product codes or business-specific entities that fit your particular needs.
+
+22. To get inferences for an entire dataset, use **batch** transform. With batch transform, you create a batch transform job using a trained model and the dataset, which must be stored in Amazon S3. Amazon SageMaker saves the inferences in an S3 bucket that you specify when you create the batch transform job.
+
+    You can use Amazon SageMaker Batch Transform to <u>exclude attributes</u> before running predictions. You can also join the prediction results with partial or entire input data attributes when using data that is in CSV, text, or JSON format. This eliminates the need for any additional pre-processing or post-processing and accelerates the overall ML process.
+
+23. IP Insights algorithm supports only CSV file type as training data.
+
+24. In XGBoost,`subsample` prevents overfitting. XGBoost hyperparameters: https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost_hyperparameters.html
+
+25. 
 
 #  ML Implementation and Operation
 
@@ -292,6 +441,34 @@ This notes is some catchups for better prep for AWS machine learning specialty c
     **Apache MXNet** is an open-source, deep learning framework.
 
     **Apache Pig** is more suitable for running big data analysis.
+    
+25. **Spark MLLib**
+
+    - Classification: logistic regression, naive bayes
+
+    - regression
+    - decision tree
+    - recommendation engine(ALS)
+    - Clustering(k-means)
+    - LDA
+    - ML workflow utilities (pipeline, feature transformation, persistence)
+    - SVD, PCA, statistics
+
+26. With Amazon Polly's custom **lexicons** or vocabularies, you can modify the pronunciation of particular words, such as company names, acronyms, foreign words, and neologisms (e.g., "ROTFL", "C’est la vie" when spoken in a non-French voice). To customize these pronunciations, you upload an XML file with lexical entries. For example, you can customize the pronunciation of the Filipino word: "Pilipinas" by using the `phoneme` element in your input XML.
+
+27. **Amazon Elastic Inference** allows you to attach **low-cost GPU-powered acceleration** to <u>Amazon EC2 and Sagemaker instances or Amazon ECS tasks</u>, to reduce the cost of running deep learning <u>inference</u> by up to 75%. <u>Amazon Elastic Inference supports TensorFlow, Apache MXNet, PyTorch, and ONNX models.</u>
+
+28. **Amazon SageMaker** enables you to test multiple models or model versions behind the same endpoint using production variants. Each `ProductionVariant` identifies an ML model and the resources deployed for hosting the model. You can distribute endpoint invocation requests across multiple production variants by providing the traffic distribution for each variant or invoking a variant directly for each request. In the following sections, we look at both methods for testing ML models.
+
+29. you can create and run a custom ETL job in **AWS Glue** to <u>**redact sensitive information**</u> within a dataset stored in Amazon S3.
+
+30. An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of **two to fifteen** containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.
+
+31. Your inference container responds to port 8080, and must respond to ping requests in under 2 seconds. Model artifacts need to be compressed in tar format, not zip.
+
+32. Lex can handle **both speech-to-text and handling the chatbot logic**. The output from Lex could be read back to the customer using Polly. Under the hood, more services would likely be needed as well to support Lex, such as Lambda and DynamoDB.
+
+    
 
 ---
 
@@ -524,7 +701,42 @@ Inference: json recordio-protobuf
 
 
 
+## Kinesis Streams vs Firehose
+
+### Kinesis Data Streams
+
+-  we can write custom code for the producer and the consume
+- It is going to be real time,  between 70 milliseconds and 200-millisecond latency, 
+- **you must manage to scale yourself** so if you want **more throughpu**t you need to think to do something called **Shard splitting,** which means **adding Shards,** and if you want **less throughput** you need to do **Shard merging**, which is **removing** Shards. And that is quite painful to do.
+- Data storage for your stream, between 1 to 7 days, and this allows  replay capability,  multiple consumer 
+
+### Firehose
+
+- is a delivery service.
+- It's an ingestion service, so remember that word "**ingestion**". And so it's **fully** **managed** and you can send it out to Amazon **S3, Splunk, Redshift, and ElasticSearch**.
+- It is fully serverless, that means we don't manage anything, **and you can do also serverless data transformations using Lambda.**
+
+- It's going to be near real-time, that means that it's going to deliver data with the **lowest buffer time of 1 minute into your targets,**
+
+- there is **automated scaling**, we don't need to provision capacity in advance,
+
+- and there is no data stored so there is no replay capability.
 
 
 
+### Kinesis Data Analytics 
 
+Random cut forest vs Hotspot
+
+![image-20210830031653002](/Users/flora/Library/Application Support/typora-user-images/image-20210830031653002.png)
+
+### ![image-20210830034513019](/Users/flora/Library/Application Support/typora-user-images/image-20210830034513019.png)Kinesis Summary 
+
+- Kinesis Data Stream: create real-time ML apps.
+- Kinesis Data Firehose: ingest massive data near real-time.
+- Kinesis Data Analytics: Real time ETL/ML algos on streams
+- Kinesis Video Stream: real-time video stream to create ML apps.
+
+
+
+![image-20210830223358178](/Users/flora/Library/Application Support/typora-user-images/image-20210830223358178.png)
