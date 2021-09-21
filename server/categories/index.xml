@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Flora Wenyao Jiang</title>
+    <link>https://ffflora.cat/categories/</link>
+    <description>Recent content in Categories on Flora Wenyao Jiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 13 Apr 2021 23:26:49 -0700</lastBuildDate>
+    
+	<atom:link href="https://ffflora.cat/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://ffflora.cat/categories/data-science/</link>
+      <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/categories/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Front-End</title>
+      <link>https://ffflora.cat/categories/front-end/</link>
+      <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/categories/front-end/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

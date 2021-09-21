@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flora Wenyao Jiang</title>
+    <link>https://ffflora.cat/</link>
+    <description>Recent content on Flora Wenyao Jiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 13 Apr 2021 23:26:49 -0700</lastBuildDate>
+    
+	<atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS Machine Learning Specialty Knowledge Pickup</title>
+      <link>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</link>
+      <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</guid>
+      <description>This notes is some catchups for better prep for AWS machine learning specialty cert.
+Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+where
+incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
+outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
+  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
+    </item>
+    
+    <item>
+      <title>React.js Related Notes (1)</title>
+      <link>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</link>
+      <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</guid>
+      <description>This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
+  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
+Data looks like:
+type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&amp;gt; { if (data.</description>
+    </item>
+    
+    <item>
+      <title>AWS Machine Learning Specialty Prep List</title>
+      <link>https://ffflora.cat/posts/2021/01/aws-machine-learning-specialty-prep-list/</link>
+      <pubDate>Sun, 31 Jan 2021 19:29:26 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/01/aws-machine-learning-specialty-prep-list/</guid>
+      <description>Here are some resources I collected for better preparing the AWS Machine Learning Specialty Exam.
+Practical experience aws/amazon-sagemaker-examples
+Object Detection with Amazon Sagemaker
+AWS Training offers digital courses on machine learning (ML).   Data Analytics Fundamentals
+  Exam Readiness: AWS Certified Machine Learning - Specialty
+  Deep Learning on AWS
+  Elements of Data Science
+  Math for Machine Learning
+  Linear and Logistic Regression</description>
+    </item>
+    
+    <item>
+      <title>AWS Machine Learning Exam Readiness with Sample Questions</title>
+      <link>https://ffflora.cat/posts/2021/01/aws-machine-learning-exam-readiness-with-sample-questions/</link>
+      <pubDate>Sat, 30 Jan 2021 00:20:32 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/01/aws-machine-learning-exam-readiness-with-sample-questions/</guid>
+      <description>These are my study notes directly from AWS Training cource - AWS Machine Learning Exam Readiness.
+Domain 1: Data Engineering Create Data Repo for Machine Learning Identify and implement a data ingestion solution To use the data for ML, you need to ingest it into a service like Amazon S3
+Batch and stream processing are two kinds of data ingestion.
+Batch processing Batch processing periodically collects and groups source data.With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3.</description>
+    </item>
+    
+    <item>
+      <title>Intro to Data Analytics Fundamental with AWS Solutions</title>
+      <link>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</link>
+      <pubDate>Thu, 14 Jan 2021 00:19:31 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</guid>
+      <description>The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
+Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
+    </item>
+    
+    <item>
+      <title>How to Use Auto Completion in GCP</title>
+      <link>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</link>
+      <pubDate>Wed, 28 Aug 2019 21:30:55 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</guid>
+      <description>Auto-completion gcloud interactive has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.
+Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.
+Install the beta components:
+gcloud components install beta Enter the gcloud interactive mode:
+gcloud beta interactive When using the interactive mode, click on the Tab key to complete file path and resource arguments.</description>
+    </item>
+    
+  </channel>
+</rss>

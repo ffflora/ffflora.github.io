@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Flora Jiang ">
+<meta name="description" content="The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
+Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way." />
+<meta name="keywords" content=", AWS, Data Analytics" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/" />
+
+
+    <title>
+        
+            Intro to Data Analytics Fundamental with AWS Solutions :: Flora Wenyao Jiang  — Personal Website⛱️
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://ffflora.cat/main.093694338139dc6afa9bdd416fb9b7247fd08fdee908221f27b7def46f109265.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ffflora.cat/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ffflora.cat/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ffflora.cat/favicon-16x16.png">
+    <link rel="manifest" href="https://ffflora.cat/site.webmanifest">
+    <link rel="mask-icon" href="https://ffflora.cat/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://ffflora.cat/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Intro to Data Analytics Fundamental with AWS Solutions">
+<meta itemprop="description" content="The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
+Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.">
+<meta itemprop="datePublished" content="2021-01-14T00:19:31-08:00" />
+<meta itemprop="dateModified" content="2021-01-14T00:19:31-08:00" />
+<meta itemprop="wordCount" content="4267">
+<meta itemprop="image" content="https://ffflora.cat/"/>
+
+
+
+<meta itemprop="keywords" content="AWS,Data Analytics," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ffflora.cat/"/>
+
+<meta name="twitter:title" content="Intro to Data Analytics Fundamental with AWS Solutions"/>
+<meta name="twitter:description" content="The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
+Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way."/>
+
+
+
+    <meta property="og:title" content="Intro to Data Analytics Fundamental with AWS Solutions" />
+<meta property="og:description" content="The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
+Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/" />
+<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="article:published_time" content="2021-01-14T00:19:31-08:00" />
+<meta property="article:modified_time" content="2021-01-14T00:19:31-08:00" />
+
+
+
+
+    <meta property="article:section" content="Data Science" />
+
+
+
+    <meta property="article:published_time" content="2021-01-14 00:19:31 -0800 PST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://ffflora.cat/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://ffflora.cat/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        21 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/">Intro to Data Analytics Fundamental with AWS Solutions</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <p>The challenges identified in many data analysis solutions can be summarized by five key challenges: <strong>volume</strong>, <strong>velocity</strong>, <strong>variety</strong>, <strong>veracity</strong>, and <strong>value</strong>.</p>
+<h2 id="volume---data-storage">Volume - Data Storage</h2>
+<ul>
+<li><strong>Structured</strong>(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table.</li>
+<li><strong>Semistructured(10%)</strong> data is often stored in a series of key-value pairs that are grouped into elements within a file.</li>
+<li><strong>Unstructured</strong>(80%) data is not structured in a consistent way. Some data may have structure similar to semi-structured data but others may only contain metadata.</li>
+</ul>
+<p>When businesses have <strong>more data</strong> than they are able to <strong>process and analyze</strong>, they have a <strong>volume problem</strong>.</p>
+<h3 id="amazon-s3">Amazon S3</h3>
+<p>Advantages of using S3:</p>
+<ul>
+<li>Decoupling storage from processing</li>
+<li>Parallelization, running process in parallel</li>
+<li>Centralized location (reduce latency)</li>
+</ul>
+<h4 id="aws-s3-concepts">AWS S3 concepts</h4>
+<p>First, Amazon S3 stores data as <strong>objects</strong> within <strong>buckets</strong>.</p>
+<p>An <strong>object</strong> is composed of a file and any metadata that describes that file. To store an object in Amazon S3, you upload the file you want to store into a bucket. When you upload a file, you can set permissions on the object and add any metadata.</p>
+<p><strong>Buckets</strong> are logical containers for objects. You can have one or more buckets in your account and can control access for each bucket individually. You control who can create, delete, and list objects in the bucket. You can also view access logs for the bucket and its objects and choose the geographical region where Amazon S3 will store the bucket and its contents.</p>
+<h4 id="accessing-your-content"><strong>Accessing your content</strong></h4>
+<p>Once objects have been stored in an Amazon S3 bucket, they are given an <strong>object key</strong>. Use this, along with the bucket name, to access the object.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201028180458759.png?raw=true" alt="image-20201028180458759"></p>
+<p>An <strong>object key</strong> is the unique identifier for an object in a bucket. Because the combination of a bucket, key, and version ID uniquely identifies each object, you can think of Amazon S3 as a basic data map between &ldquo;bucket + key + version&rdquo; and the object itself. Every object in Amazon S3 can be uniquely addressed through the combination of the web service endpoint, bucket name, key, and (optionally) version.</p>
+<h3 id="aws-data-lakes">AWS Data Lakes</h3>
+<p>A data lake is a <strong>centralized repository</strong> that allows you to store <strong>structured</strong>, <strong>semistructured</strong>, and <strong>unstructured</strong> data at any scale.</p>
+<h4 id="some-cautions-of-data-lakes">Some <strong>cautions</strong> of data lakes:</h4>
+<ul>
+<li>Single source of truth:	Be careful not to let your data lake become a swamp. Enforce proper organization and structure for all data entering the lake.</li>
+<li>Store any type of data, regardless of structure: Be careful to ensure that data within the data lake is relevant and does not go unused. Train users on how to access the data, and set retention policies to ensure the data stays refreshed.</li>
+<li>Can be analyzed using AI and machine learning: Be careful to learn how to use data in new ways. Don&rsquo;t limit analytics to typical data warehouse-style analytics. AI and machine learning offer significant insights.</li>
+</ul>
+<h4 id="benefits-of-a-data-lake-on-aws">Benefits of a data lake on AWS</h4>
+<ul>
+<li>Are a <strong>cost-effective data storage</strong> solution. You can durably store a nearly unlimited amount of data using Amazon S3.</li>
+<li>Implement industry-leading <strong>security and compliance</strong>. AWS uses stringent data security, compliance, privacy, and protection mechanisms.</li>
+<li>Allow you to take advantage of <strong>many different data collection and ingestion tools</strong> to ingest data into your data lake. These services include Amazon Kinesis for streaming data and AWS Snowball appliances for large volumes of on-premises data.</li>
+<li>Help you to <strong>categorize and manage your data</strong> simply and efficiently. Use AWS Glue to understand the data within your data lake, prepare it, and load it reliably into data stores. Once AWS Glue catalogs your data, it is immediately searchable, can be queried, and is available for ETL processing.</li>
+<li>Help you turn data into <strong>meaningful insights</strong>. Harness the power of purpose-built analytic services for a wide range of use cases, such as interactive analysis, data processing using Apache Spark and Apache Hadoop, data warehousing, real-time analytics, operational analytics, dashboards, and visualizations.</li>
+</ul>
+<h4 id="aws-lake-formation">AWS Lake Formation</h4>
+<p>AWS Lake Formation makes it easy to set up a secure data lake in days. A data lake is a centralized, curated, and secured repository that stores all your data, both in its original form and when prepared for analysis. A data lake enables you to break down data silos and combine different types of analytics to gain insights and guide better business decisions. AWS Lake Formation is in preview only.</p>
+<p>AWS Lake Formation is a service that organizes and curates data within Amazon S3 data lakes. This service ensures the security and compliance of items within the lake as well as orchestrates transformation jobs utilizing the data lake and other AWS services.</p>
+<h3 id="data-warehouse">Data Warehouse</h3>
+<p>structured data.</p>
+<p>Fast, centralized data retrieval.</p>
+<p>Data lakes and daka warehouses are two different storage systems. Data lakes are not  a replacement for data warehouses.</p>
+<p>A data warehouse is a <strong>central repository</strong> of <strong>structured</strong> data from <strong>many</strong> data sources. This data is <strong>transformed</strong>, <strong>aggregated</strong>, and <strong>prepared</strong> for business reporting and analysis.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201030210016708.png?raw=true" alt="image-20201030210016708"></p>
+<p>A data warehouse is a central repository of information coming from one or more data sources. Data flows into a data warehouse from transactional systems, relational databases, and other sources. These data sources can include structured, semistructured, and unstructured data. These data sources are transformed into structured data before they are stored in the data warehouse.</p>
+<p>Data is stored within the data warehouse using a schema. A schema defines how data is stored within tables, columns, and rows. The schema enforces constraints on the data to ensure integrity of the data. The transformation process often involves the steps required to make the source data conform to the schema. Following the first successful ingestion of data into the data warehouse, the process of ingesting and transforming the data can continue at a regular cadence.</p>
+<p>Business analysts, data scientists, and decision makers access the data through business intelligence (BI) tools, SQL clients, and other analytics applications. Businesses use reports, dashboards, and analytics tools to extract insights from their data, monitor business performance, and support decision making. These reports, dashboards, and analytics tools are powered by data warehouses, which store data efficiently to minimize I/O and deliver query results at blazing speeds to hundreds and thousands of users concurrently.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201030233712765.png?raw=true" alt="image-20201030233712765"></p>
+<h3 id="data-marts">Data Marts</h3>
+<p>A subset of a data warehouse.</p>
+<p>A subset of data from a data warehouse is called a <strong>data mart</strong>. Data marts only <strong>focus on one subject or functional area</strong>. A warehouse might contain all relevant sources for an enterprise, but a data mart might store <strong>only a single department’s sources</strong>. Because data marts are generally a copy of data already contained in a data warehouse, they are often <strong>fast and simple to implement.</strong></p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201030231123696.png?raw=true" alt="image-20201030231123696"></p>
+<h3 id="amazon-redshift-spectrum">Amazon Redshift Spectrum</h3>
+<p>Amazon Redshift overcomes all of data lake&rsquo;s negatives by providing a <strong>cloud-based, scalable, secure environment</strong> for your data warehouse. Amazon Redshift is easy to set up, deploy, and manage and provides up to 10 times faster performance than other data warehousing solutions.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Benefits of Amazon Redshift</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Faster performance</strong>  10x faster than other data warehouses</td>
+</tr>
+<tr>
+<td align="center"><strong>Easy to set up</strong>, deploy, and manage</td>
+</tr>
+<tr>
+<td align="center"><strong>Secure</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>Scales quickly</strong> to meet your needs</td>
+</tr>
+</tbody>
+</table>
+<h4 id="data-warehouse-vs-data-lakes"><strong>Data Warehouse vs Data Lakes</strong></h4>
+<p>For analysis to be most effective, it should be performed on data that has been processed and cleansed. This often means implementing an ETL operation to collect, cleanse, and transform the data. This data is then placed in a data warehouse. It is very common for data from many different parts of the organization to be combined into a single data warehouse.</p>
+<p>Amazon Redshift is a data warehousing solution specially designed for workloads of all sizes. Amazon Redshift Spectrum even provides the ability to query data that is housed in an Amazon S3 data lake.<img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201030234922475.png?raw=true" alt="image-20201030234922475"></p>
+<p><strong>Data lakes extend data warehouses</strong></p>
+<p>Data lakes provide customers a means for including unstructured and semistructured data in their analytics. Analytic queries can be run over cataloged data within a data lake. This extends the reach of analytics beyond the confines of a single data warehouse.</p>
+<p>Businesses can securely store data coming from applications and devices in its native format, with high availability, durability, at low cost, and at any scale. Businesses can easily access and analyze data in a variety of ways using the tools and frameworks of their choice in a high-performance, cost-effective way without having to move large amounts of data between storage and analytics systems.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201030235045512.png?raw=true" alt="image-20201030235045512"></p>
+<table>
+<thead>
+<tr>
+<th>Characteristics</th>
+<th>Data Warehouse</th>
+<th>Data Lakes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data</strong></td>
+<td>Relational from transactional systems, operational databases, and line of business applications</td>
+<td>Non-relational and relational from IoT devices, websites, mobile apps, social media, and corporate applications</td>
+</tr>
+<tr>
+<td><strong>Schema</strong></td>
+<td>Designed prior to implementation (schema-on-write)</td>
+<td>Written at the time of analysis  (schema-on-read)</td>
+</tr>
+<tr>
+<td><strong>Price/ performance</strong></td>
+<td>Fastest query results using higher cost storage</td>
+<td>Query results getting faster using  low-cost storage</td>
+</tr>
+<tr>
+<td><strong>Data quality</strong></td>
+<td>Highly curated data that serves as the central version of the truth</td>
+<td>Any data, which may or may not be curated (e.g., raw data)</td>
+</tr>
+<tr>
+<td><strong>Users</strong></td>
+<td>Business analysts</td>
+<td>Data scientists, data developers, and business analysts (using curated data)</td>
+</tr>
+<tr>
+<td><strong>Analytics</strong></td>
+<td>Batch reporting, BI, and visualizations</td>
+<td>Machine learning, predictive analytics, data discovery, and profiling.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-storage-on-a-big-scale"><strong>Data storage on a BIG scale</strong></h3>
+<p>We have discussed several recommendations for storing data:</p>
+<ul>
+<li>When storing <strong>individual objects or files</strong>, we recommend Amazon <strong>S3</strong>.</li>
+<li>When storing <strong>massive volumes of data, both semistructured and unstructured</strong>, we recommend <strong>building a data lake on Amazon S3</strong>.</li>
+<li>When storing massive amounts of <strong>structured data for complex analysis, we recommend storing your data in Amazon Redshift.</strong></li>
+</ul>
+<h3 id="apache-hadoop"><strong>Apache Hadoop</strong></h3>
+<p>When many people think of working with a massive volume of fast-moving data, the first thing that comes to mind is Hadoop. Within AWS, Hadoop frameworks are implemented using Amazon <strong>EMR</strong> and AWS G<strong>l</strong>ue. These services implement the Hadoop framework to <strong>ingest, transform, analyze, and move results to analytical data stores.</strong></p>
+<p>Hadoop uses a <strong>distributed processing architecture</strong>, in which a task is mapped to a cluster of commodity servers for processing. Each piece of work distributed to the cluster servers can be run or re-run on any of the servers. The cluster servers frequently use the <strong>Hadoop Distributed File System (HDFS)</strong> to store data locally for processing. The results of the computation performed by those servers are then reduced to a single output set. One node, designated as the master node, controls the distribution of tasks and can automatically handle server failures.</p>
+<h4 id="benefits-of-using-apache-hadoop"><strong>Benefits of using Apache Hadoop</strong></h4>
+<ul>
+<li>
+<p><strong>Handle uncertainty better</strong>: Hadoop facilitates data navigation, discovery, and one-time data analysis. With Hadoop, you can compensate for unexpected occurrences by analyzing large amounts of data quickly to form a response.</p>
+</li>
+<li>
+<p><strong>Manage Data Variety</strong>: Hadoop can process structured, semistructured, or unstructured data. This includes virtually any data format currently available.</p>
+<p>In addition to natively handling many types of data (such as XML, CSV, text, log files, objects, SQL, JSON, and binary), you can use Haddop to transform data into formats that allow better integration into your existing data sets. Also, you can store data with or without a schema and perform large-scale ETL operations to transform your data.</p>
+</li>
+<li>
+<p><strong>Wide Selection of Solutions</strong>: Because Hadoop is open source, several ecosystem projects are available to help you analyze the multiple types of data Hadoop can process and analyze.</p>
+<p>These projects give you tremendous flexibility when you are developing data analytics solutions. Hadoop’s programming frameworks (such as Hive and Pig) can support almost any data analytics use case for your applications.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201031000543210.png?raw=true" alt="image-20201031000543210"></p>
+</li>
+<li>
+<p><strong>Build for volume and velocity</strong>: Because of Hadoop’s distributed architecture, Hadoop clusters can handle tremendous amounts of data affordably. Adding additional data processing capability is as simple as adding additional servers to your cluster (horizontal scaling).</p>
+</li>
+</ul>
+<h4 id="implementing-hadoop-with-amazon-emr"><strong>Implementing Hadoop with Amazon EMR</strong></h4>
+<p>Amazon EMR is the AWS service that implements Hadoop frameworks. The service will ingest data from nearly any data source type at nearly any speed! Amazon EMR has the ability to implement two different file systems: <strong>HDFS</strong> or the <strong>Elastic MapReduce File System (EMRFS)</strong>. A file system is a set of organizational rules that govern how files are stored.</p>
+<h5 id="hdfs"><strong>HDFS</strong></h5>
+<p>To handle massive volumes of data rapidly, the processing system required a way to distribute the load of reading and writing files across tens or even hundreds of high-powered servers. HDFS is distributed storage allowing files to be read and written to clusters of servers in <strong>parallel</strong>. This dramatically reduces the overall length of each and every operation.</p>
+<p>It is helpful to understand the inner workings of an HDFS cluster. An HDFS cluster primarily consists of a <em><strong>NameNode</strong></em>, <strong>which manages the file system metadata, and <em>DataNodes</em>, which store the actual data.</strong></p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201031001440898.png?raw=true" alt="image-20201031001440898"><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201031001458920.png?raw=true" alt="image-20201031001458920"><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201031001516185.png?raw=true" alt="image-20201031001516185"></p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201031001546662.png?raw=true" alt="image-20201031001546662"><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20201031001632817.png?raw=true" alt=""></p>
+<p>Amazon EMR is the AWS service that implements Hadoop frameworks. An Amazon EMR process begins by ingesting data from one or more data sources and storing that data within a file system. If using HDFS, the file system is stored as an elastic block store volume. This storage volume is ephemeral meaning that the storage is of a temporary nature. Once the data has been copied into the HDFS volume, the transformation and analysis of the data is performed. The results are then sent to an analytical data store, such as an Amazon S3 data lake or Amazon Redshift data warehouse.</p>
+<h5 id="amazon-emrfs"><strong>Amazon EMRFS</strong></h5>
+<p>Amazon EMR provides an alternative to HDFS: the EMR File System (EMRFS). EMRFS can help ensure that there is a persistent &ldquo;source of truth&rdquo; for HDFS data stored in Amazon S3. When implementing EMRFS, there is no need to copy data into the cluster before transforming and analyzing the data as with HDFS. EMRFS can catalog data within a data lake on Amazon S3. The time that is saved by eliminating the copy step can dramatically improve performance of the cluster.</p>
+<h2 id="velocity---data-processing">Velocity - Data Processing</h2>
+<ol>
+<li>Batch processing
+<ol>
+<li>scheduled batch processing</li>
+<li>Periodic batch processing</li>
+</ol>
+</li>
+<li>Streaming Processing
+<ol>
+<li>Near-real-time</li>
+<li>Real-time</li>
+</ol>
+</li>
+</ol>
+<h3 id="characteristics-of-data-processing-velocity"><strong>Characteristics of data processing velocity</strong></h3>
+<p><strong>Velocities on collecting data</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Processing</th>
+<th>Velocities on Collecting Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Batch</strong>:</td>
+<td>Velocity is very predictable with batch processing. It amounts to large bursts of data transfer at scheduled intervals.</td>
+</tr>
+<tr>
+<td><strong>Periodic</strong>:</td>
+<td>Velocity is less predictable with periodic processing. The loss of scheduled events can put a strain on systems and must be considered.</td>
+</tr>
+<tr>
+<td><strong>Near real-time</strong>:</td>
+<td>Velocity is a huge concern with near real-time processing. These systems require data to be processed within minutes of the initial collection of the data. This can put tremendous strain on the processing and analytics systems involved.</td>
+</tr>
+<tr>
+<td><strong>Real-time:</strong></td>
+<td>Velocity is the paramount concern for real-time processing systems. Information cannot take minutes to process. It must be processed in <strong>seconds</strong> to be valid and maintain its usefulness.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Velocities on processing data</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Processing</th>
+<th>Velocities on Processing Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Batch and periodic</strong>:</td>
+<td>Once the data has been collected, processing can be done in a controlled environment. There is time to plan for the appropriate resources.</td>
+</tr>
+<tr>
+<td><strong>Near real-time and real-time</strong>:</td>
+<td>Collection of the data leads to an immediate need for processing. Depending on the complexity of the processing (cleansing, scrubbing, curation), this can slow down the velocity of the solution significantly. Plan accordingly.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="attributes-of-batch-and-stream-processing"><em><strong>*Attributes of batch and stream processing*</strong></em></h3>
+<p>The table below highlights the difference between batch and stream processing:</p>
+<p><img src="https://raw.githubusercontent.com/ffflora/data-science-notes/master/archived-pics/aws/image-20201015002429812.png" alt="image-20201015002429812"></p>
+<h3 id="business-challenge">Business Challenge</h3>
+<p>The slower collection of data followed by a rapid processing requirement is a common challenge.</p>
+<p>The rapid collection of data followed by the rapid processing of data is a common signature of streaming analytics.</p>
+<h3 id="batch-processing-architecture"><strong>Batch processing architecture</strong></h3>
+<p>Batch processing can be performed in different ways using AWS services. i.e.,</p>
+<p><strong>S3, Lambda, EMR, Glue, Redshift.</strong></p>
+<p>Amazon <strong>EMR</strong> provides a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances.</p>
+<p>Amazon <strong>EMR</strong> is a managed service for executing highly complex, massive batch workloads. This service also allows highly complex analytic operations.</p>
+<p>AWS <strong>Glue</strong> is a fully managed extract, transform, and load (ETL) service that makes it easy for you to prepare and load your data for analytics.</p>
+<p>Amazon <strong>Redshift</strong> is a fast, scalable data warehouse that makes it simple and cost-effective to analyze all your data across your data warehouse and data lake.</p>
+<p>Amazon <strong>Redshift</strong> is a managed data warehouse service that stores large amounts of transactional data for the purpose of analytics.</p>
+<p>AWS <strong>Lambda</strong> is a serverless compute service that can be used to trigger processing operations in a batch processing system.</p>
+<h3 id="stream-data-processing">Stream Data Processing</h3>
+<h4 id="aws-knesis">AWS Knesis</h4>
+<p><strong>Amazon Kinesis Data Firehose</strong> is the easiest way to capture, transform, and load data streams into AWS data stores for near real-time analytics with existing business intelligence tools.</p>
+<p><strong>Amazon Kinesis Data Analytics</strong> is the easiest way to process data streams in real time with SQL or Java without having to learn new programming languages or processing frameworks.</p>
+<p><strong>&hellip;</strong></p>
+<h5 id="other-stream-processing-architecture">Other stream processing architecture:</h5>
+<p><strong>Amazon Athena</strong> is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run.</p>
+<p><strong>Amazon QuickSight</strong> is a fast, cloud-powered business intelligence (BI) service that makes it easy for you to deliver insights to everyone in your organization.</p>
+<h2 id="variety--data-structure-and-types">Variety – data structure and types</h2>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210109152122711.png?raw=true" alt="image-20210109152122711"></p>
+<p>Surprisingly, the most common data types auch as <code>csv</code> and <code>JSON</code> are semistructured data.</p>
+<h3 id="intro-to-structured-data-stores">Intro to Structured Data Stores</h3>
+<h4 id="flat-file-data">Flat-file Data</h4>
+<p>Flat-file data generally resides in a worksheet or spreadsheet.</p>
+<h4 id="relational-databases"><strong>Relational databases</strong></h4>
+<p>A process known as normalization helps a business take flat-file data and turn it into a relational database. Normalization is a set of rules that work together to reduce redundancy, increase reliability, and improve the consistency of data storage.</p>
+<h4 id="types-of-information-systems"><strong>Types of information systems</strong></h4>
+<p>There are two main ways—known as information systems—of organizing data within a relational database. The data can be organized to focus on the storage of transactions or the process of analyzing transactions.</p>
+<p>Transactional databases are called online transaction processing (OLTP) databases. The data gathered by OLTP databases is often fed into another type of database that focuses on analyzing the transactional data. Online analytical processing (OLAP) databases gather data from OLTP systems for the purpose of organizing it for analytical operations.</p>
+<h4 id="comparing-oltp-and-olap"><em><strong>*Comparing OLTP and OLAP*</strong></em></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Characteristic</strong></th>
+<th><strong>OLTP</strong></th>
+<th><strong>OLAP</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nature</strong></td>
+<td>Constant transactions (queries/updates)</td>
+<td>Periodic large updates, complex queries</td>
+</tr>
+<tr>
+<td><strong>Examples</strong></td>
+<td>Accounting database, online retail transactions</td>
+<td>Reporting, decision support</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Operational data</td>
+<td>Consolidated data</td>
+</tr>
+<tr>
+<td><strong>Data retention</strong></td>
+<td>Short-term (2-6 months)</td>
+<td>Long-term (2-5 years)</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>Gigabytes (GB)</td>
+<td>Terabytes (TB)/petabytes (PB)</td>
+</tr>
+<tr>
+<td><strong>Users</strong></td>
+<td>Many</td>
+<td>Few</td>
+</tr>
+<tr>
+<td><strong>Protection</strong></td>
+<td>Robust, constant data protection and fault tolerance</td>
+<td>Periodic protection</td>
+</tr>
+</tbody>
+</table>
+<p>In an <strong>OLTP system</strong>, the most common queries are called lookup queries. These queries need to return several columns of data for each matching record. The filters on this data are generally based on the key columns in that table. In this type of system, you might query to get details for a specific order.</p>
+<p>In an <strong>OLAP system</strong>, the most common queries are aggregate queries. These queries take large numbers of rows and reduce them to a single row by aggregating the values in one or more columns. In this type of system, you might query to find out the total number of items sold on a specific date.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Row-based indexes</strong></th>
+<th><strong>Columnar indexes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Storage on disk</strong></td>
+<td>Row by row</td>
+<td>Column by column</td>
+</tr>
+<tr>
+<td><strong>Read/write</strong></td>
+<td>Best at random reads and writes</td>
+<td>Best at sequential reads and writes</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Returning full rows of data based on a key</td>
+<td>Returning aggregations of column values</td>
+</tr>
+<tr>
+<td><strong>Implementation</strong></td>
+<td>Transactional systems</td>
+<td>Analytical processing</td>
+</tr>
+<tr>
+<td><strong>Data compression</strong></td>
+<td>Low to medium compression can be achieved</td>
+<td>High compression is the norm</td>
+</tr>
+</tbody>
+</table>
+<h5 id="aws-solution">AWS Solution:</h5>
+<p>Within AWS, the <strong>Amazon Relational Database Service (Amazon RDS)</strong> provides the needs for many different relational database management systems. It supports the most popular database engines including Amazon Aurora, MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server.</p>
+<p>**Amazon Redshift **is a fast, scalable data warehouse that makes it simple and cost effective to analyze all your data across your data warehouse and data lake. Amazon Redshift delivers 10 times faster performance than other data warehouses by using machine learning, massively parallel query execution, and columnar storage on high-performance disk. You can set up and deploy a new data warehouse in minutes and run queries across petabytes of data in your Amazon Redshift data warehouse and exabytes of data in your data lake built on Amazon S3.</p>
+<p>Amazon Redshift implements columnar indexing to achieve the the right performance for analytical workloads.</p>
+<h3 id="intro-to-semistructured-and-unstructured-data-stores">Intro to Semistructured and Unstructured Data Stores</h3>
+<p>Semistructured and unstructured data are often stored in non-relational database systems, sometimes called NoSQL databases.</p>
+<h4 id="data-schemas">Data Schemas</h4>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210110210251527.png?raw=true" alt="image-20210110210251527"></p>
+<h5 id="aws-solutions"><strong>AWS Solutions:</strong></h5>
+<p>Amazon <strong>DynamoDB</strong> is a key-value and document database that delivers single-digit millisecond performance at any scale. It&rsquo;s a fully managed, multiregion, multimaster database with built-in security, backup and restore, and in-memory caching for internet-scale applications. DynamoDB can handle more than 10 trillion requests per day and support peaks of more than 20 million requests per second.</p>
+<h3 id="graph-databases"><strong>Graph databases</strong></h3>
+<p>Graph databases are purpose-built to store any type of data: structured, semistructured, or unstructured. The purpose for organization in a graph database is to navigate <strong>relationships</strong>. Data within the database is queried using specific languages associated with the software tool you have implemented.</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210111235609272.png?raw=true" alt="image-20210111235609272"></p>
+<h5 id="the-aws-solution">The AWS Solution:</h5>
+<p><strong>Amazon Neptune</strong> is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected data sets.</p>
+<p>The core of Neptune is a purpose-built, high-performance graph database engine optimized for storing billions of relationships and querying the graph with milliseconds latency.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Characteristic</strong></th>
+<th><strong>Relational</strong></th>
+<th><strong>Non-relational</strong></th>
+<th><strong>Graph</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Representation</strong></td>
+<td>Multiple tables, each containing columns and rows</td>
+<td>Collection of documents Single table with keys and values</td>
+<td>Collections of nodes and relationships</td>
+</tr>
+<tr>
+<td><strong>Data</strong> <strong>design</strong></td>
+<td>Normalized relational or dimensional data warehouse.</td>
+<td>Denormalized document, wide column or key value</td>
+<td>Denormalized entity relationship</td>
+</tr>
+<tr>
+<td><strong>Optimized</strong></td>
+<td>Optimized for storage</td>
+<td>Optimized for compute</td>
+<td>Optimized for relationships</td>
+</tr>
+<tr>
+<td><strong>Query</strong> <strong>style</strong></td>
+<td>Language: SQL</td>
+<td>Language: many Uses object querying</td>
+<td>Language: many Uses object querying</td>
+</tr>
+<tr>
+<td><strong>Scaling</strong></td>
+<td>Scale vertically</td>
+<td>Scale horizontally</td>
+<td>Hybrid</td>
+</tr>
+<tr>
+<td><strong>Implementation</strong></td>
+<td>OLTP business systems, OLAP data warehouse</td>
+<td>OLTP web/mobile apps</td>
+<td>OLTP web/mobile apps</td>
+</tr>
+</tbody>
+</table>
+<p>A multidemensional data warehouse is best suited for a <strong>relational database</strong>.</p>
+<p>Log files are generally produced in the form of XML or JSON files, which are very well suited for storage in a <strong>document database</strong>.</p>
+<p>Data collected from online gaming websites is often very rapid in generation and temporary in nature. This data is well suited for a <strong>key-value database</strong>.</p>
+<p>Transactional data from a social subscription service could be stored in a relational database, but due to the social component, it would be better suited to the advantages gained by using a <strong>graph database</strong>.</p>
+<h5 id="remark-horizontal-vs-vertical-scaling">Remark: Horizontal vs Vertical Scaling</h5>
+<p>Scalable Dimensions:</p>
+<ul>
+<li>
+<p>concurrent Connections,</p>
+</li>
+<li>
+<p>CPU high or low</p>
+</li>
+<li>
+<p>Memory(Quantity + Speed)</p>
+</li>
+<li>
+<p>Netword Interfaces</p>
+<p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/aws/image-20210112001502324.png?raw=true" alt="image-20210112001502324"></p>
+</li>
+</ul>
+<p>Scale Horizontally by adding more nodes and a load balancer.</p>
+<p>Horizontal has more startup cost, but better efficiency and safer.</p>
+<p>Scale Vertically by adding more powerful hardware.</p>
+<p>Vertical has lower cost efficiency and a theoretical maximum.</p>
+<h2 id="veracity---cleansing-and-transformation">Veracity - Cleansing and Transformation</h2>
+<h3 id="definitions"><strong>Definitions</strong></h3>
+<p><strong>Curation</strong> is the action or process of selecting, organizing, and looking after the items in a collection.
+<strong>Data integrity</strong> is the maintenance and assurance of the accuracy and consistency of data over its entire lifecycle.
+<strong>Data veracity</strong> is the degree to which data is accurate, precise, and trusted.</p>
+<h3 id="understanding-database-consistency---acid-and-base"><strong>Understanding database consistency</strong> - ACID and BASE</h3>
+<h4 id="acid"><strong>ACID</strong></h4>
+<p><em><strong>ACID</strong> is an acronym for <strong>A</strong>tomicity, <strong>C</strong>onsistency, <strong>I</strong>solation, and <strong>D</strong>urability. It is a method for maintaining consistency and integrity in a structured database.</em></p>
+<h4 id="base"><strong>BASE</strong></h4>
+<p><strong>BASE</strong> is an acronym for <strong>B</strong>asically <strong>A</strong>vailable <strong>S</strong>oft state <strong>E</strong>ventually consistent. *It is a method for maintaining consistency and integrity in a structured or semistructured database.</p>
+<table>
+<thead>
+<tr>
+<th><strong>ACID compliance</strong></th>
+<th><strong>BASE compliance</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strong consistency</td>
+<td>Weak consistency – stale data is OK</td>
+</tr>
+<tr>
+<td>Isolation is key</td>
+<td>Availability is key</td>
+</tr>
+<tr>
+<td>Focus on committed results</td>
+<td>Best effort results</td>
+</tr>
+<tr>
+<td>Conservative (pessimistic) availability</td>
+<td>Aggressive (optimistic) availability</td>
+</tr>
+</tbody>
+</table>
+<h4 id="aws-solution-1">AWS Solution</h4>
+<p>When it comes to performing the data transformation component of ETL, there are two options within AWS: Amazon EMR and AWS Glue. These two services provide similar results but require different amounts of knowledge and time investment.</p>
+<p><strong>Amazon EMR</strong> is a more hands-on approach to creating your data pipeline. This service provides a robust data collection and processing platform. Using this service requires you to have strong technical knowledge and know-how on your team. The upside of this is that you can create a more customized pipeline to fit your business needs. Additionally, your infrastructure costs may be lower than running the same workload on AWS Glue.</p>
+<p><strong>AWS Glue</strong> is a serverless, managed ETL tool that provides a much more streamlined experience than Amazon EMR. This makes the service great for simple ETL tasks, but you will not have as much flexibility as with Amazon EMR. You can also use AWS Glue as a metastore for your final transformed data by using the AWS Glue Data Catalog. This catalog is a drop-in replacement for a Hive metastore.</p>
+<h2 id="value---reporting-and-business-intelligence">Value - Reporting and Business Intelligence</h2>
+<ul>
+<li>
+<p>What were total sales in April?</p>
+<p>Questions relating to past events are answered using <strong>descriptive analytics.</strong></p>
+</li>
+<li>
+<p>What is the year-over-year total sales for the Asia Pacific region?</p>
+<p>Questions comparing current data sets to past data sets are answered using <strong>diagnostic analytics</strong>.</p>
+</li>
+<li>
+<p>What is the projected growth for smoking-related hospitalizations next year?</p>
+<p>Questions looking for predictions of future events are answered using <strong>predictive analytics</strong>.</p>
+</li>
+<li>
+<p>What products should I buy if I like the Seattle Seahawks?</p>
+<p>Questions looking for recommendations based on preferences or prior purchase history are answered using <strong>prescriptive analytics</strong>.</p>
+</li>
+<li>
+<p>What is the average number of vehicles spotted by my video doorbell?</p>
+<p>Questions that require analysis of video, images, and voice are answered using <strong>cognitive analytics.</strong></p>
+</li>
+</ul>
+<h4 id="aws-solutions-1">AWS Solutions:</h4>
+<p><strong>Amazon QuickSight</strong> is a fast, easy-to-use, cloud-powered business analytics service that makes it easy for all employees within an organization to build visualizations, perform one-time analyses, and quickly get business insights from their data, any time, on any device.</p>
+<p>Interactive dashboards provide dashboard consumers with a self-service way to consume and slice and dice their data to answer questions without having to rely on a business intelligence team.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/tags/aws/">AWS</a></span>
+        <span class="tag"><a href="https://ffflora.cat/tags/data-analytics/">Data Analytics</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/categories/data-science/">Data Science</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        4267 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-01-14 00:19
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions&amp;caption=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions&amp;canonicalUrl=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions&amp;body=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f&amp;media=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f;description=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f&amp;title=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions&amp;summary=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions&amp;source=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f&amp;resubmit=true&amp;title=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f;title=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions%20https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f&amp;t=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Intro%20to%20Data%20Analytics%20Fundamental%20with%20AWS%20Solutions&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f01%2fintro-to-data-analytics-fundamental-with-aws-solutions%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://ffflora.cat/posts/2021/01/aws-machine-learning-exam-readiness-with-sample-questions/">
+                <span class="button__icon">←</span>
+                <span class="button__text">AWS Machine Learning Exam Readiness with Sample Questions</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/">
+                <span class="button__text">How to Use Auto Completion in GCP</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://ffflora.cat/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084;</span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188012091-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

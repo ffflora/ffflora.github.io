@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GCP on Flora Wenyao Jiang</title>
+    <link>https://ffflora.cat/tags/gcp/</link>
+    <description>Recent content in GCP on Flora Wenyao Jiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 28 Aug 2019 21:30:55 -0700</lastBuildDate>
+    
+	<atom:link href="https://ffflora.cat/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Use Auto Completion in GCP</title>
+      <link>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</link>
+      <pubDate>Wed, 28 Aug 2019 21:30:55 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</guid>
+      <description>Auto-completion gcloud interactive has auto prompting for commands and flags, and displays inline help snippets in the lower section as the command is typed.
+Static information, like command and sub-command names, and flag names and enumerated flag values, are auto-completed using dropdown menus.
+Install the beta components:
+gcloud components install beta Enter the gcloud interactive mode:
+gcloud beta interactive When using the interactive mode, click on the Tab key to complete file path and resource arguments.</description>
+    </item>
+    
+  </channel>
+</rss>
