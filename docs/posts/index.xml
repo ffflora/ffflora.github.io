@@ -207,7 +207,19 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <li>
 <p>AWS Glue does not support Timestream as the source input type.</p>
 </li>
-<li></li>
+<li>
+<p><strong>Preventative</strong> controls encompass the AWS CAF(Cloud Adoption Framework) Security Perspective capabilities of IAM, infrastructure security, and data protection. They are <strong>(i) IAM, (ii) Infrastructure security, and (iii) Data protection (encryption and tokenization).</strong></p>
+<p><strong>Detective</strong> controls detect changes to configurations or undesirable actions and enable timely incident response. They are <strong>(i) Detection of unauthorized traffic, (ii) Configuration drift, (iii) Fine-grained audits.</strong></p>
+</li>
+<li>
+<p>AWS Step Functions lets you coordinate multiple AWS services into serverless workflows so you can build and update apps quickly. Using Step Functions, you can design and run workflows that stitch together services, such as AWS Lambda, AWS Fargate, and Amazon SageMaker, into feature-rich applications. Workflows are made up of a series of steps, with the output of one step acting as input into the next. They are perfect to run multiple ETL jobs that hand off the input to ML workflows. <strong>(The keyword in the question is &lsquo;workflow&rsquo;.)</strong></p>
+</li>
+<li>
+<p>Kinesis Data Analytics can use lambda to convert GZIP and can run SQL on the converted data. A specialist can simply select an AWS Lambda function from the Kinesis Analytics application source page in the AWS Management console. His Kinesis Analytics application will automatically process raw data records using the Lambda function and send transformed data to his SQL code for further processing.</p>
+</li>
+<li>
+<p>Object tags are useful for security and lifecycle management. One can use tags to identify an object with, say PII (Personally identifiable information), or use S3 for one-dimensional object categorization. One can also add another dimension using bucket prefixes.</p>
+</li>
 </ol>
 <h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
 <ol>
@@ -222,6 +234,7 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 </li>
 <li>
 <p>Great reference for the most common probability distributions: <a href="https://medium.com/@srowen/common-probability-distributions-347e6b945ce4">Common Probability Distributions: The Data Scientist’s Crib Sheet</a></p>
+<p>The <strong>Rademacher</strong> distribution takes value 1 with probability 1/2 and value −1 with probability 1/2. The <strong>degenerate</strong> distribution is localized at a point x0, where x is certain to take the value x_0. The probability mass function equals 1 at this point and 0 elsewhere.</p>
 </li>
 <li>
 <p>You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:</p>
@@ -244,8 +257,9 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>tf-idf(“fox”, d1, D) = tf(“fox”, d1) * idf(“fox”, D) = (2/12) * 0 = 0</p>
 <p>tf-idf(“fox”, d2, D) = tf(“fox”, d2) * idf(“fox”, D) = (3/12) * 0 = 0</p>
 <p>Using tf-idf, the word “fox” is equally relevant (or just irrelevant!) for both document d1 and document d2</p>
-<p>You can further read about tf-idf on this reference link:</p>
-<p><a href="https://en.wikipedia.org/wiki/Tf">https://en.wikipedia.org/wiki/Tf</a>–idf</p>
+</li>
+<li>
+<p>TF-IDF: Three different inverse document frequency functions are standard, smooth, probabilistic: Standard: log(N)/n_t, Smooth: log(N)/((1+n_t) +1), Probabilistic: log(N-N_t)/n_t, where N is the total number of documents in the corpus, and n_t is a number of documents where the term t appears.</p>
 </li>
 <li>
 <p>Logarithm transformation and Standardization are the correct techniques to address outliers in data. Please review this reference link:</p>
@@ -268,6 +282,9 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p><a href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51">https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51</a></p>
 </li>
 <li>
+<p>The <strong>Box Plot and Violin Plot</strong> are used to summarize multivariate distributions. They are a standardized way of displaying the data distributions based on a <strong>five-number summary (minimum, first quartile (Q1), median, third quartile (Q3), and maximum).</strong> The plots show symmetry, tightness of the groups, skewness, and any outliers present.</p>
+</li>
+<li>
 <p>The Multiple Imputations by Chained Equations (MICE) algorithm is a robust, informative method of dealing with missing data in your datasets. This procedure imputes or &lsquo;fills in&rsquo; the missing data in a dataset through an iterative series of predictive models. Each specified variable in the dataset is imputed in each iteration using the other variables in the dataset. These iterations will be run continuously until convergence has been met. In General, MICE is a better imputation method than naive approaches (filling missing values with 0, dropping columns).</p>
 </li>
 <li>
@@ -275,6 +292,9 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 </li>
 <li>
 <p>Quicksight supports the following file formats only: <strong>CSV/TSV, ELF/CLF, JSON, XLSX</strong>.</p>
+</li>
+<li>
+<p>For QuickSight, AWS Enterprise Edition Authors (create &amp; publish) pay $18/month with an annual subscription, while Readers (getting secure access to interactive dashboards) pay $0.30/session up to $5/month&rsquo;.</p>
 </li>
 <li>
 <p><strong>F0.5-Measure</strong> (beta=0.5): More weight on precision, less weight on recall.</p>
@@ -288,6 +308,9 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 </li>
 <li>
 <p>The Receiver Operating Characteristic - <strong>ROC</strong>, true positive rate &amp; false positive rate - determines the ability of a binary classification model, as its discrimination threshold is varied.</p>
+</li>
+<li>
+<p>False positive Rate = 1 - TNR(True negative rate) = 1 - specifiticy</p>
 </li>
 <li>
 <p>As per sklearn, the minority class is considered as the positive class. Hence, in cases with fraudulent data, a fraud transaction is considered as a positve class. Similary, in diagnostics, a disease detected is considered positive.</p>
@@ -334,6 +357,15 @@ Named Entity Recognition.
 </code></pre></li>
 <li>
 <p>The <em>p</em> value represents the level of probability that an apparently significant relationship between variables was really just due to chance. If <em>p</em> is set at 0.01, this means that we would expect such a result in only 1 in 100 cases. This is a very stringent level, and while it means that the researcher can be more confident about a significant result if they find one, it also increases the chance of making a Type II error: confirming the null hypothesis when it should be rejected.</p>
+</li>
+<li>
+<p>Adoptive (or q-quantile) binning helps in partitioning a numeric attribute into &lsquo;q&rsquo; equal partitions.  Adoptive binning leads to discrete-valued categorical features transforming <strong>numerical data into ordinal data.</strong></p>
+</li>
+<li>
+<p>95% of the measurements fall between +/- 2 standard deviations around the mean.</p>
+</li>
+<li>
+<p>Amazon EMR offers you two options to work with Jupyter notebooks: (i) EMR Notebook, and (ii) JupyterHub. An EMR notebook is a &lsquo;serverless&rsquo; Jupyter notebook. Unlike a traditional notebook, the contents of an EMR notebook itself — the equations, visualizations, queries, models, code, and narrative text — are saved in Amazon S3 separately from the cluster that runs the code.</p>
 </li>
 </ol>
 <h1 id="modeling">Modeling</h1>
@@ -470,6 +502,8 @@ Named Entity Recognition.
 <li>
 <p>Bullseyes desmonstrates</p>
 <p><img src="https://www.researchgate.net/profile/Anni-Helena-Ruotsala/publication/304674901/figure/fig6/AS:668649476067338@1536429866393/Precision-versus-accuracy-The-bullseye-represents-the-true-value-eg-the-true.ppm" alt="Precision versus accuracy. The bullseye represents the true value, e.g., the true location of the object, while black dots represent measurements, e.g., the estimated 3D locations of the object based on the 2D images. Source: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments2/precision-and-accuracy-glacial-geology/. Accessed 7.4.2016."></p>
+<p>Dart-throwing Demo</p>
+<p><img src="https://www.researchgate.net/profile/Syed-Akhter-6/publication/330761010/figure/fig2/AS:721145984720896@1548946009061/Bias-and-variance-in-dart-throwing.ppm" alt="2: Bias and variance in dart-throwing."></p>
 </li>
 <li>
 <p><em><strong>Object Detection</strong></em> : is the technology that is related to computer vision and image processing. It&rsquo;s aim? detect objects in an image.</p>
@@ -506,8 +540,17 @@ Named Entity Recognition.
 <li>
 <p>Softmax usually used as the last layer of the multiple classification problem. It can&rsquo;t product more than one label(sigmoid can)</p>
 </li>
+<li>
+<p>Logistic activation, Sigmoid, or Soft Step all represent the same function: Logistic (Sigmoid or Soft Step): f(x)=sigma(x)=1/(1-exp(-x))</p>
+</li>
+<li>
+<p><strong>Entropy</strong> is a measure of the uncertainty associated with a given distribution &ndash; it measures how much information is required, on average, to identify random samples from that distribution. Cross entropy can be used to define a loss function in machine learning and optimization. Cross entropy is related to log-likelihood: maximizing the likelihood is the same as minimizing the cross-entropy.</p>
+</li>
+<li>
+<p>BLEU (bilingual evaluation understudy) is an algorithm for evaluating the quality of the text which has been machine-translated from one natural language to another. The range of this metric is from 0.0 (a perfect translation mismatch) to 1.0 (a perfect translation match).</p>
+</li>
+<li></li>
 </ol>
-<h4 id="explanation">Explanation</h4>
 <h1 id="ml-implementation-and-operation">ML Implementation and Operation</h1>
 <ol>
 <li>
@@ -516,6 +559,15 @@ Named Entity Recognition.
 <li>
 <p>Neo currently supports image classification models exported as frozen graphs from TensorFlow, MXNet, or PyTorch, and XGBoost models.:</p>
 <p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html">https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html</a></p>
+</li>
+<li>
+<p>three advantages of using Amazon <strong>Neo</strong> with SageMaker models are:</p>
+<p><strong>(i) run ML models with up to 2x better performance,</strong></p>
+<p><strong>(ii) reduce framework size by 10x, and</strong></p>
+<p><strong>(iii) run the same ML model on multiple hardware platforms.</strong></p>
+</li>
+<li>
+<p>AWS Greengrass is not used for code optimization.</p>
 </li>
 <li>
 <p>The default Sagemaker IAM role gets permissions to access any bucket that has sagemaker in the name. If you add a policy to the role that grants the SageMaker service principal S3FullAccess permission, the name of the bucket does not need to contain sagemaker. Granting public access to S3 bucket is not recommended. You can read further on this -</p>
@@ -576,6 +628,9 @@ Named Entity Recognition.
 <p>- Virtually limitless data processing capacity.</p>
 <p>With Pipe mode, the startup time is reduced significantly from 11.5 minutes to 1.5 minutes in most experiments. Also, the overall I/O throughput is at least twice as fast as that of File mode. Both of these improvements made a positive impact on the total training time, which is reduced by up to 35%.</p>
 <p><strong>File mode is the default mode for training a model in Amazon SageMaker.</strong></p>
+</li>
+<li>
+<p>The algorithms that support <strong>Pipe input mode</strong> today when used with <strong>protobuf recordIO-encoded</strong> datasets are <!-- raw HTML omitted -->Principal Component Analysis (PCA), K-Means Clustering, Factorization Machines, Latent Dirichlet Allocation (LDA), Linear Learner (Classification and Regression), Neural Topic Modelling, and Random Cut Forest. AWS Mechanical Turk, Amazon Comprehend, and Amazon QuickSight are the fully managed AWS services for crowdsourcing tasks, Natural Language Processing (NLP), and Business Intelligence (BI)<!-- raw HTML omitted -->.</p>
 </li>
 <li>
 <p>You can use <strong>Amazon CloudWatch API</strong> operations to send the training metrics to CloudWatch, and create a dashboard of those metrics. Lastly, use Amazon Simple Notification Service (Amazon SNS) to send a notification when the model is overfitting.</p>
@@ -681,10 +736,32 @@ Named Entity Recognition.
 <p>An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of <strong>two to fifteen</strong> containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.</p>
 </li>
 <li>
+<p>The ML <strong>algorithm</strong> should be available in <strong>/opt/program</strong> directory of the Docker container. Three main files there are <strong>train, serve, and predictor.py.</strong> <!-- raw HTML omitted -->***train/***<!-- raw HTML omitted --> contains the <!-- raw HTML omitted -->logic for training the model and storing the trained model<!-- raw HTML omitted -->. If the train file runs successfully, it will save a model to <strong>/opt/ml/model</strong> directory. <em><strong>serve/</strong></em> essentially runs the <strong>logic written in predictor.py.</strong></p>
+<p>Two other files, nginx.config (NGINX configuration file) and wsgi.py (a simple wrapper file), usually can be left unchanged.</p>
+</li>
+<li>
+<p>Amazon Sagemaker provides prebuilt Amazon SageMaker Docker Images for TensorFlow, MXNet, Chainer, and PyTorch, as well as Docker Images for Scikit-learn and Spark ML (see links below).</p>
+</li>
+<li>
 <p>Your inference container responds to port 8080, and must respond to ping requests in under 2 seconds. Model artifacts need to be compressed in tar format, not zip.</p>
 </li>
 <li>
 <p>Lex can handle <strong>both speech-to-text and handling the chatbot logic</strong>. The output from Lex could be read back to the customer using Polly. Under the hood, more services would likely be needed as well to support Lex, such as Lambda and DynamoDB.</p>
+</li>
+<li>
+<p>Amazon SageMaker runs training jobs in an Amazon Virtual Private Cloud (Amazon VPC) to help keep your data secure. <!-- raw HTML omitted -->If you are using distributed ML frameworks and algorithms, and your algorithms transmit information that is directly related to the model (eg weights),<!-- raw HTML omitted --> you can provide an <strong>additional level of security by enabling inter-container traffic encryption</strong>. But note that turning on inter-container traffic encryption can increase training time, and therefore the cost.</p>
+</li>
+<li>
+<p>Amazon <strong>Macie</strong> is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS. Amazon Macie recognizes sensitive data such as personally identifiable information (PII) or intellectual property and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved. The fully managed service continuously monitors data access activity for anomalies and generates detailed alerts when it detects the risk of unauthorized access or inadvertent data leaks. Amazon Macie is available to protect data stored in Amazon S3.</p>
+</li>
+<li>
+<p>Multi-factor authentication (MFA) could be used with each account for enhanced data security.</p>
+</li>
+<li>
+<p>AWS managed SageMaker policies that can be attached to the users are <strong>AmazonSageMakerReadOnly, AmazonSageMakerFullAccess, AdministratorAccess, and DataScientist.</strong></p>
+</li>
+<li>
+<p>The containers must be <strong>NVIDIA-Docker</strong> compatible and contain only <strong>CUDA</strong> toolkit, <strong>without NVIDIA Drivers</strong> (see links below). The toolkit includes a container runtime library and utilities to automatically configure containers to leverage NVIDIA GPUs.</p>
 </li>
 </ol>
 <hr>

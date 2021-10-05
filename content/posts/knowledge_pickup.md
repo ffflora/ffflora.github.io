@@ -154,7 +154,17 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
 38. AWS Glue does not support Timestream as the source input type.
 
-39. 
+39. **Preventative** controls encompass the AWS CAF(Cloud Adoption Framework) Security Perspective capabilities of IAM, infrastructure security, and data protection. They are **(i) IAM, (ii) Infrastructure security, and (iii) Data protection (encryption and tokenization).**
+
+    **Detective** controls detect changes to configurations or undesirable actions and enable timely incident response. They are **(i) Detection of unauthorized traffic, (ii) Configuration drift, (iii) Fine-grained audits.**
+
+40. AWS Step Functions lets you coordinate multiple AWS services into serverless workflows so you can build and update apps quickly. Using Step Functions, you can design and run workflows that stitch together services, such as AWS Lambda, AWS Fargate, and Amazon SageMaker, into feature-rich applications. Workflows are made up of a series of steps, with the output of one step acting as input into the next. They are perfect to run multiple ETL jobs that hand off the input to ML workflows. **(The keyword in the question is 'workflow'.)**
+
+41. Kinesis Data Analytics can use lambda to convert GZIP and can run SQL on the converted data. A specialist can simply select an AWS Lambda function from the Kinesis Analytics application source page in the AWS Management console. His Kinesis Analytics application will automatically process raw data records using the Lambda function and send transformed data to his SQL code for further processing.
+
+42. Object tags are useful for security and lifecycle management. One can use tags to identify an object with, say PII (Personally identifiable information), or use S3 for one-dimensional object categorization. One can also add another dimension using bucket prefixes.
+
+    
 
 # Exploratory Data Analysis 
 
@@ -169,6 +179,8 @@ This notes is some catchups for better prep for AWS machine learning specialty c
     **<u>Data lakes</u>** provides schema on **read** access, whereas <u>**data warehouse**</u> provides schema on **write**.
 
 3. Great reference for the most common probability distributions: [Common Probability Distributions: The Data Scientist’s Crib Sheet](https://medium.com/@srowen/common-probability-distributions-347e6b945ce4)
+
+    The **Rademacher** distribution takes value 1 with probability 1/2 and value −1 with probability 1/2. The **degenerate** distribution is localized at a point x0, where x is certain to take the value x_0. The probability mass function equals 1 at this point and 0 elsewhere.
 
 4. You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
 
@@ -208,23 +220,19 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
    Using tf-idf, the word “fox” is equally relevant (or just irrelevant!) for both document d1 and document d2
 
-   
+6. TF-IDF: Three different inverse document frequency functions are standard, smooth, probabilistic: Standard: log(N)/n_t, Smooth: log(N)/((1+n_t) +1), Probabilistic: log(N-N_t)/n_t, where N is the total number of documents in the corpus, and n_t is a number of documents where the term t appears.
 
-   You can further read about tf-idf on this reference link:
-
-   https://en.wikipedia.org/wiki/Tf–idf
-
-6. Logarithm transformation and Standardization are the correct techniques to address outliers in data. Please review this reference link:
+7. Logarithm transformation and Standardization are the correct techniques to address outliers in data. Please review this reference link:
 
    https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114
 
-7. ElasticSearch, EMR and EC2 are not “serverless”. 
+8. ElasticSearch, EMR and EC2 are not “serverless”. 
 
-8. The best way to engineer the cyclical features is to represent these as (x,y) coordinates on a circle using sin and cos functions. Please review this technique in more detail here -
+9. The best way to engineer the cyclical features is to represent these as (x,y) coordinates on a circle using sin and cos functions. Please review this technique in more detail here -
 
     http://blog.davidkaleko.com/feature-engineering-cyclical-features.html
 
-9. Q1 = 1/4 x (N+1)th term
+10. Q1 = 1/4 x (N+1)th term
 
     Q3 = 3/4 x (N+1)th term
 
@@ -238,67 +246,79 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 
-10. The Multiple Imputations by Chained Equations (MICE) algorithm is a robust, informative method of dealing with missing data in your datasets. This procedure imputes or 'fills in' the missing data in a dataset through an iterative series of predictive models. Each specified variable in the dataset is imputed in each iteration using the other variables in the dataset. These iterations will be run continuously until convergence has been met. In General, MICE is a better imputation method than naive approaches (filling missing values with 0, dropping columns).
+11. The **Box Plot and Violin Plot** are used to summarize multivariate distributions. They are a standardized way of displaying the data distributions based on a **five-number summary (minimum, first quartile (Q1), median, third quartile (Q3), and maximum).** The plots show symmetry, tightness of the groups, skewness, and any outliers present.
 
-11. QuickSight supports UTF-8 file encoding, **but not UTF-8 (with BOM)**.
+12. The Multiple Imputations by Chained Equations (MICE) algorithm is a robust, informative method of dealing with missing data in your datasets. This procedure imputes or 'fills in' the missing data in a dataset through an iterative series of predictive models. Each specified variable in the dataset is imputed in each iteration using the other variables in the dataset. These iterations will be run continuously until convergence has been met. In General, MICE is a better imputation method than naive approaches (filling missing values with 0, dropping columns).
 
-12. Quicksight supports the following file formats only: **CSV/TSV, ELF/CLF, JSON, XLSX**.
+13. QuickSight supports UTF-8 file encoding, **but not UTF-8 (with BOM)**.
 
-13. **F0.5-Measure** (beta=0.5): More weight on precision, less weight on recall.
+14. Quicksight supports the following file formats only: **CSV/TSV, ELF/CLF, JSON, XLSX**.
 
-     **F1-Measure** (beta=1.0): Balance the weight on precision and recall.
+15. For QuickSight, AWS Enterprise Edition Authors (create & publish) pay $18/month with an annual subscription, while Readers (getting secure access to interactive dashboards) pay $0.30/session up to $5/month'.
 
-     **F2-Measure** (beta=2.0): Less weight on precision, more weight on recall
+16. **F0.5-Measure** (beta=0.5): More weight on precision, less weight on recall.
 
-     ![img](https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_07-55-05-6516021657c5e962ac6ca87cdd939d92.jpg)
+       **F1-Measure** (beta=1.0): Balance the weight on precision and recall.
 
-14. The Recall is also called **Sensitivity, Hit Rate, and True Positive Rate.**
+       **F2-Measure** (beta=2.0): Less weight on precision, more weight on recall
 
-     **Positive Predictive Value (PPV)** is the same as Precision.
+       ![img](https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_07-55-05-6516021657c5e962ac6ca87cdd939d92.jpg)
 
-15. The Receiver Operating Characteristic - **ROC**, true positive rate & false positive rate - determines the ability of a binary classification model, as its discrimination threshold is varied.
+17. The Recall is also called **Sensitivity, Hit Rate, and True Positive Rate.**
 
-16. As per sklearn, the minority class is considered as the positive class. Hence, in cases with fraudulent data, a fraud transaction is considered as a positve class. Similary, in diagnostics, a disease detected is considered positive.
+       **Positive Predictive Value (PPV)** is the same as Precision.
 
-17. **Type 2** error is also known as **False Negative.**
+18. The Receiver Operating Characteristic - **ROC**, true positive rate & false positive rate - determines the ability of a binary classification model, as its discrimination threshold is varied.
 
-     A Null hypothesis assumes positive for no-change/default (No Fraud, Healthy, Not Guilty), and a negative for change/non-default (Not Healthy, Fraud, Guilty) outcome.
+19. False positive Rate = 1 - TNR(True negative rate) = 1 - specifiticy 
 
-     A type 2 error occurs when the null hypothesis is false but is falsely accepted. This corresponds to the False-negative in classification, where a negative is considered for no-change/default (No Fraud, Healthy, Non-Guilty), etc.
+20. As per sklearn, the minority class is considered as the positive class. Hence, in cases with fraudulent data, a fraud transaction is considered as a positve class. Similary, in diagnostics, a disease detected is considered positive.
 
-     A type 1 error occurs when the null hypothesis is true but is falsely rejected.
+21. **Type 2** error is also known as **False Negative.**
 
-18. **Miss Rate is also known as the False Negative Rate**. It is given as FN/FN+TP (FN =False Negative, TP = True Positive).
+       A Null hypothesis assumes positive for no-change/default (No Fraud, Healthy, Not Guilty), and a negative for change/non-default (Not Healthy, Fraud, Guilty) outcome.
 
-     As the False Negatives are undesired and should be reduced to zero for an ideal model, the value of the miss rate in the ideal case will approach zero.
+       A type 2 error occurs when the null hypothesis is false but is falsely accepted. This corresponds to the False-negative in classification, where a negative is considered for no-change/default (No Fraud, Healthy, Non-Guilty), etc.
 
-19. If there are no outliers, MAE (Mean Absolute Error) will be more suitable  for comparison of performances of various models, as the error remains linear in this case. And if there are outliers RMSE will be preferred.
+       A type 1 error occurs when the null hypothesis is true but is falsely rejected.
 
-20. For **stochastic gradient descent**, the batch size equals **1**.
+22. **Miss Rate is also known as the False Negative Rate**. It is given as FN/FN+TP (FN =False Negative, TP = True Positive).
 
-     For **batch gradient descen**t, the **batch size equals the size of the training set**.
+       As the False Negatives are undesired and should be reduced to zero for an ideal model, the value of the miss rate in the ideal case will approach zero.
 
-     And, for **mini-batch gradient descent,** the batch size is greater than 1 but less than the size of the training set.
+23. If there are no outliers, MAE (Mean Absolute Error) will be more suitable  for comparison of performances of various models, as the error remains linear in this case. And if there are outliers RMSE will be preferred.
 
-21. The small batch size can result:
+24. For **stochastic gradient descent**, the batch size equals **1**.
 
-     1) Faster updates in the model weights
+       For **batch gradient descen**t, the **batch size equals the size of the training set**.
 
-     2) Noise and oscillations in the training process, which might be able to escape the local minima
+       And, for **mini-batch gradient descent,** the batch size is greater than 1 but less than the size of the training set.
 
-22. Deep learning is better suited to the imputation of categorical data. Square footage is numerical, which is better served by kNN.
+25. The small batch size can result:
 
-23. Ground truth provides built-in five data labelling tasks
+       1) Faster updates in the model weights
 
-     ```
-     Bounding Boxes
-     Image classification
-     Semantic segmentation
-     Text classification
-     Named Entity Recognition.
-     ```
+       2) Noise and oscillations in the training process, which might be able to escape the local minima
 
-24. The *p* value represents the level of probability that an apparently significant relationship between variables was really just due to chance. If *p* is set at 0.01, this means that we would expect such a result in only 1 in 100 cases. This is a very stringent level, and while it means that the researcher can be more confident about a significant result if they find one, it also increases the chance of making a Type II error: confirming the null hypothesis when it should be rejected.
+26. Deep learning is better suited to the imputation of categorical data. Square footage is numerical, which is better served by kNN.
+
+27. Ground truth provides built-in five data labelling tasks
+
+       ```
+       Bounding Boxes
+       Image classification
+       Semantic segmentation
+       Text classification
+       Named Entity Recognition.
+       ```
+
+28. The *p* value represents the level of probability that an apparently significant relationship between variables was really just due to chance. If *p* is set at 0.01, this means that we would expect such a result in only 1 in 100 cases. This is a very stringent level, and while it means that the researcher can be more confident about a significant result if they find one, it also increases the chance of making a Type II error: confirming the null hypothesis when it should be rejected.
+
+29. Adoptive (or q-quantile) binning helps in partitioning a numeric attribute into 'q' equal partitions.  Adoptive binning leads to discrete-valued categorical features transforming **numerical data into ordinal data.** 
+
+30. 95% of the measurements fall between +/- 2 standard deviations around the mean. 
+
+31. Amazon EMR offers you two options to work with Jupyter notebooks: (i) EMR Notebook, and (ii) JupyterHub. An EMR notebook is a 'serverless' Jupyter notebook. Unlike a traditional notebook, the contents of an EMR notebook itself — the equations, visualizations, queries, models, code, and narrative text — are saved in Amazon S3 separately from the cluster that runs the code.
 
 # Modeling
 
@@ -417,6 +437,10 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     ![Precision versus accuracy. The bullseye represents the true value, e.g., the true location of the object, while black dots represent measurements, e.g., the estimated 3D locations of the object based on the 2D images. Source: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments2/precision-and-accuracy-glacial-geology/. Accessed 7.4.2016.](https://www.researchgate.net/profile/Anni-Helena-Ruotsala/publication/304674901/figure/fig6/AS:668649476067338@1536429866393/Precision-versus-accuracy-The-bullseye-represents-the-true-value-eg-the-true.ppm)
 
+    Dart-throwing Demo
+
+    ![2: Bias and variance in dart-throwing.](https://www.researchgate.net/profile/Syed-Akhter-6/publication/330761010/figure/fig2/AS:721145984720896@1548946009061/Bias-and-variance-in-dart-throwing.ppm)
+
 29. ***Object Detection*** : is the technology that is related to computer vision and image processing. It's aim? detect objects in an image.
 
     ***Semantic Segmentation*** : is a technique that detects , for each pixel , the object category it belongs to , all object categories ( labels ) must be known to the model.
@@ -442,7 +466,13 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
 35. Softmax usually used as the last layer of the multiple classification problem. It can't product more than one label(sigmoid can)
 
-#### Explanation
+36. Logistic activation, Sigmoid, or Soft Step all represent the same function: Logistic (Sigmoid or Soft Step): f(x)=sigma(x)=1/(1-exp(-x))
+
+37. **Entropy** is a measure of the uncertainty associated with a given distribution -- it measures how much information is required, on average, to identify random samples from that distribution. Cross entropy can be used to define a loss function in machine learning and optimization. Cross entropy is related to log-likelihood: maximizing the likelihood is the same as minimizing the cross-entropy.
+
+38. BLEU (bilingual evaluation understudy) is an algorithm for evaluating the quality of the text which has been machine-translated from one natural language to another. The range of this metric is from 0.0 (a perfect translation mismatch) to 1.0 (a perfect translation match).
+
+39. 
 
 
 
@@ -454,29 +484,39 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
    https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html
 
-3. The default Sagemaker IAM role gets permissions to access any bucket that has sagemaker in the name. If you add a policy to the role that grants the SageMaker service principal S3FullAccess permission, the name of the bucket does not need to contain sagemaker. Granting public access to S3 bucket is not recommended. You can read further on this -
+3. three advantages of using Amazon **Neo** with SageMaker models are:
+
+   **(i) run ML models with up to 2x better performance,** 
+
+   **(ii) reduce framework size by 10x, and**
+
+   **(iii) run the same ML model on multiple hardware platforms.**
+
+4. AWS Greengrass is not used for code optimization.
+
+5. The default Sagemaker IAM role gets permissions to access any bucket that has sagemaker in the name. If you add a policy to the role that grants the SageMaker service principal S3FullAccess permission, the name of the bucket does not need to contain sagemaker. Granting public access to S3 bucket is not recommended. You can read further on this -
 
    https://docs.aws.amazon.com/sagemaker/latest/dg/gs-config-permissions.html
 
-4. version tag should be used in the Registry Paths:
+6. version tag should be used in the Registry Paths:
 
    “:1” is the correct version tag for **production** systems.
 
-5. SageMaker does not support resource based policies. You can create a role to delegate access or provide access via identity federation. 
+7. SageMaker does not support resource based policies. You can create a role to delegate access or provide access via identity federation. 
 
-6. If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify `ShardedByS3Key` for S3DataDistributionType field.
+8. If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify `ShardedByS3Key` for S3DataDistributionType field.
 
-7. There are no inter-node communications for batch processing, so inter-node traffic encryption is not required. SSH and AWS-SSE are not used for inter-node traffic encryption.
+9. There are no inter-node communications for batch processing, so inter-node traffic encryption is not required. SSH and AWS-SSE are not used for inter-node traffic encryption.
 
-8. If the value of the objective metric for the current training job is worse (higher when minimizing or lower when maximizing the objective metric) than the median value of running averages of the objective metric for previous training jobs up to the same epoch, Amazon SageMaker stops the current training job.
+10. If the value of the objective metric for the current training job is worse (higher when minimizing or lower when maximizing the objective metric) than the median value of running averages of the objective metric for previous training jobs up to the same epoch, Amazon SageMaker stops the current training job.
 
-9. Within an inference pipeline model, Amazon SageMaker handles invocations as a sequence of HTTP requests.
+11. Within an inference pipeline model, Amazon SageMaker handles invocations as a sequence of HTTP requests.
 
-10. Only three built-in algorithms currently support incremental training: Object Detection Algorithm, Image Classification Algorithm, and Semantic Segmentation Algorithm:
+12. Only three built-in algorithms currently support incremental training: Object Detection Algorithm, Image Classification Algorithm, and Semantic Segmentation Algorithm:
 
-11. By using Amazon Elastic Inference (EI), you can speed up the throughput and decrease the latency of getting real-time inferences from your deep learning models that are deployed as Amazon SageMaker hosted models, but at a fraction of the cost of using a GPU instance for your endpoint.
+13. By using Amazon Elastic Inference (EI), you can speed up the throughput and decrease the latency of getting real-time inferences from your deep learning models that are deployed as Amazon SageMaker hosted models, but at a fraction of the cost of using a GPU instance for your endpoint.
 
-12. Network isolation is not supported by the following managed Amazon SageMaker containers as they require access to Amazon S3:
+14. Network isolation is not supported by the following managed Amazon SageMaker containers as they require access to Amazon S3:
 
     Chainer
 
@@ -486,17 +526,17 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     Amazon SageMaker Reinforcement Learning
 
-14. IAM does not allow nesting or hierarchy of groups.
+15. IAM does not allow nesting or hierarchy of groups.
 
-15. Group is not considered identity, and you cannot grant access to a group in a resource-based policy. With Resource-based policy, you can grant access to users, roles and other accounts
+16. Group is not considered identity, and you cannot grant access to a group in a resource-based policy. With Resource-based policy, you can grant access to users, roles and other accounts
 
-16. Attribute-Based Access Control (ABAC) is an authorization strategy that defines permissions based on attributes (or tags). You can structure polices to allow operations when the principal's tag matches the resource tag. This approach is useful in an environment that is growing or changing rapidly. For example, you can check the cost center of an employee with that of the resource and allow access only if the cost center's match. RBAC, on the other hand, requires ongoing maintenance to update the resource list.
+17. Attribute-Based Access Control (ABAC) is an authorization strategy that defines permissions based on attributes (or tags). You can structure polices to allow operations when the principal's tag matches the resource tag. This approach is useful in an environment that is growing or changing rapidly. For example, you can check the cost center of an employee with that of the resource and allow access only if the cost center's match. RBAC, on the other hand, requires ongoing maintenance to update the resource list.
 
-17. For the EC2 instance, IAM Role is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  DynamoDB does not support resource-based policy.
+18. For the EC2 instance, IAM Role is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  DynamoDB does not support resource-based policy.
 
-18. XGBoost is a CPU-only algorithm, and won't benefit from the GPU's of a P3 or P2. It is also memory-bound, making M4 a better choice than C4.
+19. XGBoost is a CPU-only algorithm, and won't benefit from the GPU's of a P3 or P2. It is also memory-bound, making M4 a better choice than C4.
 
-19. With **Pipe** input mode, your data is fed on-the-fly into the algorithm container <u>without involving any disk I/O</u>. This approach shortens the lengthy download process and dramatically reduces startup time. <u>It also offers generally better read throughput than File input mode.</u> This is because your data is fetched from Amazon S3 by a highly optimized <u>multi-threaded</u> background process. It also allows you to train on datasets that are much larger than the 16 TB Amazon Elastic Block Store (EBS) volume size limit.
+20. With **Pipe** input mode, your data is fed on-the-fly into the algorithm container <u>without involving any disk I/O</u>. This approach shortens the lengthy download process and dramatically reduces startup time. <u>It also offers generally better read throughput than File input mode.</u> This is because your data is fetched from Amazon S3 by a highly optimized <u>multi-threaded</u> background process. It also allows you to train on datasets that are much larger than the 16 TB Amazon Elastic Block Store (EBS) volume size limit.
 
     **Pipe mode enables the following:**
 
@@ -510,25 +550,27 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     **File mode is the default mode for training a model in Amazon SageMaker.** 
 
-20. You can use **Amazon CloudWatch API** operations to send the training metrics to CloudWatch, and create a dashboard of those metrics. Lastly, use Amazon Simple Notification Service (Amazon SNS) to send a notification when the model is overfitting.
+21. The algorithms that support **Pipe input mode** today when used with **protobuf recordIO-encoded** datasets are <u>Principal Component Analysis (PCA), K-Means Clustering, Factorization Machines, Latent Dirichlet Allocation (LDA), Linear Learner (Classification and Regression), Neural Topic Modelling, and Random Cut Forest. AWS Mechanical Turk, Amazon Comprehend, and Amazon QuickSight are the fully managed AWS services for crowdsourcing tasks, Natural Language Processing (NLP), and Business Intelligence (BI)</u>.
 
-21. The **`dropout`** hyperparameter refers to the dropout probability for network layers. *A* dropout is a form of regularization used in neural networks that <u>reduces overfitting by trimming codependent neurons.</u>
+22. You can use **Amazon CloudWatch API** operations to send the training metrics to CloudWatch, and create a dashboard of those metrics. Lastly, use Amazon Simple Notification Service (Amazon SNS) to send a notification when the model is overfitting.
+
+23. The **`dropout`** hyperparameter refers to the dropout probability for network layers. *A* dropout is a form of regularization used in neural networks that <u>reduces overfitting by trimming codependent neurons.</u>
 
     This is an optional parameter in Amazon SageMaker **Object2vec**. **Increasing the value of this parameter may say solve the overfitting of the model.**
 
     **L1 regularization** method is **not** available to Amazon SageMaker **Object2vec**. This is used for simple regression models like a Linear learner.
 
-22. With the **Lifecycle configuration** feature in Amazon SageMaker, you can automate these customizations to be applied at different phases of the lifecycle of an instance. For example, you can write a script to install a list of libraries and, using the Lifecycle configuration feature, configure the scripts to automatically execute every time your notebook instance is started. Similarly, you can choose to automatically run the script only once when the notebook instance is created.
+24. With the **Lifecycle configuration** feature in Amazon SageMaker, you can automate these customizations to be applied at different phases of the lifecycle of an instance. For example, you can write a script to install a list of libraries and, using the Lifecycle configuration feature, configure the scripts to automatically execute every time your notebook instance is started. Similarly, you can choose to automatically run the script only once when the notebook instance is created.
 
-23. The performance of deep learning neural networks often improves with the amount of data available.
+25. The performance of deep learning neural networks often improves with the amount of data available.
 
     **Data augmentatio**n is a technique to artificially create new training data from existing training data. <u>This is done by applying domain-specific techniques to examples from the training data that create new and different training examples.</u>
 
     Image data augmentation is perhaps the most well-known type of data augmentation and involves creating transformed versions of images in the training dataset that belong to the same class as the original image.
 
-24. T-SNE is used to preprocess a dataset that contains highly correlated variables.
+26. T-SNE is used to preprocess a dataset that contains highly correlated variables.
 
-25. **Apache Spark** is a fast and general engine for large-scale data processing. Amazon EMR features Amazon EMR runtime for Apache Spark, a performance-optimized runtime environment for Apache Spark that is active by default on Amazon EMR clusters.
+27. **Apache Spark** is a fast and general engine for large-scale data processing. Amazon EMR features Amazon EMR runtime for Apache Spark, a performance-optimized runtime environment for Apache Spark that is active by default on Amazon EMR clusters.
 
     Apache Spark is a distributed processing framework and programming model that helps you do machine learning, stream processing, or graph analytics using Amazon EMR clusters. 
 
@@ -538,7 +580,7 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     **Apache Pig** is more suitable for running big data analysis.
 
-25. Integrating SageMaker and Spark:
+28. Integrating SageMaker and Spark:
 
     - Pre-process data as normal with Spark - Generate DataFrames
     - Use SageMaker-spark library 
@@ -555,7 +597,7 @@ This notes is some catchups for better prep for AWS machine learning specialty c
     - Call **transform** on the SageMakerModel to make inferences
     - Works with Spark **pipelines** as well.
 
-26. **Spark MLLib**
+29. **Spark MLLib**
 
     - Classification: logistic regression, naive bayes
 
@@ -567,13 +609,13 @@ This notes is some catchups for better prep for AWS machine learning specialty c
     - ML workflow utilities (pipeline, feature transformation, persistence)
     - SVD, PCA, statistics
 
-27. With Amazon Polly's custom **lexicons** or vocabularies, you can modify the pronunciation of particular words, such as company names, acronyms, foreign words, and neologisms (e.g., "ROTFL", "C’est la vie" when spoken in a non-French voice). To customize these pronunciations, you upload an XML file with lexical entries. For example, you can customize the pronunciation of the Filipino word: "Pilipinas" by using the `phoneme` element in your input XML.
+30. With Amazon Polly's custom **lexicons** or vocabularies, you can modify the pronunciation of particular words, such as company names, acronyms, foreign words, and neologisms (e.g., "ROTFL", "C’est la vie" when spoken in a non-French voice). To customize these pronunciations, you upload an XML file with lexical entries. For example, you can customize the pronunciation of the Filipino word: "Pilipinas" by using the `phoneme` element in your input XML.
 
-28. **Amazon Elastic Inference** allows you to attach **low-cost GPU-powered acceleration** to <u>Amazon EC2 and Sagemaker instances or Amazon ECS tasks</u>, to reduce the cost of running deep learning <u>inference</u> by up to 75%. <u>Amazon Elastic Inference supports TensorFlow, Apache MXNet, PyTorch, and ONNX models.</u>
+31. **Amazon Elastic Inference** allows you to attach **low-cost GPU-powered acceleration** to <u>Amazon EC2 and Sagemaker instances or Amazon ECS tasks</u>, to reduce the cost of running deep learning <u>inference</u> by up to 75%. <u>Amazon Elastic Inference supports TensorFlow, Apache MXNet, PyTorch, and ONNX models.</u>
 
-29. **Amazon SageMaker** enables you to test multiple models or model versions behind the same endpoint using production variants. Each `ProductionVariant` identifies an ML model and the resources deployed for hosting the model. You can distribute endpoint invocation requests across multiple production variants by providing the traffic distribution for each variant or invoking a variant directly for each request. In the following sections, we look at both methods for testing ML models.
+32. **Amazon SageMaker** enables you to test multiple models or model versions behind the same endpoint using production variants. Each `ProductionVariant` identifies an ML model and the resources deployed for hosting the model. You can distribute endpoint invocation requests across multiple production variants by providing the traffic distribution for each variant or invoking a variant directly for each request. In the following sections, we look at both methods for testing ML models.
 
-30. SageMaker Debugger:
+33. SageMaker Debugger:
 
     supported framework &algos:
 
@@ -585,13 +627,29 @@ This notes is some catchups for better prep for AWS machine learning specialty c
 
     
 
-31. you can create and run a custom ETL job in **AWS Glue** to <u>**redact sensitive information**</u> within a dataset stored in Amazon S3.
+34. you can create and run a custom ETL job in **AWS Glue** to <u>**redact sensitive information**</u> within a dataset stored in Amazon S3.
 
-32. An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of **two to fifteen** containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.
+35. An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of **two to fifteen** containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.
 
-33. Your inference container responds to port 8080, and must respond to ping requests in under 2 seconds. Model artifacts need to be compressed in tar format, not zip.
+36. The ML **algorithm** should be available in **/opt/program** directory of the Docker container. Three main files there are **train, serve, and predictor.py.** <u>***train/***</u> contains the <u>logic for training the model and storing the trained model</u>. If the train file runs successfully, it will save a model to **/opt/ml/model** directory. ***serve/*** essentially runs the **logic written in predictor.py.**
 
-34. Lex can handle **both speech-to-text and handling the chatbot logic**. The output from Lex could be read back to the customer using Polly. Under the hood, more services would likely be needed as well to support Lex, such as Lambda and DynamoDB.
+    Two other files, nginx.config (NGINX configuration file) and wsgi.py (a simple wrapper file), usually can be left unchanged.
+
+37. Amazon Sagemaker provides prebuilt Amazon SageMaker Docker Images for TensorFlow, MXNet, Chainer, and PyTorch, as well as Docker Images for Scikit-learn and Spark ML (see links below).
+
+38. Your inference container responds to port 8080, and must respond to ping requests in under 2 seconds. Model artifacts need to be compressed in tar format, not zip.
+
+39. Lex can handle **both speech-to-text and handling the chatbot logic**. The output from Lex could be read back to the customer using Polly. Under the hood, more services would likely be needed as well to support Lex, such as Lambda and DynamoDB.
+
+40. Amazon SageMaker runs training jobs in an Amazon Virtual Private Cloud (Amazon VPC) to help keep your data secure. <u>If you are using distributed ML frameworks and algorithms, and your algorithms transmit information that is directly related to the model (eg weights),</u> you can provide an **additional level of security by enabling inter-container traffic encryption**. But note that turning on inter-container traffic encryption can increase training time, and therefore the cost.
+
+41. Amazon **Macie** is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS. Amazon Macie recognizes sensitive data such as personally identifiable information (PII) or intellectual property and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved. The fully managed service continuously monitors data access activity for anomalies and generates detailed alerts when it detects the risk of unauthorized access or inadvertent data leaks. Amazon Macie is available to protect data stored in Amazon S3.
+
+42. Multi-factor authentication (MFA) could be used with each account for enhanced data security. 
+
+43. AWS managed SageMaker policies that can be attached to the users are **AmazonSageMakerReadOnly, AmazonSageMakerFullAccess, AdministratorAccess, and DataScientist.**
+
+44. The containers must be **NVIDIA-Docker** compatible and contain only **CUDA** toolkit, **without NVIDIA Drivers** (see links below). The toolkit includes a container runtime library and utilities to automatically configure containers to leverage NVIDIA GPUs. 
 
     
 
