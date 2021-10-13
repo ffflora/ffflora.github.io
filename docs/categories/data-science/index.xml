@@ -18,12 +18,12 @@
       <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</guid>
-      <description>This notes is some catchups for better prep for AWS machine learning specialty cert.
+      <description>This notes contains some catchups for better preping for AWS machine learning specialty cert.
 Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
+  KCL helps you consume and process data from a Kinesis data stream by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding.</description>
     </item>
     
     <item>

@@ -549,11 +549,57 @@ Amazon SageMaker supports automatic scaling for production variants. Automatic s
    - Use Amazon SageMaker InvokeEndpoint with API Gateway
    - Install the sagemaker-runtime library on the web server. Call InvokeEndpoint from the webserver.
 
+7. A Machine Learning Specialist has various CSV training datasets stored in an S3 bucket. Previous models trained with similar training data sizes using the Amazon SageMaker Linear learner algorithm have a slow training process. The Specialist wants to decrease the amount of time spent on training the model.
 
+   Which combination of steps should be taken by the Specialist? (Select TWO.)
 
+   1. Convert the CSV training dataset into Apache Parquet format.
+   2. Train the model using Amazon SageMaker Pipe mode. ✅
+   3. Convert the CSV training dataset into Protobuf RecordIO format. ✅
+   4. Train the model using Amazon SageMaker File mode.
+   5. Stream the dataset into Amazon SageMaker using Amazon Kinesis Firehose to train the model.
 
+8. A Machine Learning Specialist is using a 100GB EBS volume as a storage disk for an Amazon SageMaker instance. After running a few training jobs, the Specialist realized that he needed a higher I/O throughput and a shorter job startup and execution time.
 
+   Which approach will give the MOST satisfactory result based on the requirements?
 
+   1. Store the training dataset in Amazon S3 and use the Pipe input mode for training the model. ✅
+   2. Increase the size of the EBS volume to obtain higher I/O throughput.
+   3. Upgrade the SageMaker instance to a larger size.
+   4. Increase the EBS volume to 500GB and use the File mode for training the model.
 
+9. A graphics design startup is using multiple Amazon S3 buckets to store high-resolution media files for their various digital artworks. After securing a partnership deal with a leading media company, the two parties shall be sharing digital resources with one another as part of the contract. The media company frequently performs multiple object retrievals from the S3 buckets every day, which increased the startup’s data transfer costs.
 
+   As the Solutions Architect, what should you do to help the startup lower their operational costs?
 
+   1. Advise the media company to create their own S3 bucket. Then run the `aws s3 sync s3://sourcebucket s3://destinationbucket` command to copy the objects from their S3 bucket to the other party’s S3 bucket. In this way, future retrievals can be made on the media company’s S3 bucket instead.
+   2. Enable the Requester Pays feature in all of the startup’s S3 buckets to make the media company pay the cost of the data transfer from the buckets. ✅
+   3. Create a new billing account for the social media company by using AWS Organizations. Apply SCPs on the organization to ensure that each account has access only to its own resources and each other’s S3 buckets.
+   4. Provide cross-account access for the media company, which has permissions to access contents in the S3 bucket. Cross-account retrieval of S3 objects is charged to the account that made the request.
+
+10. A government agency recently decided to modernize its network infrastructure using AWS. They are developing a solution to store confidential files containing Personally Identifiable Information (PII) and other sensitive financial records of its citizens. All data in the storage solution must be encrypted both at rest and in transit. In addition, all of its data must also be replicated in two locations that are at least 450 miles apart from each other.
+
+    As a DevOps Engineer, what solution should you implement to meet these requirements?
+
+    1. Set up primary and secondary S3 buckets in two separate Availability Zones that are at least 450 miles apart. Create a bucket policy to enforce access to the buckets only through HTTPS and enforce S3 SSE-C encryption on all objects uploaded to the bucket. Enable cross-region replication (CRR) between the two buckets.
+    2. Set up primary and secondary S3 buckets in two separate AWS Regions that are at least 450 miles apart. Create a bucket policy to enforce access to the buckets only through HTTPS and enforce S3-Managed Keys (SSE-S3) encryption on all objects uploaded to the bucket. Enable cross-region replication (CRR) between the two buckets. ✅
+    3. Set up primary and secondary Amazon S3 buckets in two separate AWS Regions that are at least 450 miles apart. Create an IAM role to enforce access to the buckets only through HTTPS. Set up a bucket policy to enforce Amazon S3-Managed Keys (SSE-S3) encryption on all objects uploaded to the bucket. Enable cross-region replication (CRR) between the two buckets.
+    4. Set up primary and secondary S3 buckets in two separate Availability Zones that are at least 450 miles apart. Create a bucket policy to enforce access to the buckets only through HTTPS and enforce AWS KMS encryption on all objects uploaded to the bucket. Enable Transfer Acceleration between the two buckets. Set up a KMS Customer Master Key (CMK) in the primary region for encrypting objects.
+
+11. A multinational corporation is using Amazon Athena to analyze the data sets stored in Amazon S3. The Data Analyst needs to implement a solution that will control the maximum amount of data scanned in the S3 bucket and ensure that if the query exceeded the limit, all the succeeding queries will be canceled.
+
+    Which of the following approach can be used to fulfill this requirement?
+
+    1. Set up a workload management (WLM) assignment rule in the primary workgroup.
+    2. Set data limits in the per query data usage control. ✅
+    3. Integrate API Gateway with Amazon Athena. Configure an account-level throttling to control the queries in the S3 bucket.
+    4. Create an IAM policy that will throttle the data limits in the primary workgroup.
+
+12. A company is using Amazon Athena query with Amazon QuickSight to visualize the AWS CloudTrail logs. The Security Administrator created a custom Athena query that reads the CloudTrail logs and checks if there are IAM user accounts or credentials created in the past 29, 30 or 31 days (depending on the current month). However, the Administrator always gets an `Insufficient Permissions` error whenever she tries to run the query from Amazon QuickSight.
+
+    What is the MOST suitable solution that the Administrator should do to fix this issue?
+
+    1. Disable the Log File Integrity feature in AWS CloudTrail.
+    2. Enable Cross-Origin Resource Sharing (CORS) in the S3 bucket that is used by Athena.
+    3. Use the AWS Account Root User to run the Athena query from Amazon QuickSight.
+    4. Make sure that Amazon QuickSight can access the S3 buckets used by Athena. ✅

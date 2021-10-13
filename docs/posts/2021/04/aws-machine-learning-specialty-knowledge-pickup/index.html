@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Flora Jiang ">
-<meta name="description" content="This notes is some catchups for better prep for AWS machine learning specialty cert.
+<meta name="description" content="This notes contains some catchups for better preping for AWS machine learning specialty cert.
 Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format." />
+  KCL helps you consume and process data from a Kinesis data stream by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding." />
 <meta name="keywords" content=", AWS, Machine Learning" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -47,15 +47,15 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 
 
 <meta itemprop="name" content="AWS Machine Learning Specialty Knowledge Pickup">
-<meta itemprop="description" content="This notes is some catchups for better prep for AWS machine learning specialty cert.
+<meta itemprop="description" content="This notes contains some catchups for better preping for AWS machine learning specialty cert.
 Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.">
+  KCL helps you consume and process data from a Kinesis data stream by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding.">
 <meta itemprop="datePublished" content="2021-04-13T23:26:49-07:00" />
 <meta itemprop="dateModified" content="2021-04-13T23:26:49-07:00" />
-<meta itemprop="wordCount" content="8967">
+<meta itemprop="wordCount" content="9865">
 <meta itemprop="image" content="https://ffflora.cat/"/>
 
 
@@ -66,22 +66,22 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <meta name="twitter:image" content="https://ffflora.cat/"/>
 
 <meta name="twitter:title" content="AWS Machine Learning Specialty Knowledge Pickup"/>
-<meta name="twitter:description" content="This notes is some catchups for better prep for AWS machine learning specialty cert.
+<meta name="twitter:description" content="This notes contains some catchups for better preping for AWS machine learning specialty cert.
 Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format."/>
+  KCL helps you consume and process data from a Kinesis data stream by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding."/>
 
 
 
     <meta property="og:title" content="AWS Machine Learning Specialty Knowledge Pickup" />
-<meta property="og:description" content="This notes is some catchups for better prep for AWS machine learning specialty cert.
+<meta property="og:description" content="This notes contains some catchups for better preping for AWS machine learning specialty cert.
 Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format." />
+  KCL helps you consume and process data from a Kinesis data stream by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/" />
 <meta property="og:image" content="https://ffflora.cat/"/>
@@ -161,7 +161,7 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        43 minutes
+        47 minutes
 
         
       </p>
@@ -175,57 +175,50 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
       
 
       <div class="post-content">
-        <p>This notes is some catchups for better prep for AWS machine learning specialty cert.</p>
+        <p>This notes contains some catchups for better preping for AWS machine learning specialty cert.</p>
 <h1 id="data-engineering">Data Engineering</h1>
 <ol>
 <li>
-<p>In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)</p>
+<p>In <!-- raw HTML omitted -->Kinesis Data Stream<!-- raw HTML omitted -->, number_of_shards = max (incoming_write_bandwidth_in_KB/<strong>1000</strong>, outgoing_read_bandwidth_in_KB/<strong>2000</strong>)</p>
 <p>where</p>
 <p>incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.</p>
 <p>outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.</p>
 </li>
 <li>
-<p><strong>Glue <!-- raw HTML omitted -->cannot<!-- raw HTML omitted --> write the output in RecordIO-Protobuf forma</strong>t. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and <strong>it cannot write data in RecorIO-Protobuf format</strong>. Apache Spark (running on the EMR cluster in this use-case) can write the output in RecorIO-Protobuf format.</p>
+<p><strong>KCL</strong> helps you consume and process data from a <strong>Kinesis data stream</strong> by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding. The KCL takes care of all of these subtasks so that you can focus your efforts on <strong>writing your custom</strong> record-processing logic.</p>
 </li>
 <li>
-<p>Converting the data to recordIO-protobuf file type can significantly improve the training time with a marginal increase in cost to store the recordIO-protobuf data on S3. Spinning up EMR clusters would be costly and require complex infrastructure maintenance.</p>
+<p><strong>Glue <!-- raw HTML omitted -->cannot<!-- raw HTML omitted --> write the output in RecordIO-Protobuf forma</strong>t. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis <strong>Firehose</strong> is not meant to be used for batch processing use cases and <strong>it cannot write data in RecorIO-Protobuf format</strong>. Apache Spark (running on the EMR cluster in this use-case) can write the output in RecorIO-Protobuf format.</p>
 </li>
 <li>
-<p>For those SageMaker supervised learning algorithms which require the training data to be in CSV format, the target variable should be in the first column and it should not have a header record.</p>
+<p>Glue&rsquo;s <strong>FindMatches</strong> feature is a new way to perform de-duplication as part of Glue ETL, and is a simple, server-less solution to the problem.</p>
+</li>
+<li>
+<p>AWS Glue does <strong>not</strong> support <em><strong>timestream</strong></em> as the source input type.</p>
+</li>
+<li>
+<p>Converting the data to <strong>recordIO-protobuf</strong> file type can significantly improve the training time with a marginal increase in cost to store the recordIO-protobuf data on <strong>S3</strong>. Spinning up EMR clusters would be costly and require complex infrastructure maintenance.</p>
+</li>
+<li>
+<p>For those SageMaker supervised learning algorithms which require the training data to be in <strong>CSV</strong> format, the target variable should be in the <strong>first column</strong> and it <strong>should not have a header</strong> record.</p>
 </li>
 <li>
 <p>Kinesis Firehose can transform data to <strong>Parquet</strong> format and store it on S3 without provisioning any servers. Also this transformed data can be read into an Athena Table <!-- raw HTML omitted -->via a Glue Crawler<!-- raw HTML omitted --> and then the underlying data is readily available for ad-hoc analysis. Although Glue ETL Job can transform the source data to Parquet format, it is best suited for batch ETL use cases and it’s not meant to process streaming data. EMR cluster is not an option as the company does not want to manage the underlying infrastructure.</p>
 </li>
 <li>
-<p><strong>A Glue crawler connects to the data store that can be Amazon S3, RDS, Redshift, DynamoDB, or JDBC (Java Database Connectivity Interface).</strong></p>
-<p>Amazon ElastiCache is in-memory data stores in the cloud that cannot be connected to Glue. (A caveat: a user can write custom Scala or Python code and import custom libraries and Jar files into Glue ETL jobs to access data sources not natively supported by AWS Glue, like ElastiCache).</p>
+<p><strong>Athena</strong> performs much more efficiently and at lower cost when using columnar formats such as <strong>Parquet or ORC</strong>, and that Kinesis Firehose has the ability to convert <strong>JSON</strong> <!-- raw HTML omitted -->data to Parquet or ORC format on the fly.<!-- raw HTML omitted --></p>
 </li>
 <li>
-<p><strong>Kinesis Data Firehose is used for streaming data scenarios</strong>. <strong>AWS Glue ML Transforms job can perform deduplication</strong> in a serverless fashion.</p>
+<p><strong>Athena</strong> supports a wide variety of data formats such as <strong>CSV, JSON, ORC, Avro, or Parquet.</strong></p>
 </li>
 <li>
-<p>There is no such thing as a LOAD command for Redshift. COPY is much faster than insert. UNLOAD is used to write the results of a Redshift query to one or more text files on Amazon S3.</p>
+<p><strong>Athena</strong> automatically executes queries in <strong>parallel</strong>, so that you get query results in seconds, even on large dataset;  Athena leverages <em><strong>Hive</strong></em> for <strong>partitioning</strong> data. There are two types of <strong>cost controls</strong> in Amazon Athena:</p>
+<p>– <strong>per-query limit</strong></p>
+<p><strong>– per-workgroup limit</strong></p>
+<p>If the query in Athena <strong>exceeded the limit</strong>, all the succeeding queries will be canceled. Therefore, the type of cost control you need to use is the <strong>per-query limit or the per query data usage control</strong>. The per-query control limit <strong>specifies the total amount of data scanned per query.</strong> You can create only one per-query control limit in a workgroup, and it applies to each query that runs in it.</p>
 </li>
 <li>
-<p>If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify <code>ShardedByS3Key</code> for S3DataDistributionType field.</p>
-</li>
-<li>
-<p>Kinesis Product Library provides built-in performance benefits and ease of use advantages. Please review more details here:</p>
-</li>
-</ol>
-<p><a href="https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html#developing-producers-with-kpl-advantage">https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html#developing-producers-with-kpl-advantage</a></p>
-<ol start="11">
-<li>
-<p>Kinesis Data Streams PutRecord API uses name of the stream, a partition key and the data blob whereas Kinesis Data Firehose PutRecord API uses the name of the delivery stream and the data record.</p>
-</li>
-<li>
-<p>Hyperparameters should be tuned against the Validation Set.</p>
-</li>
-<li>
-<p>While you can use Spot instances on any node type, a Spot interruption on the Master node requires terminating the entire cluster, and on a Core node, it can lead to HDFS data loss.</p>
-</li>
-<li>
-<p>Athena performs much more efficiently and at lower cost when using columnar formats such as Parquet or ORC, and that Kinesis Firehose has the ability to convert <strong>JSON</strong> <!-- raw HTML omitted -->data to Parquet or ORC format on the fly.<!-- raw HTML omitted --></p>
+<p><strong>Athena</strong> integrates with Amazon <strong>QuickSight</strong> for easy data visualization.</p>
 </li>
 <li>
 <p>Kinesis Data Firehose needs the following three elements to convert the input data format to Parquet/ORC format:</p>
@@ -242,44 +235,135 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 </ol>
 </li>
 <li>
+<p><strong>A Glue crawler connects to the data store that can be Amazon S3, RDS, Redshift, DynamoDB, or JDBC (Java Database Connectivity Interface).</strong></p>
+<p>Amazon ElastiCache is in-memory data stores in the cloud that cannot be connected to Glue. (A caveat: a user can write custom Scala or Python code and import custom libraries and Jar files into Glue ETL jobs to access data sources not natively supported by AWS Glue, like ElastiCache).</p>
+</li>
+<li>
+<p><strong>Kinesis Data Firehose is used for streaming data scenarios</strong>. <strong>AWS Glue ML Transforms job can perform deduplication</strong> in a serverless fashion.</p>
+</li>
+<li>
+<p><strong>Amazon Kinesis Data Firehose</strong> <strong><!-- raw HTML omitted --><em>buffers incoming streaming</em><!-- raw HTML omitted --></strong> data to a certain size or for a certain period of time before delivering it to destinations. You can configure the buffer size and buffer interval while <!-- raw HTML omitted -->creating your <strong>delivery stream</strong>.<!-- raw HTML omitted --></p>
+<p>Buffer size is in MBs and ranges from <!-- raw HTML omitted -->1MB to 128MB<!-- raw HTML omitted --> for Amazon S3 destination and <!-- raw HTML omitted --><strong>1MB to 100MB</strong><!-- raw HTML omitted --> for Amazon Elasticsearch Service destination. Buffer interval is in seconds and ranges from <strong>60 seconds to 900 seconds</strong>. Please note that in circumstances where data delivery to destination is falling behind data writing to a delivery stream, Firehose raises buffer size dynamically to catch up and make sure that all data is delivered to the destination.</p>
+<p><img src="https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-04_16-41-13-3dcfe5855fa5c240d34bedca038dcb9b.JPG" alt="img"></p>
+</li>
+<li>
+<p>Kinesis Firehose Data <strong>Delivery Failure Handing</strong></p>
+<p><img src="https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-05_02-32-25-005129db5966b762cc65018c53796c0e.JPG" alt=""></p>
+</li>
+<li>
+<p>Firehose can deliver data to <strong>S3, Elastic Search, Splunk, Redshift, and HTTP Endpoints.</strong> Athena is not a database, and Firehose <strong>doesn&rsquo;t</strong> deliver data to DynamoDB.</p>
+</li>
+<li>
+<p>There is no such thing as a <del>LOAD</del> command for <strong>Redshift</strong>. <em><strong>COPY</strong></em> is much faster than <em><strong>INSERT</strong></em>. <em>UNLOAD</em> is used to write the results of a Redshift query to one or more text files on Amazon S3.</p>
+</li>
+<li>
+<p>Only <strong>GZIP</strong> is supported if the data is loaded to Amazon <strong>Redshift</strong>.</p>
+</li>
+<li>
+<p><strong>Workload management (WLM)</strong> is only available in Amazon <strong>Redshift</strong>.</p>
+</li>
+<li>
+<p>If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify <em><strong><code>ShardedByS3Key</code></strong></em> for <!-- raw HTML omitted --><strong>S3DataDistributionType</strong><!-- raw HTML omitted --> field.</p>
+</li>
+<li>
+<p>Amazon <strong>KPL</strong> is only used for <!-- raw HTML omitted -->streaming data into Amazon Kinesis Data Streams<!-- raw HTML omitted --> and not for reading data from it.</p>
+</li>
+<li>
+<p><strong>Kinesis Product Library</strong>(KPL) provides built-in performance benefits and ease of use advantages. Please review more details here:</p>
+<p><a href="https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html#developing-producers-with-kpl-advantage">https://docs.aws.amazon.com/streams/latest/dev/developing-producers-with-kpl.html#developing-producers-with-kpl-advantage</a></p>
+</li>
+<li>
+<p>Hyperparameters should be tuned against the <strong>Validation</strong> Set.</p>
+</li>
+<li>
 <p>Kinesis cheatsheet <a href="https://tutorialsdojo.com/amazon-kinesis/">https://tutorialsdojo.com/amazon-kinesis/</a></p>
 </li>
 <li>
-<p>Amazon <strong>FSx</strong> for <strong>Lustre</strong> <!-- raw HTML omitted -->speeds up your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds<!-- raw HTML omitted -->. The first time you run a training job, Amazon FSx for Lustre automatically copies data from Amazon S3 and makes it available to Amazon SageMaker. Additionally, the same Amazon FSx file system can be used for subsequent iterations of training jobs on Amazon SageMaker, preventing repeated downloads of common Amazon S3 objects. Because of this, Amazon FSx has the most benefit to training jobs that have training sets in Amazon S3 and in workflows where training jobs must be run several times using different training algorithms or parameters to see which gives the best result.</p>
+<p>Amazon <strong>FSx</strong> for <strong>Lustre</strong> <!-- raw HTML omitted -->speeds up your <strong>File mode</strong> training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds<!-- raw HTML omitted -->. The first time you run a training job, Amazon FSx for Lustre automatically copies data from Amazon S3 and makes it available to Amazon SageMaker. Additionally, the same Amazon FSx file system can be used for subsequent iterations of training jobs on Amazon SageMaker, preventing repeated downloads of common Amazon S3 objects. Because of this, Amazon FSx has the most benefit to training jobs that <strong>have training sets in Amazon S3 and in workflows where training jobs must be run several times using different training algorithms or parameters to see which gives the best result.</strong></p>
+</li>
+<li>
+<p>Data storage for machine learning modeling could be from <strong>S3</strong>, <strong>Amazon Fsx for Lustre, and Amazon EFS.</strong></p>
 </li>
 <li>
 <p><strong>AWS Database Migration Service (AWS DMS)</strong> is a cloud service that makes it easy to migrate relational databases, data warehouses, NoSQL databases, and other types of data stores. You can use AWS DMS to migrate your data into the AWS Cloud, between on-premises instances (through an AWS Cloud setup), or between combinations of cloud and on-premises setups. With AWS DMS, you can perform one-time migrations, and you can replicate ongoing changes to keep sources and targets in sync.</p>
 <ul>
 <li>continuous Data Replication</li>
-<li>No data transformation (ETL jobs needs to be done later somewhere else.)</li>
-<li>once the data is in AWS, you can use Glue to transform it.</li>
+<li>No data transformation (<strong>ETL jobs needs to be done later somewhere else</strong>.)</li>
+<li>once the data is in AWS, you can use <!-- raw HTML omitted -->Glue<!-- raw HTML omitted --> to transform it.</li>
+<li>You can use Database Migration Service for one-time data migration into RDS and EC2-based databases.</li>
+<li>You can also continuously replicate your data with high availability (enable multi-AZ) and consolidate databases into a petabyte-scale data warehouse by streaming data to Amazon Redshift and Amazon S3.</li>
+<li>Replication between on-premises to on-premises databases is not supported.</li>
+<li>The service provides an end-to-end view of the data replication process, including diagnostic and performance data for each point in the replication pipeline.</li>
+<li>You only pay for the compute resources used during the migration process and any additional log storage. Each database migration instance includes storage sufficient for swap space, replication logs, and data cache for most replications and inbound data transfer is free.</li>
 </ul>
 </li>
 <li>
-<p><strong>KCL</strong> helps you consume and process data from a <strong>Kinesis data stream</strong> by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding. The KCL takes care of all of these subtasks so that you can focus your efforts on <strong>writing your custom</strong> record-processing logic.</p>
+<p>The <strong>S3 Standard-IA</strong> storage class is designed for long-lived and infrequently accessed data. (IA stands for <em>infrequent access</em>.) S3 Standard-IA is available for <strong>millisecond access</strong> (same as the S3 Standard storage class). Amazon S3 charges a retrieval fee for these objects, so they are most suitable for infrequently accessed data.</p>
+<p>Amazon S3 <strong>Glacier Deep Archive</strong> does not provide immediate access. Expedited retrievals may still take <strong>hours</strong> to complete.</p>
 </li>
 <li>
-<p><strong>Amazon Kinesis Data Firehose</strong> <strong><!-- raw HTML omitted --><em>buffers incoming streaming</em><!-- raw HTML omitted --></strong> data to a certain size or for a certain period of time before delivering it to destinations. You can configure the buffer size and buffer interval while creating your delivery stream.</p>
-<p>Buffer size is in MBs and ranges from <!-- raw HTML omitted -->1MB to 128MB<!-- raw HTML omitted --> for Amazon S3 destination and <!-- raw HTML omitted --><strong>1MB to 100MB</strong><!-- raw HTML omitted --> for Amazon Elasticsearch Service destination. Buffer interval is in seconds and ranges from <strong>60 seconds to 900 seconds</strong>. Please note that in circumstances where data delivery to destination is falling behind data writing to a delivery stream, Firehose raises buffer size dynamically to catch up and make sure that all data is delivered to the destination.</p>
-<p><img src="https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-04_16-41-13-3dcfe5855fa5c240d34bedca038dcb9b.JPG" alt="img"></p>
+<p><strong>S3</strong> related:</p>
+<ul>
+<li>By default, you can create up to <strong>100</strong> buckets in <strong>each</strong> of your AWS accounts.</li>
+<li>You <strong>can’t change its Region</strong> after creation.</li>
+<li>You can host <strong>static</strong> websites by configuring your bucket for website hosting.</li>
+<li>You <strong>can’t delete</strong> an S3 bucket using the Amazon S3 console if the bucket contains <strong>100,000</strong> or more objects. You <strong>can’t</strong> delete an S3 bucket using the <strong>AWS CLI if versioning is enabled</strong>.</li>
+</ul>
 </li>
 <li>
-<p>The <strong>S3 Standard-IA</strong> storage class is designed for long-lived and infrequently accessed data. (IA stands for <em>infrequent access</em>.) S3 Standard-IA is available for millisecond access (same as the S3 Standard storage class). Amazon S3 charges a retrieval fee for these objects, so they are most suitable for infrequently accessed data.</p>
-<p>Amazon S3 Glacier Deep Archive does not provide immediate access. Expedited retrievals may still take <strong>hours</strong> to complete.</p>
+<p><strong>S3 Data Consistency Model</strong></p>
+<ul>
+<li>read-after-write consistency for PUTS of new objects in your S3 bucket in all regions</li>
+<li>strong consistency for read-after-write HEAD or GET requests</li>
+<li>strong consistency for overwrite PUTS and DELETES in all regions</li>
+<li>strong read-after-write consistency for any storage request</li>
+<li>eventual consistency for listing all buckets after deleting a bucket (deleted bucket might still show up)</li>
+<li>eventual consistency on propagation of enabling versioning on a bucket for the first time.</li>
+</ul>
 </li>
 <li>
-<p><strong>Amazon Athena</strong> is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run.</p>
+<p><strong>S3 Select</strong></p>
+<ul>
+<li>S3 Select is an Amazon S3 capability designed to <strong>pull out only the data you need</strong> from an object, which can dramatically improve the performance and reduce the cost of applications that need to access data in S3.</li>
+<li>Amazon S3 Select works on objects stored in <strong>CSV and JSON format, Apache Parquet format, JSON Arrays, and BZIP2 compression for CSV and JSON objects.</strong></li>
+<li><strong>CloudWatch</strong> Metrics for S3 Select lets you monitor S3 Select usage for your applications. These metrics are available at <strong>1-minute</strong> intervals and lets you quickly identify and act on operational issues.</li>
+</ul>
+</li>
+<li>
+<p><strong>Encryption</strong> in S3:</p>
+<ul>
+<li>
+<ul>
+<li><strong>Server-side</strong> Encryption using
+<ul>
+<li><strong>Amazon S3-Managed Keys (SSE-S3)</strong></li>
+<li><strong>AWS KMS-Managed Keys (SSE-KMS)</strong></li>
+<li><strong>Customer-Provided Keys (SSE-C)</strong></li>
+</ul>
+</li>
+<li><strong>Client-side</strong> Encryption using
+<ul>
+<li>AWS KMS-managed customer master key</li>
+<li>client-side master key</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Availability Zones</strong> give customers the ability to operate production applications and databases that are more highly available, fault-tolerant, and scalable than would be possible from a single data center. AWS maintains multiple AZs around the world and more zones are added at a fast pace. Each AZ can be multiple data centers (typically 3), and at full scale can be hundreds of thousands of servers. They are fully isolated partitions of the AWS Global Infrastructure. With their own power infrastructure, the AZs are physically separated by a meaningful distance, many kilometers, from any other AZ, although all are within 100 km (60 miles of each other).</p>
+<p>All AZs are interconnected with high-bandwidth, low-latency networking, over fully redundant, dedicated metro fiber providing high-throughput, low-latency networking between AZs. The network performance is sufficient to accomplish synchronous replication between AZs. AWS Availability Zones are also powerful tools for helping build highly available applications. AZs make partitioning applications about as easy as it can be. If an application is partitioned across AZs, companies are better isolated and protected from issues such as lightning strikes, tornadoes, earthquakes and more.</p>
+</li>
+<li>
+<p><strong>Amazon Athena</strong> is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is <strong>serverless</strong>, so there is no infrastructure to manage, and you pay only for the queries that you run.</p>
 <p>Athena can run queries to analyze unstructured, semi-structured, and structured data stored in S3.</p>
 </li>
 <li>
-<p>Kinesis Firehose Data Delivery Failure Handing</p>
-<p><img src="https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-05_02-32-25-005129db5966b762cc65018c53796c0e.JPG" alt=""></p>
+<p><strong>Kinesis</strong> and <strong>Athena</strong> can feed data into <strong>MapReduce</strong> jobs.</p>
 </li>
 <li>
-<p>In Kenisis Data Stream, the minimum value of a stream’s time period is 24 hours, but this can be increased up to 8760 hours (365 days).</p>
-</li>
-<li>
-<p>Firehose can deliver data to <strong>S3, Elastic Search, Splunk, Redshift, and HTTP Endpoints.</strong> Athena is not a database, and Firehose doesn&rsquo;t deliver data to DynamoDB.</p>
+<p>In Kinesis Data Stream, the minimum value of a stream’s time period is 24 hours, but this can be increased up to 8760 hours (365 days).</p>
 </li>
 <li>
 <p><strong>AWS Lake formation</strong> integrates with the following services which also accepts the lake formation permissions:</p>
@@ -305,12 +389,6 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 </ol>
 </li>
 <li>
-<p>Data storage for machine learning modeling could be from <strong>S3</strong>, <strong>Amazon Fsx for Lustre, and Amazon EFS.</strong></p>
-</li>
-<li>
-<p><strong>Firehose</strong> can convert the data from <strong>JSON to ORC or Parquet format.</strong> If the input data is other than JSON, like CSV or text, then the <strong>lambda</strong> function is used to transform the data to JSON format first.</p>
-</li>
-<li>
 <p><strong>An EMR cluster has three nodes:</strong></p>
 <ol>
 <li>
@@ -327,6 +405,9 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>Using spot instances can provide a huge cost saving compared to the on-demand and reserved instances, as this spares the EC2 instances once the job is done. The master and core nodes can&rsquo;t be used with the spot instances, as their availability is a must requirement for the EMR cluster.</p>
 </li>
 <li>
+<p>While you can use Spot instances on any node type, a Spot interruption on the Master node requires terminating the entire cluster, and on a Core node, it can lead to HDFS data loss.</p>
+</li>
+<li>
 <p><strong>EMR Storage</strong></p>
 <ul>
 <li>HDFS</li>
@@ -336,7 +417,7 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 </ul>
 </li>
 <li>
-<p>In Kinesis Data Stream, the minimum value of a stream’s time period is <strong>24</strong> hours, but this can be increased up to <strong>8760</strong> hours (<strong>365</strong> days).</p>
+<p><strong><!-- raw HTML omitted -->Kinesis Data Streams PutRecord API<!-- raw HTML omitted --></strong> uses <em><strong>name of the stream</strong></em>, <em><strong>a partition key</strong></em> and the <em><strong>data blob</strong></em> whereas <!-- raw HTML omitted --><strong>Kinesis Data Firehose PutRecord API</strong><!-- raw HTML omitted --> uses the <em><strong>name of the delivery stream</strong></em> and the <em><strong>data record</strong></em>.</p>
 </li>
 <li>
 <p><img src="https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_05-31-48-e1d0b84a350d082ddd023606a22f2432.jpg" alt="img"></p>
@@ -347,32 +428,27 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>Using SQS would require implementing substantial functionality on top of SQS, and AWS <strong>Batch is only designed for scheduling and allocating the resources needed for batch processing.</strong></p>
 </li>
 <li>
-<p>Glue&rsquo;s <strong>FindMatches</strong> feature is a new way to perform de-duplication as part of Glue ETL, and is a simple, server-less solution to the problem.</p>
+<p><strong>AWS Data Pipeline</strong> provides a managed orchestration service that gives you greater flexibility in terms of the execution environment, access and control over the compute resources that run your code, as well as the code itself that does data processing. AWS Data Pipeline <strong>launches compute resources</strong> in your account <strong>allowing you direct access to the Amazon EC2 instances or Amazon EMR clusters.</strong></p>
 </li>
 <li>
-<p><strong>AWS Data Pipeline</strong> provides a managed orchestration service that gives you greater flexibility in terms of the execution environment, access and control over the compute resources that run your code, as well as the code itself that does data processing. AWS Data Pipeline launches compute resources in your account allowing you direct access to the Amazon EC2 instances or Amazon EMR clusters.</p>
-</li>
-<li>
-<p>Only <strong>GZIP</strong> is supported if the data is loaded to Amazon <strong>Redshift</strong>.</p>
-</li>
-<li>
-<p>Kinesis and Athena can feed data into MapReduce jobs.</p>
-</li>
-<li>
-<p>AWS Glue does not support Timestream as the source input type.</p>
-</li>
-<li>
-<p><strong>Preventative</strong> controls encompass the AWS CAF(Cloud Adoption Framework) Security Perspective capabilities of IAM, infrastructure security, and data protection. They are <strong>(i) IAM, (ii) Infrastructure security, and (iii) Data protection (encryption and tokenization).</strong></p>
+<p><strong>Preventative</strong> controls encompass the AWS <strong>CAF</strong>(Cloud Adoption Framework) Security Perspective capabilities of IAM, infrastructure security, and data protection. They are <strong>(i) IAM, (ii) Infrastructure security, and (iii) Data protection (encryption and tokenization).</strong></p>
 <p><strong>Detective</strong> controls detect changes to configurations or undesirable actions and enable timely incident response. They are <strong>(i) Detection of unauthorized traffic, (ii) Configuration drift, (iii) Fine-grained audits.</strong></p>
 </li>
 <li>
-<p>AWS Step Functions lets you coordinate multiple AWS services into serverless workflows so you can build and update apps quickly. Using Step Functions, you can design and run workflows that stitch together services, such as AWS Lambda, AWS Fargate, and Amazon SageMaker, into feature-rich applications. Workflows are made up of a series of steps, with the output of one step acting as input into the next. They are perfect to run multiple ETL jobs that hand off the input to ML workflows. <strong>(The keyword in the question is &lsquo;workflow&rsquo;.)</strong></p>
+<p>AWS Step Functions lets you coordinate multiple AWS services into serverless workflows so you can build and update apps quickly. Using Step Functions, you can design and run workflows that stitch together services, such as AWS Lambda, AWS Fargate, and Amazon SageMaker, into feature-rich applications. Workflows are made up of a series of steps, <strong>with the output of one step acting as input into the next</strong>. They are perfect to run multiple ETL jobs that hand off the input to ML workflows. <strong>(The keyword in the question is &lsquo;workflow&rsquo;.)</strong></p>
 </li>
 <li>
-<p>Kinesis Data Analytics can use lambda to convert GZIP and can run SQL on the converted data. A specialist can simply select an AWS Lambda function from the Kinesis Analytics application source page in the AWS Management console. His Kinesis Analytics application will automatically process raw data records using the Lambda function and send transformed data to his SQL code for further processing.</p>
+<p><strong>Kinesis Data Analytics</strong> can use <strong>lambda to convert GZIP</strong> and can run SQL on the converted data. A specialist can simply select an AWS Lambda function from the Kinesis Analytics application source page in the AWS Management console. Kinesis Analytics application will automatically process raw data records using the Lambda function and send transformed data to SQL code for further processing.</p>
 </li>
 <li>
-<p>Object tags are useful for security and lifecycle management. One can use tags to identify an object with, say PII (Personally identifiable information), or use S3 for one-dimensional object categorization. One can also add another dimension using bucket prefixes.</p>
+<p><strong>Object tags</strong> are useful for <strong>security and lifecycle management.</strong> One can use tags to identify an object with, say PII (Personally identifiable information), or use S3 for one-dimensional object categorization. One can also add another dimension using bucket prefixes.</p>
+</li>
+<li>
+<p><strong>Collaborative filtering</strong> is based on (user, item, rating) tuples. So, unlike content-based filtering, it leverages other users’ experiences. The main concept behind collaborative filtering is that users with similar tastes (based on observed user-item interactions) are more likely to have similar interactions with items they haven&rsquo;t seen before.</p>
+<p>Compared to content-based filtering, collaborative filtering provides better results for <strong>diversity</strong> (how dissimilar recommended items are); <strong>serendipity</strong> (a measure of how surprising the successful or relevant recommendations are); and <strong>novelty</strong> (how unknown recommended items are to a user).</p>
+</li>
+<li>
+<p>Amazon EMR offers you two options to work with Jupyter notebooks: (i) EMR Notebook, and (ii) JupyterHub. An EMR notebook is a &lsquo;serverless&rsquo; Jupyter notebook. Unlike a traditional notebook, the contents of an EMR notebook itself — the equations, visualizations, queries, models, code, and narrative text — are saved in Amazon S3 separately from the cluster that runs the code.</p>
 </li>
 </ol>
 <h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
@@ -383,7 +459,7 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p><a href="https://stats.stackexchange.com/questions/235808/binary-classification-with-strongly-unbalanced-classes">https://stats.stackexchange.com/questions/235808/binary-classification-with-strongly-unbalanced-classes</a></p>
 </li>
 <li>
-<p>A data warehouse can only store structured data whereas a data lake can store structured, semi-structured and unstructured data.</p>
+<p>A data <strong>warehouse</strong> can only store <strong>structured</strong> data whereas a data lake can store structured, semi-structured and unstructured data.</p>
 <p><strong><!-- raw HTML omitted -->Data lakes<!-- raw HTML omitted --></strong> provides schema on <strong>read</strong> access, whereas <!-- raw HTML omitted --><strong>data warehouse</strong><!-- raw HTML omitted --> provides schema on <strong>write</strong>.</p>
 </li>
 <li>
@@ -391,18 +467,14 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>The <strong>Rademacher</strong> distribution takes value 1 with probability 1/2 and value −1 with probability 1/2. The <strong>degenerate</strong> distribution is localized at a point x0, where x is certain to take the value x_0. The probability mass function equals 1 at this point and 0 elsewhere.</p>
 </li>
 <li>
-<p>You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:</p>
-<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html">https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html</a></p>
-</li>
-<li>
-<p>Tf-idf is a statistical technique frequently used in Machine Learning areas such as text-summarization and classification. Tf-idf measures the relevance of a word in a document compared to the entire corpus of documents. You have a corpus (D) containing the following documents:</p>
+<p>Tf-idf is a statistical technique frequently used in Machine Learning areas such as text-summarization and classification. Tf-idf measures the <strong>relevance of a word in a document compared to the entire corpus of documents</strong>. You have a corpus (D) containing the following documents:</p>
 <p>Document 1 (d1) : “A quick brown fox jumps over the lazy dog. What a fox!”</p>
 <p>Document 2 (d2) : “A quick brown fox jumps over the lazy fox. What a fox!”</p>
 <p>Which of the following statements is correct:</p>
 <ul>
 <li>Using tf-idf, the word “fox” is equally relevant for both document d1 and document d2</li>
 </ul>
-<p>tf is the frequency of any &ldquo;term&rdquo; in a given &ldquo;document&rdquo;. Using this definition, we can compute the following:</p>
+<p><strong>tf</strong> is the frequency of any &ldquo;term&rdquo; in a given &ldquo;document&rdquo;. Using this definition, we can compute the following:</p>
 <p>tf(“fox”, d1) = 2/12 , as the word &ldquo;fox&rdquo; appears twice in the first document which has a total of 12 words</p>
 <p>tf(“fox”, d2) = 3/12 , as the word &ldquo;fox&rdquo; appears thrice in the second document which has a total of 12 words</p>
 <p>An idf is constant per corpus (in this case, the corpus consists of 2 documents) , and accounts for the ratio of documents that include that specific &ldquo;term&rdquo;. Using this definition, we can compute the following:</p>
@@ -413,17 +485,17 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>Using tf-idf, the word “fox” is equally relevant (or just irrelevant!) for both document d1 and document d2</p>
 </li>
 <li>
-<p>TF-IDF: Three different inverse document frequency functions are standard, smooth, probabilistic: Standard: log(N)/n_t, Smooth: log(N)/((1+n_t) +1), Probabilistic: log(N-N_t)/n_t, where N is the total number of documents in the corpus, and n_t is a number of documents where the term t appears.</p>
+<p>TF-IDF: Three different inverse document frequency functions are <strong>standard, smooth, probabilistic:</strong> Standard: log(N)/n_t, Smooth: log(N)/((1+n_t) +1), Probabilistic: log(N-N_t)/n_t, where N is the total number of documents in the corpus, and n_t is a number of documents where the term t appears.</p>
 </li>
 <li>
-<p>Logarithm transformation and Standardization are the correct techniques to address outliers in data. Please review this reference link:</p>
+<p><strong>Logarithm transformation</strong> and <strong>Standardization</strong> are the correct techniques to address outliers in data. Please review this reference link:</p>
 <p><a href="https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114">https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114</a></p>
 </li>
 <li>
-<p>ElasticSearch, EMR and EC2 are not “serverless”.</p>
+<p>ElasticSearch, EMR and EC2 are <strong>not</strong> “serverless”.</p>
 </li>
 <li>
-<p>The best way to engineer the cyclical features is to represent these as (x,y) coordinates on a circle using sin and cos functions. Please review this technique in more detail here -</p>
+<p>The best way to engineer the <strong>cyclical</strong> features is to represent these as (x,y) coordinates on a circle using sin and cos functions. Please review this technique in more detail here -</p>
 <p><a href="http://blog.davidkaleko.com/feature-engineering-cyclical-features.html">http://blog.davidkaleko.com/feature-engineering-cyclical-features.html</a></p>
 </li>
 <li>
@@ -439,7 +511,7 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p>The <strong>Box Plot and Violin Plot</strong> are used to summarize multivariate distributions. They are a standardized way of displaying the data distributions based on a <strong>five-number summary (minimum, first quartile (Q1), median, third quartile (Q3), and maximum).</strong> The plots show symmetry, tightness of the groups, skewness, and any outliers present.</p>
 </li>
 <li>
-<p>The Multiple Imputations by Chained Equations (MICE) algorithm is a robust, informative method of dealing with missing data in your datasets. This procedure imputes or &lsquo;fills in&rsquo; the missing data in a dataset through an iterative series of predictive models. Each specified variable in the dataset is imputed in each iteration using the other variables in the dataset. These iterations will be run continuously until convergence has been met. In General, MICE is a better imputation method than naive approaches (filling missing values with 0, dropping columns).</p>
+<p>The Multiple Imputations by Chained Equations (<strong>MICE</strong>) algorithm is a robust, informative method of dealing with <strong>missing data</strong> in your datasets. This procedure imputes or &lsquo;fills in&rsquo; the missing data in a dataset through an iterative series of predictive models. Each specified variable in the dataset is imputed in each iteration using the other variables in the dataset. These iterations will be run continuously until convergence has been met. In General, MICE is a better imputation method than naive approaches (filling missing values with 0, dropping columns).</p>
 </li>
 <li>
 <p>QuickSight supports UTF-8 file encoding, <strong>but not UTF-8 (with BOM)</strong>.</p>
@@ -454,63 +526,60 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
 <p><strong>F0.5-Measure</strong> (beta=0.5): More weight on precision, less weight on recall.</p>
 <p><strong>F1-Measure</strong> (beta=1.0): Balance the weight on precision and recall.</p>
 <p><strong>F2-Measure</strong> (beta=2.0): Less weight on precision, more weight on recall</p>
-<p><img src="https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_07-55-05-6516021657c5e962ac6ca87cdd939d92.jpg" alt="img"></p>
+<pre><code>![img](https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_07-55-05-6516021657c5e962ac6ca87cdd939d92.jpg)
+</code></pre>
 </li>
 <li>
-<p>The Recall is also called <strong>Sensitivity, Hit Rate, and True Positive Rate.</strong></p>
-<p><strong>Positive Predictive Value (PPV)</strong> is the same as Precision.</p>
+<p>The <!-- raw HTML omitted --><em>Recall</em><!-- raw HTML omitted --> is also called <strong>Sensitivity, Hit Rate, and True Positive Rate.</strong></p>
+<pre><code>**Positive Predictive Value (PPV)** is the same as &lt;u&gt;*Precision*&lt;/u&gt;.
+</code></pre>
 </li>
 <li>
-<p>The Receiver Operating Characteristic - <strong>ROC</strong>, true positive rate &amp; false positive rate - determines the ability of a binary classification model, as its discrimination threshold is varied.</p>
+<p>The Receiver Operating Characteristic - <strong>ROC</strong>, <strong>true positive rate &amp; false positive rate</strong> - determines the ability of a binary classification model, as its discrimination threshold is varied.</p>
 </li>
 <li>
-<p>False positive Rate = 1 - TNR(True negative rate) = 1 - specifiticy</p>
+<p><strong>False positive Rate</strong> = 1 - TNR(True negative rate) = 1 - specifiticy</p>
 </li>
 <li>
-<p>As per sklearn, the minority class is considered as the positive class. Hence, in cases with fraudulent data, a fraud transaction is considered as a positve class. Similary, in diagnostics, a disease detected is considered positive.</p>
+<p><strong>Specificity</strong> = TN/(TN+FP)</p>
+</li>
+<li>
+<p>If the model has a high specificity, it implies that all false positives (think of it as false alarms) have been weeded out. In other words, the <strong>specificity</strong> of a test refers to how well the test identifies those who have not indulged in substance abuse.</p>
+<p>Please read this excellent reference article for more details:</p>
+<p><a href="https://www.statisticshowto.datasciencecentral.com/sensitivity-vs-specificity-statistics/">https://www.statisticshowto.datasciencecentral.com/sensitivity-vs-specificity-statistics/</a></p>
+</li>
+<li>
+<p>As per sklearn, <strong>the minority class is considered as the positive class.</strong> Hence, in cases with <strong>fraudulent</strong> data, a fraud transaction is considered as a positve class. Similary, in diagnostics, a disease detected is considered positive.</p>
 </li>
 <li>
 <p><strong>Type 2</strong> error is also known as <strong>False Negative.</strong></p>
-<p>A Null hypothesis assumes positive for no-change/default (No Fraud, Healthy, Not Guilty), and a negative for change/non-default (Not Healthy, Fraud, Guilty) outcome.</p>
-<p>A type 2 error occurs when the null hypothesis is false but is falsely accepted. This corresponds to the False-negative in classification, where a negative is considered for no-change/default (No Fraud, Healthy, Non-Guilty), etc.</p>
-<p>A type 1 error occurs when the null hypothesis is true but is falsely rejected.</p>
+<pre><code>A Null hypothesis assumes positive for no-change/default (No Fraud, Healthy, Not Guilty), and a negative for change/non-default (Not Healthy, Fraud, Guilty) outcome.
+
+A type 2 error occurs when the null hypothesis is false but is falsely accepted. This corresponds to the False-negative in classification, where a negative is considered for no-change/default (No Fraud, Healthy, Non-Guilty), etc.
+
+A type 1 error occurs when the null hypothesis is true but is falsely rejected.
+</code></pre>
 </li>
 <li>
 <p><strong>Miss Rate is also known as the False Negative Rate</strong>. It is given as FN/FN+TP (FN =False Negative, TP = True Positive).</p>
 <p>As the False Negatives are undesired and should be reduced to zero for an ideal model, the value of the miss rate in the ideal case will approach zero.</p>
 </li>
 <li>
-<p>If there are no outliers, MAE (Mean Absolute Error) will be more suitable  for comparison of performances of various models, as the error remains linear in this case. And if there are outliers RMSE will be preferred.</p>
+<p>If there are <!-- raw HTML omitted -->no outliers,<!-- raw HTML omitted --> <strong>MAE</strong> (Mean Absolute Error) will be more suitable  for comparison of performances of various models, as the error remains linear in this case. And if there <!-- raw HTML omitted -->are outliers<!-- raw HTML omitted --> <strong>RMSE</strong> will be preferred.</p>
 </li>
 <li>
-<p>For <strong>stochastic gradient descent</strong>, the batch size equals <strong>1</strong>.</p>
-<p>For <strong>batch gradient descen</strong>t, the <strong>batch size equals the size of the training set</strong>.</p>
-<p>And, for <strong>mini-batch gradient descent,</strong> the batch size is greater than 1 but less than the size of the training set.</p>
-</li>
-<li>
-<p>The small batch size can result:</p>
-<ol>
-<li>
-<p>Faster updates in the model weights</p>
-</li>
-<li>
-<p>Noise and oscillations in the training process, which might be able to escape the local minima</p>
-</li>
-</ol>
-</li>
-<li>
-<p>Deep learning is better suited to the imputation of categorical data. Square footage is numerical, which is better served by kNN.</p>
-</li>
-<li>
-<p>Ground truth provides built-in five data labelling tasks</p>
-<pre><code>Bounding Boxes
+<p><strong>Ground truth</strong> provides built-in five data labelling tasks</p>
+<pre><code>```
+Bounding Boxes
 Image classification
 Semantic segmentation
 Text classification
 Named Entity Recognition.
-</code></pre></li>
+```
+</code></pre>
+</li>
 <li>
-<p>The <em>p</em> value represents the level of probability that an apparently significant relationship between variables was really just due to chance. If <em>p</em> is set at 0.01, this means that we would expect such a result in only 1 in 100 cases. This is a very stringent level, and while it means that the researcher can be more confident about a significant result if they find one, it also increases the chance of making a Type II error: confirming the null hypothesis when it should be rejected.</p>
+<p>The <em>p</em> value represents the level of probability that an apparently significant relationship between variables was really just due to chance. <!-- raw HTML omitted -->If <em>p</em> is set at 0.01, this means that we would expect such a result in only 1 in 100 cases<!-- raw HTML omitted -->. This is a very stringent level, and while it means that the researcher can be more confident about a significant result if they find one, <strong>it also increases the chance of making a Type II error: confirming the null hypothesis when it should be rejected.</strong></p>
 </li>
 <li>
 <p>Adoptive (or q-quantile) binning helps in partitioning a numeric attribute into &lsquo;q&rsquo; equal partitions.  Adoptive binning leads to discrete-valued categorical features transforming <strong>numerical data into ordinal data.</strong></p>
@@ -518,18 +587,18 @@ Named Entity Recognition.
 <li>
 <p>95% of the measurements fall between +/- 2 standard deviations around the mean.</p>
 </li>
-<li>
-<p>Amazon EMR offers you two options to work with Jupyter notebooks: (i) EMR Notebook, and (ii) JupyterHub. An EMR notebook is a &lsquo;serverless&rsquo; Jupyter notebook. Unlike a traditional notebook, the contents of an EMR notebook itself — the equations, visualizations, queries, models, code, and narrative text — are saved in Amazon S3 separately from the cluster that runs the code.</p>
-</li>
 </ol>
 <h1 id="modeling">Modeling</h1>
 <ol>
 <li>
-<p>Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.</p>
+<p><em><strong>Object2Vec</strong></em> can be used to find semantically similar <strong>objects</strong> such as questions. <em><strong>BlazingText Word2Vec</strong></em> can only find semantically similar <strong>words</strong>.</p>
+</li>
+<li>
+<p><strong>mode</strong> is the mandatory hyperparameter for both the <strong>Word2Vec</strong> (unsupervised) and <strong>Text Classification</strong> (supervised) modes of the SageMaker BlazingText algorithm.</p>
 </li>
 <li>
 <p><strong>Incremental Training</strong> in Amazon SageMaker</p>
-<p>Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model. Incremental training saves both time and resources.</p>
+<p>Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from <strong>an existing model and use an expanded dataset</strong> to train a new model. Incremental training <strong>saves both time and resources</strong>.</p>
 <p>Use incremental training to:</p>
 <ul>
 <li>Train a new model using an expanded dataset that contains an underlying pattern that was not accounted for in the previous training and which resulted in poor model performance.</li>
@@ -539,54 +608,59 @@ Named Entity Recognition.
 </ul>
 </li>
 <li>
-<p>Blazing Text algorithm can be used in both supervised and unsupervised learning modes.</p>
+<p><strong>Rekognition</strong> <strong>doesn&rsquo;t</strong> support <strong>Incremental training</strong>.</p>
 </li>
 <li>
-<p>SageMaker DeepAR algorithm specializes in forecasting new product performance.</p>
+<p><strong>Amazon Rekognition Content Moderation</strong> enables you to streamline or automate your image and video <strong>moderation</strong> workflows using machine learning. Using fully managed image and video moderation APIs, you can proactively detect inappropriate, unwanted, or offensive content containing nudity, suggestiveness, violence, and other such categories.</p>
 </li>
 <li>
-<p>Specificity = (True Negatives / (True Negatives + False Positives))</p>
-<p>If the model has a high specificity, it implies that all false positives (think of it as false alarms) have been weeded out. In other words, the <strong>specificity</strong> of a test refers to how well the test identifies those who have not indulged in substance abuse.</p>
-<p>Please read this excellent reference article for more details:</p>
-<p><a href="https://www.statisticshowto.datasciencecentral.com/sensitivity-vs-specificity-statistics/">https://www.statisticshowto.datasciencecentral.com/sensitivity-vs-specificity-statistics/</a></p>
+<p>Only <strong>three</strong> built-in algorithms currently <em><strong>support</strong></em> <strong>incremental training</strong>: Object <strong>Detection Algorithm, Image Classification Algorithm, and Semantic Segmentation Algorithm.</strong></p>
 </li>
 <li>
-<p>LDA: Observations are referred to as documents. The feature set is referred to as vocabulary. A feature is referred to as a word. And the resulting categories are referred to as topics.</p>
+<p><strong>BlazingText</strong> algorithm can be used in both <strong>supervised and unsupervised</strong> learning modes.</p>
 </li>
 <li>
-<p><strong>mode</strong> is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.</p>
+<p>SageMaker <strong>DeepAR</strong> algorithm specializes in <strong>forecasting</strong> new product performance.</p>
 </li>
 <li>
-<p>Factorization Machines algorithm specializes in building recommendation systems.</p>
+<p><strong>LDA</strong>: <strong>Observations</strong> are referred to as documents. The <strong>feature set</strong> is referred to as <strong>vocabulary</strong>. A feature is referred to as a <strong>word</strong>. And the <strong>resulting categories</strong> are referred to as topics.</p>
 </li>
 <li>
-<p>Image Classification is used to classify images into multiple classes such as cat vs dog. Object Detection is used to detect objects in an image. Semantic Segmentation is used for pixel level analysis of an image and it can be used in this computer vision system to detect misalignment</p>
+<p><strong>LDA</strong> is a <strong>&ldquo;bag-of-words&rdquo;</strong> model, which means that the <strong>order</strong> of words does <strong>not matter</strong>.</p>
 </li>
 <li>
-<p>feature_dim and k are the required hyperparameters for the SageMaker K-means algorithm</p>
+<p><strong>Factorization Machines</strong> algorithm specializes in building <strong>recommendation systems.</strong></p>
 </li>
 <li>
-<p>When you use automatic model tuning, the linear learner internal tuning mechanism is turned off automatically. This sets the number of parallel models, num_models, to 1.</p>
+<p><strong>Factorization Machine</strong> can be used to <strong>capture click patterns</strong> for a click prediction system.</p>
 </li>
 <li>
-<p>AUC/ROC  is the best evaluation metric for a binary classification model. this metric does not require you to set a classification threshold.</p>
-<p>For imbalanced datasets, you are better off using another metric called - <strong>PR AUC</strong> - that is also used in production systems for a highly imbalanced dataset, where the fraction of positive class is small, such as in case of credit card fraud detection.</p>
+<p><strong>Image Classification</strong> is used to <strong>classify</strong> images into multiple classes such as cat vs dog. <strong>Object Detection</strong> is used to <strong>detect</strong> objects in an image. Semantic Segmentation is used for pixel level analysis of an image and it can be used in this computer vision system to <strong>detect misalignment</strong>.</p>
 </li>
 <li>
-<p><strong>You can think of L1 as reducing the number of features in the model altogether. L2 “regulates” the feature weight instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:</strong></p>
+<p><em><strong>Object Detection</strong></em> : is the technology that is related to computer vision and image processing. It&rsquo;s aim? detect objects in an image.</p>
+<p><em><strong>Semantic Segmentation</strong></em> : is a technique that detects , for each pixel , the object category it belongs to , all object categories ( labels ) must be known to the model.</p>
+<p><em><strong>Instance Segmentation</strong></em> : same as Semantic Segmentation, but dives a bit deeper, it identifies , for each pixel, the object instance it belongs to. The main difference is that differentiates two objects with the same labels in comparison to semantic segmentation.</p>
+</li>
+<li>
+<p><code>feature_dim</code> and <code>k</code> are the required hyperparameters for the SageMaker <strong>K-means</strong> algorithm.</p>
+</li>
+<li>
+<p>When you use <strong>automatic model tuning</strong>, the <strong>linear learner</strong> internal tuning mechanism is turned <strong>off</strong> automatically. <strong>This sets the number of parallel models, num_models, to 1.</strong></p>
+</li>
+<li>
+<p>You can think of <strong>L1</strong> as reducing the number of features in the model altogether. <strong>L2</strong> <strong>“regulates” the feature weight</strong> instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:</p>
 <p><a href="https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c">https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c</a></p>
 </li>
 <li>
-<p>Factorization Machine can be used to capture click patterns for a click prediction system:</p>
+<p>The <strong>residuals</strong> plot would indicate any trend of underestimation or overestimation. Ideally, <a href="https://www.statisticshowto.com/residual/">residual values</a> should be equally and randomly spaced around the horizontal axis. Both <strong>Mean Absolute Error</strong> and <strong>RMSE</strong> would only give the error magnitude.</p>
 </li>
 <li>
-<p>The residuals plot would indicate any trend of underestimation or overestimation. Ideally, <a href="https://www.statisticshowto.com/residual/">residual values</a> should be equally and randomly spaced around the horizontal axis. Both Mean Absolute Error and RMSE would only give the error magnitude. AUC is a metric used for classification models.</p>
+<p><strong>AUC/ROC</strong>  is the best evaluation metric for a <strong>binary</strong> classification model. This metric does <strong>not</strong> require you to set a classification <strong>threshold</strong>.</p>
+<p>For <strong>imbalanced</strong> datasets, you are better off using another metric called - <strong>PR AUC</strong> - that is also used in production systems for a highly imbalanced dataset, where the fraction of <strong>positive class is small</strong>, such as in case of credit card fraud detection.</p>
 </li>
 <li>
-<p>LDA is a &ldquo;bag-of-words&rdquo; model, which means that the order of words does not matter</p>
-</li>
-<li>
-<p>A <strong>&ldquo;vanishing gradient&rdquo;</strong> results from multiplying together many small derivates of the sigmoid activation function in multiple layers. ReLU does not have a small derivative, and avoids this problem.</p>
+<p>A <strong>&ldquo;vanishing gradient&rdquo;</strong> results from multiplying together many small derivates of the <strong>sigmoid</strong> activation function in multiple layers. <strong>ReLU</strong> does not have a small derivative, and avoids this problem.</p>
 </li>
 <li>
 <p>Fixing the <strong>&ldquo;vanishing gradient&rdquo;</strong>:</p>
@@ -607,18 +681,21 @@ Named Entity Recognition.
 </ul>
 </li>
 <li>
-<p><strong>Transfer learning</strong> generally involves using an existing model, or adding additional layers on top of one. Retraining the whole thing isn&rsquo;t transfer learning, and incremental training isn&rsquo;t something Rekognition supports</p>
+<p><strong>Transfer learning</strong> generally involves using an existing model, or adding additional layers on top of one.</p>
 </li>
 <li>
-<p><strong>A learning rate that is too large may overshoot the true minima, while a learning rate that is too small will slow down convergence.</strong></p>
+<p>A <strong>learning rate</strong> that is <strong>too large</strong> may <strong>overshoot the true minima</strong>, while a learning rate that is <strong>too small will slow down convergence</strong>.</p>
 </li>
 <li>
-<p><strong>Music</strong> is fundamentally a <!-- raw HTML omitted -->time-series<!-- raw HTML omitted --> problem, which <strong>RNN&rsquo;s</strong> (recurrent neural networks) are best suited for. You might see the term <strong>LSTM</strong> used as well, which is a specific kind of RNN.</p>
+<p><strong>Learning rat</strong>e affects the <strong>speed</strong> at which the algorithm reaches (<strong>converges</strong> to) the optimal weights. The SGD algorithm makes updates to the weights of the linear model for every data example it sees. The size of these updates is controlled by the learning rate.<img src="https://cs231n.github.io/assets/nn3/learningrates.jpeg" alt="img"></p>
 </li>
 <li>
-<p>RNN is good for:</p>
+<p><strong>Music</strong> is fundamentally a <!-- raw HTML omitted -->timeseries<!-- raw HTML omitted --> problem, which <strong>RNN&rsquo;s</strong> (recurrent neural networks) are best suited for. You might see the term <strong>LSTM</strong> used as well, which is a specific kind of RNN.</p>
+</li>
+<li>
+<p><strong>RNN</strong> is good for:</p>
 <ul>
-<li>Time-series data(predict future based on past; logs; where to drive the self-driving car based on past trajectories)</li>
+<li><strong>Timeseries</strong> data(predict future based on past; logs; where to drive the <strong>self-driving car</strong> based on past trajectories)</li>
 <li>Data that consist of sequence of arbitrary length
 <ul>
 <li>machine translation</li>
@@ -629,17 +706,34 @@ Named Entity Recognition.
 </ul>
 </li>
 <li>
-<p>Custom entity recognition extends the capability of <strong>Amazon Comprehend</strong> by enabling you to identify new entity types not supported as one of the preset generic entity types. This means that in addition to identifying entity types such as LOCATION, DATE, PERSON, and so on, you can analyze documents and extract entities like product codes or business-specific entities that fit your particular needs.</p>
+<p><strong>Custom entity recognition</strong> extends the capability of <strong>Amazon Comprehend</strong> by enabling you to identify new entity types not supported as one of the preset generic entity types. This means that in addition to identifying entity types such as LOCATION, DATE, PERSON, and so on, you can <strong>analyze documents and extract entities</strong> like product codes or business-specific entities that fit your particular needs.</p>
 </li>
 <li>
-<p>To get inferences for an entire dataset, use <strong>batch</strong> transform. With batch transform, you create a batch transform job using a trained model and the dataset, which must be stored in Amazon S3. Amazon SageMaker saves the inferences in an S3 bucket that you specify when you create the batch transform job.</p>
-<p>You can use Amazon SageMaker Batch Transform to <!-- raw HTML omitted -->exclude attributes<!-- raw HTML omitted --> before running predictions. You can also join the prediction results with partial or entire input data attributes when using data that is in CSV, text, or JSON format. This eliminates the need for any additional pre-processing or post-processing and accelerates the overall ML process.</p>
+<p>To <strong>get inferences for an entire dataset</strong>, use <strong>batch transform</strong>. With batch transform, you create a batch transform job using <strong>a trained model and the dataset</strong>, which must be stored in Amazon <strong>S3</strong>. Amazon SageMaker saves the inferences in an S3 bucket that you specify when you create the batch transform job.</p>
+<p>You can use Amazon SageMaker Batch Transform to <!-- raw HTML omitted --><strong>exclude attributes</strong><!-- raw HTML omitted --> before running predictions. You can also join the prediction results with partial or entire input data attributes when using data that is in <strong>CSV, text, or JSON</strong> format. This eliminates the need for any additional pre-processing or post-processing and accelerates the overall ML process.</p>
 </li>
 <li>
-<p>IP Insights algorithm supports only CSV file type as training data.</p>
+<p>Two methods of deploying a model for <strong>inference</strong>:</p>
+<ul>
+<li>Amazon SageMaker <strong>Hosting Services</strong>
+<ul>
+<li>Provides a persistent <strong>HTTPS</strong> endpoint for getting predictions one at a time.</li>
+<li>Suited for web applications that need <strong>sub-second latency response.</strong></li>
+</ul>
+</li>
+<li>Amazon SageMaker <strong>Batch Transform</strong>
+<ul>
+<li>Doesn’t need a persistent endpoint</li>
+<li>Get inferences for an <strong>entire</strong> dataset</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
-<p>In XGBoost,<code>subsample</code> prevents overfitting.</p>
+<p><strong>IP Insights</strong> algorithm supports <strong>only CSV</strong> file type as training data.</p>
+</li>
+<li>
+<p>In <strong>XGBoost</strong>,<code>subsample</code> prevents overfitting.</p>
 <p><code>eta</code> step size shrinkage, prevent overfitting</p>
 <p><code>gamma</code>: minimum loss reduction to create a partition; larger = more conservation</p>
 <p><code>alpha</code> L1 regularization = more conservation</p>
@@ -650,68 +744,96 @@ Named Entity Recognition.
 <p>Other XGBoost hyperparameters: <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost_hyperparameters.html">https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost_hyperparameters.html</a></p>
 </li>
 <li>
-<p>Boosting generally yields better accuracy</p>
-<p>Bagging avoids overfitting, and easier to parallize</p>
+<p><strong>XGBoost Regularization:</strong></p>
+<p><strong><code>alpha</code>:</strong> L1 regularization. Default 0;</p>
+<p><strong><code>lambda</code>:</strong> L2 regularization, default 1.</p>
 </li>
 <li>
-<p>Bullseyes desmonstrates</p>
+<p><strong>Boosting</strong> generally <strong>yields better accuracy</strong></p>
+<p><strong>Bagging</strong> avoids <strong>overfitting</strong>, and <strong>easier to parallize</strong></p>
+</li>
+<li>
+<p><strong>Bullseyes</strong> desmonstrates</p>
 <p><img src="https://www.researchgate.net/profile/Anni-Helena-Ruotsala/publication/304674901/figure/fig6/AS:668649476067338@1536429866393/Precision-versus-accuracy-The-bullseye-represents-the-true-value-eg-the-true.ppm" alt="Precision versus accuracy. The bullseye represents the true value, e.g., the true location of the object, while black dots represent measurements, e.g., the estimated 3D locations of the object based on the 2D images. Source: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments2/precision-and-accuracy-glacial-geology/. Accessed 7.4.2016."></p>
 <p>Dart-throwing Demo</p>
 <p><img src="https://www.researchgate.net/profile/Syed-Akhter-6/publication/330761010/figure/fig2/AS:721145984720896@1548946009061/Bias-and-variance-in-dart-throwing.ppm" alt="2: Bias and variance in dart-throwing."></p>
 </li>
 <li>
-<p><em><strong>Object Detection</strong></em> : is the technology that is related to computer vision and image processing. It&rsquo;s aim? detect objects in an image.</p>
-<p><em><strong>Semantic Segmentation</strong></em> : is a technique that detects , for each pixel , the object category it belongs to , all object categories ( labels ) must be known to the model.</p>
-<p><em><strong>Instance Segmentation</strong></em> : same as Semantic Segmentation, but dives a bit deeper, it identifies , for each pixel, the object instance it belongs to. The main difference is that differentiates two objects with the same labels in comparison to semantic segmentation.</p>
+<p><strong>Batch Normalization</strong> should <strong>not</strong> be a <strong>method</strong> of <strong>regularization</strong> because the main purpose of it is to <strong>speed up the training by selecting a batch and forcing the weight to be distributed near 0</strong>, <strong>not</strong> too large, <strong>not</strong> too small.</p>
 </li>
 <li>
-<p>Batch Normalization should <strong>not</strong> be a <strong>method</strong> of <strong>regularization</strong> because the main purpose of it is to speed up the training by selecting a batch and forcing the weight to be distributed near 0, <strong>not</strong> too large, <strong>not</strong> too small.</p>
+<p>Amazon SageMaker <strong>NTM</strong> is an <strong>unsupervised</strong> learning algorithm that is used to <strong>organize a corpus of documents into <em>topics</em> that contain word groupings based on their statistical distribution.</strong> Documents that contain frequent occurrences of words such as &ldquo;bike&rdquo;, &ldquo;car&rdquo;, &ldquo;train&rdquo;, &ldquo;mileage&rdquo;, and &ldquo;speed&rdquo; are likely to share a topic on &ldquo;transportation&rdquo; for example. Topic modeling can be used to classify or summarize documents based on the topics detected or to retrieve information or recommend content based on topic similarities. The topics from documents that NTM learns are characterized as a <em><strong>latent representation</strong></em> because the topics are inferred from the observed word distributions in the corpus. The semantics of topics are usually inferred by examining the top ranking words they contain. Because the method is unsupervised, <strong>only the number of topics</strong>, not the topics themselves, are <strong>prespecified</strong>. In addition, the topics are not guaranteed to align with how a human might naturally categorize documents.</p>
 </li>
 <li>
-<p>Amazon SageMaker <strong>NTM</strong> is an <strong>unsupervised</strong> learning algorithm that is used to <strong>organize a corpus of documents into <em>topics</em> that contain word groupings based on their statistical distribution.</strong> Documents that contain frequent occurrences of words such as &ldquo;bike&rdquo;, &ldquo;car&rdquo;, &ldquo;train&rdquo;, &ldquo;mileage&rdquo;, and &ldquo;speed&rdquo; are likely to share a topic on &ldquo;transportation&rdquo; for example. Topic modeling can be used to classify or summarize documents based on the topics detected or to retrieve information or recommend content based on topic similarities. The topics from documents that NTM learns are characterized as a <em>latent representation</em> because the topics are inferred from the observed word distributions in the corpus. The semantics of topics are usually inferred by examining the top ranking words they contain. Because the method is unsupervised, only the number of topics, not the topics themselves, are prespecified. In addition, the topics are not guaranteed to align with how a human might naturally categorize documents.</p>
-</li>
-<li>
-<p>1×1 convolutions are called bottleneck structure in CNN, which can:</p>
+<p><strong>1×1 convolutions</strong> are called <strong>bottleneck</strong> structure in <strong>CNN</strong>, which can:</p>
 <ul>
 <li>
-<p>It suffers less overfitting due to small kernel size</p>
+<p>It suffers <strong>less overfitting</strong> due to <strong>small kernel size</strong></p>
 </li>
 <li>
-<p>It can be used for feature pooling</p>
+<p>It can be used for <strong>feature pooling</strong></p>
 </li>
 <li>
-<p>can help in dementionality reduction</p>
+<p>can help in <strong>dementionality reduction</strong></p>
 </li>
 </ul>
 </li>
 <li>
-<p>CNN is called &ldquo;feature-location invariant&rdquo;</p>
+<p><strong>CNN</strong> is called &ldquo;<strong>feature-location invariant</strong>&rdquo;</p>
 </li>
 <li>
-<p>CNN typical usage:</p>
+<p><strong>CNN typical usage:</strong></p>
 <p>Conv2D -&gt; Maxpooling2D -&gt; Dropout -&gt; Flatten -&gt; Dense -&gt; Dropout -&gt; Softmax</p>
 </li>
 <li>
-<p>Softmax usually used as the last layer of the multiple classification problem. It can&rsquo;t product more than one label(sigmoid can)</p>
+<p><strong>Softmax</strong> usually used as the last layer of the <strong>multiple classification</strong> problem. It can&rsquo;t product more than one label(sigmoid can)</p>
 </li>
 <li>
-<p>Logistic activation, Sigmoid, or Soft Step all represent the same function: Logistic (Sigmoid or Soft Step): f(x)=sigma(x)=1/(1-exp(-x))</p>
+<p><strong>Logistic activation, Sigmoid, or Soft Step</strong> all represent the same function: Logistic (Sigmoid or Soft Step): f(x)=sigma(x)=1/(1-exp(-x))</p>
 </li>
 <li>
-<p><strong>Entropy</strong> is a measure of the uncertainty associated with a given distribution &ndash; it measures how much information is required, on average, to identify random samples from that distribution. Cross entropy can be used to define a loss function in machine learning and optimization. Cross entropy is related to log-likelihood: maximizing the likelihood is the same as minimizing the cross-entropy.</p>
+<p><strong>Entropy</strong> is a measure of the <strong>uncertainty associated with a given distribution</strong> &ndash; <strong>it measures how much information is required, on average, to identify random samples from that distribution.</strong> <strong>Cross entropy</strong> can be used to define a <strong>loss function in machine learning and optimization</strong>. Cross entropy is related to <strong>log-likelihood</strong>: <strong>maximizing the likelihood is the same as minimizing the cross-entropy.</strong></p>
 </li>
 <li>
-<p>BLEU (bilingual evaluation understudy) is an algorithm for evaluating the quality of the text which has been machine-translated from one natural language to another. The range of this metric is from 0.0 (a perfect translation mismatch) to 1.0 (a perfect translation match).</p>
+<p><strong>BLEU</strong> (bilingual evaluation understudy) is an algorithm for <strong>evaluating the quality of the text which has been machine-translated from one natural language to another.</strong> The range of this metric is from 0.0 (a perfect translation mismatch) to 1.0 (a perfect translation match).</p>
 </li>
-<li></li>
+<li>
+<p>For <strong>stochastic gradient descent</strong>, the batch size equals <strong>1</strong>.</p>
+<p>For <strong>batch gradient descen</strong>t, the <strong>batch size equals the size of the training set</strong>.</p>
+<p>And, for <strong>mini-batch gradient descent,</strong> the batch size is greater than 1 but less than the size of the training set.</p>
+</li>
+<li>
+<p>The small <strong>batch size</strong> can result:</p>
+<ol>
+<li>
+<p><strong>Faster updates in the model weights</strong></p>
+</li>
+<li>
+<p>Noise and oscillations in the training process, which <strong>might be able to escape the local minima</strong></p>
+</li>
+</ol>
+</li>
+<li>
+<p>For missing data, <strong>Deep learning</strong> is better suited to the imputation of categorical data. Square footage is <strong>numerical, which is better served by kNN.</strong></p>
+</li>
 </ol>
 <h1 id="ml-implementation-and-operation">ML Implementation and Operation</h1>
 <ol>
 <li>
-<p>Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.</p>
+<p><strong>Inference Pipeline</strong> can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.</p>
 </li>
 <li>
-<p>Neo currently supports image classification models exported as frozen graphs from TensorFlow, MXNet, or PyTorch, and XGBoost models.:</p>
+<p>You can use <strong>Inference Pipeline</strong> to package <strong>Spark</strong> and <strong>scikit-learn</strong> based preprocessors into containers:</p>
+<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html">https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html</a></p>
+</li>
+<li>
+<p>An <strong>inference pipeline</strong> is a Amazon SageMaker model that is composed of a linear sequence of <strong>two to fifteen</strong> containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.</p>
+</li>
+<li>
+<p>Within an <strong>inference pipeline</strong> model, Amazon SageMaker handles <strong>invocations</strong> as a sequence of <strong>HTTP</strong> requests.</p>
+</li>
+<li>
+<p><strong>Neo</strong> currently supports image classification models exported as frozen graphs from <strong>TensorFlow, MXNet, or PyTorch, and XGBoost</strong> models.:</p>
 <p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html">https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html</a></p>
 </li>
 <li>
@@ -721,73 +843,75 @@ Named Entity Recognition.
 <p><strong>(iii) run the same ML model on multiple hardware platforms.</strong></p>
 </li>
 <li>
-<p>AWS Greengrass is not used for code optimization.</p>
+<p>AWS <strong>Greengrass</strong> is not used for <strong>code optimization</strong>.</p>
 </li>
 <li>
-<p>The default Sagemaker IAM role gets permissions to access any bucket that has sagemaker in the name. If you add a policy to the role that grants the SageMaker service principal S3FullAccess permission, the name of the bucket does not need to contain sagemaker. Granting public access to S3 bucket is not recommended. You can read further on this -</p>
-<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/gs-config-permissions.html">https://docs.aws.amazon.com/sagemaker/latest/dg/gs-config-permissions.html</a></p>
-</li>
-<li>
-<p>version tag should be used in the Registry Paths:</p>
+<p><strong>version tag</strong> should be used in the <strong>Registry Paths</strong>:</p>
 <p>“:1” is the correct version tag for <strong>production</strong> systems.</p>
 </li>
 <li>
-<p>SageMaker does not support resource based policies. You can create a role to delegate access or provide access via identity federation.</p>
+<p><strong>SageMaker</strong> does not support <strong>resource based policies</strong>. You can create a role to <strong>delegate access</strong> or provide access via <strong>identity federation</strong>.</p>
 </li>
 <li>
-<p>If you want Amazon SageMaker to replicate a subset of data on each ML compute instance that is launched for model training, specify <code>ShardedByS3Key</code> for S3DataDistributionType field.</p>
+<p>If you want Amazon <strong>SageMaker</strong> to replicate a subset of data on each ML compute instance that is launched for model training, specify <strong><code>ShardedByS3Key</code></strong> for <strong>S3DataDistributionType</strong> field.</p>
 </li>
 <li>
-<p>There are no inter-node communications for batch processing, so inter-node traffic encryption is not required. SSH and AWS-SSE are not used for inter-node traffic encryption.</p>
+<p>There are no <strong>inter-node communications for batch processin</strong>g, so <strong>inter-node traffic encryption is not required</strong>. SSH and AWS-SSE are not used for inter-node traffic encryption.</p>
 </li>
 <li>
-<p>If the value of the objective metric for the current training job is worse (higher when minimizing or lower when maximizing the objective metric) than the median value of running averages of the objective metric for previous training jobs up to the same epoch, Amazon SageMaker stops the current training job.</p>
+<p>If the value of the objective metric for the current training job is <strong>worse</strong> (higher when minimizing or lower when maximizing the objective metric) than the <strong>median</strong> value of running averages of the objective metric for previous training jobs up to the same epoch, Amazon SageMaker <strong>stops the current training job.</strong></p>
 </li>
 <li>
-<p>Within an inference pipeline model, Amazon SageMaker handles invocations as a sequence of HTTP requests.</p>
+<p>By using Amazon <strong>Elastic Inference</strong> (EI), you can <strong>speed up the throughput and decrease the latency of getting real-time inferences</strong> from your <strong>deep learning models</strong> that are deployed as Amazon SageMaker hosted models, but <strong>at a fraction of the cost</strong> of using a <strong>GPU</strong> instance for your endpoint.</p>
 </li>
 <li>
-<p>Only three built-in algorithms currently support incremental training: Object Detection Algorithm, Image Classification Algorithm, and Semantic Segmentation Algorithm:</p>
+<p><strong>Amazon Elastic Inference</strong> allows you to attach <strong>low-cost GPU-powered acceleration</strong> to <!-- raw HTML omitted -->Amazon EC2 and Sagemaker instances or Amazon ECS tasks<!-- raw HTML omitted -->, to <strong>reduce the cost of running deep learning <!-- raw HTML omitted -->inference<!-- raw HTML omitted --> by up to 75%</strong>. <!-- raw HTML omitted -->Amazon Elastic Inference supports <strong>TensorFlow, Apache MXNet, PyTorch, and ONNX models</strong>.<!-- raw HTML omitted --></p>
 </li>
 <li>
-<p>By using Amazon Elastic Inference (EI), you can speed up the throughput and decrease the latency of getting real-time inferences from your deep learning models that are deployed as Amazon SageMaker hosted models, but at a fraction of the cost of using a GPU instance for your endpoint.</p>
+<p><strong>Network isolation</strong> is <strong>not supported</strong> by the following managed Amazon SageMaker containers as <strong>they require access to Amazon S3</strong>:</p>
+<p><strong>Chainer</strong></p>
+<p><strong>PyTorch</strong></p>
+<p><strong>Scikit-learn</strong></p>
+<p>Amazon SageMaker <strong>Reinforcement Learning</strong></p>
 </li>
 <li>
-<p>Network isolation is not supported by the following managed Amazon SageMaker containers as they require access to Amazon S3:</p>
-<p>Chainer</p>
-<p>PyTorch</p>
-<p>Scikit-learn</p>
-<p>Amazon SageMaker Reinforcement Learning</p>
+<p>The default <strong>Sagemaker</strong> IAM role gets permissions to access any bucket that has <code>sagemaker</code> in the name. If you add a policy to the role that grants the SageMaker service principal **<code>S3FullAccess</code> permission, the <em>name of the bucket does not need to contain <code>sagemaker</code></em>. ** Granting public access to S3 bucket is not recommended.</p>
 </li>
 <li>
-<p>IAM does not allow nesting or hierarchy of groups.</p>
+<p><strong>IAM</strong> does <strong>not allow nesting or hierarchy of groups</strong>.</p>
 </li>
 <li>
-<p>Group is not considered identity, and you cannot grant access to a group in a resource-based policy. With Resource-based policy, you can grant access to users, roles and other accounts</p>
+<p>For the <strong>EC2 instance</strong>, <strong>IAM Role</strong> is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  <strong>DynamoDB does not support resource-based policy.</strong></p>
 </li>
 <li>
-<p>Attribute-Based Access Control (ABAC) is an authorization strategy that defines permissions based on attributes (or tags). You can structure polices to allow operations when the principal&rsquo;s tag matches the resource tag. This approach is useful in an environment that is growing or changing rapidly. For example, you can check the cost center of an employee with that of the resource and allow access only if the cost center&rsquo;s match. RBAC, on the other hand, requires ongoing maintenance to update the resource list.</p>
+<p><strong>Group</strong> is <strong>not considered identity</strong>, and you <strong>cannot grant access to a group in a resource-based policy</strong>. With <strong>Resource-based</strong> policy, you can <strong>grant access to users, roles and other accounts</strong>.</p>
 </li>
 <li>
-<p>For the EC2 instance, IAM Role is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  DynamoDB does not support resource-based policy.</p>
+<p><strong>Attribute-Based Access Control (ABAC)</strong> is an authorization strategy that <strong>defines permissions based on attributes (or tags)</strong>. You can structure polices to allow operations when the <strong>principal&rsquo;s tag matches the resource tag</strong>. This approach is <strong>useful in an environment that is growing or changing rapidly.</strong> For example, you can check the cost center of an employee with that of the resource and allow access only if the cost center&rsquo;s match. <strong>RBAC</strong>(resource based), on the other hand, requires <strong>ongoing maintenance to update the resource list.</strong></p>
 </li>
 <li>
-<p>XGBoost is a CPU-only algorithm, and won&rsquo;t benefit from the GPU&rsquo;s of a P3 or P2. It is also memory-bound, making M4 a better choice than C4.</p>
+<p><strong>XGBoost</strong> is a <strong>CPU-only</strong> algorithm, and won&rsquo;t benefit from the GPU&rsquo;s of a P3 or P2. It is also <strong>memory-bound</strong>, making M4 a better choice than C4.</p>
 </li>
 <li>
-<p>With <strong>Pipe</strong> input mode, your data is fed on-the-fly into the algorithm container <!-- raw HTML omitted -->without involving any disk I/O<!-- raw HTML omitted -->. This approach shortens the lengthy download process and dramatically reduces startup time. <!-- raw HTML omitted -->It also offers generally better read throughput than File input mode.<!-- raw HTML omitted --> This is because your data is fetched from Amazon S3 by a highly optimized <!-- raw HTML omitted -->multi-threaded<!-- raw HTML omitted --> background process. It also allows you to train on datasets that are much larger than the 16 TB Amazon Elastic Block Store (EBS) volume size limit.</p>
+<p>With <strong>Pipe</strong> input mode, your data is fed on-the-fly into the algorithm container <strong><!-- raw HTML omitted -->without involving any disk I/O<!-- raw HTML omitted -->.</strong> This approach shortens the <strong>lengthy download process and dramatically reduces startup time</strong>. <!-- raw HTML omitted -->It also offers generally <strong>better read throughput than File input mode</strong>.<!-- raw HTML omitted --> This is because your data is fetched from Amazon S3 by a highly optimized <!-- raw HTML omitted -->multi-threaded<!-- raw HTML omitted --> background process. It also allows you to train on datasets that are much larger than the <strong>16 TB Amazon Elastic Block Store (EBS)</strong> volume size limit.</p>
 <p><strong>Pipe mode enables the following:</strong></p>
 <p>- <!-- raw HTML omitted --><strong>Shorter startup</strong><!-- raw HTML omitted --> times because the data is being streamed instead of being downloaded to your training instances.</p>
 <p>- <strong>Higher I/O throughputs</strong> due to high-performance streaming agent.</p>
 <p>- Virtually limitless data processing capacity.</p>
-<p>With Pipe mode, the startup time is reduced significantly from 11.5 minutes to 1.5 minutes in most experiments. Also, the overall I/O throughput is at least twice as fast as that of File mode. Both of these improvements made a positive impact on the total training time, which is reduced by up to 35%.</p>
+<p>With Pipe mode, the startup time is reduced significantly from <strong>11.5 minutes to 1.5 minutes</strong> in most experiments. Also, the overall <strong>I/O throughput is at least twice as fast as that of File mode</strong>. Both of these improvements made a positive impact on the total training time, which is reduced by up to 35%.</p>
 <p><strong>File mode is the default mode for training a model in Amazon SageMaker.</strong></p>
 </li>
 <li>
 <p>The algorithms that support <strong>Pipe input mode</strong> today when used with <strong>protobuf recordIO-encoded</strong> datasets are <!-- raw HTML omitted -->Principal Component Analysis (PCA), K-Means Clustering, Factorization Machines, Latent Dirichlet Allocation (LDA), Linear Learner (Classification and Regression), Neural Topic Modelling, and Random Cut Forest. AWS Mechanical Turk, Amazon Comprehend, and Amazon QuickSight are the fully managed AWS services for crowdsourcing tasks, Natural Language Processing (NLP), and Business Intelligence (BI)<!-- raw HTML omitted -->.</p>
 </li>
 <li>
-<p>You can use <strong>Amazon CloudWatch API</strong> operations to send the training metrics to CloudWatch, and create a dashboard of those metrics. Lastly, use Amazon Simple Notification Service (Amazon SNS) to send a notification when the model is overfitting.</p>
+<p>Amazon SageMaker&rsquo;s <strong>Pipe mode</strong> does <strong>not</strong> support Apache <strong>Parquet</strong> data format.</p>
+</li>
+<li>
+<p>You can use <strong>Amazon CloudWatch API</strong> operations to send the <strong>training metrics to CloudWatch</strong>, and create a dashboard of those metrics. Lastly, use Amazon Simple Notification Service <strong>(Amazon SNS) to send a notification when the model is overfitting</strong>.</p>
+</li>
+<li>
+<p><strong>CloudWatch Event</strong> does <strong>not</strong> capture events that occur <strong>during model training</strong></p>
 </li>
 <li>
 <p>The <strong><code>dropout</code></strong> hyperparameter refers to the dropout probability for network layers. <em>A</em> dropout is a form of regularization used in neural networks that <!-- raw HTML omitted -->reduces overfitting by trimming codependent neurons.<!-- raw HTML omitted --></p>
@@ -795,38 +919,40 @@ Named Entity Recognition.
 <p><strong>L1 regularization</strong> method is <strong>not</strong> available to Amazon SageMaker <strong>Object2vec</strong>. This is used for simple regression models like a Linear learner.</p>
 </li>
 <li>
-<p>With the <strong>Lifecycle configuration</strong> feature in Amazon SageMaker, you can automate these customizations to be applied at different phases of the lifecycle of an instance. For example, you can write a script to install a list of libraries and, using the Lifecycle configuration feature, configure the scripts to automatically execute every time your notebook instance is started. Similarly, you can choose to automatically run the script only once when the notebook instance is created.</p>
+<p>With the <strong>Lifecycle configuration</strong> feature in Amazon SageMaker, you can automate these customizations to be applied at different phases of the lifecycle of an instance. For example, you can write a script to install a list of libraries and, using the Lifecycle configuration feature, configure the scripts to <strong>automatically execute every time your notebook instance is started</strong>. Similarly, you can choose to <strong>automatically run the script only once when the notebook instance is created.</strong></p>
 </li>
 <li>
 <p>The performance of deep learning neural networks often improves with the amount of data available.</p>
 <p><strong>Data augmentatio</strong>n is a technique to artificially create new training data from existing training data. <!-- raw HTML omitted -->This is done by applying domain-specific techniques to examples from the training data that create new and different training examples.<!-- raw HTML omitted --></p>
-<p>Image data augmentation is perhaps the most well-known type of data augmentation and involves creating transformed versions of images in the training dataset that belong to the same class as the original image.</p>
+<p><strong>Image data augmentation</strong> is perhaps the most well-known type of data augmentation and involves <strong>creating transformed versions of images</strong> in the training dataset that belong to the same class as the original image.</p>
 </li>
 <li>
-<p>T-SNE is used to preprocess a dataset that contains highly correlated variables.</p>
+<p><strong>T-SNE</strong> is used to preprocess a dataset that contains highly correlated variables.</p>
 </li>
 <li>
-<p><strong>Apache Spark</strong> is a fast and general engine for large-scale data processing. Amazon EMR features Amazon EMR runtime for Apache Spark, a performance-optimized runtime environment for Apache Spark that is active by default on Amazon EMR clusters.</p>
-<p>Apache Spark is a distributed processing framework and programming model that helps you do machine learning, stream processing, or graph analytics using Amazon EMR clusters.</p>
-<p><strong>Apache ZooKeeper</strong> is a centralized service for maintaining configuration information and providing distributed synchronization to distributed applications.</p>
-<p><strong>Apache MXNet</strong> is an open-source, deep learning framework.</p>
-<p><strong>Apache Pig</strong> is more suitable for running big data analysis.</p>
+<p><strong>Apache Spark</strong> is a <strong>fast and general engine for large-scale data processing</strong>. Amazon EMR features Amazon <strong>EMR runtime for Apache Spark</strong>, a performance-optimized runtime environment for Apache Spark that is active by default on Amazon EMR clusters.</p>
 </li>
 <li>
-<p>Integrating SageMaker and Spark:</p>
+<p><strong>Apache Spark is a distributed processing framework and programming model that helps you do machine learning, stream processing, or graph analytics using Amazon EMR clusters.</strong></p>
+<p><strong>Apache ZooKeeper</strong> is a <strong>centralized service for maintaining configuration information</strong> and <strong>providing distributed synchronization</strong> to distributed applications.</p>
+<p><strong>Apache MXNet</strong> is an <strong>open-source, deep learning framework.</strong></p>
+<p><strong>Apache Pig</strong> is more suitable for running <strong>big data analysis</strong>.</p>
+</li>
+<li>
+<p>Integrating <strong>SageMaker and Spark:</strong></p>
 <ul>
-<li>Pre-process data as normal with Spark - Generate DataFrames</li>
-<li>Use SageMaker-spark library</li>
-<li>SageMakerEstimator - Kmeans, PCA, XGBoost</li>
+<li><strong>Pre-process data as normal with Spark</strong> - Generate DataFrames</li>
+<li>Use <strong>SageMaker-spark</strong> library</li>
+<li><strong>SageMakerEstimator - K-means, PCA, XGBoost</strong></li>
 <li>SageMakerModel</li>
 </ul>
 <h5 id="how-does-it-work">How does it work?</h5>
 <ul>
-<li>Connect notebook to a remote EMR cluster running Spark( or Zeppelin)</li>
+<li>Connect notebook to a remote <strong>EMR cluster running Spark( or Zeppelin)</strong></li>
 <li>Training df should have :
 <ul>
 <li>a feature col that is a vector of doubles</li>
-<li>am optional labels col of doubles</li>
+<li>An optional labels col of doubles</li>
 </ul>
 </li>
 <li>Call <strong>fit</strong> on your <strong>SageMakerEstimator</strong> to get a <strong>SageMakerModel</strong></li>
@@ -864,16 +990,16 @@ Named Entity Recognition.
 </ul>
 </li>
 <li>
-<p>With Amazon Polly&rsquo;s custom <strong>lexicons</strong> or vocabularies, you can modify the pronunciation of particular words, such as company names, acronyms, foreign words, and neologisms (e.g., &ldquo;ROTFL&rdquo;, &ldquo;C’est la vie&rdquo; when spoken in a non-French voice). To customize these pronunciations, you upload an XML file with lexical entries. For example, you can customize the pronunciation of the Filipino word: &ldquo;Pilipinas&rdquo; by using the <code>phoneme</code> element in your input XML.</p>
+<p>With Amazon <strong>Polly&rsquo;s</strong> custom <strong>lexicons</strong> or <strong>vocabularies</strong>, you can <strong>modify the pronunciation of particular words</strong>, such as company names, acronyms, foreign words, and neologisms (e.g., &ldquo;ROTFL&rdquo;, &ldquo;C’est la vie&rdquo; when spoken in a non-French voice). To customize these pronunciations, you upload an <strong>XML file with lexical entries</strong>. For example, you can customize the pronunciation of the Filipino word: &ldquo;Pilipinas&rdquo; by using the <code>phoneme</code> element in your input XML.</p>
 </li>
 <li>
-<p><strong>Amazon Elastic Inference</strong> allows you to attach <strong>low-cost GPU-powered acceleration</strong> to <!-- raw HTML omitted -->Amazon EC2 and Sagemaker instances or Amazon ECS tasks<!-- raw HTML omitted -->, to reduce the cost of running deep learning <!-- raw HTML omitted -->inference<!-- raw HTML omitted --> by up to 75%. <!-- raw HTML omitted -->Amazon Elastic Inference supports TensorFlow, Apache MXNet, PyTorch, and ONNX models.<!-- raw HTML omitted --></p>
+<p>Lex can handle <strong>both speech-to-text and handling the chatbot logic</strong>. The output from Lex could be read back to the customer using Polly. Under the hood, more services would likely be needed as well to support Lex, such as Lambda and DynamoDB.</p>
 </li>
 <li>
-<p><strong>Amazon SageMaker</strong> enables you to test multiple models or model versions behind the same endpoint using production variants. Each <code>ProductionVariant</code> identifies an ML model and the resources deployed for hosting the model. You can distribute endpoint invocation requests across multiple production variants by providing the traffic distribution for each variant or invoking a variant directly for each request. In the following sections, we look at both methods for testing ML models.</p>
+<p><strong>Amazon SageMaker</strong> enables you to <strong>test multiple models or model versions</strong> behind the <strong>same endpoint</strong> using <strong>production</strong> variants. Each <strong><code>ProductionVariant</code></strong> identifies an ML model and the resources deployed for hosting the model. You can distribute endpoint invocation requests across multiple production variants by providing the traffic distribution for each variant or invoking a variant directly for each request.</p>
 </li>
 <li>
-<p>SageMaker Debugger:</p>
+<p>SageMaker <strong>Debugger</strong>:</p>
 <p>supported framework &amp;algos:</p>
 <ul>
 <li>tensorflow</li>
@@ -884,38 +1010,32 @@ Named Entity Recognition.
 </ul>
 </li>
 <li>
-<p>you can create and run a custom ETL job in <strong>AWS Glue</strong> to <!-- raw HTML omitted --><strong>redact sensitive information</strong><!-- raw HTML omitted --> within a dataset stored in Amazon S3.</p>
-</li>
-<li>
-<p>An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of <strong>two to fifteen</strong> containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.</p>
+<p>you can create and run a custom ETL job in <strong>AWS Glue</strong> to <!-- raw HTML omitted --><strong>redact sensitive information</strong><!-- raw HTML omitted --> within a dataset stored in Amazon <strong>S3.</strong></p>
 </li>
 <li>
 <p>The ML <strong>algorithm</strong> should be available in <strong>/opt/program</strong> directory of the Docker container. Three main files there are <strong>train, serve, and predictor.py.</strong> <!-- raw HTML omitted -->***train/***<!-- raw HTML omitted --> contains the <!-- raw HTML omitted -->logic for training the model and storing the trained model<!-- raw HTML omitted -->. If the train file runs successfully, it will save a model to <strong>/opt/ml/model</strong> directory. <em><strong>serve/</strong></em> essentially runs the <strong>logic written in predictor.py.</strong></p>
 <p>Two other files, nginx.config (NGINX configuration file) and wsgi.py (a simple wrapper file), usually can be left unchanged.</p>
 </li>
 <li>
-<p>Amazon Sagemaker provides prebuilt Amazon SageMaker Docker Images for TensorFlow, MXNet, Chainer, and PyTorch, as well as Docker Images for Scikit-learn and Spark ML (see links below).</p>
+<p>Amazon Sagemaker provides prebuilt Amazon SageMaker <strong>Docker Images for TensorFlow, MXNet, Chainer, and PyTorch, as well as Docker Images for Scikit-learn and Spark ML</strong>.</p>
 </li>
 <li>
-<p>Your inference container responds to port 8080, and must respond to ping requests in under 2 seconds. Model artifacts need to be compressed in tar format, not zip.</p>
+<p>Your <strong>inference</strong> container responds to port <strong>8080</strong>, and must respond to ping requests in under <strong>2 seconds.</strong> Model artifacts need to be compressed in <strong>tar</strong> format, not zip.</p>
 </li>
 <li>
-<p>Lex can handle <strong>both speech-to-text and handling the chatbot logic</strong>. The output from Lex could be read back to the customer using Polly. Under the hood, more services would likely be needed as well to support Lex, such as Lambda and DynamoDB.</p>
+<p>Amazon SageMaker runs training jobs in an Amazon Virtual Private Cloud (Amazon <strong>VPC</strong>) to help keep your data secure. <!-- raw HTML omitted -->If you are using <strong>distributed ML frameworks and algorithms</strong>, and your algorithms transmit information that is directly related to the model (eg weights),<!-- raw HTML omitted --> you can provide an <strong>additional level of security by enabling inter-container traffic encryption</strong>. But note that turning on inter-container traffic encryption can <strong>increase training time</strong>, and therefore the <strong>cost</strong>.</p>
 </li>
 <li>
-<p>Amazon SageMaker runs training jobs in an Amazon Virtual Private Cloud (Amazon VPC) to help keep your data secure. <!-- raw HTML omitted -->If you are using distributed ML frameworks and algorithms, and your algorithms transmit information that is directly related to the model (eg weights),<!-- raw HTML omitted --> you can provide an <strong>additional level of security by enabling inter-container traffic encryption</strong>. But note that turning on inter-container traffic encryption can increase training time, and therefore the cost.</p>
+<p>Amazon <strong>Macie</strong> is a <strong>security service</strong> that uses <strong>machine learning to automatically discover, classify, and protect sensitive data in AWS</strong>. Amazon Macie recognizes sensitive data such as personally identifiable information (PII) or intellectual property and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved. The fully managed service continuously monitors data access activity for anomalies and generates detailed alerts when it detects the risk of unauthorized access or inadvertent data leaks. Amazon Macie is available to protect data stored in Amazon S3.</p>
 </li>
 <li>
-<p>Amazon <strong>Macie</strong> is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS. Amazon Macie recognizes sensitive data such as personally identifiable information (PII) or intellectual property and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved. The fully managed service continuously monitors data access activity for anomalies and generates detailed alerts when it detects the risk of unauthorized access or inadvertent data leaks. Amazon Macie is available to protect data stored in Amazon S3.</p>
-</li>
-<li>
-<p>Multi-factor authentication (MFA) could be used with each account for enhanced data security.</p>
+<p>Multi-factor authentication (<strong>MFA</strong>) could be used with <strong>each</strong> account for <strong>enhanced data security</strong>.</p>
 </li>
 <li>
 <p>AWS managed SageMaker policies that can be attached to the users are <strong>AmazonSageMakerReadOnly, AmazonSageMakerFullAccess, AdministratorAccess, and DataScientist.</strong></p>
 </li>
 <li>
-<p>The containers must be <strong>NVIDIA-Docker</strong> compatible and contain only <strong>CUDA</strong> toolkit, <strong>without NVIDIA Drivers</strong> (see links below). The toolkit includes a container runtime library and utilities to automatically configure containers to leverage NVIDIA GPUs.</p>
+<p>The containers must be <strong>NVIDIA-Docker</strong> compatible and contain only <strong>CUDA</strong> toolkit, <strong>without NVIDIA Drivers</strong>. The toolkit includes a container runtime library and utilities to automatically configure containers to leverage NVIDIA GPUs.</p>
 </li>
 </ol>
 <hr>
@@ -949,14 +1069,17 @@ Named Entity Recognition.
 <h3 id="data-copy-from-s3-to-training-instance">Data Copy from S3 to Training Instance</h3>
 <p><strong>File Mode:</strong></p>
 <ul>
-<li>Training job copies entire dataset from S3 to training instance</li>
+<li>Training job copies entire dataset from S3 to training instance beforehand</li>
 <li>Space Needed: Entire data set + Final model artifacts</li>
+<li>slower than Pipe mode</li>
+<li>used for incremental training</li>
 </ul>
 <p><strong>Pipe Mode</strong>:</p>
 <ul>
 <li>Training job streams data from S3 to training instance</li>
 <li>Faster start time and Better Throughput</li>
 <li>Space Needed: Final model artifacts</li>
+<li>You <strong>MUST</strong> use protobuf RecordIO as your training data format before you can take advantage of the Pipe mode.</li>
 </ul>
 <h3 id="data-format-in-sagemaker">Data Format in SageMaker</h3>
 <h4 id="training-data-format">Training Data Format</h4>
@@ -1460,7 +1583,7 @@ Named Entity Recognition.
 <p><strong>Regularization</strong>: tone down the overdependence of specific features.</p>
 <p>**L1 Regularization: ** Algorithm aggresively eliminates features that are not important. Useful in large demension dataset - reduce the number of features. L1 gives you sparse estimates.</p>
 <p><strong>L2 Regularization:</strong> Algorithm simply reuces the weight of features. It allows other features to influence outcome. L2 gives you dense estimates.</p>
-<p><strong>XGBoost Regularization:</strong>	<strong>alpha:</strong> L1 regularization. Default 0; <strong>lambda:</strong> L2 regularization, default 1.</p>
+<p><strong>Inference</strong>: The process of using the trained model to make <strong>predictions</strong>.</p>
 <h2 id="pca">PCA</h2>
 <p><strong>Normalization:</strong> The normalization transformer normalizes numeric variables to have a mean of zero and variance of one.</p>
 <h3 id="pca-on-sagemaker">PCA on SageMaker</h3>
@@ -1572,7 +1695,7 @@ Named Entity Recognition.
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        8967 Words
+        9865 Words
       </p>
 
       <p>
