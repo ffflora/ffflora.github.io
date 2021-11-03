@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Flora Jiang ">
+<meta name="description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+  Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past." />
+<meta name="keywords" content=", AWS, Machine Learning" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/" />
+
+
+    <title>
+        
+            AWS Machine Learning Specialty Cheatsheet(3) :: Flora Wenyao Jiang  — Personal Website⛱️
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://ffflora.cat/main.093694338139dc6afa9bdd416fb9b7247fd08fdee908221f27b7def46f109265.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ffflora.cat/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ffflora.cat/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ffflora.cat/favicon-16x16.png">
+    <link rel="manifest" href="https://ffflora.cat/site.webmanifest">
+    <link rel="mask-icon" href="https://ffflora.cat/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://ffflora.cat/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="AWS Machine Learning Specialty Cheatsheet(3)">
+<meta itemprop="description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+  Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past.">
+<meta itemprop="datePublished" content="2021-11-03T14:47:15-07:00" />
+<meta itemprop="dateModified" content="2021-11-03T14:47:15-07:00" />
+<meta itemprop="wordCount" content="3529">
+<meta itemprop="image" content="https://ffflora.cat/"/>
+
+
+
+<meta itemprop="keywords" content="AWS,Machine Learning," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ffflora.cat/"/>
+
+<meta name="twitter:title" content="AWS Machine Learning Specialty Cheatsheet(3)"/>
+<meta name="twitter:description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+  Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past."/>
+
+
+
+    <meta property="og:title" content="AWS Machine Learning Specialty Cheatsheet(3)" />
+<meta property="og:description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+  Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/" />
+<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="article:published_time" content="2021-11-03T14:47:15-07:00" />
+<meta property="article:modified_time" content="2021-11-03T14:47:15-07:00" />
+
+
+
+
+    <meta property="article:section" content="Data Science" />
+
+
+
+    <meta property="article:published_time" content="2021-11-03 14:47:15 -0700 PDT" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://ffflora.cat/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://ffflora.cat/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        17 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/">AWS Machine Learning Specialty Cheatsheet(3)</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <h1 id="modeling">Modeling</h1>
+<ol>
+<li>
+<p><em><strong>Object2Vec</strong></em> can be used to find semantically similar <strong>objects</strong> such as questions. <em><strong>BlazingText Word2Vec</strong></em> can only find semantically similar <strong>words</strong>.</p>
+</li>
+<li>
+<p><strong>mode</strong> is the mandatory hyperparameter for both the <strong>Word2Vec</strong> (unsupervised) and <strong>Text Classification</strong> (supervised) modes of the SageMaker <strong>BlazingText</strong> algorithm.</p>
+</li>
+<li>
+<p><strong>Incremental Training</strong> in Amazon SageMaker</p>
+<p>Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from <strong>an existing model and use an expanded dataset</strong> to train a new model. Incremental training <strong>saves both time and resources</strong>.</p>
+<p>Use incremental training to:</p>
+<ul>
+<li>Train a new model using an expanded dataset that contains an underlying pattern that was not accounted for in the previous training and which resulted in poor model performance.</li>
+<li>Use the model artifacts or a portion of the model artifacts from a popular publicly available model in a training job. You don&rsquo;t need to train a new model from scratch.</li>
+<li>Resume a training job that was stopped.</li>
+<li>Train several variants of a model, either with different hyperparameter settings or using different datasets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rekognition</strong> <strong>doesn&rsquo;t</strong> support <strong>Incremental training</strong>.</p>
+</li>
+<li>
+<p><strong>Amazon Rekognition Content Moderation</strong> enables you to streamline or automate your image and video <strong>moderation</strong> workflows using machine learning. Using fully managed image and video moderation APIs, you can proactively detect inappropriate, unwanted, or offensive content containing nudity, suggestiveness, violence, and other such categories.</p>
+</li>
+<li>
+<p>Only <strong>three</strong> built-in algorithms currently <em><strong>support</strong></em> <strong>incremental training</strong>: Object <strong>Detection Algorithm, Image Classification Algorithm, and Semantic Segmentation Algorithm.</strong></p>
+</li>
+<li>
+<p><strong>BlazingText</strong> algorithm can be used in both <strong>supervised and unsupervised</strong> learning modes.</p>
+</li>
+<li>
+<p>SageMaker <strong>DeepAR</strong> algorithm specializes in <strong>forecasting</strong> new product performance.</p>
+</li>
+<li>
+<p><strong>LDA</strong>: <strong>Observations</strong> are referred to as documents. The <strong>feature set</strong> is referred to as <strong>vocabulary</strong>. A feature is referred to as a <strong>word</strong>. And the <strong>resulting categories</strong> are referred to as topics.</p>
+</li>
+<li>
+<p><strong>LDA</strong> is a <strong>&ldquo;bag-of-words&rdquo;</strong> model, which means that the <strong>order</strong> of words does <strong>not matter</strong>.</p>
+</li>
+<li>
+<p><strong>Factorization Machines</strong> algorithm specializes in building <strong>recommendation systems.</strong></p>
+</li>
+<li>
+<p><strong>Factorization Machine</strong> can be used to <strong>capture click patterns</strong> for a click prediction system.</p>
+</li>
+<li>
+<p><strong>Image Classification</strong> is used to <strong>classify</strong> images into multiple classes such as cat vs dog. <strong>Object Detection</strong> is used to <strong>detect</strong> objects in an image. Semantic Segmentation is used for pixel level analysis of an image and it can be used in this computer vision system to <strong>detect misalignment</strong>.</p>
+</li>
+<li>
+<p><em><strong>Object Detection</strong></em> : is the technology that is related to computer vision and image processing. It&rsquo;s aim? detect objects in an image.</p>
+<p><em><strong>Semantic Segmentation</strong></em> : is a technique that detects , for each pixel , the object category it belongs to , all object categories ( labels ) must be known to the model.</p>
+<p><em><strong>Instance Segmentation</strong></em> : same as Semantic Segmentation, but dives a bit deeper, it identifies , for each pixel, the object instance it belongs to. The main difference is that differentiates two objects with the same labels in comparison to semantic segmentation.</p>
+</li>
+<li>
+<p><code>feature_dim</code> and <code>k</code> are the required hyperparameters for the SageMaker <strong>K-means</strong> algorithm.</p>
+</li>
+<li>
+<p>When you use <strong>automatic model tuning</strong>, the <strong>linear learner</strong> internal tuning mechanism is turned <strong>off</strong> automatically. <strong>This sets the number of parallel models, num_models, to 1.</strong></p>
+</li>
+<li>
+<p>You can think of <strong>L1</strong> as reducing the number of features in the model altogether. <strong>L2</strong> <strong>“regulates” the feature weight</strong> instead of just dropping them. Please review the concept of L1 and L2 regularization in more detail:</p>
+<p><a href="https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c">https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c</a></p>
+</li>
+<li>
+<p>The <strong>residuals</strong> plot would indicate any trend of underestimation or overestimation. Ideally, <a href="https://www.statisticshowto.com/residual/">residual values</a> should be equally and randomly spaced around the horizontal axis. Both <strong>Mean Absolute Error</strong> and <strong>RMSE</strong> would only give the error magnitude.</p>
+</li>
+<li>
+<p><strong>AUC/ROC</strong>  is the best evaluation metric for a <strong>binary</strong> classification model. This metric does <strong>not</strong> require you to set a classification <strong>threshold</strong>.</p>
+<p>For <strong>imbalanced</strong> datasets, you are better off using another metric called - <strong>PR AUC</strong> - that is also used in production systems for a highly imbalanced dataset, where the fraction of <strong>positive class is small</strong>, such as in case of credit card fraud detection.</p>
+</li>
+<li>
+<p>A <strong>&ldquo;vanishing gradient&rdquo;</strong> results from multiplying together many small derivates of the <strong>sigmoid</strong> activation function in multiple layers. <strong>ReLU</strong> does not have a small derivative, and avoids this problem.</p>
+</li>
+<li>
+<p>Fixing the <strong>&ldquo;vanishing gradient&rdquo;</strong>:</p>
+<ul>
+<li>Multi-level heirarchy: break up levels into their own sub-networks trained individually</li>
+<li>Long short-term memory(LSTM)</li>
+<li>Residual Networks
+<ul>
+<li>Resnet</li>
+<li>Ensemble of shorter networks</li>
+</ul>
+</li>
+<li>Better choice of activation function
+<ul>
+<li>ReLu</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Transfer learning</strong> generally involves using an existing model, or adding additional layers on top of one.</p>
+</li>
+<li>
+<p>A <strong>learning rate</strong> that is <strong>too large</strong> may <strong>overshoot the true minima</strong>, while a learning rate that is <strong>too small will slow down convergence</strong>.</p>
+</li>
+<li>
+<p><strong>Learning rat</strong>e affects the <strong>speed</strong> at which the algorithm reaches (<strong>converges</strong> to) the optimal weights. The SGD algorithm makes updates to the weights of the linear model for every data example it sees. The size of these updates is controlled by the learning rate.<img src="https://cs231n.github.io/assets/nn3/learningrates.jpeg" alt="img"></p>
+</li>
+<li>
+<p><strong>Music</strong> is fundamentally a <!-- raw HTML omitted -->timeseries<!-- raw HTML omitted --> problem, which <strong>RNN&rsquo;s</strong> (recurrent neural networks) are best suited for. You might see the term <strong>LSTM</strong> used as well, which is a specific kind of RNN.</p>
+</li>
+<li>
+<p><strong>RNN</strong> is good for:</p>
+<ul>
+<li><strong>Timeseries</strong> data(predict future based on past; logs; where to drive the <strong>self-driving car</strong> based on past trajectories)</li>
+<li>Data that consist of sequence of arbitrary length
+<ul>
+<li>machine translation</li>
+<li>image captions</li>
+<li>Machine-generated music</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Custom entity recognition</strong> extends the capability of <strong>Amazon Comprehend</strong> by enabling you to identify new entity types not supported as one of the preset generic entity types. This means that in addition to identifying entity types such as LOCATION, DATE, PERSON, and so on, you can <strong>analyze documents and extract entities</strong> like product codes or business-specific entities that fit your particular needs.</p>
+</li>
+<li>
+<p>To <strong>get inferences for an entire dataset</strong>, use <strong>batch transform</strong>. With batch transform, you create a batch transform job using <strong>a trained model and the dataset</strong>, which must be stored in Amazon <strong>S3</strong>. Amazon SageMaker saves the inferences in an S3 bucket that you specify when you create the batch transform job.</p>
+<p>You can use Amazon SageMaker Batch Transform to <!-- raw HTML omitted --><strong>exclude attributes</strong><!-- raw HTML omitted --> before running predictions. You can also join the prediction results with partial or entire input data attributes when using data that is in <strong>CSV, text, or JSON</strong> format. This eliminates the need for any additional pre-processing or post-processing and accelerates the overall ML process.</p>
+</li>
+<li>
+<p>Two methods of deploying a model for <strong>inference</strong>:</p>
+<ul>
+<li>Amazon SageMaker <strong>Hosting Services</strong>
+<ul>
+<li>Provides a persistent <strong>HTTPS</strong> endpoint for getting predictions one at a time.</li>
+<li>Suited for web applications that need <strong>sub-second latency response.</strong></li>
+</ul>
+</li>
+<li>Amazon SageMaker <strong>Batch Transform</strong>
+<ul>
+<li>Doesn’t need a persistent endpoint</li>
+<li>Get inferences for an <strong>entire</strong> dataset</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>IP Insights</strong> algorithm supports <strong>only CSV</strong> file type as training data.</p>
+</li>
+<li>
+<p>In <strong>XGBoost</strong>,<code>subsample</code> prevents overfitting.</p>
+<p><code>eta</code> step size shrinkage, prevent overfitting</p>
+<p><code>gamma</code>: minimum loss reduction to create a partition; larger = more conservation</p>
+<p><code>alpha</code> L1 regularization = more conservation</p>
+<p><code>lambda</code> L2 regularization= more conservation</p>
+<p><code>eval_metric</code> optimize on AUC, errer, rmse&hellip;</p>
+<p><code>scale_pos_weight</code> Adust balance of positive and negative weights; helpful for unbalanced classes; might set to sum(negative class)/sum(positive classes)</p>
+<p><code>max_depth</code> maximum depth of the tree; too high and you may overfit</p>
+<p>Other XGBoost hyperparameters: <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost_hyperparameters.html">https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost_hyperparameters.html</a></p>
+</li>
+<li>
+<p><strong>XGBoost Regularization:</strong></p>
+<p><strong><code>alpha</code>:</strong> L1 regularization. Default 0;</p>
+<p><strong><code>lambda</code>:</strong> L2 regularization, default 1.</p>
+</li>
+<li>
+<p><strong>Boosting</strong> generally <strong>yields better accuracy</strong></p>
+<p><strong>Bagging</strong> avoids <strong>overfitting</strong>, and <strong>easier to parallize</strong></p>
+</li>
+<li>
+<p><strong>Bullseyes</strong> desmonstrates</p>
+<p><img src="https://www.researchgate.net/profile/Anni-Helena-Ruotsala/publication/304674901/figure/fig6/AS:668649476067338@1536429866393/Precision-versus-accuracy-The-bullseye-represents-the-true-value-eg-the-true.ppm" alt="Precision versus accuracy. The bullseye represents the true value, e.g., the true location of the object, while black dots represent measurements, e.g., the estimated 3D locations of the object based on the 2D images. Source: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments2/precision-and-accuracy-glacial-geology/. Accessed 7.4.2016."></p>
+<p>Dart-throwing Demo</p>
+<p><img src="https://www.researchgate.net/profile/Syed-Akhter-6/publication/330761010/figure/fig2/AS:721145984720896@1548946009061/Bias-and-variance-in-dart-throwing.ppm" alt="2: Bias and variance in dart-throwing."></p>
+</li>
+<li>
+<p><strong>Batch Normalization</strong> should <strong>not</strong> be a <strong>method</strong> of <strong>regularization</strong> because the main purpose of it is to <strong>speed up the training by selecting a batch and forcing the weight to be distributed near 0</strong>, <strong>not</strong> too large, <strong>not</strong> too small.</p>
+</li>
+<li>
+<p>Amazon SageMaker <strong>NTM</strong> is an <strong>unsupervised</strong> learning algorithm that is used to <strong>organize a corpus of documents into <em>topics</em> that contain word groupings based on their statistical distribution.</strong> Documents that contain frequent occurrences of words such as &ldquo;bike&rdquo;, &ldquo;car&rdquo;, &ldquo;train&rdquo;, &ldquo;mileage&rdquo;, and &ldquo;speed&rdquo; are likely to share a topic on &ldquo;transportation&rdquo; for example. Topic modeling can be used to classify or summarize documents based on the topics detected or to retrieve information or recommend content based on topic similarities. The topics from documents that NTM learns are characterized as a <em><strong>latent representation</strong></em> because the topics are inferred from the observed word distributions in the corpus. The semantics of topics are usually inferred by examining the top ranking words they contain. Because the method is unsupervised, <strong>only the number of topics</strong>, not the topics themselves, are <strong>prespecified</strong>. In addition, the topics are not guaranteed to align with how a human might naturally categorize documents.</p>
+</li>
+<li>
+<p><strong>1×1 convolutions</strong> are called <strong>bottleneck</strong> structure in <strong>CNN</strong>, which can:</p>
+<ul>
+<li>
+<p>It suffers <strong>less overfitting</strong> due to <strong>small kernel size</strong></p>
+</li>
+<li>
+<p>It can be used for <strong>feature pooling</strong></p>
+</li>
+<li>
+<p>can help in <strong>dementionality reduction</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>CNN</strong> is called &ldquo;<strong>feature-location invariant</strong>&rdquo;</p>
+</li>
+<li>
+<p><strong>CNN typical usage:</strong></p>
+<p>Conv2D -&gt; Maxpooling2D -&gt; Dropout -&gt; Flatten -&gt; Dense -&gt; Dropout -&gt; Softmax</p>
+</li>
+<li>
+<p><strong>Softmax</strong> usually used as the last layer of the <strong>multiple classification</strong> problem. It can&rsquo;t product more than one label(sigmoid can)</p>
+</li>
+<li>
+<p><strong>Logistic activation, Sigmoid, or Soft Step</strong> all represent the same function: Logistic (Sigmoid or Soft Step): f(x)=sigma(x)=1/(1-exp(-x))</p>
+</li>
+<li>
+<p><strong>Entropy</strong> is a measure of the <strong>uncertainty associated with a given distribution</strong> &ndash; <strong>it measures how much information is required, on average, to identify random samples from that distribution.</strong> <strong>Cross entropy</strong> can be used to define a <strong>loss function in machine learning and optimization</strong>. Cross entropy is related to <strong>log-likelihood</strong>: <strong>maximizing the likelihood is the same as minimizing the cross-entropy.</strong></p>
+</li>
+<li>
+<p><strong>BLEU</strong> (bilingual evaluation understudy) is an algorithm for <strong>evaluating the quality of the text which has been machine-translated from one natural language to another.</strong> The range of this metric is from 0.0 (a perfect translation mismatch) to 1.0 (a perfect translation match).</p>
+</li>
+<li>
+<p>For <strong>stochastic gradient descent</strong>, the batch size equals <strong>1</strong>.</p>
+<p>For <strong>batch gradient descen</strong>t, the <strong>batch size equals the size of the training set</strong>.</p>
+<p>And, for <strong>mini-batch gradient descent,</strong> the batch size is greater than 1 but less than the size of the training set.</p>
+</li>
+<li>
+<p>The small <strong>batch size</strong> can result:</p>
+<pre><code>  1) **Faster updates in the model weights**
+
+  2) Noise and oscillations in the training process, which **might be able to escape the local minima**
+</code></pre>
+</li>
+<li>
+<p>For missing data, <strong>Deep learning</strong> is better suited to the imputation of categorical data. Square footage is <strong>numerical, which is better served by kNN.</strong></p>
+</li>
+<li>
+<p>In classifications tasks with <strong>imbalanced</strong> class distributions, we should prefer <strong>StratifiedKFold</strong> over <strong>KFold</strong>.</p>
+</li>
+</ol>
+<h2 id="sagemaker-service-overview">SageMaker Service Overview</h2>
+<h3 id="data-copy-from-s3-to-training-instance">Data Copy from S3 to Training Instance</h3>
+<p><strong>File Mode:</strong></p>
+<ul>
+<li>Training job copies entire dataset from S3 to training instance beforehand</li>
+<li>Space Needed: Entire data set + Final model artifacts</li>
+<li>slower than Pipe mode</li>
+<li>used for incremental training</li>
+</ul>
+<p><strong>Pipe Mode</strong>:</p>
+<ul>
+<li>Training job streams data from S3 to training instance</li>
+<li>Faster start time and Better Throughput</li>
+<li>Space Needed: Final model artifacts</li>
+<li>You <strong>MUST</strong> use protobuf RecordIO as your training data format before you can take advantage of the Pipe mode.</li>
+</ul>
+<h3 id="data-format-in-sagemaker">Data Format in SageMaker</h3>
+<h4 id="training-data-format">Training Data Format</h4>
+<p>CSV</p>
+<p>RecordIO: Data types needs to be int32, float 32, float 64</p>
+<p>Algorithm Specipic formats( LibSVM, JSON, Parquet)</p>
+<p>Data needs to be stored in S3</p>
+<table>
+<thead>
+<tr>
+<th align="left">ContentTypes for Built-in Algorithms</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ContentType</td>
+<td align="left">Algorithm</td>
+</tr>
+<tr>
+<td align="left">application/x-image</td>
+<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+</tr>
+<tr>
+<td align="left">application/x-recordio</td>
+<td align="left">Object Detection Algorithm</td>
+</tr>
+<tr>
+<td align="left">application/x-recordio-protobuf</td>
+<td align="left">Factorization Machines, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, Sequence-to-Sequence</td>
+</tr>
+<tr>
+<td align="left">application/<strong>jsonlines</strong></td>
+<td align="left">BlazingText, DeepAR</td>
+</tr>
+<tr>
+<td align="left">image/<strong>jpeg</strong></td>
+<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+</tr>
+<tr>
+<td align="left">image/<strong>png</strong></td>
+<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+</tr>
+<tr>
+<td align="left">text/<strong>csv</strong></td>
+<td align="left">IP Insights, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, XGBoost</td>
+</tr>
+<tr>
+<td align="left">text/<strong>libsvm</strong></td>
+<td align="left">XGBoost</td>
+</tr>
+</tbody>
+</table>
+<h4 id="infetence-format">Infetence Format</h4>
+<p>CSV</p>
+<p>JSON</p>
+<p>RecordIO</p>
+
+    <img src="https://ffflora.cat/1.png"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="sagemaker-build-in-algos">SageMaker Build-in Algos</h2>
+<h4 id="blazingtext"><strong>BlazingText</strong></h4>
+<p>Unsupervised -&gt; <strong>word2vec</strong></p>
+<ul>
+<li>called <em>word embeding</em></li>
+<li>has multiple modes:
+<ul>
+<li>Chow(continuous bag of words)</li>
+<li>Skip-gram</li>
+<li>Batch-skin-gram</li>
+</ul>
+</li>
+</ul>
+<p><strong>Supervised</strong> -&gt; multiclass, multilebel classification</p>
+<ul>
+<li>It&rsquo;a useful for NLP, but it is not a NLP algo.</li>
+</ul>
+<h5 id="data-type">Data Type</h5>
+<ul>
+<li>
+<p><strong>Supervised</strong> mode(text classification): one sentence per line; first word is the string <code>_label_</code> followed by the label.</p>
+</li>
+<li>
+<p>word2vec wants a text file with <strong>one training sentence per line.</strong></p>
+</li>
+<li>
+<h6 id="training-and-validation-data-format-for-the-word2vec-algorithm">Training and Validation Data Format for the Word2Vec Algorithm</h6>
+<p>For <strong>Word2Vec</strong> training, upload the file under the <em><strong>train</strong></em> channel. No other channels are supported. The <strong>file should contain a training sentence per line.</strong></p>
+</li>
+<li>
+<h6 id="training-and-validation-data-format-for-the-text-classification-algorithm">Training and Validation Data Format for the Text Classification Algorithm</h6>
+<p>For supervised mode, you can train with file mode or with the augmented manifest text format.</p>
+</li>
+<li>
+<p>Train with File Mode</p>
+<p>For <code>supervised</code> mode, the training/validation file should contain a training sentence per line along with the labels. Labels are words that are prefixed by the string <em><strong>label</strong></em>. Here is an example of a training/validation file:</p>
+</li>
+</ul>
+<pre><code>__label__4  linux ready for prime time , intel says , despite all the linux hype , the open-source movement has yet to make a huge splash in the desktop market . that may be about to change , thanks to chipmaking giant intel corp .
+
+__label__2  bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly as the indian skippers return to international cricket was short lived .
+</code></pre><p>​	<strong>Note</strong></p>
+<p>​	The order of labels within the sentence doesn&rsquo;t matter.</p>
+<p>​	Upload the training file under the train channel, and optionally upload the validation file under the 	validation channel.</p>
+<h6 id="train-with-augmented-manifest-text-format">Train with Augmented Manifest Text Format</h6>
+<p>The supervised mode also supports the augmented manifest format, which enables you to do training in <strong>pipe</strong> mode without needing to create RecordIO files. While using the format, an S3 manifest file needs to be generated that contains the list of sentences and their corresponding labels. The manifest file format should be in <a href="http://jsonlines.org/">JSON Lines</a> format in which each line represents one sample. The sentences are specified using the <code>source</code> tag and the label can be specified using the <code>label</code> tag. Both <code>source</code> and <code>label</code> tags should be provided under the <code>AttributeNames</code> parameter value as specified in the request.</p>
+<pre><code>{&quot;source&quot;:&quot;linux ready for prime time , intel says , despite all the linux hype&quot;, &quot;label&quot;:1}
+{&quot;source&quot;:&quot;bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly&quot;, &quot;label&quot;:2}
+</code></pre><p>Multi-label training is also supported by specifying a JSON array of labels.</p>
+<pre><code>{&quot;source&quot;:&quot;linux ready for prime time , intel says , despite all the linux hype&quot;, &quot;label&quot;: [1, 3]}
+{&quot;source&quot;:&quot;bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly&quot;, &quot;label&quot;: [2, 4, 5]}
+</code></pre><h5 id="hyperparameters">Hyperparameters</h5>
+<ul>
+<li>Word2vec:
+<ul>
+<li><code>mode</code>( <code>batch_skipgram</code>, <code>skipgram</code>, <code>cbow</code>)</li>
+<li><code>learning_rate</code></li>
+<li><code>window_size</code></li>
+<li><code>vector_dim</code></li>
+<li><code>negative_samples</code></li>
+</ul>
+</li>
+<li>Text Classification
+<ul>
+<li><code>epochs</code></li>
+<li><code>learning_rate</code></li>
+<li><code>word_ngrams</code></li>
+<li><code>vector_dim</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="instance-types">Instance Types</h5>
+<ul>
+<li>For cbow and skip gram: any single CPU or GPU works (single ml.p3.2xlarge)</li>
+<li>For batch_skipgram, can use <strong>single or multi</strong> CPU</li>
+<li>For text classification: C5 if less than 2GB training data. For larger datasets, use a single GPU</li>
+</ul>
+<h4 id="object2vec"><strong>Object2Vec</strong></h4>
+<p>Supervised -&gt; Classification, Regression</p>
+<p>Unsupervised</p>
+<h5 id="data-types">Data Types</h5>
+<p>data must be tokenized into integers; training data consists of pairs/sequence of tokens: sentence - sentence, labels - sentences, customer - customer, product - product, user - item</p>
+<h5 id="hyperparameters-1">Hyperparameters</h5>
+<ul>
+<li>Usual ones</li>
+<li><code>enc1-network</code>, <code>enc2_network</code> - choose hcnn, bilstm, pooled_embedding&hellip;</li>
+</ul>
+<h5 id="instance-type">Instance Type</h5>
+<ul>
+<li>can only train on a single machine( GPU or CPU)</li>
+<li>Inference: use GPUs(ml.p2.2xlarge). Use <code>INFERENCE_PREDDERED_MODE</code>to optimize for encoder embeddings rather than clssification or regression</li>
+</ul>
+<h4 id="factorization-machines"><strong>Factorization Machines</strong></h4>
+<p>Supervised -&gt; Classification, Regression</p>
+<p>Dealing with sparse data</p>
+<ul>
+<li>Click prediction</li>
+<li>Item recommendations</li>
+</ul>
+<p>Limited tp pair-wise interactions: user -&gt; items for example</p>
+<p>Can use to predict following things gavin a matrix representing some pairs of things( users &amp; items )</p>
+<ul>
+<li>classification( click or not? Purchase or not? )</li>
+<li>Value(predicted rating)</li>
+</ul>
+<p>Usually used in the context of recommender system</p>
+<h5 id="data-types-1">Data Types</h5>
+<ul>
+<li>recordIO-protobuf with float32</li>
+<li>sparse data means CSV <strong>isn&rsquo;t</strong> practical</li>
+</ul>
+<h5 id="instance-type-1">Instance Type</h5>
+<ul>
+<li>GPU or CPU</li>
+<li>CPU recommended</li>
+<li>GPU only works with dense data</li>
+</ul>
+<h4 id="heading"></h4>
+<h4 id="k-nearest-neighbors-knn"><strong>K-Nearest Neighbors, KNN</strong></h4>
+<p>Supervised -&gt; Classification, Regression</p>
+<h5 id="data-types-2">Data Types</h5>
+<p>recordIO-protobuf or CSV, first column is label</p>
+<p>File or Pipe mode on either</p>
+<h5 id="hyperparameters-2">Hyperparameters</h5>
+<ul>
+<li>K!</li>
+<li><code>sample_size</code></li>
+</ul>
+<h5 id="instance-type-2">Instance Type</h5>
+<ul>
+<li>Training on CPU or GPU</li>
+<li>Inference:
+<ul>
+<li>CPU for lower latency</li>
+<li>GPU for higher throughput on large batches</li>
+</ul>
+</li>
+</ul>
+<h4 id="linear-learner"><strong>Linear Learner</strong></h4>
+<p>Supervised -&gt; Classification, Regression</p>
+<h5 id="data-types-3">Data Types</h5>
+<p>recordio-protobuf float32, csv</p>
+<h5 id="processsing">Processsing</h5>
+<ul>
+<li>Training data must be <em>normalized</em>(all features weighted the same),</li>
+<li>input data should be <em>shuffled</em></li>
+</ul>
+<h5 id="training">Training</h5>
+<ul>
+<li>uses stochastic gradient descent</li>
+<li>Choose an optimization algo (Adam, Adagrad, SGD,&hellip;)</li>
+<li>Multiple models are optimized in parallel</li>
+<li>Tune L1, L2 regularization</li>
+</ul>
+<h5 id="validation">Validation</h5>
+<ul>
+<li>most optimal model is selected</li>
+</ul>
+<h5 id="hyperparameters-3">Hyperparameters</h5>
+<ul>
+<li><code>Balance_mulyiclass_weights</code>
+<ul>
+<li>Gives each class equal importance in loss functions</li>
+</ul>
+</li>
+<li><code>Learning_rate</code>, <code>mini_batch_size</code></li>
+<li><code>L1</code></li>
+<li><code>wd</code>
+<ul>
+<li>Weight decay (L2 Regularization)</li>
+</ul>
+</li>
+</ul>
+<h5 id="instance-types-1">Instance Types</h5>
+<ul>
+<li>single or multiple-machine CPU or GPU</li>
+</ul>
+<h4 id="xgboost"><strong>XGBoost</strong></h4>
+<p>Supervised -&gt; Classification, Regression</p>
+<h5 id="data-types-4">Data Types</h5>
+<p>Csv, libsvm, recordIO-protobuf, parquet</p>
+<h5 id="instance-types-2">Instance Types</h5>
+<ul>
+<li>Use <strong>CPUs only for multiple</strong> instance training; memory-bound, not compute bound; M5 is a good choice.</li>
+<li>Use GPUs for single-instance training; like P3; must set <code>tree_method</code> to <code>gpu_hist</code></li>
+</ul>
+<h4 id="deepar"><strong>DeepAR</strong></h4>
+<p>Supervised -&gt; Timeseries Forecasting</p>
+<p>Uses RNN&rsquo;s</p>
+<p>Allows you to train the same model over several related timeseries.</p>
+<p>Find frequencies and seasonality.</p>
+<h5 id="data-types-5">Data Types</h5>
+<ul>
+<li>JSON lines format(GZIP or Parquet)</li>
+<li>Each record must contain:
+<ul>
+<li>start: the starting timestamp</li>
+<li>target: the timeseries values</li>
+</ul>
+</li>
+<li>Each record can contain:
+<ul>
+<li><code>Dynamic_feat</code>: dynamic features</li>
+<li><code>ᓚᘏᗢ</code> categorical features</li>
+</ul>
+</li>
+</ul>
+<h5 id="hyperparameters-4">Hyperparameters</h5>
+<ul>
+<li><code>Contaxt_length</code> number of time points the model sees before making a prediction; can be smaller than seasonalities -  the model will lag one year anyhow.</li>
+<li><code>epoches</code></li>
+<li><code>mini_batch_size</code></li>
+<li><code>learning_rate</code></li>
+<li><code>num_cells</code></li>
+</ul>
+<h5 id="instance-types-3">Instance Types</h5>
+<ul>
+<li>Can use CPU or GPU, single or multi machine</li>
+<li>CPU only for inference</li>
+</ul>
+<h4 id="object-detection"><strong>Object Detection</strong></h4>
+<p>Supervised -&gt; Classification</p>
+<p>Takes in images, output all instances of objects with categories and confidence scores</p>
+<p>Transfer learning mode/ incremental training.</p>
+<h5 id="data-types-6">Data Types</h5>
+<ul>
+<li>RecordIO or image format (jpg, png)</li>
+<li>with image format, supply a JSON file for annotation data for each image</li>
+</ul>
+<h5 id="hyperparameters-5">Hyperparameters</h5>
+<ul>
+<li>Usual ones</li>
+<li>Optimizer ( sgd, adam, rmsprop, adadelta&hellip;)</li>
+</ul>
+<h5 id="instance-type-3">Instance Type</h5>
+<ul>
+<li>Use GPU for training</li>
+<li>Use CPU or GPU for inference</li>
+</ul>
+<h4 id="image-classification"><strong>Image Classification</strong></h4>
+<p>Supervised -&gt; Classification</p>
+<p><strong>What objects are in the image</strong></p>
+<p>Resnet CNN under the hood.</p>
+<p>Full training mode: network initialized with random weights</p>
+<p><strong>Transfer learning</strong> mode: initialized with pre-trained weights; the top fully-connected layer is initialized with random weights</p>
+<h5 id="data-types-7">Data Types</h5>
+<ul>
+<li>Apache MXNet RecordIO (Not PRotobuf)</li>
+<li>Raw jpg or png</li>
+<li>image format requires <code>.lst</code> files to associate image index, class label and path to the image</li>
+<li>Augmented Manifest Image Format enables <strong>Pipe</strong> Mode</li>
+</ul>
+<h5 id="hyperparameters-6">Hyperparameters</h5>
+<ul>
+<li>Usual ones</li>
+<li>Optimizer ( weight decay, beta1, beta2, eps, gamma&hellip;)</li>
+</ul>
+<h5 id="instance-type-4">Instance Type</h5>
+<ul>
+<li>Use GPU for training</li>
+<li>Use CPU or GPU for inference</li>
+</ul>
+<h4 id="semantic-segmentation"><strong>Semantic Segmentation</strong></h4>
+<p>Supervised -&gt; Classification</p>
+<p>it can detect objects in an image, shape of each object along with location and <strong>pixels</strong> that are part of the object.</p>
+<p>Useful for self-driving vehicles.</p>
+<h5 id="data-types-8">Data Types</h5>
+<ul>
+<li>jpg images and png annotations</li>
+<li>jpg images accepted for inference</li>
+<li>Label maps to describe annotations</li>
+<li>Augmented Manifest Image Format enables <strong>Pipe</strong> Mode</li>
+</ul>
+<h5 id="hyperparameters-7">Hyperparameters</h5>
+<ul>
+<li>Usual ones</li>
+<li>blackbone</li>
+</ul>
+<h5 id="instance-type-5">Instance Type</h5>
+<ul>
+<li>Only <strong>GPU</strong> for training on a <strong>single</strong> machine only</li>
+<li>Use CPU or GPU for <strong>inference</strong></li>
+</ul>
+<h4 id="seq2seq"><strong>Seq2Seq</strong></h4>
+<p>Supervised -&gt; Convert seq of tokens to another seq to tokens</p>
+<p>Seq2Seq algorithm is used for text summarization – It accepts a series of tokens as input and outputs another sequence of tokens.</p>
+<h5 id="data-types-9">Data Types</h5>
+<p>RecordIO-protobuf(<strong>must be int</strong>), start with tokenized text files</p>
+<p>Must provide training, validation and vocabulary data.</p>
+<h5 id="hyperparameters-8">Hyperparameters</h5>
+<ul>
+<li><code>batch_size</code></li>
+<li><code>optimizer_type</code>(Adam,sgd, rmsprop)</li>
+<li><code>learning_rate</code></li>
+<li><code>num_layers_encoder</code>, <code>num_layers_decoder</code></li>
+<li>Can optimize on:
+<ul>
+<li>accuracy(vs provided validation dataset)</li>
+<li><strong>BLEU score</strong>(compares against multiple reference translations)</li>
+<li><strong>Perplexit</strong>y(cross-entropy)</li>
+</ul>
+</li>
+</ul>
+<h5 id="instance-types-4">Instance Types</h5>
+<ul>
+<li>
+<p>Can only use GPU instance types.</p>
+</li>
+<li>
+<p>Can only use a <strong>single</strong> machine for training, bur can use multi-GPS&rsquo;s on one machine</p>
+</li>
+</ul>
+<h4 id="k-means"><strong>K-Means</strong></h4>
+<p>Unsupervised -&gt; clsutering</p>
+<h5 id="data-types-10">Data Types</h5>
+<ul>
+<li>Two data channels: <code>train</code> is required, <code>test</code> optional
+<ul>
+<li>Train <code>sharedByS3Key</code>, test <code>FullyReplicated</code></li>
+</ul>
+</li>
+<li>recordIO-protobuf or CSV</li>
+<li>File or Pipe on either</li>
+</ul>
+<h5 id="hyperparameters-9">Hyperparameters</h5>
+<ul>
+<li><code>K!</code>
+<ul>
+<li>Plot within-cluster sum of squares as function of K</li>
+<li>Use <code>elbow method</code></li>
+<li>optimize for tightness of clusters</li>
+</ul>
+</li>
+<li><code>mini_batch_size</code></li>
+<li><code>extra_center_factor</code></li>
+<li><code>init_method</code></li>
+</ul>
+<h5 id="instance-type-6">Instance Type</h5>
+<ul>
+<li>CPU recommended</li>
+</ul>
+<h4 id="lda"><strong>LDA</strong></h4>
+<p>Unsupervised -&gt; Topic Modeling (Document level)</p>
+<p>need to Define how many topics you want CPU based</p>
+<h5 id="data-types-11">Data Types</h5>
+<ul>
+<li>Two data channels: <code>train</code> is required, <code>test</code> optional</li>
+<li>recordIO-protobuf or CSV</li>
+<li>words must be tokenized into int.
+<ul>
+<li>every document must contain a count for every word in the vocab in csv</li>
+</ul>
+</li>
+<li>Pipe mode only supported with recordIO</li>
+</ul>
+<h5 id="hyperparameters-10">Hyperparameters</h5>
+<ul>
+<li><code>num_topics</code></li>
+<li><code>alpha0</code>
+<ul>
+<li>initial guess for concentration parameter</li>
+<li>smaller values generate sparse topic mixtures</li>
+</ul>
+</li>
+</ul>
+<h5 id="instance-type-7">Instance Type</h5>
+<ul>
+<li>Single instance CPU training</li>
+</ul>
+<h4 id="neural-topic-modelntm"><strong>Neural Topic Model(NTM)</strong></h4>
+<p>Unsupervised -&gt; Topic modeling, similiar to LDA</p>
+<p>need to Define how many topics you want</p>
+<h5 id="data-types-12">Data Types</h5>
+<ul>
+<li>Four data channels: <code>train</code> is required, <code>validation</code>, <code>test</code>, <code>auxiliary</code> optional</li>
+<li>recordIO-protobuf or CSV</li>
+<li>words must be tokenized into int.
+<ul>
+<li>every document must contain a count for every word in the vocab in csv</li>
+<li>the <code>auxiliary</code> channel is for the vocab.</li>
+</ul>
+</li>
+<li>File or Pipe mode</li>
+</ul>
+<h5 id="hyperparameters-11">Hyperparameters</h5>
+<ul>
+<li><strong>lowering <code>mini_batch_size</code> and <code>learning_rate</code></strong> can reduce validation loss  - at expense of training time</li>
+<li><code>num_topics</code></li>
+</ul>
+<h5 id="instance-type-8">Instance Type</h5>
+<p>GPU or CPU</p>
+<ul>
+<li>GPU recommended for training</li>
+<li>CPU ok for inference</li>
+</ul>
+<h4 id="pca-principal-component-analysis"><strong>PCA: Principal Component Analysis</strong></h4>
+<p>Unsupervised -&gt; Dimensioality reduction</p>
+<h5 id="data-types-13">Data Types</h5>
+<ul>
+<li>recordIO-protobuf or CSV</li>
+<li>File or Pipe mode on either</li>
+</ul>
+<h5 id="hyperparameters-12">Hyperparameters</h5>
+<ul>
+<li><code>Algorithm_mode</code></li>
+<li><code>subtract_mean</code></li>
+</ul>
+<h5 id="instance-type-9">Instance Type</h5>
+<ul>
+<li>GPU or CPU</li>
+</ul>
+<h4 id="random-cut-forest"><strong>Random Cut Forest</strong></h4>
+<p>Unsupervised -&gt; <strong>anomaly detection</strong></p>
+<p>Data is sampled randomly</p>
+<p>shows up in Kinesis Analytics as well, it works on streaming data too.</p>
+<h5 id="data-types-14">Data Types</h5>
+<ul>
+<li>RecordIO-protobuf or CSV</li>
+<li>Can use File or Pipe mode on either</li>
+</ul>
+<h5 id="hyperparameters-13">Hyperparameters</h5>
+<ul>
+<li><code>num_trees</code>: increasing reduces noise</li>
+<li><code>num_samples_per_tree</code>: should be chosen such that 1/num_samples_per_tree appox the ratio of anomalous to normal data</li>
+</ul>
+<h5 id="instance-type-10">Instance Type</h5>
+<ul>
+<li><strong>CPU</strong> for training</li>
+<li>Use CPU <strong>inference</strong> ( ml.c5.xl)</li>
+</ul>
+<h4 id="ip-insights"><strong>IP Insights</strong></h4>
+<p>Unsupervised -&gt; Detect unusual network activity</p>
+<p>automatically generates negative samples during training by random pairing entites and IPs</p>
+<h5 id="data-types-15">Data Types</h5>
+<ul>
+<li>CSV only - entity and IP</li>
+</ul>
+<h5 id="hyperparameters-14">Hyperparameters</h5>
+<ul>
+<li><code>num_entity_vectors</code>:
+<ul>
+<li>Hash size</li>
+<li>set to twice the number of unique entity identifiers</li>
+</ul>
+</li>
+<li><code>vectoe_dim</code>:
+<ul>
+<li>size of embedding vectors</li>
+<li>Scales model size</li>
+<li>too large results in overfitting</li>
+</ul>
+</li>
+<li>Epochs learning_rate, batch_size, &hellip;</li>
+</ul>
+<h5 id="instance-type-11">Instance Type</h5>
+<ul>
+<li>CPU or GPU</li>
+<li>GPU recommended</li>
+<li>can use multiple GPUs</li>
+<li>size of CPU instance depends on <code>vector_dim</code> and <code>num_entity_vectors</code></li>
+</ul>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/tags/aws/">AWS</a></span>
+        <span class="tag"><a href="https://ffflora.cat/tags/machine-learning/">Machine Learning</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/categories/data-science/">Data Science</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        3529 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-11-03 14:47
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29&amp;caption=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29&amp;canonicalUrl=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29&amp;body=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f&amp;media=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f;description=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29&amp;summary=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29&amp;source=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f&amp;resubmit=true&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29%20https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f&amp;t=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%283%29&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet3%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/">
+                <span class="button__icon">←</span>
+                <span class="button__text">AWS Machine Learning Specialty Cheatsheet(4)</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/">
+                <span class="button__text">AWS Machine Learning Specialty Cheatsheet(2)</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://ffflora.cat/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084;</span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188012091-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

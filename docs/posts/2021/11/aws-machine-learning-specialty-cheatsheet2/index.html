@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Flora Jiang ">
+<meta name="description" content="Exploratory Data Analysis   In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation." />
+<meta name="keywords" content=", AWS, Machine Learning" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/" />
+
+
+    <title>
+        
+            AWS Machine Learning Specialty Cheatsheet(2) :: Flora Wenyao Jiang  — Personal Website⛱️
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://ffflora.cat/main.093694338139dc6afa9bdd416fb9b7247fd08fdee908221f27b7def46f109265.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ffflora.cat/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ffflora.cat/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ffflora.cat/favicon-16x16.png">
+    <link rel="manifest" href="https://ffflora.cat/site.webmanifest">
+    <link rel="mask-icon" href="https://ffflora.cat/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://ffflora.cat/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="AWS Machine Learning Specialty Cheatsheet(2)">
+<meta itemprop="description" content="Exploratory Data Analysis   In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.">
+<meta itemprop="datePublished" content="2021-11-03T14:34:57-07:00" />
+<meta itemprop="dateModified" content="2021-11-03T14:34:57-07:00" />
+<meta itemprop="wordCount" content="1681">
+<meta itemprop="image" content="https://ffflora.cat/"/>
+
+
+
+<meta itemprop="keywords" content="AWS,Machine Learning," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ffflora.cat/"/>
+
+<meta name="twitter:title" content="AWS Machine Learning Specialty Cheatsheet(2)"/>
+<meta name="twitter:description" content="Exploratory Data Analysis   In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation."/>
+
+
+
+    <meta property="og:title" content="AWS Machine Learning Specialty Cheatsheet(2)" />
+<meta property="og:description" content="Exploratory Data Analysis   In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/" />
+<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="article:published_time" content="2021-11-03T14:34:57-07:00" />
+<meta property="article:modified_time" content="2021-11-03T14:34:57-07:00" />
+
+
+
+
+    <meta property="article:section" content="Data Science" />
+
+
+
+    <meta property="article:published_time" content="2021-11-03 14:34:57 -0700 PDT" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://ffflora.cat/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://ffflora.cat/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        8 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/">AWS Machine Learning Specialty Cheatsheet(2)</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
+<ol>
+<li>
+<p>In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.</p>
+<p><a href="http://www.svds.com/learning-imbalanced-classes/">http://www.svds.com/learning-imbalanced-classes/</a></p>
+<p><a href="https://stats.stackexchange.com/questions/235808/binary-classification-with-strongly-unbalanced-classes">https://stats.stackexchange.com/questions/235808/binary-classification-with-strongly-unbalanced-classes</a></p>
+</li>
+<li>
+<p>A data <strong>warehouse</strong> can only store <strong>structured</strong> data whereas a data lake can store structured, semi-structured and unstructured data.</p>
+<p><strong><!-- raw HTML omitted -->Data lakes<!-- raw HTML omitted --></strong> provides schema on <strong>read</strong> access, whereas <!-- raw HTML omitted --><strong>data warehouse</strong><!-- raw HTML omitted --> provides schema on <strong>write</strong>.</p>
+</li>
+<li>
+<p>Great reference for the most common probability distributions: <a href="https://medium.com/@srowen/common-probability-distributions-347e6b945ce4">Common Probability Distributions: The Data Scientist’s Crib Sheet</a></p>
+<p>The <strong>Rademacher</strong> distribution takes value 1 with probability 1/2 and value −1 with probability 1/2. The <strong>degenerate</strong> distribution is localized at a point x0, where x is certain to take the value x_0. The probability mass function equals 1 at this point and 0 elsewhere.</p>
+</li>
+<li>
+<p>Tf-idf is a statistical technique frequently used in Machine Learning areas such as text-summarization and classification. Tf-idf measures the <strong>relevance of a word in a document compared to the entire corpus of documents</strong>. You have a corpus (D) containing the following documents:</p>
+<p>Document 1 (d1) : “A quick brown fox jumps over the lazy dog. What a fox!”</p>
+<p>Document 2 (d2) : “A quick brown fox jumps over the lazy fox. What a fox!”</p>
+<p>Which of the following statements is correct:</p>
+<ul>
+<li>Using tf-idf, the word “fox” is equally relevant for both document d1 and document d2</li>
+</ul>
+<p><strong>tf</strong> is the frequency of any &ldquo;term&rdquo; in a given &ldquo;document&rdquo;. Using this definition, we can compute the following:</p>
+<p>tf(“fox”, d1) = 2/12 , as the word &ldquo;fox&rdquo; appears twice in the first document which has a total of 12 words</p>
+<p>tf(“fox”, d2) = 3/12 , as the word &ldquo;fox&rdquo; appears thrice in the second document which has a total of 12 words</p>
+<p>An idf is constant per corpus (in this case, the corpus consists of 2 documents) , and accounts for the ratio of documents that include that specific &ldquo;term&rdquo;. Using this definition, we can compute the following:</p>
+<p>idf(“fox”, D) = log(2/2) = 0 , as the word &ldquo;fox&rdquo; appears in both the documents in the corpus</p>
+<p>Now,</p>
+<p>tf-idf(“fox”, d1, D) = tf(“fox”, d1) * idf(“fox”, D) = (2/12) * 0 = 0</p>
+<p>tf-idf(“fox”, d2, D) = tf(“fox”, d2) * idf(“fox”, D) = (3/12) * 0 = 0</p>
+<p>Using tf-idf, the word “fox” is equally relevant (or just irrelevant!) for both document d1 and document d2</p>
+</li>
+<li>
+<p>TF-IDF: Three different inverse document frequency functions are <strong>standard, smooth, probabilistic:</strong> Standard: log(N)/n_t, Smooth: log(N)/((1+n_t) +1), Probabilistic: log(N-N_t)/n_t, where N is the total number of documents in the corpus, and n_t is a number of documents where the term t appears.</p>
+</li>
+<li>
+<p><strong>Logarithm transformation</strong> and <strong>Standardization</strong> are the correct techniques to address outliers in data. Please review this reference link:</p>
+<p><a href="https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114">https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114</a></p>
+</li>
+<li>
+<p>ElasticSearch, EMR and EC2 are <strong>not</strong> “serverless”.</p>
+</li>
+<li>
+<p>The best way to engineer the <strong>cyclical</strong> features is to represent these as (x,y) coordinates on a circle using sin and cos functions. Please review this technique in more detail here -</p>
+<p><a href="http://blog.davidkaleko.com/feature-engineering-cyclical-features.html">http://blog.davidkaleko.com/feature-engineering-cyclical-features.html</a></p>
+</li>
+<li>
+<p>Q1 = 1/4 x (N+1)th term</p>
+<p>Q3 = 3/4 x (N+1)th term</p>
+<p>Interquartile Range (IQR) = Q3-Q1</p>
+<p>Minimum outlier cutoff = Q1 - 1.5 * IQR</p>
+<p>Maximum outlier cutoff = Q3 + 1.5 * IQR</p>
+<p>More details on the box plot statistical characteristics:</p>
+<p><a href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51">https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51</a></p>
+</li>
+<li>
+<p>The <strong>Box Plot and Violin Plot</strong> are used to summarize multivariate distributions. They are a standardized way of displaying the data distributions based on a <strong>five-number summary (minimum, first quartile (Q1), median, third quartile (Q3), and maximum).</strong> The plots show symmetry, tightness of the groups, skewness, and any outliers present.</p>
+</li>
+<li>
+<p>The Multiple Imputations by Chained Equations (<strong>MICE</strong>) algorithm is a robust, informative method of dealing with <strong>missing data</strong> in your datasets. This procedure imputes or &lsquo;fills in&rsquo; the missing data in a dataset through an iterative series of predictive models. Each specified variable in the dataset is imputed in each iteration using the other variables in the dataset. These iterations will be run continuously until convergence has been met. In General, MICE is a better imputation method than naive approaches (filling missing values with 0, dropping columns).</p>
+</li>
+<li>
+<p>QuickSight supports UTF-8 file encoding, <strong>but not UTF-8 (with BOM)</strong>.</p>
+</li>
+<li>
+<p>Quicksight supports the following file formats only: <strong>CSV/TSV, ELF/CLF, JSON, XLSX</strong>.</p>
+</li>
+<li>
+<p>For QuickSight, AWS Enterprise Edition Authors (create &amp; publish) pay $18/month with an annual subscription, while Readers (getting secure access to interactive dashboards) pay $0.30/session up to $5/month&rsquo;.</p>
+</li>
+<li>
+<p><strong>F0.5-Measure</strong> (beta=0.5): More weight on precision, less weight on recall.</p>
+<p><strong>F1-Measure</strong> (beta=1.0): Balance the weight on precision and recall.</p>
+<p><strong>F2-Measure</strong> (beta=2.0): Less weight on precision, more weight on recall</p>
+<p><img src="https://img-c.udemycdn.com/redactor/raw/test_question_description/2020-12-06_07-55-05-6516021657c5e962ac6ca87cdd939d92.jpg" alt="img"></p>
+</li>
+<li>
+<p>The <!-- raw HTML omitted --><em>Recall</em><!-- raw HTML omitted --> is also called <strong>Sensitivity, Hit Rate, and True Positive Rate.</strong></p>
+<p><strong>Positive Predictive Value (PPV)</strong> is the same as <!-- raw HTML omitted --><em>Precision</em><!-- raw HTML omitted -->.</p>
+</li>
+<li>
+<p>The Receiver Operating Characteristic - <strong>ROC</strong>, <strong>true positive rate &amp; false positive rate</strong> - determines the ability of a binary classification model, as its discrimination threshold is varied.</p>
+</li>
+<li>
+<p><strong>False positive Rate</strong> = 1 - TNR(True negative rate) = 1 - specifiticy</p>
+</li>
+<li>
+<p><strong>Specificity</strong> = TN/(TN+FP)</p>
+</li>
+<li>
+<p>If the model has a high specificity, it implies that all false positives (think of it as false alarms) have been weeded out. In other words, the <strong>specificity</strong> of a test refers to how well the test identifies those who have not indulged in substance abuse.</p>
+<p>Please read this excellent reference article for more details:</p>
+<p><a href="https://www.statisticshowto.datasciencecentral.com/sensitivity-vs-specificity-statistics/">https://www.statisticshowto.datasciencecentral.com/sensitivity-vs-specificity-statistics/</a></p>
+</li>
+<li>
+<p>As per sklearn, <strong>the minority class is considered as the positive class.</strong> Hence, in cases with <strong>fraudulent</strong> data, a fraud transaction is considered as a positve class. Similary, in diagnostics, a disease detected is considered positive.</p>
+</li>
+<li>
+<p><strong>Type 2</strong> error is also known as <strong>False Negative.</strong></p>
+<p>A Null hypothesis assumes positive for no-change/default (No Fraud, Healthy, Not Guilty), and a negative for change/non-default (Not Healthy, Fraud, Guilty) outcome.</p>
+<p>A type 2 error occurs when the null hypothesis is false but is falsely accepted. This corresponds to the False-negative in classification, where a negative is considered for no-change/default (No Fraud, Healthy, Non-Guilty), etc.</p>
+<p>A type 1 error occurs when the null hypothesis is true but is falsely rejected.</p>
+</li>
+<li>
+<p><strong>Miss Rate is also known as the False Negative Rate</strong>. It is given as FN/FN+TP (FN =False Negative, TP = True Positive).</p>
+<p>As the False Negatives are undesired and should be reduced to zero for an ideal model, the value of the miss rate in the ideal case will approach zero.</p>
+</li>
+<li>
+<p>If there are <!-- raw HTML omitted -->no outliers,<!-- raw HTML omitted --> <strong>MAE</strong> (Mean Absolute Error) will be more suitable  for comparison of performances of various models, as the error remains linear in this case. And if there <!-- raw HTML omitted -->are outliers<!-- raw HTML omitted --> <strong>RMSE</strong> will be preferred.</p>
+</li>
+<li>
+<p><strong>Ground truth</strong> provides built-in five data labelling tasks</p>
+<pre><code>```
+Bounding Boxes
+Image classification
+Semantic segmentation
+Text classification
+Named Entity Recognition.
+```
+</code></pre>
+</li>
+<li>
+<p>The <em>p</em> value represents the level of probability that an apparently significant relationship between variables was really just due to chance. <!-- raw HTML omitted -->If <em>p</em> is set at 0.01, this means that we would expect such a result in only 1 in 100 cases<!-- raw HTML omitted -->. This is a very stringent level, and while it means that the researcher can be more confident about a significant result if they find one, <strong>it also increases the chance of making a Type II error: confirming the null hypothesis when it should be rejected.</strong></p>
+</li>
+<li>
+<p>Adoptive (or q-quantile) binning helps in partitioning a numeric attribute into &lsquo;q&rsquo; equal partitions.  Adoptive binning leads to discrete-valued categorical features transforming <strong>numerical data into ordinal data.</strong></p>
+</li>
+<li>
+<p>95% of the measurements fall between +/- 2 standard deviations around the mean.</p>
+</li>
+</ol>
+<h2 id="model-performance-evaluation">Model Performance Evaluation</h2>
+<h3 id="regression-model">Regression Model</h3>
+<ol>
+<li>MSE</li>
+<li>RMSE</li>
+</ol>
+<p><strong>Residual</strong> is Actual - Predicted.</p>
+<p><strong>MSE</strong> is the mean value of (sumation of each residual^2)</p>
+<p><strong>RMSE</strong> is rooted MSE</p>
+<h3 id="binary-model-and-multiclass-classifier">Binary Model and Multiclass Classifier</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->The actual output of many binary classification algorithms is a prediction score. The score indicates the system’s certainty that the given observation belongs to the positive class<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>To convert this raw score to a positive or negative class, we need to specify a <strong>cut-off</strong>. A sample with score greater than the cut-off is classified as positive class and a sample with score less than the cut-off is classified as negative class.</p>
+<p>Instead of manually performing this step, we can compute &ldquo;AUC&rdquo; metric.  AUC refers to Area Under Curve.  <strong>The curve here refers to the plot that has Probability of False Alarm (False Positive Rate) in X-Axis and Probability of Detection (Recall) in Y-Axis.</strong> By plotting False Alarm vs Recall at different cut-off thresholds, we can form a curve.  It measures the ability of the model to predict a higher score for positive examples as compared to negative examples. Since AUC is independent of the selected threshold, you can get a sense of the prediction performance of your model from the AUC metric without picking a threshold.</p>
+<p>Common Techniques for evaluating performance:</p>
+<ol>
+<li>
+<p>Visually observe raw score using Plots</p>
+</li>
+<li>
+<p>Evaluate Area Under Curve (AUC) Metric</p>
+</li>
+<li>
+<p>Confusion Matrix</p>
+</li>
+</ol>
+<h2 id="some-terms">Some Terms</h2>
+<p><strong>Early stopping</strong>: the model trains until it stops improving. Early stopping is a <strong>form of regularization used to avoid overfitting when training a learner with an</strong> iterative method</p>
+<p><strong>Bias:</strong> does not match the reality.</p>
+<p><strong>High bias:</strong> The model doesn&rsquo;t learn from data, and it translate to large training and validation errors. In other words, the model is <strong>underfitting.</strong> Should <strong>decrease</strong> regularizations.</p>
+<p><strong>Low bias:</strong> Overfitting.</p>
+<p><strong>Variance:</strong> Measures how well the algorithm generalizes from the data, it&rsquo;s the difference between the validation data and training data.</p>
+<p><strong>High Variance:</strong> Validation error is high but training error is low: overfitting. Should <strong>increase</strong> regularizations.</p>
+<p><strong>Regularization</strong>: tone down the overdependence of specific features.</p>
+<p>**L1 Regularization: ** Algorithm aggresively eliminates features that are not important. Useful in large demension dataset - reduce the number of features. L1 gives you sparse estimates.</p>
+<p><strong>L2 Regularization:</strong> Algorithm simply reuces the weight of features. It allows other features to influence outcome. L2 gives you dense estimates.</p>
+<p><strong>Inference</strong>: The process of using the trained model to make <strong>predictions</strong>.</p>
+<p><strong>Normalization:</strong> The normalization transformer normalizes numeric variables to have a mean of zero and variance of one.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/tags/aws/">AWS</a></span>
+        <span class="tag"><a href="https://ffflora.cat/tags/machine-learning/">Machine Learning</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/categories/data-science/">Data Science</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1681 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-11-03 14:34
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29&amp;caption=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29&amp;canonicalUrl=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29&amp;body=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f&amp;media=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f;description=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29&amp;summary=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29&amp;source=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f&amp;resubmit=true&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29%20https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f&amp;t=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%282%29&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet2%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/">
+                <span class="button__icon">←</span>
+                <span class="button__text">AWS Machine Learning Specialty Cheatsheet(3)</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-cheatsheet1/">
+                <span class="button__text">AWS Machine Learning Specialty Cheatsheet(1)</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://ffflora.cat/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084;</span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188012091-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

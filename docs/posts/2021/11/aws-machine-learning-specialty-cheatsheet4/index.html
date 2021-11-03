@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Flora Jiang ">
+<meta name="description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
+  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data." />
+<meta name="keywords" content=", AWS, Machine Learning" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/" />
+
+
+    <title>
+        
+            AWS Machine Learning Specialty Cheatsheet(4) :: Flora Wenyao Jiang  — Personal Website⛱️
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://ffflora.cat/main.093694338139dc6afa9bdd416fb9b7247fd08fdee908221f27b7def46f109265.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ffflora.cat/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ffflora.cat/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ffflora.cat/favicon-16x16.png">
+    <link rel="manifest" href="https://ffflora.cat/site.webmanifest">
+    <link rel="mask-icon" href="https://ffflora.cat/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://ffflora.cat/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="AWS Machine Learning Specialty Cheatsheet(4)">
+<meta itemprop="description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
+  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data.">
+<meta itemprop="datePublished" content="2021-11-03T14:47:21-07:00" />
+<meta itemprop="dateModified" content="2021-11-03T14:47:21-07:00" />
+<meta itemprop="wordCount" content="2801">
+<meta itemprop="image" content="https://ffflora.cat/"/>
+
+
+
+<meta itemprop="keywords" content="AWS,Machine Learning," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ffflora.cat/"/>
+
+<meta name="twitter:title" content="AWS Machine Learning Specialty Cheatsheet(4)"/>
+<meta name="twitter:description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
+  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data."/>
+
+
+
+    <meta property="og:title" content="AWS Machine Learning Specialty Cheatsheet(4)" />
+<meta property="og:description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
+  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/" />
+<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="article:published_time" content="2021-11-03T14:47:21-07:00" />
+<meta property="article:modified_time" content="2021-11-03T14:47:21-07:00" />
+
+
+
+
+    <meta property="article:section" content="Data Science" />
+
+
+
+    <meta property="article:published_time" content="2021-11-03 14:47:21 -0700 PDT" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://ffflora.cat/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://ffflora.cat/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        14 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/">AWS Machine Learning Specialty Cheatsheet(4)</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <h1 id="ml-implementation-and-operation">ML Implementation and Operation</h1>
+<ol>
+<li>
+<p><strong>Inference Pipeline</strong> can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.</p>
+</li>
+<li>
+<p>You can use <strong>Inference Pipeline</strong> to package <strong>Spark</strong> and <strong>scikit-learn</strong> based preprocessors into containers:</p>
+<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html">https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html</a></p>
+</li>
+<li>
+<p>An <strong>inference pipeline</strong> is a Amazon SageMaker model that is composed of a linear sequence of <strong>two to fifteen</strong> containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.</p>
+</li>
+<li>
+<p>Within an <strong>inference pipeline</strong> model, Amazon SageMaker handles <strong>invocations</strong> as a sequence of <strong>HTTP</strong> requests.</p>
+</li>
+<li>
+<p><strong>Neo</strong> currently supports image classification models exported as frozen graphs from <strong>TensorFlow, MXNet, or PyTorch, and XGBoost</strong> models.:</p>
+<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html">https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html</a></p>
+</li>
+<li>
+<p>three advantages of using Amazon <strong>Neo</strong> with SageMaker models are:</p>
+<p><strong>(i) run ML models with up to 2x better performance,</strong></p>
+<p><strong>(ii) reduce framework size by 10x, and</strong></p>
+<p><strong>(iii) run the same ML model on multiple hardware platforms.</strong></p>
+</li>
+<li>
+<p>AWS <strong>Greengrass</strong> is not used for <strong>code optimization</strong>.</p>
+</li>
+<li>
+<p><strong>version tag</strong> should be used in the <strong>Registry Paths</strong>:</p>
+<p>“:1” is the correct version tag for <strong>production</strong> systems.</p>
+</li>
+<li>
+<p><strong>SageMaker</strong> does not support <strong>resource based policies</strong>. You can create a role to <strong>delegate access</strong> or provide access via <strong>identity federation</strong>.</p>
+</li>
+<li>
+<p>If you want Amazon <strong>SageMaker</strong> to replicate a subset of data on each ML compute instance that is launched for model training, specify <strong><code>ShardedByS3Key</code></strong> for <strong>S3DataDistributionType</strong> field.</p>
+</li>
+<li>
+<p>There are no <strong>inter-node communications for batch processin</strong>g, so <strong>inter-node traffic encryption is not required</strong>. SSH and AWS-SSE are not used for inter-node traffic encryption.</p>
+</li>
+<li>
+<p>If the value of the objective metric for the current training job is <strong>worse</strong> (higher when minimizing or lower when maximizing the objective metric) than the <strong>median</strong> value of running averages of the objective metric for previous training jobs up to the same epoch, Amazon SageMaker <strong>stops the current training job.</strong></p>
+</li>
+<li>
+<p>By using Amazon <strong>Elastic Inference</strong> (EI), you can <strong>speed up the throughput and decrease the latency of getting real-time inferences</strong> from your <strong>deep learning models</strong> that are deployed as Amazon SageMaker hosted models, but <strong>at a fraction of the cost</strong> of using a <strong>GPU</strong> instance for your endpoint.</p>
+</li>
+<li>
+<p><strong>Amazon Elastic Inference</strong> allows you to attach <strong>low-cost GPU-powered acceleration</strong> to <!-- raw HTML omitted -->Amazon EC2 and Sagemaker instances or Amazon ECS tasks<!-- raw HTML omitted -->, to <strong>reduce the cost of running deep learning <!-- raw HTML omitted -->inference<!-- raw HTML omitted --> by up to 75%</strong>. <!-- raw HTML omitted -->Amazon Elastic Inference supports <strong>TensorFlow, Apache MXNet, PyTorch, and ONNX models</strong>.<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>Network isolation</strong> is <strong>not supported</strong> by the following managed Amazon SageMaker containers as <strong>they require access to Amazon S3</strong>:</p>
+<p><strong>Chainer</strong></p>
+<p><strong>PyTorch</strong></p>
+<p><strong>Scikit-learn</strong></p>
+<p>Amazon SageMaker <strong>Reinforcement Learning</strong></p>
+</li>
+<li>
+<p>The default <strong>Sagemaker</strong> IAM role gets permissions to access any bucket that has <code>sagemaker</code> in the name. If you add a policy to the role that grants the SageMaker service principal **<code>S3FullAccess</code> permission, the <em>name of the bucket does not need to contain <code>sagemaker</code></em>. ** Granting public access to S3 bucket is not recommended.</p>
+</li>
+<li>
+<p><strong>IAM</strong> does <strong>not allow nesting or hierarchy of groups</strong>.(Can&rsquo;t be a child of other IAM groups.)</p>
+</li>
+<li>
+<p>For the <strong>EC2 instance</strong>, <strong>IAM Role</strong> is the recommended mechanism for managing access. You can attach the required policy to the IAM Role for DynamoDB access.  <strong>DynamoDB does not support resource-based policy.</strong></p>
+</li>
+<li>
+<p><strong>Group</strong> is <strong>not considered identity</strong>, and you <strong>cannot grant access to a group in a resource-based policy</strong>. With <strong>Resource-based</strong> policy, you can <strong>grant access to users, roles and other accounts</strong>. Resource-based policy is also called <strong>bucket-policy</strong>, as the policy is attached to the S3 buckets. Resource-based policy needs to have <strong>Principal</strong> tag.</p>
+</li>
+<li>
+<p>There are two types of policies: <strong>Inline(Embeded) policy(not reusable)</strong> and <strong>Managed policy(reusable).</strong></p>
+</li>
+<li>
+<p><strong>Attribute-Based Access Control (ABAC)</strong> is an authorization strategy that <strong>defines permissions based on attributes (or tags)</strong>. You can structure polices to allow operations when the <strong>principal&rsquo;s tag matches the resource tag</strong>. This approach is <strong>useful in an environment that is growing or changing rapidly.</strong> For example, you can check the cost center of an employee with that of the resource and allow access only if the cost center&rsquo;s match. <strong>RBAC</strong>(resource based), on the other hand, requires <strong>ongoing maintenance to update the resource list.</strong></p>
+</li>
+<li>
+<p>In SageMaker, the <strong><code>iam:PassRole</code></strong> action is needed for the Amazon SageMaker action <strong><code>sagemaker:CreateModel</code></strong>. This allows the user to pass authorization to SageMaker to actually create models.</p>
+</li>
+<li>
+<p><strong>XGBoost</strong> is a <strong>CPU-only</strong> algorithm, and won&rsquo;t benefit from the GPU&rsquo;s of a P3 or P2. It is also <strong>memory-bound</strong>, making M4 a better choice than C4.</p>
+</li>
+<li>
+<p>With <strong>Pipe</strong> input mode, your data is fed on-the-fly into the algorithm container <strong><!-- raw HTML omitted -->without involving any disk I/O<!-- raw HTML omitted -->.</strong> This approach shortens the <strong>lengthy download process and dramatically reduces startup time</strong>. <!-- raw HTML omitted -->It also offers generally <strong>better read throughput than File input mode</strong>.<!-- raw HTML omitted --> This is because your data is fetched from Amazon S3 by a highly optimized <!-- raw HTML omitted -->multi-threaded<!-- raw HTML omitted --> background process. It also allows you to train on datasets that are much larger than the <strong>16 TB Amazon Elastic Block Store (EBS)</strong> volume size limit.</p>
+<p><strong>Pipe mode enables the following:</strong></p>
+<p>- <!-- raw HTML omitted --><strong>Shorter startup</strong><!-- raw HTML omitted --> times because the data is being streamed instead of being downloaded to your training instances.</p>
+<p>- <strong>Higher I/O throughputs</strong> due to high-performance streaming agent.</p>
+<p>- Virtually limitless data processing capacity.</p>
+<p>With Pipe mode, the startup time is reduced significantly from <strong>11.5 minutes to 1.5 minutes</strong> in most experiments. Also, the overall <strong>I/O throughput is at least twice as fast as that of File mode</strong>. Both of these improvements made a positive impact on the total training time, which is reduced by up to 35%.</p>
+<p><strong>File mode is the default mode for training a model in Amazon SageMaker.</strong></p>
+</li>
+<li>
+<p>The algorithms that support <strong>Pipe input mode</strong> today when used with <strong>protobuf recordIO-encoded</strong> datasets are <!-- raw HTML omitted -->Principal Component Analysis (PCA), K-Means Clustering, Factorization Machines, Latent Dirichlet Allocation (LDA), Linear Learner (Classification and Regression), Neural Topic Modelling, and Random Cut Forest. AWS Mechanical Turk, Amazon Comprehend, and Amazon QuickSight are the fully managed AWS services for crowdsourcing tasks, Natural Language Processing (NLP), and Business Intelligence (BI)<!-- raw HTML omitted -->.</p>
+</li>
+<li>
+<p>Amazon SageMaker&rsquo;s <strong>Pipe mode</strong> does <strong>not</strong> support Apache <strong>Parquet</strong> data format.</p>
+</li>
+<li>
+<p><strong>EC2</strong> Storages:</p>
+<ul>
+<li><strong>Instace Store(Block)</strong>:
+<ul>
+<li>Store of host computer is <strong>assigned</strong> to <strong>EC2</strong> instance.</li>
+<li><strong>Temporary</strong> Storage</li>
+<li><strong>Highest</strong> Performance</li>
+<li>Storage included as part of instance pricing</li>
+<li><strong>Durability</strong>:
+<ul>
+<li>Data persists only for the <strong>lifetime</strong> of the instance</li>
+<li><strong>Reboot</strong> - Data <strong>Persists</strong></li>
+<li>Data is <strong>lost</strong> - when underlying hardware <strong>fails</strong>, instance <strong>stops</strong>, or instance <strong>terminates</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Elastic Block Store(EBS):</strong>
+<ul>
+<li>EBS is a managed <strong>block</strong> storage service</li>
+<li>Storage volume is <strong>outside</strong> of host computer - <strong>long term</strong> persistance.</li>
+<li>EC2 instance use EBS storage volume as a block device</li>
+<li>You need to pay for allocated EBS storage</li>
+<li><strong>Benefit:</strong>
+<ul>
+<li><strong>Stop-start</strong> EC2 instance</li>
+<li><strong>Persist</strong> EBS volumes for <strong>terminated</strong> instances</li>
+<li><strong>Detach and attach volume t</strong>o a different instance in the <strong>same availability</strong> zone</li>
+<li>Built-in <strong>Snapshot</strong> capability for incremental backup to S3</li>
+<li>Create <strong>AMI</strong> from snapshots to launch new EC2 instances</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>You can use <strong>Amazon CloudWatch API</strong> operations to send the <strong>training metrics to CloudWatch</strong>, and create a dashboard of those metrics. Lastly, use Amazon Simple Notification Service <strong>(Amazon SNS) to send a notification when the model is overfitting</strong>.</p>
+</li>
+<li>
+<p><strong>CloudWatch Event</strong> does <strong>not</strong> capture events that occur <strong>during model training</strong></p>
+</li>
+<li>
+<p><strong>CloudWatch Logs</strong> will typically contain the <strong>statistics</strong> as reported by the <strong>inference algorithm</strong>. In the case of <strong>Linear Learner</strong>, the <strong>predicted_label</strong> and the <strong>score</strong> is returned and stored in the <strong>CloudWatch Log entries</strong>.</p>
+</li>
+<li>
+<p>The <strong><code>dropout</code></strong> hyperparameter refers to the dropout probability for network layers. <em>A</em> dropout is a form of regularization used in neural networks that <!-- raw HTML omitted -->reduces overfitting by trimming codependent neurons.<!-- raw HTML omitted --></p>
+<p>This is an optional parameter in Amazon SageMaker <strong>Object2vec</strong>. <strong>Increasing the value of this parameter may say solve the overfitting of the model.</strong></p>
+<p><strong>L1 regularization</strong> method is <strong>not</strong> available to Amazon SageMaker <strong>Object2vec</strong>. This is used for simple regression models like a Linear learner.</p>
+</li>
+<li>
+<p>With the <strong>Lifecycle configuration</strong> feature in Amazon SageMaker, you can automate these customizations to be applied at different phases of the lifecycle of an instance. For example, you can write a script to install a list of libraries and, using the Lifecycle configuration feature, configure the scripts to <strong>automatically execute every time your notebook instance is started</strong>. Similarly, you can choose to <strong>automatically run the script only once when the notebook instance is created.</strong></p>
+</li>
+<li>
+<p>The performance of deep learning neural networks often improves with the amount of data available.</p>
+<p><strong>Data augmentatio</strong>n is a technique to artificially create new training data from existing training data. <!-- raw HTML omitted -->This is done by applying domain-specific techniques to examples from the training data that create new and different training examples.<!-- raw HTML omitted --></p>
+<p><strong>Image data augmentation</strong> is perhaps the most well-known type of data augmentation and involves <strong>creating transformed versions of images</strong> in the training dataset that belong to the same class as the original image.</p>
+</li>
+<li>
+<p><strong>T-SNE</strong> is used to preprocess a dataset that contains highly correlated variables.</p>
+</li>
+<li>
+<p><strong>Apache Spark</strong> is a <strong>fast and general engine for large-scale data processing</strong>. Amazon EMR features Amazon <strong>EMR runtime for Apache Spark</strong>, a performance-optimized runtime environment for Apache Spark that is active by default on Amazon EMR clusters.</p>
+</li>
+<li>
+<p><strong>Apache Spark is a distributed processing framework and programming model that helps you do machine learning, stream processing, or graph analytics using Amazon EMR clusters.</strong></p>
+<p><strong>Apache ZooKeeper</strong> is a <strong>centralized service for maintaining configuration information</strong> and <strong>providing distributed synchronization</strong> to distributed applications.</p>
+<p><strong>Apache MXNet</strong> is an <strong>open-source, deep learning framework.</strong></p>
+<p><strong>Apache Pig</strong> is more suitable for running <strong>big data analysis</strong>.</p>
+</li>
+<li>
+<p>Integrating <strong>SageMaker and Spark:</strong></p>
+<ul>
+<li><strong>Pre-process data as normal with Spark</strong> - Generate DataFrames</li>
+<li>Use <strong>SageMaker-spark</strong> library // <a href="https://github.com/aws/sagemaker-spark/blob/master/sagemaker-spark-sdk">sagemaker-spark-sdk</a></li>
+<li><strong>SageMakerEstimator - K-means, PCA, XGBoost</strong></li>
+<li>SageMakerModel</li>
+</ul>
+<h5 id="how-does-it-work">How does it work?</h5>
+<ul>
+<li>Connect notebook to a remote <strong>EMR cluster running Spark( or Zeppelin)</strong></li>
+<li>Training df should have :
+<ul>
+<li>a feature col that is a vector of doubles</li>
+<li>An optional labels col of doubles</li>
+</ul>
+</li>
+<li>Call <strong>fit</strong> on your <strong>SageMakerEstimator</strong> to get a <strong>SageMakerModel</strong></li>
+<li>Call <strong>transform</strong> on the SageMakerModel to make inferences</li>
+<li>Works with Spark <strong>pipelines</strong> as well.</li>
+</ul>
+</li>
+<li>
+<p><strong>Spark MLLib</strong></p>
+<ul>
+<li>
+<p>Classification: logistic regression, naive bayes</p>
+</li>
+<li>
+<p>regression</p>
+</li>
+<li>
+<p>decision tree</p>
+</li>
+<li>
+<p>recommendation engine(ALS)</p>
+</li>
+<li>
+<p>Clustering(k-means)</p>
+</li>
+<li>
+<p>LDA</p>
+</li>
+<li>
+<p>ML workflow utilities (pipeline, feature transformation, persistence)</p>
+</li>
+<li>
+<p>SVD, PCA, statistics</p>
+</li>
+</ul>
+</li>
+<li>
+<p>With Amazon <strong>Polly&rsquo;s</strong> custom <strong>lexicons</strong> or <strong>vocabularies</strong>, you can <strong>modify the pronunciation of particular words</strong>, such as company names, acronyms, foreign words, and neologisms (e.g., &ldquo;ROTFL&rdquo;, &ldquo;C’est la vie&rdquo; when spoken in a non-French voice). To customize these pronunciations, you upload an <strong>XML file with lexical entries</strong>. For example, you can customize the pronunciation of the Filipino word: &ldquo;Pilipinas&rdquo; by using the <code>phoneme</code> element in your input XML.</p>
+</li>
+<li>
+<p>Lex can handle <strong>both speech-to-text and handling the chatbot logic</strong>. The output from Lex could be read back to the customer using Polly. Under the hood, more services would likely be needed as well to support Lex, such as Lambda and DynamoDB.</p>
+</li>
+<li>
+<p><strong>Amazon SageMaker</strong> enables you to <strong>test multiple models or model versions</strong> behind the <strong>same endpoint</strong> using <strong>production</strong> variants. Each <strong><code>ProductionVariant</code></strong> identifies an ML model and the resources deployed for hosting the model. You can distribute endpoint invocation requests across multiple production variants by providing the traffic distribution for each variant or invoking a variant directly for each request.</p>
+</li>
+<li>
+<p>SageMaker <strong>Debugger</strong>:</p>
+<p>supported framework &amp;algos:</p>
+<ul>
+<li>tensorflow</li>
+<li>pytorch</li>
+<li>MXNet</li>
+<li>XGBoost</li>
+<li>SageMaker generic estimator(for use with custom training containers)</li>
+</ul>
+</li>
+<li>
+<p>you can create and run a custom ETL job in <strong>AWS Glue</strong> to <!-- raw HTML omitted --><strong>redact sensitive information</strong><!-- raw HTML omitted --> within a dataset stored in Amazon <strong>S3.</strong></p>
+</li>
+<li>
+<p>The ML <strong>algorithm</strong> should be available in <strong>/opt/program</strong> directory of the Docker container. Three main files there are <strong>train, serve, and predictor.py.</strong></p>
+<p><!-- raw HTML omitted -->***train/***<!-- raw HTML omitted --> contains the <!-- raw HTML omitted -->logic for training the model and storing the trained model<!-- raw HTML omitted -->.</p>
+<p>If the train file runs successfully, it will save a model to <strong>/opt/ml/model</strong> directory. Deployment code for inference goes here.</p>
+<p><strong>/opt/ml/code</strong> training script files goes here.</p>
+<p><em><strong>serve/</strong></em> essentially runs the <strong>logic written in predictor.py.</strong></p>
+<p>Two other files, nginx.config (NGINX configuration file) and wsgi.py (a simple wrapper file), usually can be left unchanged.</p>
+</li>
+<li>
+<p>Amazon Sagemaker provides prebuilt Amazon SageMaker <strong>Docker Images for TensorFlow, MXNet, Chainer, and PyTorch, as well as Docker Images for Scikit-learn and Spark ML</strong>.</p>
+</li>
+<li>
+<p>When using custom <strong>TensorFlow</strong> code, the Amazon SageMaker <strong>Python SDK</strong> supports <strong>script mode</strong> training scripts.</p>
+</li>
+<li>
+<p>Your <strong>inference</strong> container responds to port <strong>8080</strong>, and must respond to ping requests in under <strong>2 seconds.</strong> Model artifacts need to be compressed in <strong>tar</strong> format, not zip.</p>
+</li>
+<li>
+<p>Amazon SageMaker runs training jobs in an Amazon Virtual Private Cloud (Amazon <strong>VPC</strong>) to help keep your data secure. <!-- raw HTML omitted -->If you are using <strong>distributed ML frameworks and algorithms</strong>, and your algorithms transmit information that is directly related to the model (eg weights),<!-- raw HTML omitted --> you can provide an <strong>additional level of security by enabling inter-container traffic encryption</strong>. But note that turning on inter-container traffic encryption can <strong>increase training time</strong>, and therefore the <strong>cost</strong>.</p>
+</li>
+<li>
+<p>VPC is within AWS customer account, SageMaker/EBS/&hellip; are within AWS service account.</p>
+</li>
+<li>
+<p>Amazon <strong>Macie</strong> is a <strong>security service</strong> that uses <strong>machine learning to automatically discover, classify, and protect sensitive data in AWS</strong>. Amazon Macie recognizes sensitive data such as personally identifiable information (PII) or intellectual property and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved. The fully managed service continuously monitors data access activity for anomalies and generates detailed alerts when it detects the risk of unauthorized access or inadvertent data leaks. Amazon Macie is available to protect data stored in Amazon S3.</p>
+</li>
+<li>
+<p>Multi-factor authentication (<strong>MFA</strong>) could be used with <strong>each</strong> account for <strong>enhanced data security</strong>.</p>
+</li>
+<li>
+<p>AWS managed SageMaker policies that can be attached to the users are <strong>AmazonSageMakerReadOnly, AmazonSageMakerFullAccess, AdministratorAccess, and DataScientist.</strong></p>
+</li>
+<li>
+<p>The containers must be <strong>NVIDIA-Docker</strong> compatible and contain only <strong>CUDA</strong> toolkit, <strong>without NVIDIA Drivers</strong>. The toolkit includes a container runtime library and utilities to automatically configure containers to leverage NVIDIA GPUs.</p>
+</li>
+<li>
+<p>When <strong>scaling</strong> responsiveness is not as fast as you would like, you should look at the <strong>cooldown</strong> period. The cooldown period is a duration when scale events will be ignored, allowing the new instances to become established and take on load. Decreasing this value will launch new variant instance faster.</p>
+</li>
+<li>
+<p>Amazon <strong>ECR</strong> is <strong>integrated</strong> with Amazon <strong>ECS</strong> allowing you to easily store, run, and manage <strong>container images for applications running on Amazon ECS</strong>. All you need to do is specify the Amazon ECR repository in your task definition and Amazon ECS will retrieve the appropriate images for your applications.</p>
+</li>
+</ol>
+<hr>
+<h3 id="pca-on-sagemaker">PCA on SageMaker</h3>
+<h4 id="two-modes">Two Modes</h4>
+<ul>
+<li>
+<p><strong>Regular</strong> - Good for Sparse Data and Moderate sized datasets</p>
+</li>
+<li>
+<p><strong>Random</strong> - Good for very large datasets – uses approximation algorithm</p>
+</li>
+</ul>
+<h2 id="factorization-machine">Factorization Machine</h2>
+<p>Factorization Machine algorithm is optimized for handling <strong>high dimensional sparse</strong> datasets.</p>
+<p>Supports Regression and Classification.</p>
+<p>Personalize Content - “predict” ratings/likeness</p>
+<ul>
+<li>Click Prediction for Ad-Placement</li>
+<li>Product recommendation for user</li>
+<li>Movie recommendation</li>
+<li>News/Social Media Feed personalization for users</li>
+</ul>
+<h3 id="factorization-machine--data-format">Factorization Machine – Data Format</h3>
+<p><strong>Input</strong>: recordio-protobuf (with Float32 values)</p>
+<p>Inference: json recordio-protobuf</p>
+<h2 id="random-cut-forest">Random Cut Forest</h2>
+<ul>
+<li>Unsupervised algorithm to detect outliers or anomalous data points</li>
+<li>Tree based ensemble method</li>
+<li>Support for Timeseries data</li>
+<li>Assigns an anomaly score for each data point</li>
+</ul>
+<h3 id="rcf-uses">RCF Uses</h3>
+<ul>
+<li>Traffic spike due to rush hour or accident</li>
+<li>DDoS attack detection</li>
+<li>Unauthorized data transfer detection</li>
+</ul>
+<h2 id="kinesis-streams-vs-firehose">Kinesis Streams vs Firehose</h2>
+<h3 id="kinesis-data-streams">Kinesis Data Streams</h3>
+<ul>
+<li>we can write custom code for the producer and the consume</li>
+<li>It is going to be real time,  between 70 milliseconds and 200-millisecond latency,</li>
+<li><strong>you must manage to scale yourself</strong> so if you want <strong>more throughpu</strong>t you need to think to do something called <strong>Shard splitting,</strong> which means <strong>adding Shards,</strong> and if you want <strong>less throughput</strong> you need to do <strong>Shard merging</strong>, which is <strong>removing</strong> Shards. And that is quite painful to do.</li>
+<li>Data storage for your stream, between 1 to 7 days, and this allows  replay capability,  multiple consumer</li>
+</ul>
+<h3 id="firehose">Firehose</h3>
+<ul>
+<li>
+<p>is a delivery service.</p>
+</li>
+<li>
+<p>It&rsquo;s an ingestion service, so remember that word &ldquo;<strong>ingestion</strong>&rdquo;. And so it&rsquo;s <strong>fully</strong> <strong>managed</strong> and you can send it out to Amazon <strong>S3, Splunk, Redshift, and ElasticSearch</strong>.</p>
+</li>
+<li>
+<p>It is fully serverless, that means we don&rsquo;t manage anything, <strong>and you can do also serverless data transformations using Lambda.</strong></p>
+</li>
+<li>
+<p>It&rsquo;s going to be near real-time, that means that it&rsquo;s going to deliver data with the <strong>lowest buffer time of 1 minute into your targets,</strong></p>
+</li>
+<li>
+<p>there is <strong>automated scaling</strong>, we don&rsquo;t need to provision capacity in advance,</p>
+</li>
+<li>
+<p>and there is no data stored so there is no replay capability.</p>
+</li>
+</ul>
+<h3 id="kinesis-summary">Kinesis Summary</h3>
+<ul>
+<li>Kinesis Data Stream: create real-time ML apps.</li>
+<li>Kinesis Data Firehose: ingest massive data near real-time.</li>
+<li>Kinesis Data Analytics: Real time ETL/ML algos on streams</li>
+<li>Kinesis Video Stream: real-time video stream to create ML apps.</li>
+<li>Kinesis Agent: is a stand-alone Java software application that offers an easy way to collect and send data to Kinesis Streams and Kinesis Firehose. The agent continuously monitors a set of files and sends new data to your stream. The agent handles file rotation, checkpointing, and retry upon failures. It delivers all of your data in a reliable, timely, and simple manner. It also emits Amazon CloudWatch metrics to help you better monitor and troubleshoot the streaming process</li>
+</ul>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/tags/aws/">AWS</a></span>
+        <span class="tag"><a href="https://ffflora.cat/tags/machine-learning/">Machine Learning</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/categories/data-science/">Data Science</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2801 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-11-03 14:47
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29&amp;caption=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29&amp;canonicalUrl=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29&amp;body=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f&amp;media=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f;description=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29&amp;summary=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29&amp;source=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f&amp;resubmit=true&amp;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f;title=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29%20https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f&amp;t=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=AWS%20Machine%20Learning%20Specialty%20Cheatsheet%284%29&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2021%2f11%2faws-machine-learning-specialty-cheatsheet4%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+
+          
+            <span class="button next">
+              <a href="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/">
+                <span class="button__text">AWS Machine Learning Specialty Cheatsheet(3)</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://ffflora.cat/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084;</span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188012091-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

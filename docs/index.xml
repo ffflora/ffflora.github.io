@@ -7,23 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 13 Apr 2021 23:26:49 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 03 Nov 2021 14:47:21 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>AWS Machine Learning Specialty Knowledge Pickup</title>
-      <link>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</link>
+      <title>AWS Machine Learning Specialty Cheatsheet(4)</title>
+      <link>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/</link>
+      <pubDate>Wed, 03 Nov 2021 14:47:21 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/</guid>
+      <description>ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
+  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data.</description>
+    </item>
+    
+    <item>
+      <title>AWS Machine Learning Specialty Cheatsheet(3)</title>
+      <link>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/</link>
+      <pubDate>Wed, 03 Nov 2021 14:47:15 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/</guid>
+      <description>Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+  Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past.</description>
+    </item>
+    
+    <item>
+      <title>AWS Machine Learning Specialty Cheatsheet(2)</title>
+      <link>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/</link>
+      <pubDate>Wed, 03 Nov 2021 14:34:57 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/</guid>
+      <description>Exploratory Data Analysis   In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.</description>
+    </item>
+    
+    <item>
+      <title>AWS Machine Learning Specialty Cheatsheet(1)</title>
+      <link>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-cheatsheet1/</link>
       <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
       
-      <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-knowledge-pickup/</guid>
-      <description>This notes contains some catchups for better preping for AWS machine learning specialty cert.
-Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+      <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-cheatsheet1/</guid>
+      <description>Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  KCL helps you consume and process data from a Kinesis data stream by taking care of many of the complex tasks associated with distributed computing. These include load balancing across multiple consumer application instances, responding to consumer application instance failures, checkpointing processed records, and reacting to resharding.</description>
+  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
     </item>
     
     <item>
