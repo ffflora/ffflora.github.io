@@ -15,16 +15,29 @@
                 <ul class="posts-list">
                     {{ range .Pages }}
                         <li class="post-item">
-                            <a href="{{.Permalink}}">
-                                <span class="post-title">{{.Title}}</span>
-                                <span class="post-day">
-                                    {{ if .Site.Params.dateformShort }}
-                                        {{ .Date.Format .Site.Params.dateformShort }}
-                                    {{ else }}
-                                        {{ .Date.Format "Jan 2"}}
-                                    {{ end }}
-                                </span>
-                            </a>
+                            {{ if isset .Params "affiliatelink" }}
+                                <a href="{{.Params.affiliatelink}}" target="_blank">
+                                    <span class="post-title">{{.Title}}</span>
+                                    <span class="post-day">
+                                        {{ if .Site.Params.dateformShort }}
+                                            {{ .Date.Format .Site.Params.dateformShort }}
+                                        {{ else }}
+                                            {{ .Date.Format "Jan 2"}}
+                                        {{ end }}
+                                    </span>
+                                </a>
+                            {{else}}
+                                <a href="{{.Permalink}}">
+                                    <span class="post-title">{{.Title}}</span>
+                                    <span class="post-day">
+                                        {{ if .Site.Params.dateformShort }}
+                                            {{ .Date.Format .Site.Params.dateformShort }}
+                                        {{ else }}
+                                            {{ .Date.Format "Jan 2"}}
+                                        {{ end }}
+                                    </span>
+                                </a>
+                            {{ end }}
                         </li>
                     {{ end }}
                 </ul>
