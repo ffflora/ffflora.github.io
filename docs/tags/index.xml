@@ -13,11 +13,11 @@
     
     
     <item>
-      <title>untagged</title>
-      <link>https://ffflora.cat/tags/untagged/</link>
+      <title>Algorithm</title>
+      <link>https://ffflora.cat/tags/algorithm/</link>
       <pubDate>Mon, 08 Nov 2021 19:41:07 -0800</pubDate>
       
-      <guid>https://ffflora.cat/tags/untagged/</guid>
+      <guid>https://ffflora.cat/tags/algorithm/</guid>
       <description></description>
     </item>
     
@@ -63,6 +63,15 @@
       <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
       
       <guid>https://ffflora.cat/tags/react.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>untagged</title>
+      <link>https://ffflora.cat/tags/untagged/</link>
+      <pubDate>Sat, 06 Feb 2021 17:02:04 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/tags/untagged/</guid>
       <description></description>
     </item>
     
