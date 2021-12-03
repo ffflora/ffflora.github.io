@@ -58,11 +58,11 @@ ROUND(...,2); -- round to 2 decimal places
 
 ```SQL
 value BETWEEN low AND high
-value IN(SELECT value FROM ... );//here is a subquery
+value IN(SELECT value FROM ... );-- here is a subquery
 
 SELECT ... FROM ... 
-WHERE firstname LIKE 'Jen%';// % pettern matching sequence.
-		...		LIKE 'JEN_';// _ pattern matching single char.//wild card
+WHERE firstname LIKE 'Jen%';-- % pettern matching sequence.
+		...		LIKE 'JEN_';-- _ pattern matching single char.
 ```
 
 ##### Aggregate Function:
@@ -84,7 +84,7 @@ SELECT col1, some_aggr_fun(col2)
 FROM table_name
 WHERE ...
 GROUP BY col1
-HAVING (conditions) // ★★ 这个 condition 跟 第一行的 aggregation function 有关 ★★
+HAVING (conditions) -- ★★ The condition here is related to the aggr_fun to the first line. ★★
 ```
 
 ##### WHERE v.s. HAVING ★★★
@@ -95,13 +95,13 @@ HAVING (conditions) // ★★ 这个 condition 跟 第一行的 aggregation func
   - there are a lot of optimization techniques, such as indexes, to skip a bunch of rows.
 
 - HAVING:
-  - Huge resource consumption 
-  - used to filter data after aggregation function.
-  - usually applied after `GROUP BY`.
+  - **Huge** resource consumption 
+  - **used to filter data after aggregation function.**
+  - usually applied **after `GROUP BY`.**
 
 ##### JOIN
 
-写 `INNER JOIN` 时可以省略 INNER, for `JOIN` means `INNER JOIN` in SQL.
+`JOIN` means `INNER JOIN` in SQL.
 
 ![](https://i.stack.imgur.com/VQ5XP.png)
 
@@ -124,20 +124,24 @@ FROM table2
 ##### CREATE DATABASE and TABLES
 
 ```SQL
-CREATE TABLE table_name(col_name1 data_type PRIMARY KEY, // this contraint is combination of NOT FULL and UNIQUE
+CREATE TABLE table_name(col_name1 data_type PRIMARY KEY, -- this contraint is combination of NOT FULL and UNIQUE
                         col_name2 data_type,
                           ... )
 ```
 
-###### CONSTRAINTS:
+##### CONSTRAINTS:
 
-在数据库中使用约束(constraints)是为了在该数据库中实施所谓的"业务规则"其实就是防止非法信息进入数据库,满足管理员和应用开发人员所定义的规则集,防止不合法的数据写入数据库,管理员和开发人员可以定义完整性规则,增强商业规则,限制数据表中的数据.
+```SQL
 
-- CHECK
-- NOT FULL // the value of the table cannot be null
-- UNIQUE  // the value of the table must be unique across the whole table
-- PRIMARY KEY // must be NOT FULL and UNIQUE
-- FOREIGN KEY // provides a link between data in two tables. it points to a PRIMARY KEY in another table.
+CHECK -- enables to check a condition when you insert or update a data
+NOT FULL -- the value of the table cannot be null
+UNIQUE --  the value of the table must be unique across the whole table
+PRIMARY KEY -- must be NOT FULL and UNIQUE
+FOREIGN KEY -- provides a link between data in two tables. it points to a PRIMARY KEY in another table.
+REFERENCES -- constr. the value of the col that exists in a col in another table.
+```
+
+
 
 ![](https://i.ytimg.com/vi/Osv7AhGq_Vc/maxresdefault.jpg)
 
@@ -147,11 +151,6 @@ CREATE TABLE table_name
 INHERITS exsiting_table_name
 ```
 
-###### CONSTRAINTS(con't)
-
-- CHECK //enables to check a condition when you insert or update a data
-- REFERENCES //constr. the value of the col that exists in a col in another table.
-
 
 
 ##### INSERT
@@ -160,12 +159,12 @@ INHERITS exsiting_table_name
 INSERT INTO table_name (col1,col2,...)
 VALUES (value1,value2,...)
 
-//insert multiple rows:
+/* insert multiple rows: */
 INSERT INTO table_name(col1,...)
 VALUES(val1,val2,...),
 		(val3,val4,...),...
 
-//insert from other table
+/* insert from other table */
 INSERT INTO table_name
 SELECT col1
 FROM another_table

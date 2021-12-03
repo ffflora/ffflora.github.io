@@ -98,6 +98,15 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
     </item>
     
     <item>
+      <title>SQL Notes (1)</title>
+      <link>https://ffflora.cat/posts/2020/05/sql-notes-1/</link>
+      <pubDate>Mon, 04 May 2020 00:10:29 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2020/05/sql-notes-1/</guid>
+      <description>Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea.</description>
+    </item>
+    
+    <item>
       <title>How to Use Auto Completion in GCP</title>
       <link>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</link>
       <pubDate>Wed, 28 Aug 2019 21:30:55 -0700</pubDate>

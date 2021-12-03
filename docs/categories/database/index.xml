@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on Flora Wenyao Jiang</title>
-    <link>https://ffflora.cat/tags/notes/</link>
-    <description>Recent content in Notes on Flora Wenyao Jiang</description>
+    <title>Database on Flora Wenyao Jiang</title>
+    <link>https://ffflora.cat/categories/database/</link>
+    <description>Recent content in Database on Flora Wenyao Jiang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 24 Mar 2021 00:08:29 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2020 00:10:29 -0700</lastBuildDate>
     
-	<atom:link href="https://ffflora.cat/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ffflora.cat/categories/database/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>React.js Related Notes (1)</title>
-      <link>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</link>
-      <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
-      
-      <guid>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</guid>
-      <description>This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
-Data looks like:
-type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&amp;gt; { if (data.</description>
-    </item>
     
     <item>
       <title>SQL Notes (1)</title>

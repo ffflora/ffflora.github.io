@@ -3021,6 +3021,134 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
         </item>
         
         <item>
+            <title>SQL Notes (1)</title>
+            <link>https://ffflora.cat/posts/2020/05/sql-notes-1/</link>
+            <pubDate>Mon, 04 May 2020 00:10:29 -0700</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2020/05/sql-notes-1/</guid>
+            <description>Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea.</description>
+            <content type="html"><![CDATA[<h4 id="database-level">Database level：</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> test;
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">DATABASE</span> test;
+<span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">DATABASE</span>; <span style="color:#75715e">-- show all the databases
+</span><span style="color:#75715e"></span>USE test; <span style="color:#75715e">-- use some specific database
+</span></code></pre></div><h4 id="in-a-database">In a Database:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">TABLE</span>;
+
+<span style="color:#75715e">/*If you want to modify or update a certain table*/</span>
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>;
+<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">column_name</span> datatype;
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> <span style="color:#66d9ef">column_name</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> col1,col2 <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>; <span style="color:#75715e">-- A col may contain duplicate values
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> ... <span style="color:#66d9ef">FROM</span>... <span style="color:#66d9ef">WHERE</span> conditions; <span style="color:#75715e">-- filter the rows returned from FROM
+</span></code></pre></div><h5 id="count">COUNT</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>; <span style="color:#75715e">-- In real life, * is not a good idea.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(col) <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> col) <span style="color:#66d9ef">FROM</span> ... ;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#75715e">/*LIMIT is useful when want to get all cols but not all rows*/</span>
+<span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">5</span>; <span style="color:#75715e">-- 5 rows and all cols
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* ORDER BY: sorting */</span>
+<span style="color:#66d9ef">SELECT</span>... <span style="color:#66d9ef">FROM</span>... <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> col1 <span style="color:#66d9ef">ASC</span><span style="color:#f92672">/</span><span style="color:#66d9ef">DESC</span> 
+
+ROUND(...,<span style="color:#ae81ff">2</span>); <span style="color:#75715e">-- round to 2 decimal places
+</span></code></pre></div><h5 id="between-in-like">BETWEEN, IN, LIKE</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">value <span style="color:#66d9ef">BETWEEN</span> low <span style="color:#66d9ef">AND</span> high
+value <span style="color:#66d9ef">IN</span>(<span style="color:#66d9ef">SELECT</span> value <span style="color:#66d9ef">FROM</span> ... );<span style="color:#75715e">-- here is a subquery
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">SELECT</span> ... <span style="color:#66d9ef">FROM</span> ... 
+<span style="color:#66d9ef">WHERE</span> firstname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;Jen%&#39;</span>;<span style="color:#75715e">-- % pettern matching sequence.
+</span><span style="color:#75715e"></span>		...		<span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;JEN_&#39;</span>;<span style="color:#75715e">-- _ pattern matching single char.
+</span></code></pre></div><h5 id="aggregate-function">Aggregate Function:</h5>
+<p>min, max, avg, sum, count,&hellip; which take a lot rows of data and return a single value.</p>
+<h5 id="group-by">GROUP BY:</h5>
+<p>Which group by clause devides the rows returned from SELECT into groups</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span>... <span style="color:#66d9ef">FROM</span>... <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> col;
+<span style="color:#66d9ef">SELECT</span> customer_id, <span style="color:#66d9ef">SUM</span>(amount)
+<span style="color:#66d9ef">FROM</span> payment
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> costumoer_id
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">SUM</span>(amount) <span style="color:#66d9ef">DESC</span>
+
+<span style="color:#66d9ef">SELECT</span> col1, some_aggr_fun(col2)
+<span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>
+<span style="color:#66d9ef">WHERE</span> ...
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> col1
+<span style="color:#66d9ef">HAVING</span> (conditions) <span style="color:#75715e">-- ★★ The condition here is related to the aggr_fun to the first line. ★★
+</span></code></pre></div><h5 id="where-vs-having-">WHERE v.s. HAVING ★★★</h5>
+<ul>
+<li>
+<p>WHERE:</p>
+<ul>
+<li>more cheapter and efficient.</li>
+<li>applied when read data from table</li>
+<li>there are a lot of optimization techniques, such as indexes, to skip a bunch of rows.</li>
+</ul>
+</li>
+<li>
+<p>HAVING:</p>
+<ul>
+<li><strong>Huge</strong> resource consumption</li>
+<li><strong>used to filter data after aggregation function.</strong></li>
+<li>usually applied <strong>after <code>GROUP BY</code>.</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="join">JOIN</h5>
+<p><code>JOIN</code> means <code>INNER JOIN</code> in SQL.</p>
+<p><img src="https://i.stack.imgur.com/VQ5XP.png" alt=""></p>
+<h5 id="union">UNION</h5>
+<p>Combine result sets of two or more SELECT statements into a single result set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> co11, col2
+<span style="color:#66d9ef">FROM</span> table1
+<span style="color:#66d9ef">UNION</span>
+<span style="color:#66d9ef">SELECT</span> col3,col4
+<span style="color:#66d9ef">FROM</span> table2
+</code></pre></div><h5 id="timestamp-and-extract">TIMESTAMP and EXTRACT</h5>
+<p><code>SELECT EXTRACT (DAY FROM payment_date);</code></p>
+<h5 id="create-database-and-tables">CREATE DATABASE and TABLES</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>(col_name1 data_type <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>, <span style="color:#75715e">-- this contraint is combination of NOT FULL and UNIQUE
+</span><span style="color:#75715e"></span>                        col_name2 data_type,
+                          ... )
+</code></pre></div><h5 id="constraints">CONSTRAINTS:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">
+<span style="color:#66d9ef">CHECK</span> <span style="color:#75715e">-- enables to check a condition when you insert or update a data
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">FULL</span> <span style="color:#75715e">-- the value of the table cannot be null
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UNIQUE</span> <span style="color:#75715e">--  the value of the table must be unique across the whole table
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> <span style="color:#75715e">-- must be NOT FULL and UNIQUE
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> <span style="color:#75715e">-- provides a link between data in two tables. it points to a PRIMARY KEY in another table.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">REFERENCES</span> <span style="color:#75715e">-- constr. the value of the col that exists in a col in another table.
+</span></code></pre></div><p><img src="https://i.ytimg.com/vi/Osv7AhGq_Vc/maxresdefault.jpg" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span> 
+(col_name <span style="color:#66d9ef">TYPE</span> col_constraint, table_constraint)
+<span style="color:#66d9ef">INHERITS</span> exsiting_table_name
+</code></pre></div><h5 id="insert">INSERT</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">table_name</span> (col1,col2,...)
+<span style="color:#66d9ef">VALUES</span> (value1,value2,...)
+
+<span style="color:#75715e">/* insert multiple rows: */</span>
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">table_name</span>(col1,...)
+<span style="color:#66d9ef">VALUES</span>(val1,val2,...),
+		(val3,val4,...),...
+
+<span style="color:#75715e">/* insert from other table */</span>
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">table_name</span>
+<span style="color:#66d9ef">SELECT</span> col1
+<span style="color:#66d9ef">FROM</span> another_table
+<span style="color:#66d9ef">WHERE</span> condition
+</code></pre></div><h5 id="update-delete">UPDATE, DELETE</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">UPDATE</span> <span style="color:#66d9ef">table_name</span>
+<span style="color:#66d9ef">SET</span> col1 <span style="color:#f92672">=</span> val1,col2  <span style="color:#f92672">=</span> val2, ...
+<span style="color:#66d9ef">WHERE</span> condition
+
+<span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>
+<span style="color:#66d9ef">WHERE</span> condition
+</code></pre></div><h5 id="alterdrop-table">ALTER/DROP TABLE</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>(a series <span style="color:#66d9ef">of</span> actions)
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
             <title>How to Use Auto Completion in GCP</title>
             <link>https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/</link>
             <pubDate>Wed, 28 Aug 2019 21:30:55 -0700</pubDate>
