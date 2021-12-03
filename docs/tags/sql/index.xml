@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 04 May 2020 00:10:29 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 00:00:43 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQL Notes (2)</title>
+      <link>https://ffflora.cat/posts/2020/05/sql-notes-2/</link>
+      <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2020/05/sql-notes-2/</guid>
+      <description>SQL Cheatsheet SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
+    </item>
     
     <item>
       <title>SQL Notes (1)</title>

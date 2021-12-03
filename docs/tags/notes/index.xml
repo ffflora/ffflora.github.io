@@ -25,6 +25,15 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
     </item>
     
     <item>
+      <title>SQL Notes (2)</title>
+      <link>https://ffflora.cat/posts/2020/05/sql-notes-2/</link>
+      <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2020/05/sql-notes-2/</guid>
+      <description>SQL Cheatsheet SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
+    </item>
+    
+    <item>
       <title>SQL Notes (1)</title>
       <link>https://ffflora.cat/posts/2020/05/sql-notes-1/</link>
       <pubDate>Mon, 04 May 2020 00:10:29 -0700</pubDate>

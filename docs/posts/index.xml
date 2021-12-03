@@ -3021,6 +3021,611 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
         </item>
         
         <item>
+            <title>SQL Notes (2)</title>
+            <link>https://ffflora.cat/posts/2020/05/sql-notes-2/</link>
+            <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2020/05/sql-notes-2/</guid>
+            <description>SQL Cheatsheet SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
+            <content type="html"><![CDATA[<h1 id="sql-cheatsheet">SQL Cheatsheet</h1>
+<h4 id="select">SELECT</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> vend_id 
+<span style="color:#66d9ef">FROM</span> Vendors 
+<span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">5</span>;
+
+<span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">OFFSET</span> <span style="color:#ae81ff">5</span>; <span style="color:#f92672">//</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">5</span> results <span style="color:#66d9ef">start</span> <span style="color:#66d9ef">from</span> line <span style="color:#ae81ff">5</span> 
+</code></pre></div><h4 id="order-by">ORDER BY</h4>
+<ul>
+<li>This should be the <strong>last clause</strong> after the <code>SELECT</code> statement.</li>
+<li>It is legal to ORDER BY the columns that are not being selected.</li>
+<li>Default is ordering from A - Z, if descending, need to add <code>DESC</code> in the end.</li>
+<li>DESC only works on col name that listed in front. If want to order multiple cols descendingly, need to add <code>DESC</code> after each col listed.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> prod_name
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
+
+<span style="color:#66d9ef">SELECT</span> prod_id, prod_price, prod_name
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_price, prod_name;  <span style="color:#75715e">-- ORDER BY multiple cols 
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>; <span style="color:#75715e">-- This works the same as the last line 
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span> <span style="color:#66d9ef">DESC</span> ;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_id, prod_price, prod_name
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_price <span style="color:#66d9ef">DESC</span>, prod_name; <span style="color:#75715e">-- DESC only works on col name that listed in front.
+</span><span style="color:#75715e"></span>
+</code></pre></div><h4 id="where">WHERE</h4>
+<ul>
+<li>WHERE first, then ORDER BY.</li>
+<li>Use <code>IS NULL</code> with <code>WHERE</code> to check for null.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> prod_name, prod_price <span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span> 
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_price;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price <span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">AND</span> <span style="color:#ae81ff">10</span> 
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_price;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price <span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>;
+</code></pre></div><h4 id="more-filtering">More filtering</h4>
+<ul>
+<li>Use <code>AND</code> and <code>OR</code> operator</li>
+<li><code>WHERE</code> clause could use with many <code>AND</code> or <code>OR</code></li>
+<li>Usually <code>AND</code> has a higher priority than <code>OR</code>, therefore use parentheses in <code>WHERE</code> clause with these operators, which could remove all the ambiguity.</li>
+<li><code>IN</code> has the same function with <code>OR</code>, but usually is more clear and more efficient, and it runs more faster.</li>
+<li><code>IN</code> could include other <code>SELECT</code> clauses.</li>
+<li><code>NOT</code> in <code>WHERE</code> clause only does one thing: negate all the conditions afterwards. It never use by itself.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">    
+<span style="color:#66d9ef">SELECT</span> prod_id, prod_price, prod_name
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DLL01&#39;</span> <span style="color:#66d9ef">AND</span> prod_price <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">4</span>; 
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> (vend_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DLL01&#39;</span> <span style="color:#66d9ef">OR</span> vend_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BRS01&#39;</span>) <span style="color:#75715e">-- Add parentheses, otherwise will execute AND first and output wrong results.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">AND</span> prod_price <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">10</span>;
+    
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#66d9ef">IN</span> ( <span style="color:#e6db74">&#39;DLL01&#39;</span>, <span style="color:#e6db74">&#39;BRS01&#39;</span> ) 
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
+
+<span style="color:#75715e">-- SAME AS ⬇️--
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DLL01&#39;</span> <span style="color:#66d9ef">OR</span> vend_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BRS01&#39;</span> 
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">NOT</span> vend_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DLL01&#39;</span> 
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
+
+<span style="color:#75715e">-- third line as same as: --
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;DLL01&#39;</span> 
+
+</code></pre></div><h4 id="wildcard">Wildcard</h4>
+<ul>
+<li>wildcard: special character that matches some keywords</li>
+<li>search pattern: a combination of keyword and/or wildcard</li>
+<li><code>LIKE</code> is ( °◅° ) predicate, rather than an operator.</li>
+<li><code>%</code>: any character that shows up for any times.
+<ul>
+<li>Useful situation: to search for some email address that match some condition: <code>WHERE email LIKE 'b%@vii.im'</code></li>
+<li>But <code>%</code> won&rsquo;t match any <code>NULL</code>: <code>WHERE prod_name LIKE '%'</code> never returns results that the values are <code>NULL</code>.</li>
+</ul>
+</li>
+<li><code>_</code> has the same functionality as <code>%</code>, but it only  matches for single character.</li>
+<li><code>[]</code> : a set of characters, which uses to match the keywords in specific location. This search pattern uses any <strong>one</strong> char of the set.
+<ul>
+<li>In this case, negation is represented by <code>^</code> sign, or <code>NOT</code> operator.</li>
+</ul>
+</li>
+<li>Don&rsquo;t overuse wildcards: operators &gt; wildcards.</li>
+<li>If place wildcard in the beginning of the search process, would make the process <em>slow</em>.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> prod_id, prod_name
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> prod_name <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;Fish%&#39;</span>;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_id, prod_name
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> prod_name <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;__ inch teddy bear&#39;</span>; <span style="color:#75715e">-- notice that the space after the __ is needed. 
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> cust_contact
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_contact <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;[JM]%&#39;</span> <span style="color:#75715e">-- names that start with J or M, and follow with any characters
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> cust_contact;
+
+<span style="color:#75715e">/*Output*/</span>
+Jim Jones
+John Smith 
+Michelle Green
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> cust_contact
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_contact <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;^[JM]%&#39;</span> <span style="color:#75715e">-- names that not start with J or M, and follow with any characters
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> cust_contact;
+
+<span style="color:#75715e">-- Same as: --
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> cust_contact
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">NOT</span> cust_contact <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;[JM]%&#39;</span> 
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> cust_contact;
+
+</code></pre></div><h4 id="calculated-field">Calculated Field</h4>
+<ul>
+<li>
+<p>Example of calculated field:</p>
+<ul>
+<li>company&rsquo;s name and address, but usually they are in different tables.</li>
+<li>city, state, zip code usually in different tables, but they are needed together when print the address</li>
+<li>calculation like mean, avg</li>
+</ul>
+</li>
+<li>
+<p>They are not physically in the database, but they are created when running the <code>SELECT</code> clauses.</p>
+</li>
+<li>
+<p>Use <code>+</code> or <code>||</code> to concatenate cols.</p>
+</li>
+<li>
+<p>TRIM:</p>
+<ul>
+<li>remember to use <code>RTRIM()</code> to get rid of the extra spaces on the right of the value.</li>
+<li><code>LTRIM()</code>: get rid of the extra space of the left of the value.</li>
+<li><code>TRIM()</code>: get rid of the space of both sides.</li>
+</ul>
+</li>
+<li>
+<p>rename: <code>AS</code></p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> vend_name <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39; (&#39;</span> <span style="color:#f92672">||</span> vend_country <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#75715e">-- use || in SQLite, use + in SQL
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">FROM</span> Vendors
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> vend_name;
+
+<span style="color:#75715e">/* Use RTRIM() to get rid of the extra space to the right of the value. */</span>
+<span style="color:#66d9ef">SELECT</span> RTRIM(vend_name) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39; (&#39;</span> <span style="color:#f92672">||</span> RTRIM(vend_country) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;)&#39;</span> 
+<span style="color:#66d9ef">FROM</span> Vendors
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> vend_name;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_id,
+       quantity,
+       item_price,
+       quantity<span style="color:#f92672">*</span>item_price <span style="color:#66d9ef">AS</span> expanded_price
+<span style="color:#66d9ef">FROM</span> OrderItems
+<span style="color:#66d9ef">WHERE</span> order_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">20008</span>;
+
+</code></pre></div><h4 id="more-functions">More functions</h4>
+<ul>
+<li><code>UPPER()</code>, <code>LOWER()</code></li>
+<li><code>LENGTH()</code>,<code>LTRIM()</code>,<code>RTRIM()</code>,<code>TRIM()</code></li>
+<li><code>RIGHT()</code>,<code>LEFT()</code>: returns the character to the right/left of the string.</li>
+<li><code>SOUNDEX()</code>: returns the value that is sound-like the keyword.
+<ul>
+<li>For Example, a name in the table is &lsquo;Michelle&rsquo;, but the actual value is &lsquo;Michael&rsquo;,  if search by the real name will have nothing return, thus in this case use <code>SOUNDEX()</code></li>
+</ul>
+</li>
+<li>Functions are not all portable between different SQL systems.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> SOUNDEX(cust_contact) <span style="color:#f92672">=</span> SOUNDEX(<span style="color:#e6db74">&#39;Michael Green&#39;</span>); 
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> order_num
+<span style="color:#66d9ef">FROM</span> Orders
+<span style="color:#66d9ef">WHERE</span> strftime(<span style="color:#e6db74">&#39;%Y&#39;</span>, order_date) <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2012&#39;</span>;
+</code></pre></div><h4 id="data-manipulation-functions">Data Manipulation Functions</h4>
+<ul>
+<li>Aggregation functions are most portable functions.
+<ul>
+<li>
+<p>line number of some cols: <code>COUNT()</code></p>
+<ul>
+<li><code>COUNT(*)</code> counts all the lines in a col, no matter each line is NULL or not.</li>
+<li><code>COUNT(col)</code> counts all the lines that have valid values.</li>
+</ul>
+</li>
+<li>
+<p>sum of certain values: <code>SUM()</code></p>
+<ul>
+<li>it ignore the NULL lines.</li>
+</ul>
+</li>
+<li>
+<p><code>MAX()</code>,<code>MIN()</code>,<code>AVG()</code></p>
+<ul>
+<li><code>AVG()</code> can only use on a single col, and it neglects the lines that the values are NULL.</li>
+<li>when dealing with categorical data, <code>MAX()</code> return the last line of the col after <strong>sorting</strong>.</li>
+<li><code>MAX()</code> ignore NULL lines.</li>
+</ul>
+</li>
+<li>
+<p>&hellip;</p>
+</li>
+</ul>
+</li>
+<li><strong>DISTINCT</strong> values</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">AVG</span>(prod_price) <span style="color:#66d9ef">AS</span> avg_price
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;DLL01&#39;</span>; <span style="color:#75715e">-- calculate the avg price from certain vendor 
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* Subquery */</span>
+<span style="color:#66d9ef">SELECT</span> prod_name, <span style="color:#66d9ef">AVG</span>(prod_price) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">avg</span> 
+<span style="color:#66d9ef">FROM</span>
+   (<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> prod_name,prod_price <span style="color:#66d9ef">FROM</span> Products);
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">8</span> inch teddy bear<span style="color:#f92672">|</span><span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">82333333333333</span>
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* Combined Aggregation Functions */</span>
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num_items,
+       <span style="color:#66d9ef">MIN</span>(prod_price) <span style="color:#66d9ef">AS</span> price_min,
+       <span style="color:#66d9ef">MAX</span>(prod_price) <span style="color:#66d9ef">AS</span> price_max,
+       <span style="color:#66d9ef">AVG</span>(prod_price) <span style="color:#66d9ef">AS</span> price_avg
+ <span style="color:#66d9ef">FROM</span> Products;
+
+
+</code></pre></div><h4 id="group-by--having">GROUP BY &amp; HAVING</h4>
+<ul>
+<li>All the cols need to be listed in the <code>GROUP BY</code> clause, except aggregation functions.</li>
+<li>Can&rsquo;t group by aggregation functions.</li>
+<li>If there are NULL in the lines, all the NULLs will be returned as a group.</li>
+<li>Orders in the scripts:
+WHERE, GROUP BY, ORDER BY</li>
+<li><code>WHERE</code> is about filtering by lines; <code>HAVING</code> is about filtering by groups.</li>
+<li>Another way to understand <code>WHERE</code> and <code>HAVING</code>: <code>WHERE</code> filters before grouping, yet <code>HAVING</code> filters after grouping. The lines excluded by <code>WHERE</code> are not in the groups.</li>
+<li>Differences btw <code>ORDER BY</code> vs <code>GROUP BY</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ORDER BY</th>
+<th>GROUP BY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sorts generated output.</td>
+<td>Grouping rows. However the output may not be in group order.</td>
+</tr>
+<tr>
+<td>Can use it upon any cols (includes the cols that are not selected)</td>
+<td>Only selected cols or expressions cols may be used, and every selected col expression must be used.</td>
+</tr>
+<tr>
+<td>Never required.</td>
+<td>Required if using cols(or expressions) with agg functions.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Should include <code>ORDER BY</code> subquery to the <code>GROUP BY</code>, in order to get the right sorted results.</li>
+</ul>
+<p>Conclusion (Clauses and ordering)</p>
+<table>
+<thead>
+<tr>
+<th>Clause</th>
+<th>Description</th>
+<th>Is-required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT</td>
+<td>Cols(expressions) to be returned</td>
+<td>√</td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>Table to retrieve data  from</td>
+<td>only if select data from table</td>
+</tr>
+<tr>
+<td>WHERE</td>
+<td>row-level filtering</td>
+<td>x</td>
+</tr>
+<tr>
+<td>GROUP BY</td>
+<td>Groups specs</td>
+<td>yes if only aggregation calculation are involved by groups</td>
+</tr>
+<tr>
+<td>HAVING</td>
+<td>GROUP-level filtering</td>
+<td>x</td>
+</tr>
+<tr>
+<td>ORDER BY</td>
+<td>Sort output</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> vend_id, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num_prods
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> vend_id;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* Return the customers that have more than two orders. */</span>
+<span style="color:#66d9ef">SELECT</span> cust_id, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> orders <span style="color:#66d9ef">FROM</span> Orders
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> cust_id
+<span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>;
+<span style="color:#75715e">-- Can&#39;t use WHERE here, because the filtering is based on an aggregation function.
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* Return the vendors that have more than two products that the prices are at least 4. */</span>
+<span style="color:#66d9ef">SELECT</span> vend_id, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num_prods <span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">4</span>
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> vend_id
+<span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* Return the order numbers and number of items sold, which are at least three, sort by items number */</span>
+<span style="color:#66d9ef">SELECT</span> order_num, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> items <span style="color:#66d9ef">FROM</span> OrderItems
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> order_num
+<span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">3</span>
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> items, order_num;
+</code></pre></div><h4 id="subquery">SUBQUERY</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#75715e">/* Return the customer info which have bought the product PGAN01 */</span>
+<span style="color:#66d9ef">SELECT</span> cust_name,cust_contact 
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> cust_id
+    <span style="color:#66d9ef">FROM</span> Orders
+    <span style="color:#66d9ef">WHERE</span> order_num <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> order_num
+                        <span style="color:#66d9ef">FROM</span> OrderItems
+                        <span style="color:#66d9ef">WHERE</span> prod_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RGAN01&#39;</span>));
+                        
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">SELECT</span> cust_name,
+       cust_state,
+        (<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>)
+        <span style="color:#66d9ef">FROM</span> Orders
+        <span style="color:#66d9ef">WHERE</span> Orders.cust_id <span style="color:#f92672">=</span> Customers.cust_id) <span style="color:#66d9ef">AS</span> orders
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> cust_name;
+</code></pre></div><h4 id="join">JOIN</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> vend_name, prod_name, prod_price <span style="color:#66d9ef">FROM</span> Vendors, Products
+<span style="color:#66d9ef">WHERE</span> Vendors.vend_id <span style="color:#f92672">=</span> Products.vend_id;
+
+<span style="color:#75715e">-- Same as : -- 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> vend_name, prod_name, prod_price <span style="color:#66d9ef">FROM</span> Vendors <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Products
+<span style="color:#66d9ef">ON</span> Vendors.vend_id <span style="color:#f92672">=</span> Products.vend_id;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> cust_id
+                  <span style="color:#66d9ef">FROM</span> Orders
+                  <span style="color:#66d9ef">WHERE</span> order_num <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> order_num
+        <span style="color:#66d9ef">FROM</span> OrderItems
+        <span style="color:#66d9ef">WHERE</span> prod_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RGAN01&#39;</span>));
+        
+<span style="color:#75715e">-- Same as : --
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact
+<span style="color:#66d9ef">FROM</span> Customers, Orders, OrderItems
+<span style="color:#66d9ef">WHERE</span> Customers.cust_id <span style="color:#f92672">=</span> Orders.cust_id
+<span style="color:#66d9ef">AND</span> OrderItems.order_num <span style="color:#f92672">=</span> Orders.order_num <span style="color:#66d9ef">AND</span> prod_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RGAN01&#39;</span>;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> cust_name
+ <span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_contact <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jim Jones&#39;</span>
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> Customers.cust_id, Orders.order_num <span style="color:#66d9ef">FROM</span> Customers <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">OUTER</span> <span style="color:#66d9ef">JOIN</span> Orders
+<span style="color:#66d9ef">ON</span> Customers.cust_id <span style="color:#f92672">=</span> Orders.cust_id;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* Return all the customers with the number of orders. */</span>
+<span style="color:#66d9ef">SELECT</span> Customers.cust_id, <span style="color:#66d9ef">COUNT</span>(Orders.order_num) <span style="color:#66d9ef">AS</span> num_ord
+<span style="color:#66d9ef">FROM</span> Customers <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Orders
+<span style="color:#66d9ef">ON</span> Customers.cust_id <span style="color:#f92672">=</span> Orders.cust_id
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Customers.cust_id;
+</code></pre></div><h4 id="combine-queries">Combine queries</h4>
+<ul>
+<li><code>UNION</code> can combine multiple SELECT results, return as one set.</li>
+<li>When use <code>UNION</code>, each selection must have same cols, expressions or aggregation functions;</li>
+<li>The datatype of the selection must be compatible when use <code>UNION</code></li>
+<li>It is by default that <code>UNION</code> would remove duplicated rows, to avoid that, use <code>UNION ALL</code>.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, cust_email <span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_state <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;IL&#39;</span>,<span style="color:#e6db74">&#39;IN&#39;</span>,<span style="color:#e6db74">&#39;MI&#39;</span>);
+<span style="color:#66d9ef">UNION</span>
+<span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, cust_email <span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Fun4All&#39;</span>;
+
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#75715e">--OUTPUT--
+</span><span style="color:#75715e"></span>Fun4All
+Fun4All
+Village Toys
+The Toy Store
+
+Denise L. Stephens 
+Jim Jones
+John Smith
+Kim Howard
+
+dstephens<span style="color:#f92672">@</span>fun4all.com 
+jjones<span style="color:#f92672">@</span>fun4all.com 
+sales<span style="color:#f92672">@</span>villagetoys.com 
+<span style="color:#66d9ef">NULL</span>
+
+<span style="color:#75715e">/* Alternative way */</span>
+<span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, cust_email
+<span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_state <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;IL&#39;</span>,<span style="color:#e6db74">&#39;IN&#39;</span>,<span style="color:#e6db74">&#39;MI&#39;</span>)
+<span style="color:#66d9ef">OR</span> cust_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Fun4All&#39;</span>;
+
+</code></pre></div><h4 id="insert-create">INSERT, CREATE</h4>
+<ul>
+<li><code>INSERT INTO</code> + <code>VALUES</code> to an already exist table;</li>
+<li><code>INSERT INTO</code>+ <code>SELECT</code> to an already exist table from another table;</li>
+<li>Copy cols and values from an old table to a new table: <code>SELECT INTO</code></li>
+<li><code>CREATE TEMPORARY TABLE</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Customers(cust_id,
+                      cust_name,
+                      cust_address,
+                      cust_city,
+                      cust_state,
+                      cust_zip,
+                      cust_country,
+                      cust_contact,
+                      cust_email)
+<span style="color:#66d9ef">VALUES</span>(<span style="color:#e6db74">&#39;1000000006&#39;</span>,
+       <span style="color:#e6db74">&#39;Toy Land&#39;</span>,
+       <span style="color:#e6db74">&#39;123 Any Street&#39;</span>,
+       <span style="color:#e6db74">&#39;New York&#39;</span>,
+       <span style="color:#e6db74">&#39;NY&#39;</span>,
+       <span style="color:#e6db74">&#39;11111&#39;</span>,
+       <span style="color:#e6db74">&#39;USA&#39;</span>,
+       <span style="color:#66d9ef">NULL</span>,
+       <span style="color:#66d9ef">NULL</span>);
+       
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Customers(cust_id,
+                      cust_contact,
+                    cust_email,
+                    cust_name,
+                    cust_address,
+                    cust_city,
+                    cust_state,
+                    cust_zip,
+                    cust_country)
+ <span style="color:#66d9ef">SELECT</span> cust_id,
+       cust_contact,
+       cust_email,
+       cust_name,
+       cust_address,
+       cust_city,
+       cust_state,
+       cust_zip,
+       cust_country
+<span style="color:#66d9ef">FROM</span> CustNew;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">INTO</span> CustCopy
+<span style="color:#66d9ef">FROM</span> Customers;
+
+<span style="color:#75715e">/* But this line has been used slightly differently in MariaDB、MySQL、Oracle、PostgreSQL and SQLite: */</span>
+
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> CustCopy <span style="color:#66d9ef">AS</span>
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Customers;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TEMPORARY</span> <span style="color:#66d9ef">TABLE</span> Scandals <span style="color:#66d9ef">AS</span> 
+(
+    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+    <span style="color:#66d9ef">FROM</span> shoes
+    <span style="color:#66d9ef">WHERE</span> shoe_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;scandals&#39;</span>
+);
+</code></pre></div><h4 id="update--delete">UPDATE &amp; DELETE</h4>
+<ul>
+<li>Use <code>UPDATE</code> carefully, include <code>WHERE</code></li>
+<li>If want to delete some values, set them to <code>NULL</code>.</li>
+<li>If want to delete all the rows from the table, use <code>TRUNCATE TABLE</code> than <code>DELETE</code>, it does the same as <code>DELETE</code> but it runs faster.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">UPDATE</span> Customers
+<span style="color:#66d9ef">SET</span> cust_email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;kim@thetoystore.com&#39;</span> <span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1000000005&#39;</span>;
+
+<span style="color:#75715e">-- Update more than one cols:--
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> Customers
+<span style="color:#66d9ef">SET</span> cust_contact <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Sam Roberts&#39;</span>,
+cust_email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sam@toyland.com&#39;</span> <span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1000000006&#39;</span>;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> Customers
+<span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1000000006&#39;</span>;
+
+
+</code></pre></div><h4 id="create">CREATE</h4>
+<ul>
+<li>Define a new Table: <code>CREATE</code>
+<img src="/Users/flora/git/data-science-notes/SQL/media/15903058475682/15905621498702.jpg" alt="-w507"></li>
+<li>Make changes to the created table: <code>ALTER TABLE</code></li>
+<li>Delete table: <code>DROP TABLE</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+<span style="color:#66d9ef">ADD</span> vend_phone CHAR(<span style="color:#ae81ff">20</span>);
+
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vend_phone;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
+
+
+</code></pre></div><h4 id="views">VIEWS</h4>
+<ul>
+<li>Views return the results from the search queries that happened elsewhere, thus views don&rsquo;t contain the actual data or tables, they just the results.</li>
+<li><code>CREATE VIEW </code>, <code>DROP VIEW</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">VIEW</span> ProductCustomers <span style="color:#66d9ef">AS</span>
+<span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, prod_id <span style="color:#66d9ef">FROM</span> Customers, Orders, OrderItems
+<span style="color:#66d9ef">WHERE</span> Customers.cust_id <span style="color:#f92672">=</span> Orders.cust_id
+<span style="color:#66d9ef">AND</span> OrderItems.order_num <span style="color:#f92672">=</span> Orders.order_num;
+
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span></code></pre></div><h4 id="window-functions">Window Functions</h4>
+<ul>
+<li>
+<p>A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. But unlike regular aggregate functions, use of a window function does not cause rows to become grouped into a single output row — the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.</p>
+</li>
+<li>
+<p><code>OVER</code> and <code>PARTITION BY</code></p>
+</li>
+<li>
+<p>You can’t use window functions and standard aggregations in the same query. More specifically, you can’t include window functions in a <code>GROUP BY</code> clause.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> standard_amt_usd,
+       <span style="color:#66d9ef">SUM</span>(standard_amt_usd) OVER (<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> occurred_at) <span style="color:#66d9ef">AS</span> running_total
+<span style="color:#66d9ef">FROM</span> orders
+
+<span style="color:#75715e">----------------------------
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">SELECT</span> standard_amt_usd,
+       DATE_TRUNC(<span style="color:#e6db74">&#39;year&#39;</span>, occurred_at) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">year</span>,
+       <span style="color:#66d9ef">SUM</span>(standard_amt_usd) OVER (PARTITION <span style="color:#66d9ef">BY</span> DATE_TRUNC(<span style="color:#e6db74">&#39;year&#39;</span>, occurred_at) <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> occurred_at) <span style="color:#66d9ef">AS</span> running_total
+<span style="color:#66d9ef">FROM</span> orders
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
             <title>SQL Notes (1)</title>
             <link>https://ffflora.cat/posts/2020/05/sql-notes-1/</link>
             <pubDate>Mon, 04 May 2020 00:10:29 -0700</pubDate>
