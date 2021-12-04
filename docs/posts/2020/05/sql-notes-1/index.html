@@ -236,15 +236,15 @@ value <span style="color:#66d9ef">IN</span>(<span style="color:#66d9ef">SELECT</
 </code></pre></div><h5 id="timestamp-and-extract">TIMESTAMP and EXTRACT</h5>
 <p><code>SELECT EXTRACT (DAY FROM payment_date);</code></p>
 <h5 id="create-database-and-tables">CREATE DATABASE and TABLES</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>(col_name1 data_type <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>, <span style="color:#75715e">-- this contraint is combination of NOT FULL and UNIQUE
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>(col_name1 data_type <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>, <span style="color:#75715e">-- this contraint is combination of NOT NULL and UNIQUE
 </span><span style="color:#75715e"></span>                        col_name2 data_type,
                           ... )
 </code></pre></div><h5 id="constraints">CONSTRAINTS:</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">
 <span style="color:#66d9ef">CHECK</span> <span style="color:#75715e">-- enables to check a condition when you insert or update a data
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">FULL</span> <span style="color:#75715e">-- the value of the table cannot be null
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#75715e">-- the value of the table cannot be null
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">UNIQUE</span> <span style="color:#75715e">--  the value of the table must be unique across the whole table
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> <span style="color:#75715e">-- must be NOT FULL and UNIQUE
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> <span style="color:#75715e">-- must be NOT NULL and UNIQUE
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> <span style="color:#75715e">-- provides a link between data in two tables. it points to a PRIMARY KEY in another table.
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">REFERENCES</span> <span style="color:#75715e">-- constr. the value of the col that exists in a col in another table.
 </span></code></pre></div><p><img src="https://i.ytimg.com/vi/Osv7AhGq_Vc/maxresdefault.jpg" alt=""></p>

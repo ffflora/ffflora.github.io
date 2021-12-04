@@ -124,7 +124,7 @@ FROM table2
 ##### CREATE DATABASE and TABLES
 
 ```SQL
-CREATE TABLE table_name(col_name1 data_type PRIMARY KEY, -- this contraint is combination of NOT FULL and UNIQUE
+CREATE TABLE table_name(col_name1 data_type PRIMARY KEY, -- this contraint is combination of NOT NULL and UNIQUE
                         col_name2 data_type,
                           ... )
 ```
@@ -134,9 +134,9 @@ CREATE TABLE table_name(col_name1 data_type PRIMARY KEY, -- this contraint is co
 ```SQL
 
 CHECK -- enables to check a condition when you insert or update a data
-NOT FULL -- the value of the table cannot be null
+NOT NULL -- the value of the table cannot be null
 UNIQUE --  the value of the table must be unique across the whole table
-PRIMARY KEY -- must be NOT FULL and UNIQUE
+PRIMARY KEY -- must be NOT NULL and UNIQUE
 FOREIGN KEY -- provides a link between data in two tables. it points to a PRIMARY KEY in another table.
 REFERENCES -- constr. the value of the col that exists in a col in another table.
 ```
