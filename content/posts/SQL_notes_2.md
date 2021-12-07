@@ -12,10 +12,6 @@ categories:
 - Database
 ---
 
-
-
-# SQL Cheatsheet
-
 #### SELECT
 
 ```SQL
@@ -63,7 +59,7 @@ ORDER BY prod_price DESC, prod_name; -- DESC only works on col name that listed 
 
 ```SQL
 SELECT prod_name, prod_price FROM Products
-WHERE prod_price <= 10 
+WHERE prod_price <> 10 -- <> is not equal to  
 ORDER BY prod_price;
 
 --------------------------------
@@ -74,7 +70,7 @@ ORDER BY prod_price;
 --------------------------------
 SELECT prod_name, prod_price FROM Products
 FROM Products
-WHERE prod_price IS NULL;
+WHERE prod_price IS NULL; -- use IS NULL to find NULLs
 ```
 
 #### More filtering 
@@ -84,7 +80,7 @@ WHERE prod_price IS NULL;
 - Usually `AND` has a higher priority than `OR`, therefore use parentheses in `WHERE` clause with these operators, which could remove all the ambiguity.
 - `IN` has the same function with `OR`, but usually is more clear and more efficient, and it runs more faster.
 - `IN` could include other `SELECT` clauses.
-- `NOT` in `WHERE` clause only does one thing: negate all the conditions afterwards. It never use by itself.
+- `NOT` in `WHERE` clause only does one thing: negate all the conditions afterwards. It never use by itself. `NOT` comes right after `WHERE`, `AND`, `OR`.
 
 
 ```SQL
@@ -102,7 +98,7 @@ WHERE (vend_id = 'DLL01' OR vend_id = 'BRS01') -- Add parentheses, otherwise wil
 --------------------------------
 SELECT prod_name, prod_price
 FROM Products
-WHERE vend_id IN ( 'DLL01', 'BRS01' ) 
+WHERE vend_id IN ( 'DLL01', 'BRS01' ) -- Use IN in a set of values in parenthases. 
 ORDER BY prod_name;
 
 -- SAME AS ⬇️--
@@ -120,17 +116,28 @@ ORDER BY prod_name;
 -- third line as same as: --
 WHERE vend_id != 'DLL01' 
 
+--------------------------------
+SELECT prod_name, prod_price
+FROM Products
+WHERE vend_id  NOT IN ( 'DLL01', 'BRS01' ) -- Use NOT IN to rule things out.
+ORDER BY prod_name;
+
+--------------------------------
+SELECT drink_name from black_book
+WHERE NOT date_name LIKE `A%`
+AND NOT date_name LIKE `B%`;
+
 ```
 
 #### Wildcard
 
 - wildcard: special character that matches some keywords
 - search pattern: a combination of keyword and/or wildcard 
-- `LIKE` is ( °◅° ) predicate, rather than an operator.
-- `%`: any character that shows up for any times.
+- `LIKE` is a predicate, rather than an operator.
+- `%`: any character that **shows up for any times**.
   - Useful situation: to search for some email address that match some condition: `WHERE email LIKE 'b%@vii.im'`
   - But `%` won't match any `NULL`: `WHERE prod_name LIKE '%'` never returns results that the values are `NULL`.
-- `_` has the same functionality as `%`, but it only  matches for single character.
+- `_` has the same functionality as `%`, but it only matches for **single character.**
 - `[]` : a set of characters, which uses to match the keywords in specific location. This search pattern uses any **one** char of the set.
   - In this case, negation is represented by `^` sign, or `NOT` operator. 
 - Don't overuse wildcards: operators > wildcards.
