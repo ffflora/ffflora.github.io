@@ -3026,9 +3026,8 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
             <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
             
             <guid>https://ffflora.cat/posts/2020/05/sql-notes-2/</guid>
-            <description>SQL Cheatsheet SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
-            <content type="html"><![CDATA[<h1 id="sql-cheatsheet">SQL Cheatsheet</h1>
-<h4 id="select">SELECT</h4>
+            <description>SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
+            <content type="html"><![CDATA[<h4 id="select">SELECT</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> vend_id 
 <span style="color:#66d9ef">FROM</span> Vendors 
 <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">5</span>;
@@ -3064,8 +3063,8 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
 <li>Use <code>IS NULL</code> with <code>WHERE</code> to check for null.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> prod_name, prod_price <span style="color:#66d9ef">FROM</span> Products
-<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span> 
-<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_price;
+<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#f92672">&lt;&gt;</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e">-- &lt;&gt; is not equal to  
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_price;
 
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price <span style="color:#66d9ef">FROM</span> Products
@@ -3075,15 +3074,15 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price <span style="color:#66d9ef">FROM</span> Products
 <span style="color:#66d9ef">FROM</span> Products
-<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>;
-</code></pre></div><h4 id="more-filtering">More filtering</h4>
+<span style="color:#66d9ef">WHERE</span> prod_price <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>; <span style="color:#75715e">-- use IS NULL to find NULLs
+</span></code></pre></div><h4 id="more-filtering">More filtering</h4>
 <ul>
 <li>Use <code>AND</code> and <code>OR</code> operator</li>
 <li><code>WHERE</code> clause could use with many <code>AND</code> or <code>OR</code></li>
 <li>Usually <code>AND</code> has a higher priority than <code>OR</code>, therefore use parentheses in <code>WHERE</code> clause with these operators, which could remove all the ambiguity.</li>
 <li><code>IN</code> has the same function with <code>OR</code>, but usually is more clear and more efficient, and it runs more faster.</li>
 <li><code>IN</code> could include other <code>SELECT</code> clauses.</li>
-<li><code>NOT</code> in <code>WHERE</code> clause only does one thing: negate all the conditions afterwards. It never use by itself.</li>
+<li><code>NOT</code> in <code>WHERE</code> clause only does one thing: negate all the conditions afterwards. It never use by itself. <code>NOT</code> comes right after <code>WHERE</code>, <code>AND</code>, <code>OR</code>.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">    
 <span style="color:#66d9ef">SELECT</span> prod_id, prod_price, prod_name
@@ -3099,8 +3098,8 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price
 <span style="color:#66d9ef">FROM</span> Products
-<span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#66d9ef">IN</span> ( <span style="color:#e6db74">&#39;DLL01&#39;</span>, <span style="color:#e6db74">&#39;BRS01&#39;</span> ) 
-<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
+<span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#66d9ef">IN</span> ( <span style="color:#e6db74">&#39;DLL01&#39;</span>, <span style="color:#e6db74">&#39;BRS01&#39;</span> ) <span style="color:#75715e">-- Use IN in a set of values in parenthases. 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
 
 <span style="color:#75715e">-- SAME AS ⬇️--
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price
@@ -3117,18 +3116,29 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
 <span style="color:#75715e">-- third line as same as: --
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">WHERE</span> vend_id <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;DLL01&#39;</span> 
 
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_name, prod_price
+<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#66d9ef">WHERE</span> vend_id  <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> ( <span style="color:#e6db74">&#39;DLL01&#39;</span>, <span style="color:#e6db74">&#39;BRS01&#39;</span> ) <span style="color:#75715e">-- Use NOT IN to rule things out.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> drink_name <span style="color:#66d9ef">from</span> black_book
+<span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">NOT</span> date_name <span style="color:#66d9ef">LIKE</span> <span style="color:#f92672">`</span>A<span style="color:#f92672">%`</span>
+<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">NOT</span> date_name <span style="color:#66d9ef">LIKE</span> <span style="color:#f92672">`</span>B<span style="color:#f92672">%`</span>;
+
 </code></pre></div><h4 id="wildcard">Wildcard</h4>
 <ul>
 <li>wildcard: special character that matches some keywords</li>
 <li>search pattern: a combination of keyword and/or wildcard</li>
-<li><code>LIKE</code> is ( °◅° ) predicate, rather than an operator.</li>
-<li><code>%</code>: any character that shows up for any times.
+<li><code>LIKE</code> is a predicate, rather than an operator.</li>
+<li><code>%</code>: any character that <strong>shows up for any times</strong>.
 <ul>
 <li>Useful situation: to search for some email address that match some condition: <code>WHERE email LIKE 'b%@vii.im'</code></li>
 <li>But <code>%</code> won&rsquo;t match any <code>NULL</code>: <code>WHERE prod_name LIKE '%'</code> never returns results that the values are <code>NULL</code>.</li>
 </ul>
 </li>
-<li><code>_</code> has the same functionality as <code>%</code>, but it only  matches for single character.</li>
+<li><code>_</code> has the same functionality as <code>%</code>, but it only matches for <strong>single character.</strong></li>
 <li><code>[]</code> : a set of characters, which uses to match the keywords in specific location. This search pattern uses any <strong>one</strong> char of the set.
 <ul>
 <li>In this case, negation is represented by <code>^</code> sign, or <code>NOT</code> operator.</li>
@@ -3548,23 +3558,25 @@ sales<span style="color:#f92672">@</span>villagetoys.com
 </code></pre></div><h4 id="update--delete">UPDATE &amp; DELETE</h4>
 <ul>
 <li>Use <code>UPDATE</code> carefully, include <code>WHERE</code></li>
-<li>If want to delete some values, set them to <code>NULL</code>.</li>
+<li>You can&rsquo;t use <code>DELETE</code> to delete the value from a single col or tableful of cols. If want to delete some values, set them to <code>NULL</code>.</li>
 <li>If want to delete all the rows from the table, use <code>TRUNCATE TABLE</code> than <code>DELETE</code>, it does the same as <code>DELETE</code> but it runs faster.</li>
+<li>The statement <code>DELETE FROM your_table</code> will delete the whole table, so always include a <code>WHERE</code> clause after it.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">UPDATE</span> Customers
 <span style="color:#66d9ef">SET</span> cust_email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;kim@thetoystore.com&#39;</span> <span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1000000005&#39;</span>;
 
 <span style="color:#75715e">-- Update more than one cols:--
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> Customers
-<span style="color:#66d9ef">SET</span> cust_contact <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Sam Roberts&#39;</span>,
-cust_email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sam@toyland.com&#39;</span> <span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1000000006&#39;</span>;
+<span style="color:#66d9ef">SET</span> cust_contact <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Sam Roberts&#39;</span>, <span style="color:#75715e">-- comma is needed
+</span><span style="color:#75715e"></span>cust_email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sam@toyland.com&#39;</span> <span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1000000006&#39;</span>;
 
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> Customers
 <span style="color:#66d9ef">WHERE</span> cust_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1000000006&#39;</span>;
 
-
-</code></pre></div><h4 id="create">CREATE</h4>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> Customers  <span style="color:#75715e">-- Deletes everything
+</span></code></pre></div><h4 id="create">CREATE</h4>
 <ul>
 <li>Define a new Table: <code>CREATE</code>
 <img src="/Users/flora/git/data-science-notes/SQL/media/15903058475682/15905621498702.jpg" alt="-w507"></li>

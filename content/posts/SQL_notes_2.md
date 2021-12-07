@@ -516,8 +516,9 @@ CREATE TEMPORARY TABLE Scandals AS
 #### UPDATE & DELETE
 
 - Use `UPDATE` carefully, include `WHERE` 
-- If want to delete some values, set them to `NULL`.
+- You can't use `DELETE` to delete the value from a single col or tableful of cols. If want to delete some values, set them to `NULL`.
 - If want to delete all the rows from the table, use `TRUNCATE TABLE` than `DELETE`, it does the same as `DELETE` but it runs faster.
+- The statement `DELETE FROM your_table` will delete the whole table, so always include a `WHERE` clause after it. 
 
 
 
@@ -527,14 +528,15 @@ SET cust_email = 'kim@thetoystore.com' WHERE cust_id = '1000000005';
 
 -- Update more than one cols:--
 UPDATE Customers
-SET cust_contact = 'Sam Roberts',
+SET cust_contact = 'Sam Roberts', -- comma is needed
 cust_email = 'sam@toyland.com' WHERE cust_id = '1000000006';
 
 --------------------------------
 DELETE FROM Customers
 WHERE cust_id = '1000000006';
 
-
+--------------------------------
+DELETE FROM Customers  -- Deletes everything
 ```
 
 #### CREATE 
