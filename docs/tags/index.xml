@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 08 Nov 2021 19:41:07 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Dec 2021 21:43:17 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes</title>
+      <link>https://ffflora.cat/tags/notes/</link>
+      <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/tags/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://ffflora.cat/tags/sql/</link>
+      <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/tags/sql/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Algorithm</title>
@@ -36,15 +54,6 @@
       <pubDate>Wed, 03 Nov 2021 14:47:21 -0700</pubDate>
       
       <guid>https://ffflora.cat/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Notes</title>
-      <link>https://ffflora.cat/tags/notes/</link>
-      <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
-      
-      <guid>https://ffflora.cat/tags/notes/</guid>
       <description></description>
     </item>
     
@@ -81,15 +90,6 @@
       <pubDate>Thu, 14 Jan 2021 00:19:31 -0800</pubDate>
       
       <guid>https://ffflora.cat/tags/data-analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQL</title>
-      <link>https://ffflora.cat/tags/sql/</link>
-      <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
-      
-      <guid>https://ffflora.cat/tags/sql/</guid>
       <description></description>
     </item>
     

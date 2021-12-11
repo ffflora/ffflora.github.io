@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 24 May 2020 00:00:43 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 06 Dec 2021 21:43:17 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQL Notes (3)</title>
+      <link>https://ffflora.cat/posts/2021/12/sql-notes-3/</link>
+      <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2021/12/sql-notes-3/</guid>
+      <description>Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.</description>
+    </item>
     
     <item>
       <title>SQL Notes (2)</title>
@@ -27,7 +36,8 @@
       <pubDate>Mon, 04 May 2020 00:10:29 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2020/05/sql-notes-1/</guid>
-      <description>Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea.</description>
+      <description>Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
+Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT .</description>
     </item>
     
   </channel>

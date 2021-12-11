@@ -239,6 +239,10 @@ WHERE SOUNDEX(cust_contact) = SOUNDEX('Michael Green');
 SELECT order_num
 FROM Orders
 WHERE strftime('%Y', order_date) = '2012';
+
+--------------------------------
+SELECT RIGHT(location_name, 2) FROM my_lists; -- start at the right side of the column, and only 2 characters to be selected from the right side 	
+
 ```
 
 #### Data Manipulation Functions
@@ -543,22 +547,10 @@ DELETE FROM Customers  -- Deletes everything
 
 - Define a new Table: `CREATE`
   ![-w507](/Users/flora/git/data-science-notes/SQL/media/15903058475682/15905621498702.jpg)
-- Make changes to the created table: `ALTER TABLE`
-- Delete table: `DROP TABLE`
+  
+  
 
-
-```SQL
-ALTER TABLE Vendors
-ADD vend_phone CHAR(20);
-
-ALTER TABLE Vendors
-DROP COLUMN vend_phone;
-
---------------------------------
-DROP TABLE CustCopy;
-
-
-```
+​	
 
 #### VIEWS
 

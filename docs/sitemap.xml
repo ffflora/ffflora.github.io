@@ -3,27 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ffflora.cat/categories/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/categories/data-science/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/categories/database/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/notes/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/posts/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/sql/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/posts/2021/12/sql-notes-3/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ffflora.cat/tags/</loc>
+    <lastmod>2021-12-06T21:43:17-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ffflora.cat/tags/algorithm/</loc>
     <lastmod>2021-11-08T19:41:07-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ffflora.cat/</loc>
-    <lastmod>2021-11-08T19:41:07-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ffflora.cat/posts/2021/11/leetcode-constantly-updating/</loc>
-    <lastmod>2021-11-08T19:41:07-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/posts/</loc>
-    <lastmod>2021-11-08T19:41:07-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/tags/</loc>
     <lastmod>2021-11-08T19:41:07-08:00</lastmod>
   </url>
   
@@ -34,16 +64,6 @@
   
   <url>
     <loc>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/</loc>
-    <lastmod>2021-11-03T14:47:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/categories/</loc>
-    <lastmod>2021-11-03T14:47:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/categories/data-science/</loc>
     <lastmod>2021-11-03T14:47:21-07:00</lastmod>
   </url>
   
@@ -69,11 +89,6 @@
   
   <url>
     <loc>https://ffflora.cat/categories/front-end/</loc>
-    <lastmod>2021-03-24T00:08:29-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/tags/notes/</loc>
     <lastmod>2021-03-24T00:08:29-07:00</lastmod>
   </url>
   
@@ -120,16 +135,6 @@
   <url>
     <loc>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</loc>
     <lastmod>2021-01-14T00:19:31-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/categories/database/</loc>
-    <lastmod>2020-05-24T00:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ffflora.cat/tags/sql/</loc>
-    <lastmod>2020-05-24T00:00:43-07:00</lastmod>
   </url>
   
   <url>

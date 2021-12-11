@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Flora Jiang ">
-<meta name="description" content="Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea." />
+<meta name="description" content="Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
+Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ." />
 <meta name="keywords" content=", Notes, SQL" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -42,10 +43,11 @@
 
 
 <meta itemprop="name" content="SQL Notes (1)">
-<meta itemprop="description" content="Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea.">
+<meta itemprop="description" content="Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
+Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT .">
 <meta itemprop="datePublished" content="2020-05-04T00:10:29-07:00" />
 <meta itemprop="dateModified" content="2020-05-04T00:10:29-07:00" />
-<meta itemprop="wordCount" content="515">
+<meta itemprop="wordCount" content="556">
 <meta itemprop="image" content="https://ffflora.cat/"/>
 
 
@@ -56,12 +58,14 @@
 <meta name="twitter:image" content="https://ffflora.cat/"/>
 
 <meta name="twitter:title" content="SQL Notes (1)"/>
-<meta name="twitter:description" content="Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea."/>
+<meta name="twitter:description" content="Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
+Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ."/>
 
 
 
     <meta property="og:title" content="SQL Notes (1)" />
-<meta property="og:description" content="Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea." />
+<meta property="og:description" content="Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
+Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ffflora.cat/posts/2020/05/sql-notes-1/" />
 <meta property="og:image" content="https://ffflora.cat/"/>
@@ -157,7 +161,9 @@
       
 
       <div class="post-content">
-        <h4 id="database-level">Database level：</h4>
+        <h4 id="useful-commands">Useful Commands</h4>
+<p><code>DESCRIBE</code>: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.</p>
+<h4 id="database-level">Database level：</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> test;
 <span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">DATABASE</span> test;
 <span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">DATABASE</span>; <span style="color:#75715e">-- show all the databases
@@ -273,9 +279,12 @@ value <span style="color:#66d9ef">IN</span>(<span style="color:#66d9ef">SELECT</
 <span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>
 <span style="color:#66d9ef">WHERE</span> condition
 </code></pre></div><h5 id="alterdrop-table">ALTER/DROP TABLE</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>(a series <span style="color:#66d9ef">of</span> actions)
-<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>
-</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span> <span style="color:#75715e">-- a series of actions
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>
+</code></pre></div><p>Quick Links:</p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-2/">SQL Notes (2)</a></p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-3/">SQL Notes (3)</a></p>
+
       </div>
     </article>
 
@@ -309,7 +318,7 @@ value <span style="color:#66d9ef">IN</span>(<span style="color:#66d9ef">SELECT</
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        515 Words
+        556 Words
       </p>
 
       <p>

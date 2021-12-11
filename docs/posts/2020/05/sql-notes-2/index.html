@@ -45,7 +45,7 @@
 <meta itemprop="description" content="SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.">
 <meta itemprop="datePublished" content="2020-05-24T00:00:43-07:00" />
 <meta itemprop="dateModified" content="2020-05-24T00:00:43-07:00" />
-<meta itemprop="wordCount" content="2245">
+<meta itemprop="wordCount" content="2244">
 <meta itemprop="image" content="https://ffflora.cat/"/>
 
 
@@ -374,6 +374,10 @@ Michelle Green
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> order_num
 <span style="color:#66d9ef">FROM</span> Orders
 <span style="color:#66d9ef">WHERE</span> strftime(<span style="color:#e6db74">&#39;%Y&#39;</span>, order_date) <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2012&#39;</span>;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">RIGHT</span>(location_name, <span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">FROM</span> my_lists; <span style="color:#75715e">-- start at the right side of the column, and only 2 characters to be selected from the right side 	
+</span><span style="color:#75715e"></span>
 </code></pre></div><h4 id="data-manipulation-functions">Data Manipulation Functions</h4>
 <ul>
 <li>Aggregation functions are most portable functions.
@@ -710,20 +714,9 @@ sales<span style="color:#f92672">@</span>villagetoys.com
 <ul>
 <li>Define a new Table: <code>CREATE</code>
 <img src="https://ffflora.cat/Users/flora/git/data-science-notes/SQL/media/15903058475682/15905621498702.jpg" alt="-w507"></li>
-<li>Make changes to the created table: <code>ALTER TABLE</code></li>
-<li>Delete table: <code>DROP TABLE</code></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
-<span style="color:#66d9ef">ADD</span> vend_phone CHAR(<span style="color:#ae81ff">20</span>);
-
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
-<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vend_phone;
-
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
-
-
-</code></pre></div><h4 id="views">VIEWS</h4>
+<p>​</p>
+<h4 id="views">VIEWS</h4>
 <ul>
 <li>Views return the results from the search queries that happened elsewhere, thus views don&rsquo;t contain the actual data or tables, they just the results.</li>
 <li><code>CREATE VIEW </code>, <code>DROP VIEW</code></li>
@@ -798,7 +791,7 @@ sales<span style="color:#f92672">@</span>villagetoys.com
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        2245 Words
+        2244 Words
       </p>
 
       <p>

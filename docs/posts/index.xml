@@ -6,8 +6,115 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 08 Nov 2021 19:41:07 -0800</lastBuildDate>
+        <lastBuildDate>Mon, 06 Dec 2021 21:43:17 -0800</lastBuildDate>
         <atom:link href="https://ffflora.cat/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>SQL Notes (3)</title>
+            <link>https://ffflora.cat/posts/2021/12/sql-notes-3/</link>
+            <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2021/12/sql-notes-3/</guid>
+            <description>Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.</description>
+            <content type="html"><![CDATA[<h3 id="smart-table-design">Smart Table Design</h3>
+<h5 id="here-are-some-very-broad-steps-for-creating-new-tables">Here are some very broad steps for creating new tables:</h5>
+<ol>
+<li>Pick <strong>the one thing</strong> you want your table to describe.</li>
+<li>Make a list of the information you need to know about that one thing when you are using the table.</li>
+<li>Using the list, <strong>break down the information</strong> about your thing into <strong>pieces</strong> you can use for <strong>organizing</strong> your table.</li>
+</ol>
+<h5 id="and-here-are-some-rules-of-atomic-data-which-should-be-the-most-important-part-of-your-table">And here are some rules of atomic data, which should be the most important part of your table.</h5>
+<ol>
+<li>A column with atomic data can&rsquo;t have several values of the same type of data in that column.</li>
+<li>A table with atomic data can&rsquo;t have multiple columns withe same type of data.</li>
+</ol>
+<h4 id="creating-tables">Creating Tables</h4>
+<h5 id="normal-table">Normal Table</h5>
+<p>Making the data atomic is the first step in creating a normal table, since it -</p>
+<ol>
+<li>won&rsquo;t have duplicate data, which will reduce the size of DB</li>
+<li>has faster queries as it has less data.</li>
+</ol>
+<h5 id="1nf---first-nornal-form">1NF - First Nornal Form</h5>
+<p>Each row of data must have a unique identifier, known as a <strong>Primary Key</strong>.</p>
+<p>You can review and (potentially reuse) the code to recreate the current table by</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> m_table;
+</code></pre></div><h5 id="create-table-with-a-primary-key">CREATE TABLE with a PRIMARY KEY</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_contacts
+(
+	contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  aaa VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+  bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
+);
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_contacts
+(
+	contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT, <span style="color:#75715e">-- goes up by 1 autometically
+</span><span style="color:#75715e"></span>  aaa VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+  bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
+);
+</code></pre></div><h5 id="adding-a-primary-key-to-an-existing-table---alter">Adding a PRIMARY KEY to an existing table - ALTER</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> my_table
+<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>, <span style="color:#75715e">-- FIRST makes the column goes first in the table
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(contact_id);
+</code></pre></div><h4 id="table-maintenance">Table Maintenance</h4>
+<ul>
+<li>
+<p>Make changes to the created table: <code>ALTER TABLE</code>.</p>
+</li>
+<li>
+<p>Change orders of the columns with the keywords <code>FIRST</code>, <code>AFTER</code>, <code>SECOND</code>, Nth, <code>LAST</code> and etc.</p>
+<p>Note: if you use <code>ALTER</code> to change a column of one data type to another type, there&rsquo;s a risk losing the data.</p>
+</li>
+<li>
+<p>Delete table: <code>DROP TABLE</code></p>
+</li>
+<li>
+<p><code>DROP COLUMN</code> - delete a column from table</p>
+</li>
+<li>
+<p><code>ADD</code> - add a column to the table, the data type can be picked.</p>
+</li>
+<li>
+<p><code>MODIFY</code> the <strong>only</strong> data type or position of an existing column.</p>
+</li>
+<li>
+<p><code>CHANGE</code> <strong>both</strong> name and data type of an existing column.</p>
+</li>
+<li>
+<p><code>RENAME</code> the column name.</p>
+</li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+<span style="color:#66d9ef">ADD</span> vend_phone CHAR(<span style="color:#ae81ff">20</span>);
+<span style="color:#66d9ef">AFTER</span> first_name <span style="color:#75715e">-- indicates the position
+</span><span style="color:#75715e"></span>  
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vend_phone;
+  
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+<span style="color:#66d9ef">RENAME</span> <span style="color:#66d9ef">TO</span> VendorsList; <span style="color:#75715e">-- renaming the table
+</span><span style="color:#75715e"></span>  
+<span style="color:#75715e">/*Update the column name from number -&gt; project_id, and same to the other. You can perform many column changes in one SQL statement*/</span>
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Projects
+CHANGE <span style="color:#66d9ef">COLUMN</span> number project_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(project_id)
+  
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> project_list
+<span style="color:#66d9ef">MODIFY</span> <span style="color:#66d9ef">COLUMN</span> vendors VARCHAR(<span style="color:#ae81ff">100</span>)
+  
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> project_list
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vendors
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
+</code></pre></div></li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>LeetCode - Constantly Updating </title>
@@ -3244,6 +3351,10 @@ Michelle Green
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> order_num
 <span style="color:#66d9ef">FROM</span> Orders
 <span style="color:#66d9ef">WHERE</span> strftime(<span style="color:#e6db74">&#39;%Y&#39;</span>, order_date) <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2012&#39;</span>;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">RIGHT</span>(location_name, <span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">FROM</span> my_lists; <span style="color:#75715e">-- start at the right side of the column, and only 2 characters to be selected from the right side 	
+</span><span style="color:#75715e"></span>
 </code></pre></div><h4 id="data-manipulation-functions">Data Manipulation Functions</h4>
 <ul>
 <li>Aggregation functions are most portable functions.
@@ -3580,20 +3691,9 @@ sales<span style="color:#f92672">@</span>villagetoys.com
 <ul>
 <li>Define a new Table: <code>CREATE</code>
 <img src="/Users/flora/git/data-science-notes/SQL/media/15903058475682/15905621498702.jpg" alt="-w507"></li>
-<li>Make changes to the created table: <code>ALTER TABLE</code></li>
-<li>Delete table: <code>DROP TABLE</code></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
-<span style="color:#66d9ef">ADD</span> vend_phone CHAR(<span style="color:#ae81ff">20</span>);
-
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
-<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vend_phone;
-
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
-
-
-</code></pre></div><h4 id="views">VIEWS</h4>
+<p>​</p>
+<h4 id="views">VIEWS</h4>
 <ul>
 <li>Views return the results from the search queries that happened elsewhere, thus views don&rsquo;t contain the actual data or tables, they just the results.</li>
 <li><code>CREATE VIEW </code>, <code>DROP VIEW</code></li>
@@ -3643,8 +3743,11 @@ sales<span style="color:#f92672">@</span>villagetoys.com
             <pubDate>Mon, 04 May 2020 00:10:29 -0700</pubDate>
             
             <guid>https://ffflora.cat/posts/2020/05/sql-notes-1/</guid>
-            <description>Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT ... FROM... WHERE conditions; -- filter the rows returned from FROM COUNT SELECT COUNT(*) FROM table_name; -- In real life, * is not a good idea.</description>
-            <content type="html"><![CDATA[<h4 id="database-level">Database level：</h4>
+            <description>Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
+Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT .</description>
+            <content type="html"><![CDATA[<h4 id="useful-commands">Useful Commands</h4>
+<p><code>DESCRIBE</code>: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.</p>
+<h4 id="database-level">Database level：</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> test;
 <span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">DATABASE</span> test;
 <span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">DATABASE</span>; <span style="color:#75715e">-- show all the databases
@@ -3760,9 +3863,12 @@ value <span style="color:#66d9ef">IN</span>(<span style="color:#66d9ef">SELECT</
 <span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>
 <span style="color:#66d9ef">WHERE</span> condition
 </code></pre></div><h5 id="alterdrop-table">ALTER/DROP TABLE</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>(a series <span style="color:#66d9ef">of</span> actions)
-<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>
-</code></pre></div>]]></content>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span> <span style="color:#75715e">-- a series of actions
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">table_name</span>
+</code></pre></div><p>Quick Links:</p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-2/">SQL Notes (2)</a></p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-3/">SQL Notes (3)</a></p>
+]]></content>
         </item>
         
         <item>

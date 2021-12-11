@@ -12,6 +12,10 @@ categories:
 - Database
 ---
 
+#### Useful Commands
+
+`DESCRIBE`: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column. 
+
 
 
 #### Database level：
@@ -187,9 +191,14 @@ WHERE condition
 ##### ALTER/DROP TABLE
 
 ```SQL
-ALTER TABLE table_name(a series of actions)
+ALTER TABLE table_name -- a series of actions
 DROP TABLE table_name
 ```
 
 
 
+Quick Links:
+
+[SQL Notes (2)](https://ffflora.cat/posts/2020/05/sql-notes-2/)
+
+[SQL Notes (3)](https://ffflora.cat/posts/2020/05/sql-notes-3/)

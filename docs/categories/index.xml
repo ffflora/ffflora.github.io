@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 03 Nov 2021 14:47:21 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 06 Dec 2021 21:43:17 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>Data Science</title>
       <link>https://ffflora.cat/categories/data-science/</link>
-      <pubDate>Wed, 03 Nov 2021 14:47:21 -0700</pubDate>
+      <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
       
       <guid>https://ffflora.cat/categories/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>https://ffflora.cat/categories/database/</link>
+      <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/categories/database/</guid>
       <description></description>
     </item>
     
@@ -27,15 +36,6 @@
       <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
       
       <guid>https://ffflora.cat/categories/front-end/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Database</title>
-      <link>https://ffflora.cat/categories/database/</link>
-      <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
-      
-      <guid>https://ffflora.cat/categories/database/</guid>
       <description></description>
     </item>
     
