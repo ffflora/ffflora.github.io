@@ -36,7 +36,25 @@
 <li>has faster queries as it has less data.</li>
 </ol>
 <h5 id="1nf---first-nornal-form">1NF - First Nornal Form</h5>
+<ol>
+<li>Columns contain only atomic values.</li>
+<li>No repeating groups of data.</li>
+</ol>
+<h5 id="2nf---second-nornal-form">2NF - Second Nornal Form</h5>
+<ol>
+<li>Be in 1NF</li>
+<li>Have no partial functional dependency.</li>
+</ol>
+<h5 id="3nf">3NF</h5>
+<ol>
+<li>Be in 2NF</li>
+<li>Have no transitive dependencies</li>
+</ol>
+<h5 id="terminology">Terminology</h5>
 <p>Each row of data must have a unique identifier, known as a <strong>Primary Key</strong>.</p>
+<p>A <strong>COMPOSITE KEY</strong> is a <strong>primary</strong> key composed of multiple columns, creating a unique key.</p>
+<p>A <strong>partial functional dependency</strong> means that a <strong>non-key</strong> column is dependent <strong>on some, but not all,</strong> of the columns in a composite primary key.</p>
+<p>If changing any of the non-key columns might cause any of the other columns to changem you have a <strong>transitive dependency.</strong></p>
 <p>You can review and (potentially reuse) the code to recreate the current table by</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> m_table;
 </code></pre></div><h5 id="create-table-with-a-primary-key">CREATE TABLE with a PRIMARY KEY</h5>
@@ -56,6 +74,15 @@
   bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
   <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
 );
+</code></pre></div><h5 id="create-a-table-with-a-foreign-key">Create a table with a FOREIGN KEY</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> interests(
+int_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+  interest VARCHAR(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#66d9ef">CONSTRAINT</span> my_contact_id 
+  <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span>(contact_id)
+  <span style="color:#66d9ef">REFERENCES</span> my_contacts(contact_id)
+)
 </code></pre></div><h5 id="adding-a-primary-key-to-an-existing-table---alter">Adding a PRIMARY KEY to an existing table - ALTER</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> my_table
 <span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>, <span style="color:#75715e">-- FIRST makes the column goes first in the table
@@ -113,7 +140,30 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
 </code></pre></div></li>
 </ul>
-]]></content>
+<h3 id="multi-table-database-design">Multi-table database design</h3>
+<h4 id="when-t-use-one-to-one-tables">When t use one-to-one tables</h4>
+<p>It generally makes more sense to leave one-to-one data in your main table, but there are a few advantages you can gt from pulling those columns out at times:</p>
+<ol>
+<li>Pulling the data out may allow you to write faster queries.</li>
+<li>If you have a column containing values you don&rsquo;t yet know, you can isolate it and avoid NULL in your main table.</li>
+<li>You may wish to make some of your data less accessible.</li>
+<li>If you have a large piece of data.</li>
+</ol>
+<p>Many-to-Many: a junction table holds a key from each table.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#75715e">/*Three ways to the same end*/</span>
+<span style="color:#75715e">/*1.	CREATE TABLE, then INSERT with SELECT. */</span>
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession(
+	id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> SUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+  profession VARCHAR(<span style="color:#ae81ff">20</span>)
+);
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> peofession(profession)
+	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
+	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*2.	CREATE TABLE with SELECT, then ALTER to add primary key */</span>
+<span style="color:#75715e">--------------------------------
+</span></code></pre></div>]]></content>
         </item>
         
         <item>
@@ -3332,16 +3382,38 @@ Michelle Green
 <span style="color:#66d9ef">WHERE</span> order_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">20008</span>;
 
 </code></pre></div><h4 id="more-functions">More functions</h4>
+<p><strong>String Functions do NOT</strong> change the data, they just returned the altered strings as a result.</p>
 <ul>
-<li><code>UPPER()</code>, <code>LOWER()</code></li>
-<li><code>LENGTH()</code>,<code>LTRIM()</code>,<code>RTRIM()</code>,<code>TRIM()</code></li>
-<li><code>RIGHT()</code>,<code>LEFT()</code>: returns the character to the right/left of the string.</li>
-<li><code>SOUNDEX()</code>: returns the value that is sound-like the keyword.
+<li>
+<p><code>UPPER()</code>, <code>LOWER()</code></p>
+</li>
+<li>
+<p><code>LENGTH()</code>,<code>LTRIM()</code>,<code>RTRIM()</code>,<code>TRIM()</code></p>
+</li>
+<li>
+<p><code>RIGHT()</code>,<code>LEFT()</code>: returns the character to the right/left of the string.</p>
+</li>
+<li>
+<p><code>SOUNDEX()</code>: returns the value that is sound-like the keyword.</p>
 <ul>
 <li>For Example, a name in the table is &lsquo;Michelle&rsquo;, but the actual value is &lsquo;Michael&rsquo;,  if search by the real name will have nothing return, thus in this case use <code>SOUNDEX()</code></li>
 </ul>
 </li>
-<li>Functions are not all portable between different SQL systems.</li>
+<li>
+<p><code>SUBSTRING_INDEX()</code> grab part of the column, or substring. This will find <strong>everything</strong> in front of a <strong>specific</strong> character or string.</p>
+</li>
+<li>
+<p><code>SUBSTRING(your_string, start_pos, length)</code> gives you part of <code>your_string</code>, starting at the letter in the <code>start_pos</code>, <code>length</code> is how much of the string you get back.</p>
+</li>
+<li>
+<p><code>SUBSTR()</code> grabs part of the string and return it.</p>
+</li>
+<li>
+<p><code>REVERSE(your_str)</code></p>
+</li>
+<li>
+<p>Functions are not all portable between different SQL systems.</p>
+</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact
 <span style="color:#66d9ef">FROM</span> Customers
@@ -3355,6 +3427,38 @@ Michelle Green
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">RIGHT</span>(location_name, <span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">FROM</span> my_lists; <span style="color:#75715e">-- start at the right side of the column, and only 2 characters to be selected from the right side 	
 </span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> SUBSTRING_INDEX(column1, <span style="color:#e6db74">&#39;,&#39;</span>, <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">FROM</span> my_contacts; <span style="color:#75715e">-- It&#39;s &#34;1&#34; because it&#39;s looking for the first comma. 
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> my_contacts
+<span style="color:#66d9ef">SET</span> interest1 <span style="color:#f92672">=</span> SUBSTRING_INDEX(interests,<span style="color:#e6db74">&#39;,&#39;</span>,<span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> my_contacts
+<span style="color:#66d9ef">SET</span> interest <span style="color:#f92672">=</span> SUBSTR(interests, <span style="color:#66d9ef">LENGTH</span>(interest1)<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e">-- It takes the string and cuts off the first part that we specify in the parenthesis and return the second. 
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> my_table
+<span style="color:#66d9ef">SET</span> col <span style="color:#f92672">=</span> newcol
+
+<span style="color:#66d9ef">UPDATE</span> contacts
+<span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">RIGHT</span>(address, <span style="color:#ae81ff">2</span>) <span style="color:#75715e">-- it gets the last two characters from the string 
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">UPDATE</span> my_table
+<span style="color:#66d9ef">SET</span> newcol <span style="color:#f92672">=</span> 
+<span style="color:#66d9ef">CASE</span>
+	<span style="color:#66d9ef">WHEN</span> col1 <span style="color:#f92672">=</span> a
+		<span style="color:#66d9ef">THEN</span> a1
+	<span style="color:#66d9ef">WHEN</span> col2 <span style="color:#f92672">=</span> b
+		<span style="color:#66d9ef">THEN</span> b2
+	<span style="color:#66d9ef">ELSE</span> x
+<span style="color:#66d9ef">END</span>; 
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> title, purchased 
+<span style="color:#66d9ef">FROM</span> movies
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> purchased <span style="color:#66d9ef">DESC</span>, title <span style="color:#66d9ef">ASC</span>
 </code></pre></div><h4 id="data-manipulation-functions">Data Manipulation Functions</h4>
 <ul>
 <li>Aggregation functions are most portable functions.
@@ -3404,9 +3508,15 @@ Michelle Green
        <span style="color:#66d9ef">MIN</span>(prod_price) <span style="color:#66d9ef">AS</span> price_min,
        <span style="color:#66d9ef">MAX</span>(prod_price) <span style="color:#66d9ef">AS</span> price_max,
        <span style="color:#66d9ef">AVG</span>(prod_price) <span style="color:#66d9ef">AS</span> price_avg
- <span style="color:#66d9ef">FROM</span> Products;
+<span style="color:#66d9ef">FROM</span> Products;
 
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> sales_date
+<span style="color:#66d9ef">FROM</span> cookie_sales
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> sale_date;
 
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> sale_date)
+<span style="color:#66d9ef">FROM</span> cookie_sales;
 </code></pre></div><h4 id="group-by--having">GROUP BY &amp; HAVING</h4>
 <ul>
 <li>All the cols need to be listed in the <code>GROUP BY</code> clause, except aggregation functions.</li>
@@ -3485,7 +3595,12 @@ WHERE, GROUP BY, ORDER BY</li>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> vend_id, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num_prods
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> first_nm, <span style="color:#66d9ef">SUM</span>(sales)
+<span style="color:#66d9ef">FROM</span> cookies_sales
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> first_nm
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">SUM</span>(sales) <span style="color:#66d9ef">DESC</span>;
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> vend_id, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num_prods
 <span style="color:#66d9ef">FROM</span> Products
 <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> vend_id;
 
@@ -3705,14 +3820,8 @@ sales<span style="color:#f92672">@</span>villagetoys.com
 
 
 <span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span>
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">--------------------------------
-</span></code></pre></div><h4 id="window-functions">Window Functions</h4>
+</code></pre></div><h4 id="window-functions">Window Functions</h4>
 <ul>
 <li>
 <p>A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. But unlike regular aggregate functions, use of a window function does not cause rows to become grouped into a single output row — the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.</p>
@@ -3744,15 +3853,18 @@ sales<span style="color:#f92672">@</span>villagetoys.com
             
             <guid>https://ffflora.cat/posts/2020/05/sql-notes-1/</guid>
             <description>Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
-Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT .</description>
+Database level： A. representation of all the structures, such as tables and colimns, in your database, along with how they connect, is known as schema.
+CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: The foreign key is a column in a table that reference the primary key of another table.</description>
             <content type="html"><![CDATA[<h4 id="useful-commands">Useful Commands</h4>
 <p><code>DESCRIBE</code>: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.</p>
 <h4 id="database-level">Database level：</h4>
+<p>A. representation of all the structures, such as tables and colimns, in your database, along with how they connect, is known as <strong>schema</strong>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> test;
 <span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">DATABASE</span> test;
 <span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">DATABASE</span>; <span style="color:#75715e">-- show all the databases
 </span><span style="color:#75715e"></span>USE test; <span style="color:#75715e">-- use some specific database
 </span></code></pre></div><h4 id="in-a-database">In a Database:</h4>
+<p>The <strong>foreign</strong> key is a column in a table that reference the <strong>primary</strong> key of another table.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">TABLE</span>;
 
 <span style="color:#75715e">/*If you want to modify or update a certain table*/</span>

@@ -45,7 +45,7 @@
 <meta itemprop="description" content="SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.">
 <meta itemprop="datePublished" content="2020-05-24T00:00:43-07:00" />
 <meta itemprop="dateModified" content="2020-05-24T00:00:43-07:00" />
-<meta itemprop="wordCount" content="2244">
+<meta itemprop="wordCount" content="2448">
 <meta itemprop="image" content="https://ffflora.cat/"/>
 
 
@@ -143,7 +143,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        11 minutes
+        12 minutes
 
         
       </p>
@@ -355,16 +355,38 @@ Michelle Green
 <span style="color:#66d9ef">WHERE</span> order_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">20008</span>;
 
 </code></pre></div><h4 id="more-functions">More functions</h4>
+<p><strong>String Functions do NOT</strong> change the data, they just returned the altered strings as a result.</p>
 <ul>
-<li><code>UPPER()</code>, <code>LOWER()</code></li>
-<li><code>LENGTH()</code>,<code>LTRIM()</code>,<code>RTRIM()</code>,<code>TRIM()</code></li>
-<li><code>RIGHT()</code>,<code>LEFT()</code>: returns the character to the right/left of the string.</li>
-<li><code>SOUNDEX()</code>: returns the value that is sound-like the keyword.
+<li>
+<p><code>UPPER()</code>, <code>LOWER()</code></p>
+</li>
+<li>
+<p><code>LENGTH()</code>,<code>LTRIM()</code>,<code>RTRIM()</code>,<code>TRIM()</code></p>
+</li>
+<li>
+<p><code>RIGHT()</code>,<code>LEFT()</code>: returns the character to the right/left of the string.</p>
+</li>
+<li>
+<p><code>SOUNDEX()</code>: returns the value that is sound-like the keyword.</p>
 <ul>
 <li>For Example, a name in the table is &lsquo;Michelle&rsquo;, but the actual value is &lsquo;Michael&rsquo;,  if search by the real name will have nothing return, thus in this case use <code>SOUNDEX()</code></li>
 </ul>
 </li>
-<li>Functions are not all portable between different SQL systems.</li>
+<li>
+<p><code>SUBSTRING_INDEX()</code> grab part of the column, or substring. This will find <strong>everything</strong> in front of a <strong>specific</strong> character or string.</p>
+</li>
+<li>
+<p><code>SUBSTRING(your_string, start_pos, length)</code> gives you part of <code>your_string</code>, starting at the letter in the <code>start_pos</code>, <code>length</code> is how much of the string you get back.</p>
+</li>
+<li>
+<p><code>SUBSTR()</code> grabs part of the string and return it.</p>
+</li>
+<li>
+<p><code>REVERSE(your_str)</code></p>
+</li>
+<li>
+<p>Functions are not all portable between different SQL systems.</p>
+</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact
 <span style="color:#66d9ef">FROM</span> Customers
@@ -378,6 +400,38 @@ Michelle Green
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">RIGHT</span>(location_name, <span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">FROM</span> my_lists; <span style="color:#75715e">-- start at the right side of the column, and only 2 characters to be selected from the right side 	
 </span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> SUBSTRING_INDEX(column1, <span style="color:#e6db74">&#39;,&#39;</span>, <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">FROM</span> my_contacts; <span style="color:#75715e">-- It&#39;s &#34;1&#34; because it&#39;s looking for the first comma. 
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> my_contacts
+<span style="color:#66d9ef">SET</span> interest1 <span style="color:#f92672">=</span> SUBSTRING_INDEX(interests,<span style="color:#e6db74">&#39;,&#39;</span>,<span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> my_contacts
+<span style="color:#66d9ef">SET</span> interest <span style="color:#f92672">=</span> SUBSTR(interests, <span style="color:#66d9ef">LENGTH</span>(interest1)<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e">-- It takes the string and cuts off the first part that we specify in the parenthesis and return the second. 
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> my_table
+<span style="color:#66d9ef">SET</span> col <span style="color:#f92672">=</span> newcol
+
+<span style="color:#66d9ef">UPDATE</span> contacts
+<span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">RIGHT</span>(address, <span style="color:#ae81ff">2</span>) <span style="color:#75715e">-- it gets the last two characters from the string 
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">UPDATE</span> my_table
+<span style="color:#66d9ef">SET</span> newcol <span style="color:#f92672">=</span> 
+<span style="color:#66d9ef">CASE</span>
+	<span style="color:#66d9ef">WHEN</span> col1 <span style="color:#f92672">=</span> a
+		<span style="color:#66d9ef">THEN</span> a1
+	<span style="color:#66d9ef">WHEN</span> col2 <span style="color:#f92672">=</span> b
+		<span style="color:#66d9ef">THEN</span> b2
+	<span style="color:#66d9ef">ELSE</span> x
+<span style="color:#66d9ef">END</span>; 
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> title, purchased 
+<span style="color:#66d9ef">FROM</span> movies
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> purchased <span style="color:#66d9ef">DESC</span>, title <span style="color:#66d9ef">ASC</span>
 </code></pre></div><h4 id="data-manipulation-functions">Data Manipulation Functions</h4>
 <ul>
 <li>Aggregation functions are most portable functions.
@@ -427,9 +481,15 @@ Michelle Green
        <span style="color:#66d9ef">MIN</span>(prod_price) <span style="color:#66d9ef">AS</span> price_min,
        <span style="color:#66d9ef">MAX</span>(prod_price) <span style="color:#66d9ef">AS</span> price_max,
        <span style="color:#66d9ef">AVG</span>(prod_price) <span style="color:#66d9ef">AS</span> price_avg
- <span style="color:#66d9ef">FROM</span> Products;
+<span style="color:#66d9ef">FROM</span> Products;
 
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> sales_date
+<span style="color:#66d9ef">FROM</span> cookie_sales
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> sale_date;
 
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#66d9ef">DISTINCT</span> sale_date)
+<span style="color:#66d9ef">FROM</span> cookie_sales;
 </code></pre></div><h4 id="group-by--having">GROUP BY &amp; HAVING</h4>
 <ul>
 <li>All the cols need to be listed in the <code>GROUP BY</code> clause, except aggregation functions.</li>
@@ -508,7 +568,12 @@ WHERE, GROUP BY, ORDER BY</li>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> vend_id, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num_prods
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> first_nm, <span style="color:#66d9ef">SUM</span>(sales)
+<span style="color:#66d9ef">FROM</span> cookies_sales
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> first_nm
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">SUM</span>(sales) <span style="color:#66d9ef">DESC</span>;
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> vend_id, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num_prods
 <span style="color:#66d9ef">FROM</span> Products
 <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> vend_id;
 
@@ -728,14 +793,8 @@ sales<span style="color:#f92672">@</span>villagetoys.com
 
 
 <span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span>
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">--------------------------------
-</span></code></pre></div><h4 id="window-functions">Window Functions</h4>
+</code></pre></div><h4 id="window-functions">Window Functions</h4>
 <ul>
 <li>
 <p>A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. But unlike regular aggregate functions, use of a window function does not cause rows to become grouped into a single output row — the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result.</p>
@@ -791,7 +850,7 @@ sales<span style="color:#f92672">@</span>villagetoys.com
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        2244 Words
+        2448 Words
       </p>
 
       <p>

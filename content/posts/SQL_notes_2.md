@@ -223,11 +223,27 @@ WHERE order_num = 20008;
 
 #### More functions
 
+**String Functions do NOT** change the data, they just returned the altered strings as a result. 
+
 - `UPPER()`, `LOWER()`
+
 - `LENGTH()`,`LTRIM()`,`RTRIM()`,`TRIM()`
+
 - `RIGHT()`,`LEFT()`: returns the character to the right/left of the string.
+
 - `SOUNDEX()`: returns the value that is sound-like the keyword.
   - For Example, a name in the table is 'Michelle', but the actual value is 'Michael',  if search by the real name will have nothing return, thus in this case use `SOUNDEX()`
+  
+- `SUBSTRING_INDEX()` grab part of the column, or substring. This will find **everything** in front of a **specific** character or string. 
+
+- `SUBSTRING(your_string, start_pos, length)` gives you part of `your_string`, starting at the letter in the `start_pos`, `length` is how much of the string you get back. 
+
+- `SUBSTR()` grabs part of the string and return it.
+
+- `REVERSE(your_str)`
+
+  
+
 - Functions are not all portable between different SQL systems.
 
 ```SQL
@@ -243,6 +259,38 @@ WHERE strftime('%Y', order_date) = '2012';
 --------------------------------
 SELECT RIGHT(location_name, 2) FROM my_lists; -- start at the right side of the column, and only 2 characters to be selected from the right side 	
 
+--------------------------------
+SELECT SUBSTRING_INDEX(column1, ',', 1) FROM my_contacts; -- It's "1" because it's looking for the first comma. 
+
+--------------------------------
+UPDATE my_contacts
+SET interest1 = SUBSTRING_INDEX(interests,',',1)
+
+--------------------------------
+UPDATE my_contacts
+SET interest = SUBSTR(interests, LENGTH(interest1)+2) -- It takes the string and cuts off the first part that we specify in the parenthesis and return the second. 
+
+--------------------------------
+UPDATE my_table
+SET col = newcol
+
+UPDATE contacts
+SET state = RIGHT(address, 2) -- it gets the last two characters from the string 
+
+UPDATE my_table
+SET newcol = 
+CASE
+	WHEN col1 = a
+		THEN a1
+	WHEN col2 = b
+		THEN b2
+	ELSE x
+END; 
+
+--------------------------------
+SELECT title, purchased 
+FROM movies
+ORDER BY purchased DESC, title ASC
 ```
 
 #### Data Manipulation Functions
@@ -279,9 +327,15 @@ SELECT COUNT(*) AS num_items,
        MIN(prod_price) AS price_min,
        MAX(prod_price) AS price_max,
        AVG(prod_price) AS price_avg
- FROM Products;
+FROM Products;
 
+--------------------------------
+SELECT DISTINCT sales_date
+FROM cookie_sales
+ORDER BY sale_date;
 
+SELECT COUNT(DISTINCT sale_date)
+FROM cookie_sales;
 ```
 
 #### GROUP BY & HAVING
@@ -315,6 +369,11 @@ SELECT COUNT(*) AS num_items,
 | ORDER BY | Sort output                      | x                                                          |
 
 ```SQL
+SELECT first_nm, SUM(sales)
+FROM cookies_sales
+GROUP BY first_nm
+ORDER BY SUM(sales) DESC;
+--------------------------------
 SELECT vend_id, COUNT(*) AS num_prods
 FROM Products
 GROUP BY vend_id;
@@ -565,13 +624,7 @@ AND OrderItems.order_num = Orders.order_num;
 
 
 --------------------------------
---------------------------------
 
---------------------------------
-
---------------------------------
-
---------------------------------
 ```
 
 

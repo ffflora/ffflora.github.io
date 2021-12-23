@@ -36,9 +36,28 @@ Making the data atomic is the first step in creating a normal table, since it -
 
 ##### 1NF - First Nornal Form
 
+1. Columns contain only atomic values. 
+2. No repeating groups of data.
+
+##### 2NF - Second Nornal Form 
+
+1. Be in 1NF
+2. Have no partial functional dependency. 
+
+##### 3NF 
+
+1. Be in 2NF
+2. Have no transitive dependencies
+
+##### Terminology
+
 Each row of data must have a unique identifier, known as a **Primary Key**.
 
+A **COMPOSITE KEY** is a **primary** key composed of multiple columns, creating a unique key. 
 
+A **partial functional dependency** means that a **non-key** column is dependent **on some, but not all,** of the columns in a composite primary key. 
+
+If changing any of the non-key columns might cause any of the other columns to changem you have a **transitive dependency.** 
 
 You can review and (potentially reuse) the code to recreate the current table by 
 
@@ -66,6 +85,21 @@ CREATE TABLE my_contacts
   PRIMARY KEY (contact_id)
 );
 ```
+
+##### Create a table with a FOREIGN KEY
+
+```SQL
+CREATE TABLE interests(
+int_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  interest VARCHAR(50) NOT NULL,
+  contact_id INT NOT NULL,
+  CONSTRAINT my_contact_id 
+  FOREIGN KEY(contact_id)
+  REFERENCES my_contacts(contact_id)
+)
+```
+
+
 
 ##### Adding a PRIMARY KEY to an existing table - ALTER
 
@@ -124,3 +158,33 @@ ADD PRIMARY KEY(contact_id);
   ```
 
   
+
+### Multi-table database design
+
+#### When t use one-to-one tables
+
+It generally makes more sense to leave one-to-one data in your main table, but there are a few advantages you can gt from pulling those columns out at times:
+
+1. Pulling the data out may allow you to write faster queries.
+2. If you have a column containing values you don't yet know, you can isolate it and avoid NULL in your main table.
+3. You may wish to make some of your data less accessible.
+4. If you have a large piece of data.
+
+Many-to-Many: a junction table holds a key from each table.
+
+```SQL
+/*Three ways to the same end*/
+/*1.	CREATE TABLE, then INSERT with SELECT. */
+CREATE TABLE profession(
+	id INT(11) NOT NULL SUTO_INCREMENT PRIMARY KEY,
+  profession VARCHAR(20)
+);
+INSERT INTO peofession(profession)
+	SELECT profession FROM my_contacts
+	GROUP BY profession
+	ORDER BY profession
+--------------------------------
+/*2.	CREATE TABLE with SELECT, then ALTER to add primary key */
+--------------------------------
+```
+

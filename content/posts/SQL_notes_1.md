@@ -20,6 +20,8 @@ categories:
 
 #### Database level：
 
+A. representation of all the structures, such as tables and colimns, in your database, along with how they connect, is known as **schema**. 
+
 ```SQL
 CREATE DATABASE test;
 DROP DATABASE test;
@@ -28,6 +30,8 @@ USE test; -- use some specific database
 ```
 
 #### In a Database:
+
+The **foreign** key is a column in a table that reference the **primary** key of another table. 
 
 ```SQL
 SHOW TABLE;

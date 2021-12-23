@@ -45,7 +45,7 @@
 <meta itemprop="description" content="Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.">
 <meta itemprop="datePublished" content="2021-12-06T21:43:17-08:00" />
 <meta itemprop="dateModified" content="2021-12-06T21:43:17-08:00" />
-<meta itemprop="wordCount" content="464">
+<meta itemprop="wordCount" content="741">
 <meta itemprop="image" content="https://ffflora.cat/"/>
 
 
@@ -143,7 +143,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        3 minutes
+        4 minutes
 
         
       </p>
@@ -177,7 +177,25 @@
 <li>has faster queries as it has less data.</li>
 </ol>
 <h5 id="1nf---first-nornal-form">1NF - First Nornal Form</h5>
+<ol>
+<li>Columns contain only atomic values.</li>
+<li>No repeating groups of data.</li>
+</ol>
+<h5 id="2nf---second-nornal-form">2NF - Second Nornal Form</h5>
+<ol>
+<li>Be in 1NF</li>
+<li>Have no partial functional dependency.</li>
+</ol>
+<h5 id="3nf">3NF</h5>
+<ol>
+<li>Be in 2NF</li>
+<li>Have no transitive dependencies</li>
+</ol>
+<h5 id="terminology">Terminology</h5>
 <p>Each row of data must have a unique identifier, known as a <strong>Primary Key</strong>.</p>
+<p>A <strong>COMPOSITE KEY</strong> is a <strong>primary</strong> key composed of multiple columns, creating a unique key.</p>
+<p>A <strong>partial functional dependency</strong> means that a <strong>non-key</strong> column is dependent <strong>on some, but not all,</strong> of the columns in a composite primary key.</p>
+<p>If changing any of the non-key columns might cause any of the other columns to changem you have a <strong>transitive dependency.</strong></p>
 <p>You can review and (potentially reuse) the code to recreate the current table by</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> m_table;
 </code></pre></div><h5 id="create-table-with-a-primary-key">CREATE TABLE with a PRIMARY KEY</h5>
@@ -197,6 +215,15 @@
   bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
   <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
 );
+</code></pre></div><h5 id="create-a-table-with-a-foreign-key">Create a table with a FOREIGN KEY</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> interests(
+int_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+  interest VARCHAR(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#66d9ef">CONSTRAINT</span> my_contact_id 
+  <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span>(contact_id)
+  <span style="color:#66d9ef">REFERENCES</span> my_contacts(contact_id)
+)
 </code></pre></div><h5 id="adding-a-primary-key-to-an-existing-table---alter">Adding a PRIMARY KEY to an existing table - ALTER</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> my_table
 <span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>, <span style="color:#75715e">-- FIRST makes the column goes first in the table
@@ -254,7 +281,30 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
 </code></pre></div></li>
 </ul>
-
+<h3 id="multi-table-database-design">Multi-table database design</h3>
+<h4 id="when-t-use-one-to-one-tables">When t use one-to-one tables</h4>
+<p>It generally makes more sense to leave one-to-one data in your main table, but there are a few advantages you can gt from pulling those columns out at times:</p>
+<ol>
+<li>Pulling the data out may allow you to write faster queries.</li>
+<li>If you have a column containing values you don&rsquo;t yet know, you can isolate it and avoid NULL in your main table.</li>
+<li>You may wish to make some of your data less accessible.</li>
+<li>If you have a large piece of data.</li>
+</ol>
+<p>Many-to-Many: a junction table holds a key from each table.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#75715e">/*Three ways to the same end*/</span>
+<span style="color:#75715e">/*1.	CREATE TABLE, then INSERT with SELECT. */</span>
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession(
+	id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> SUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+  profession VARCHAR(<span style="color:#ae81ff">20</span>)
+);
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> peofession(profession)
+	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
+	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*2.	CREATE TABLE with SELECT, then ALTER to add primary key */</span>
+<span style="color:#75715e">--------------------------------
+</span></code></pre></div>
       </div>
     </article>
 
@@ -288,7 +338,7 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        464 Words
+        741 Words
       </p>
 
       <p>

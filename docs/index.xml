@@ -154,7 +154,8 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
       
       <guid>https://ffflora.cat/posts/2020/05/sql-notes-1/</guid>
       <description>Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
-Database level： CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: SHOW TABLE; /*If you want to modify or update a certain table*/ ALTER TABLE table_name; ADD column_name datatype; DROP COLUMN column_name; SELECT DISTINCT col1,col2 FROM table_name; -- A col may contain duplicate values SELECT .</description>
+Database level： A. representation of all the structures, such as tables and colimns, in your database, along with how they connect, is known as schema.
+CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: The foreign key is a column in a table that reference the primary key of another table.</description>
     </item>
     
     <item>
