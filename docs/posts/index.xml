@@ -87,6 +87,13 @@ int_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NU
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> my_table
 <span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>, <span style="color:#75715e">-- FIRST makes the column goes first in the table
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(contact_id);
+</code></pre></div><h5 id="create-a-table-from-union">Create a table from UNION</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_union <span style="color:#66d9ef">AS</span>
+  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> jc
+  <span style="color:#66d9ef">UNION</span>
+  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_desired
+  <span style="color:#66d9ef">UNION</span> 
+  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_listings
 </code></pre></div><h4 id="table-maintenance">Table Maintenance</h4>
 <ul>
 <li>
@@ -141,7 +148,7 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 </code></pre></div></li>
 </ul>
 <h3 id="multi-table-database-design">Multi-table database design</h3>
-<h4 id="when-t-use-one-to-one-tables">When t use one-to-one tables</h4>
+<h4 id="when-to-use-one-to-one-tables">When to use one-to-one tables</h4>
 <p>It generally makes more sense to leave one-to-one data in your main table, but there are a few advantages you can gt from pulling those columns out at times:</p>
 <ol>
 <li>Pulling the data out may allow you to write faster queries.</li>
@@ -162,8 +169,32 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#75715e">/*2.	CREATE TABLE with SELECT, then ALTER to add primary key */</span>
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession <span style="color:#66d9ef">AS</span>
+	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
+	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> profession
+<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>,
+<span style="color:#66d9ef">ADD</span> PRAMARY <span style="color:#66d9ef">KEY</span>(id);
 <span style="color:#75715e">--------------------------------
-</span></code></pre></div>]]></content>
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*3. CREATE TABLE, SELECT and INSERT at the same time*/</span>
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession
+(
+  id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+  profession varchar(<span style="color:#ae81ff">20</span>)
+) <span style="color:#66d9ef">AS</span> <span style="color:#75715e">-- it&#39;s funneling all the output of the SELECT into the new table. 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">AS</span> prof <span style="color:#66d9ef">FROM</span> my_contacts <span style="color:#75715e">-- this AS could be skipped 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
+
+
+<span style="color:#75715e">--------------------------------
+</span></code></pre></div><p>Note:</p>
+<p><code>AS</code> populates a new table with the result of the <code>SELECT</code>. If we hadn&rsquo;t specified that the new table have two columns with new names, <code>AS</code> would have created just one column, filled with the same name and data type as the column that&rsquo;s the result of <code>SELECT</code>.</p>
+<p>Quick Links:</p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-1/">SQL Notes (1)</a></p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-2/">SQL Notes (2)</a></p>
+]]></content>
         </item>
         
         <item>
@@ -3362,7 +3393,12 @@ Michelle Green
 </li>
 <li>
 <p>rename: <code>AS</code></p>
-</li>
+<h5 id="table-aliases">Table aliases</h5>
+<p>Table aliases are also called correlated names.</p>
+<p>It&rsquo;s ok to skip the keyword <code>AS</code> as long as the alias follows directly after the table or column name it is aliasing.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">AS</span> prof <span style="color:#66d9ef">FROM</span> my_contacts 
+<span style="color:#66d9ef">SELECT</span> profession prof <span style="color:#66d9ef">FROM</span> my_contacts 
+</code></pre></div></li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> vend_name <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39; (&#39;</span> <span style="color:#f92672">||</span> vend_country <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#75715e">-- use || in SQLite, use + in SQL
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">FROM</span> Vendors
@@ -3625,6 +3661,10 @@ WHERE, GROUP BY, ORDER BY</li>
 <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">3</span>
 <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> items, order_num;
 </code></pre></div><h4 id="subquery">SUBQUERY</h4>
+<ul>
+<li>A noncorrelated subquery uses <code>IN</code> <code>NOT IN</code> to test if the values returned in the subquery are members of a set(or not).</li>
+<li><code>NOT EXISTS</code></li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#75715e">/* Return the customer info which have bought the product PGAN01 */</span>
 <span style="color:#66d9ef">SELECT</span> cust_name,cust_contact 
 <span style="color:#66d9ef">FROM</span> Customers
@@ -3643,11 +3683,43 @@ WHERE, GROUP BY, ORDER BY</li>
         <span style="color:#66d9ef">WHERE</span> Orders.cust_id <span style="color:#f92672">=</span> Customers.cust_id) <span style="color:#66d9ef">AS</span> orders
 <span style="color:#66d9ef">FROM</span> Customers
 <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> cust_name;
+                        
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">SELECT</span> mc.first_name
+<span style="color:#66d9ef">FROM</span> job_current jc <span style="color:#66d9ef">NATURAL</span> <span style="color:#66d9ef">JOIN</span> my_contacts mc
+<span style="color:#66d9ef">WHERE</span> jc.title <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span>(<span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">from</span> jobs);                        
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> mc.<span style="color:#66d9ef">first</span>, mc.<span style="color:#66d9ef">last</span>, mc.email
+<span style="color:#66d9ef">FROM</span> my_contacts mc
+<span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span>(
+	<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> job_current jc
+  <span style="color:#66d9ef">WHERE</span> mc.contact_id <span style="color:#f92672">=</span> jc.contact_id
+); <span style="color:#75715e">-- NOT EXISTS finds the first, last, email of the ppl from my_contacts table who are not currently listed in the jc table. 
+</span><span style="color:#75715e"></span>
 </code></pre></div><h4 id="join">JOIN</h4>
+<ul>
+<li>
+<p>The <code>CROSS JOIN</code> returns every row from one table crossed with every row from the second table.</p>
+</li>
+<li>
+<p>The <code>INNER JOIN</code> is a <code>CROSS JOIN</code> with some result rows removed by a condition in the query.</p>
+</li>
+<li>
+<p>Non-equijoin <code>INNER JOIN</code> tests for inequality.</p>
+</li>
+<li>
+<p><code>NATURAL JOIN</code> identifies the matching column names, it works only the column you are joining by has the same name in both tables.</p>
+</li>
+<li>
+<p>A SELF-REFERENCING foreign key is the primary key of a table used in that same table for another purpose.</p>
+</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> vend_name, prod_name, prod_price <span style="color:#66d9ef">FROM</span> Vendors, Products
 <span style="color:#66d9ef">WHERE</span> Vendors.vend_id <span style="color:#f92672">=</span> Products.vend_id;
 
-<span style="color:#75715e">-- Same as : -- 
+<span style="color:#75715e">-- Same as: -- 
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> vend_name, prod_name, prod_price <span style="color:#66d9ef">FROM</span> Vendors <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Products
 <span style="color:#66d9ef">ON</span> Vendors.vend_id <span style="color:#f92672">=</span> Products.vend_id;
 
@@ -3660,7 +3732,7 @@ WHERE, GROUP BY, ORDER BY</li>
         <span style="color:#66d9ef">FROM</span> OrderItems
         <span style="color:#66d9ef">WHERE</span> prod_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;RGAN01&#39;</span>));
         
-<span style="color:#75715e">-- Same as : --
+<span style="color:#75715e">-- Same as: --
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact
 <span style="color:#66d9ef">FROM</span> Customers, Orders, OrderItems
 <span style="color:#66d9ef">WHERE</span> Customers.cust_id <span style="color:#f92672">=</span> Orders.cust_id
@@ -3681,12 +3753,36 @@ WHERE, GROUP BY, ORDER BY</li>
 <span style="color:#66d9ef">FROM</span> Customers <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> Orders
 <span style="color:#66d9ef">ON</span> Customers.cust_id <span style="color:#f92672">=</span> Orders.cust_id
 <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Customers.cust_id;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*Cartesian join/cross join */</span>
+<span style="color:#66d9ef">SELECT</span> t.toy, b.boy
+<span style="color:#66d9ef">FROM</span> toys <span style="color:#66d9ef">as</span> t
+<span style="color:#66d9ef">CROSS</span> <span style="color:#66d9ef">JOIN</span> boys <span style="color:#66d9ef">as</span> b;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*Non-equijoin*/</span>
+<span style="color:#66d9ef">SELECT</span> t.toy, b.boy
+<span style="color:#66d9ef">FROM</span> toys <span style="color:#66d9ef">as</span> t
+<span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> boys <span style="color:#66d9ef">as</span> b
+<span style="color:#66d9ef">ON</span> b.toy_id <span style="color:#f92672">&lt;&gt;</span> t.toy_id
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> b.boys;
+
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*Natural Join*/</span>
+<span style="color:#66d9ef">SELECT</span> t.toy, b.boy
+<span style="color:#66d9ef">FROM</span> toys <span style="color:#66d9ef">as</span> t
+<span style="color:#66d9ef">NATURAL</span> <span style="color:#66d9ef">JOIN</span> boys <span style="color:#66d9ef">as</span> b <span style="color:#75715e">-- only works if they both have `toy_id` column or so
+</span><span style="color:#75715e"></span>
+
+
 </code></pre></div><h4 id="combine-queries">Combine queries</h4>
 <ul>
 <li><code>UNION</code> can combine multiple SELECT results, return as one set.</li>
 <li>When use <code>UNION</code>, each selection must have same cols, expressions or aggregation functions;</li>
 <li>The datatype of the selection must be compatible when use <code>UNION</code></li>
 <li>It is by default that <code>UNION</code> would remove duplicated rows, to avoid that, use <code>UNION ALL</code>.</li>
+<li><code>UNION</code> can only take one <code>ORDER BY</code> at the end go the statement. This is because <code>UNION</code> concatenates and groups the results from the multiple <code>SELECT</code> statements.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, cust_email <span style="color:#66d9ef">FROM</span> Customers
 <span style="color:#66d9ef">WHERE</span> cust_state <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;IL&#39;</span>,<span style="color:#e6db74">&#39;IN&#39;</span>,<span style="color:#e6db74">&#39;MI&#39;</span>);
@@ -3694,29 +3790,59 @@ WHERE, GROUP BY, ORDER BY</li>
 <span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, cust_email <span style="color:#66d9ef">FROM</span> Customers
 <span style="color:#66d9ef">WHERE</span> cust_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Fun4All&#39;</span>;
 
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#75715e">--OUTPUT--
-</span><span style="color:#75715e"></span>Fun4All
-Fun4All
-Village Toys
-The Toy Store
-
-Denise L. Stephens 
-Jim Jones
-John Smith
-Kim Howard
-
-dstephens<span style="color:#f92672">@</span>fun4all.com 
-jjones<span style="color:#f92672">@</span>fun4all.com 
-sales<span style="color:#f92672">@</span>villagetoys.com 
-<span style="color:#66d9ef">NULL</span>
-
+<span style="color:#75715e">-- OUTPUT --
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">Fun4All
+</span><span style="color:#75715e">Fun4All
+</span><span style="color:#75715e">Village Toys
+</span><span style="color:#75715e">The Toy Store
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">Denise L. Stephens 
+</span><span style="color:#75715e">Jim Jones
+</span><span style="color:#75715e">John Smith
+</span><span style="color:#75715e">Kim Howard
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">dstephens@fun4all.com 
+</span><span style="color:#75715e">jjones@fun4all.com 
+</span><span style="color:#75715e">sales@villagetoys.com 
+</span><span style="color:#75715e">NULL
+</span><span style="color:#75715e">*/</span>
 <span style="color:#75715e">/* Alternative way */</span>
 <span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, cust_email
 <span style="color:#66d9ef">FROM</span> Customers
 <span style="color:#66d9ef">WHERE</span> cust_state <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;IL&#39;</span>,<span style="color:#e6db74">&#39;IN&#39;</span>,<span style="color:#e6db74">&#39;MI&#39;</span>)
 <span style="color:#66d9ef">OR</span> cust_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Fun4All&#39;</span>;
 
-</code></pre></div><h4 id="insert-create">INSERT, CREATE</h4>
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> jc
+<span style="color:#66d9ef">UNION</span>
+<span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_desired
+<span style="color:#66d9ef">UNION</span> 
+<span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_listings
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> title;
+</code></pre></div><h4 id="intersect-except">INTERSECT, EXCEPT</h4>
+<p>They are used in much the same way as <code>UNION</code> - to find parts of queries that overlap.</p>
+<ul>
+<li>
+<p><code>INTERSECT</code> returns only those columns that are in the first query and also in the second query.</p>
+</li>
+<li>
+<p><code>EXCEPT</code> returns only those columns that are in the first query but not in the second query.</p>
+</li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> jc
+<span style="color:#66d9ef">INTERSECT</span>
+<span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> listings;
+  
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> jc
+<span style="color:#66d9ef">EXCEPT</span>
+<span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> listings;
+  
+  
+</code></pre></div></li>
+</ul>
+<h4 id="insert-create">INSERT, CREATE</h4>
 <ul>
 <li><code>INSERT INTO</code> + <code>VALUES</code> to an already exist table;</li>
 <li><code>INSERT INTO</code>+ <code>SELECT</code> to an already exist table from another table;</li>
@@ -3843,7 +3969,10 @@ sales<span style="color:#f92672">@</span>villagetoys.com
        DATE_TRUNC(<span style="color:#e6db74">&#39;year&#39;</span>, occurred_at) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">year</span>,
        <span style="color:#66d9ef">SUM</span>(standard_amt_usd) OVER (PARTITION <span style="color:#66d9ef">BY</span> DATE_TRUNC(<span style="color:#e6db74">&#39;year&#39;</span>, occurred_at) <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> occurred_at) <span style="color:#66d9ef">AS</span> running_total
 <span style="color:#66d9ef">FROM</span> orders
-</code></pre></div>]]></content>
+</code></pre></div><p>Quick Links:</p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-1/">SQL Notes (1)</a></p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-3/">SQL Notes (3)</a></p>
+]]></content>
         </item>
         
         <item>

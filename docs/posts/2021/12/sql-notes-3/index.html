@@ -45,7 +45,7 @@
 <meta itemprop="description" content="Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.">
 <meta itemprop="datePublished" content="2021-12-06T21:43:17-08:00" />
 <meta itemprop="dateModified" content="2021-12-06T21:43:17-08:00" />
-<meta itemprop="wordCount" content="741">
+<meta itemprop="wordCount" content="906">
 <meta itemprop="image" content="https://ffflora.cat/"/>
 
 
@@ -143,7 +143,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        4 minutes
+        5 minutes
 
         
       </p>
@@ -228,6 +228,13 @@ int_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NU
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> my_table
 <span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>, <span style="color:#75715e">-- FIRST makes the column goes first in the table
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(contact_id);
+</code></pre></div><h5 id="create-a-table-from-union">Create a table from UNION</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_union <span style="color:#66d9ef">AS</span>
+  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> jc
+  <span style="color:#66d9ef">UNION</span>
+  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_desired
+  <span style="color:#66d9ef">UNION</span> 
+  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_listings
 </code></pre></div><h4 id="table-maintenance">Table Maintenance</h4>
 <ul>
 <li>
@@ -282,7 +289,7 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 </code></pre></div></li>
 </ul>
 <h3 id="multi-table-database-design">Multi-table database design</h3>
-<h4 id="when-t-use-one-to-one-tables">When t use one-to-one tables</h4>
+<h4 id="when-to-use-one-to-one-tables">When to use one-to-one tables</h4>
 <p>It generally makes more sense to leave one-to-one data in your main table, but there are a few advantages you can gt from pulling those columns out at times:</p>
 <ol>
 <li>Pulling the data out may allow you to write faster queries.</li>
@@ -303,8 +310,32 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession
 <span style="color:#75715e">--------------------------------
 </span><span style="color:#75715e"></span><span style="color:#75715e">/*2.	CREATE TABLE with SELECT, then ALTER to add primary key */</span>
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession <span style="color:#66d9ef">AS</span>
+	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
+	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
+<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> profession
+<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>,
+<span style="color:#66d9ef">ADD</span> PRAMARY <span style="color:#66d9ef">KEY</span>(id);
 <span style="color:#75715e">--------------------------------
-</span></code></pre></div>
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*3. CREATE TABLE, SELECT and INSERT at the same time*/</span>
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession
+(
+  id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+  profession varchar(<span style="color:#ae81ff">20</span>)
+) <span style="color:#66d9ef">AS</span> <span style="color:#75715e">-- it&#39;s funneling all the output of the SELECT into the new table. 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">AS</span> prof <span style="color:#66d9ef">FROM</span> my_contacts <span style="color:#75715e">-- this AS could be skipped 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
+
+
+<span style="color:#75715e">--------------------------------
+</span></code></pre></div><p>Note:</p>
+<p><code>AS</code> populates a new table with the result of the <code>SELECT</code>. If we hadn&rsquo;t specified that the new table have two columns with new names, <code>AS</code> would have created just one column, filled with the same name and data type as the column that&rsquo;s the result of <code>SELECT</code>.</p>
+<p>Quick Links:</p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-1/">SQL Notes (1)</a></p>
+<p><a href="https://ffflora.cat/posts/2020/05/sql-notes-2/">SQL Notes (2)</a></p>
+
       </div>
     </article>
 
@@ -338,7 +369,7 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        741 Words
+        906 Words
       </p>
 
       <p>

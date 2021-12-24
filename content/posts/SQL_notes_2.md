@@ -198,6 +198,17 @@ ORDER BY cust_contact;
 
 - rename: `AS`
 
+  ##### Table aliases
+  
+  Table aliases are also called correlated names.
+  
+  It's ok to skip the keyword `AS` as long as the alias follows directly after the table or column name it is aliasing. 
+  
+  ```sql
+  SELECT profession AS prof FROM my_contacts 
+  SELECT profession prof FROM my_contacts 
+  ```
+  
   
 
 
@@ -402,7 +413,8 @@ ORDER BY items, order_num;
 
 #### SUBQUERY 
 
-
+- A noncorrelated subquery uses `IN` `NOT IN` to test if the values returned in the subquery are members of a set(or not).
+- `NOT EXISTS`
 
 ```SQL
 /* Return the customer info which have bought the product PGAN01 */
@@ -423,17 +435,39 @@ SELECT cust_name,
         WHERE Orders.cust_id = Customers.cust_id) AS orders
 FROM Customers
 ORDER BY cust_name;
+                        
+--------------------------------
+
+SELECT mc.first_name
+FROM job_current jc NATURAL JOIN my_contacts mc
+WHERE jc.title NOT IN(SELECT title from jobs);                        
+
+--------------------------------
+SELECT mc.first, mc.last, mc.email
+FROM my_contacts mc
+WHERE NOT EXISTS(
+	SELECT * FROM job_current jc
+  WHERE mc.contact_id = jc.contact_id
+); -- NOT EXISTS finds the first, last, email of the ppl from my_contacts table who are not currently listed in the jc table. 
+
 ```
 
-
 #### JOIN
+
+- The `CROSS JOIN` returns every row from one table crossed with every row from the second table. 
+
+- The `INNER JOIN` is a `CROSS JOIN` with some result rows removed by a condition in the query.
+
+- Non-equijoin `INNER JOIN` tests for inequality. 
+- `NATURAL JOIN` identifies the matching column names, it works only the column you are joining by has the same name in both tables.
+- A SELF-REFERENCING foreign key is the primary key of a table used in that same table for another purpose. 
 
 
 ```SQL
 SELECT vend_name, prod_name, prod_price FROM Vendors, Products
 WHERE Vendors.vend_id = Products.vend_id;
 
--- Same as : -- 
+-- Same as: -- 
 SELECT vend_name, prod_name, prod_price FROM Vendors INNER JOIN Products
 ON Vendors.vend_id = Products.vend_id;
 
@@ -446,7 +480,7 @@ WHERE cust_id IN (SELECT cust_id
         FROM OrderItems
         WHERE prod_id = 'RGAN01'));
         
--- Same as : --
+-- Same as: --
 SELECT cust_name, cust_contact
 FROM Customers, Orders, OrderItems
 WHERE Customers.cust_id = Orders.cust_id
@@ -467,6 +501,29 @@ SELECT Customers.cust_id, COUNT(Orders.order_num) AS num_ord
 FROM Customers INNER JOIN Orders
 ON Customers.cust_id = Orders.cust_id
 GROUP BY Customers.cust_id;
+
+--------------------------------
+/*Cartesian join/cross join */
+SELECT t.toy, b.boy
+FROM toys as t
+CROSS JOIN boys as b;
+
+--------------------------------
+/*Non-equijoin*/
+SELECT t.toy, b.boy
+FROM toys as t
+INNER JOIN boys as b
+ON b.toy_id <> t.toy_id
+ORDER BY b.boys;
+
+--------------------------------
+/*Natural Join*/
+SELECT t.toy, b.boy
+FROM toys as t
+NATURAL JOIN boys as b -- only works if they both have `toy_id` column or so
+
+
+
 ```
 
 #### Combine queries
@@ -475,6 +532,7 @@ GROUP BY Customers.cust_id;
 - When use `UNION`, each selection must have same cols, expressions or aggregation functions;
 - The datatype of the selection must be compatible when use `UNION`
 - It is by default that `UNION` would remove duplicated rows, to avoid that, use `UNION ALL`.
+- `UNION` can only take one `ORDER BY` at the end go the statement. This is because `UNION` concatenates and groups the results from the multiple `SELECT` statements. 
 
 ```SQL
 SELECT cust_name, cust_contact, cust_email FROM Customers
@@ -483,7 +541,8 @@ UNION
 SELECT cust_name, cust_contact, cust_email FROM Customers
 WHERE cust_name = 'Fun4All';
 
->>> --OUTPUT--
+-- OUTPUT --
+/*
 Fun4All
 Fun4All
 Village Toys
@@ -498,15 +557,44 @@ dstephens@fun4all.com
 jjones@fun4all.com 
 sales@villagetoys.com 
 NULL
-
+*/
 /* Alternative way */
 SELECT cust_name, cust_contact, cust_email
 FROM Customers
 WHERE cust_state IN ('IL','IN','MI')
 OR cust_name = 'Fun4All';
 
+--------------------------------
+SELECT title FROM jc
+UNION
+SELECT title FROM job_desired
+UNION 
+SELECT title FROM job_listings
+ORDER BY title;
 ```
 
+#### INTERSECT, EXCEPT
+
+They are used in much the same way as `UNION` - to find parts of queries that overlap.
+
+- `INTERSECT` returns only those columns that are in the first query and also in the second query.
+
+- `EXCEPT` returns only those columns that are in the first query but not in the second query.
+
+- ```sql
+  SELECT title FROM jc
+  INTERSECT
+  SELECT title FROM listings;
+  
+  --------------------------------
+  SELECT title FROM jc
+  EXCEPT
+  SELECT title FROM listings;
+  
+  
+  ```
+
+  
 
 #### INSERT, CREATE
 
@@ -648,3 +736,17 @@ SELECT standard_amt_usd,
        SUM(standard_amt_usd) OVER (PARTITION BY DATE_TRUNC('year', occurred_at) ORDER BY occurred_at) AS running_total
 FROM orders
 ```
+
+
+
+
+
+
+
+
+
+Quick Links:
+
+[SQL Notes (1)](https://ffflora.cat/posts/2020/05/sql-notes-1/)
+
+[SQL Notes (3)](https://ffflora.cat/posts/2020/05/sql-notes-3/)

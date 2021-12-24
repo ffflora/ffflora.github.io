@@ -109,6 +109,17 @@ ADD COLUMN contact_id INT NOT NULL AUTO_INCREMENT FIRST, -- FIRST makes the colu
 ADD PRIMARY KEY(contact_id);
 ```
 
+##### Create a table from UNION
+
+```SQL
+CREATE TABLE my_union AS
+  SELECT title FROM jc
+  UNION
+  SELECT title FROM job_desired
+  UNION 
+  SELECT title FROM job_listings
+```
+
 
 
 #### Table Maintenance 
@@ -161,7 +172,7 @@ ADD PRIMARY KEY(contact_id);
 
 ### Multi-table database design
 
-#### When t use one-to-one tables
+#### When to use one-to-one tables
 
 It generally makes more sense to leave one-to-one data in your main table, but there are a few advantages you can gt from pulling those columns out at times:
 
@@ -185,6 +196,36 @@ INSERT INTO peofession(profession)
 	ORDER BY profession
 --------------------------------
 /*2.	CREATE TABLE with SELECT, then ALTER to add primary key */
+CREATE TABLE profession AS
+	SELECT profession FROM my_contacts
+	GROUP BY profession
+	ORDER BY profession;
+ALTER TABLE profession
+ADD COLUMN id INT NOT NULL AUTO_INCREMENT FIRST,
+ADD PRAMARY KEY(id);
+--------------------------------
+/*3. CREATE TABLE, SELECT and INSERT at the same time*/
+CREATE TABLE profession
+(
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  profession varchar(20)
+) AS -- it's funneling all the output of the SELECT into the new table. 
+	SELECT profession AS prof FROM my_contacts -- this AS could be skipped 
+	GROUP BY profession
+	ORDER BY profession;
+
+
 --------------------------------
 ```
 
+Note:
+
+`AS` populates a new table with the result of the `SELECT`. If we hadn't specified that the new table have two columns with new names, `AS` would have created just one column, filled with the same name and data type as the column that's the result of `SELECT`.
+
+
+
+Quick Links:
+
+[SQL Notes (1)](https://ffflora.cat/posts/2020/05/sql-notes-1/)
+
+[SQL Notes (2)](https://ffflora.cat/posts/2020/05/sql-notes-2/)
