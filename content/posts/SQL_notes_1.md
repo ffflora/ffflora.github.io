@@ -205,4 +205,4 @@ Quick Links:
 
 [SQL Notes (2)](https://ffflora.cat/posts/2020/05/sql-notes-2/)
 
-[SQL Notes (3)](https://ffflora.cat/posts/2020/05/sql-notes-3/)
+[SQL Notes (3)](https://ffflora.cat/posts/2021/12/sql-notes-3/)

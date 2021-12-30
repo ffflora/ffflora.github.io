@@ -749,4 +749,5 @@ Quick Links:
 
 [SQL Notes (1)](https://ffflora.cat/posts/2020/05/sql-notes-1/)
 
-[SQL Notes (3)](https://ffflora.cat/posts/2020/05/sql-notes-3/)
+[SQL Notes (3)](https://ffflora.cat/posts/2021/12/sql-notes-3/)
+
