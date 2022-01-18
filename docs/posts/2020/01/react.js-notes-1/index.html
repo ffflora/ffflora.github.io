@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Flora Jiang ">
+<meta name="description" content="Basics of React (Most of the materials come from React Official Document) JSX Represents Objects Babel compiles JSX down to React.createElement() calls.
+These two examples are identical:
+const element = ( &amp;lt;h1 className=&amp;#34;greeting&amp;#34;&amp;gt; Hello, world! &amp;lt;/h1&amp;gt; ); const element = React.createElement( &amp;#39;h1&amp;#39;, {className: &amp;#39;greeting&amp;#39;}, &amp;#39;Hello, world!&amp;#39; ); React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+// Note: this structure is simplified const element = { type: &amp;#39;h1&amp;#39;, props: { className: &amp;#39;greeting&amp;#39;, children: &amp;#39;Hello, world!" />
+<meta name="keywords" content=", Notes, React.js" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://ffflora.cat/posts/2020/01/react.js-notes-1/" />
+
+
+    <title>
+        
+            React.js Notes (1) :: Flora Wenyao Jiang  — Personal Website⛱️
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://ffflora.cat/main.093694338139dc6afa9bdd416fb9b7247fd08fdee908221f27b7def46f109265.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ffflora.cat/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ffflora.cat/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ffflora.cat/favicon-16x16.png">
+    <link rel="manifest" href="https://ffflora.cat/site.webmanifest">
+    <link rel="mask-icon" href="https://ffflora.cat/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://ffflora.cat/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="React.js Notes (1)">
+<meta itemprop="description" content="Basics of React (Most of the materials come from React Official Document) JSX Represents Objects Babel compiles JSX down to React.createElement() calls.
+These two examples are identical:
+const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&gt; ); const element = React.createElement( &#39;h1&#39;, {className: &#39;greeting&#39;}, &#39;Hello, world!&#39; ); React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+// Note: this structure is simplified const element = { type: &#39;h1&#39;, props: { className: &#39;greeting&#39;, children: &#39;Hello, world!">
+<meta itemprop="datePublished" content="2020-01-27T00:08:29-07:00" />
+<meta itemprop="dateModified" content="2020-01-27T00:08:29-07:00" />
+<meta itemprop="wordCount" content="1877">
+<meta itemprop="image" content="https://ffflora.cat/"/>
+
+
+
+<meta itemprop="keywords" content="Notes,React.js," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ffflora.cat/"/>
+
+<meta name="twitter:title" content="React.js Notes (1)"/>
+<meta name="twitter:description" content="Basics of React (Most of the materials come from React Official Document) JSX Represents Objects Babel compiles JSX down to React.createElement() calls.
+These two examples are identical:
+const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&gt; ); const element = React.createElement( &#39;h1&#39;, {className: &#39;greeting&#39;}, &#39;Hello, world!&#39; ); React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+// Note: this structure is simplified const element = { type: &#39;h1&#39;, props: { className: &#39;greeting&#39;, children: &#39;Hello, world!"/>
+
+
+
+    <meta property="og:title" content="React.js Notes (1)" />
+<meta property="og:description" content="Basics of React (Most of the materials come from React Official Document) JSX Represents Objects Babel compiles JSX down to React.createElement() calls.
+These two examples are identical:
+const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&gt; ); const element = React.createElement( &#39;h1&#39;, {className: &#39;greeting&#39;}, &#39;Hello, world!&#39; ); React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+// Note: this structure is simplified const element = { type: &#39;h1&#39;, props: { className: &#39;greeting&#39;, children: &#39;Hello, world!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.cat/posts/2020/01/react.js-notes-1/" />
+<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="article:published_time" content="2020-01-27T00:08:29-07:00" />
+<meta property="article:modified_time" content="2020-01-27T00:08:29-07:00" />
+
+
+
+
+    <meta property="article:section" content="Front-End" />
+
+
+
+    <meta property="article:published_time" content="2020-01-27 00:08:29 -0700 -0700" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://ffflora.cat/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://ffflora.cat/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        9 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://ffflora.cat/posts/2020/01/react.js-notes-1/">React.js Notes (1)</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <h1 id="basics-of-react">Basics of React</h1>
+<h6 id="most-of-the-materials-come-from-react-official-documenthttpsreactjsorgdocs">(Most of the materials come from <a href="https://reactjs.org/docs/">React Official Document</a>)</h6>
+<h3 id="jsx-represents-objects">JSX Represents Objects</h3>
+<p>Babel compiles JSX down to <code>React.createElement()</code> calls.</p>
+<p>These two examples are identical:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> (
+  &lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;greeting&#34;</span>&gt;
+    <span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>
+  &lt;/<span style="color:#f92672">h1</span>&gt;
+);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+  <span style="color:#e6db74">&#39;h1&#39;</span>,
+  {<span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;greeting&#39;</span>},
+  <span style="color:#e6db74">&#39;Hello, world!&#39;</span>
+);
+</code></pre></div><p><code>React.createElement()</code> performs a few checks to help you write bug-free code but essentially it creates an object like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#75715e">// Note: this structure is simplified
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h1&#39;</span>,
+  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;greeting&#39;</span>,
+    <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello, world!&#39;</span>
+  }
+};
+</code></pre></div><h1 id="rendering-elements">Rendering Elements</h1>
+<h2 id="rendering-an-element-into-the-dom">Rendering an Element into the DOM</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span>&lt;/<span style="color:#f92672">h1</span>&gt;;
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>));
+</code></pre></div><h2 id="updating-the-rendered-element">Updating the Rendered Element</h2>
+<p>React elements are <a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>. Once you create an element, you can’t change its children or  attributes. An element is like a single frame in a movie: it represents  the UI at a certain point in time.</p>
+<p>With our knowledge so far, the only way to update the UI is to create a new element, and pass it to <code>ReactDOM.render()</code>.</p>
+<p>Consider this ticking clock example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">tick</span>() {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> (
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+  <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>));
+}
+
+<span style="color:#a6e22e">setInterval</span>(<span style="color:#a6e22e">tick</span>, <span style="color:#ae81ff">1000</span>);
+</code></pre></div><p>It calls <code>ReactDOM.render()</code> every second from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval"><code>setInterval()</code></a> callback.</p>
+<h1 id="components-and-props">Components and Props</h1>
+<p><a href="https://reactjs.org/docs/react-component.html">Detailed component API reference goes here</a>.</p>
+<p>JavaScript function:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// prefer this method 
+</span><span style="color:#75715e">// function component
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
+  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Welcome</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+  }
+}
+</code></pre></div><p>The above two components are equivalent from React’s point of view.</p>
+<h2 id="rendering-a-component">Rendering a Component</h2>
+<p>Elements can also represent user-defined components:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt; <span style="color:#75715e">//&lt;.../&gt; if component doesn&#39;t have any children, then can close like this
+</span></code></pre></div><p>When React sees an element representing a user-defined component, it  passes JSX attributes to this component as a single object. We call this object “props”.</p>
+<p>For example, this code renders “Hello, Sara” on the page:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
+  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt;;
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+  <span style="color:#a6e22e">element</span>,
+  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+);
+</code></pre></div><p>Let’s recap what happens in this example:</p>
+<ol>
+<li>We call <code>ReactDOM.render()</code> with the `` element.</li>
+<li>React calls the <code>Welcome</code> component with <code>{name: 'Sara'}</code> as the props.</li>
+<li>Our <code>Welcome</code> component returns a <code>Hello, Sara</code> element as the result.</li>
+<li>React DOM efficiently updates the DOM to match <code>Hello, Sara</code>.</li>
+</ol>
+<p><strong>Note:</strong> Always start component names with a <strong>capital letter.</strong></p>
+<p>React treats components starting with lowercase letters as DOM <strong>tags</strong>.</p>
+<h2 id="composing-components">Composing Components</h2>
+<p>For example, we can create an <code>App</code> component that renders <code>Welcome</code> many times:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
+  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt;
+      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cahal&#34;</span> /&gt;
+      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Edite&#34;</span> /&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+}
+
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+  &lt;<span style="color:#f92672">App</span> /&gt;,
+  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+);
+</code></pre></div><h2 id="extracting-components">Extracting Components</h2>
+<p>Split components into smaller components: consider this <code>Comment</code> component:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Comment</span>(<span style="color:#a6e22e">props</span>) {
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment&#34;</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo&#34;</span>&gt;
+        &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Avatar&#34;</span>
+          <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">avatarUrl</span>}
+          <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">name</span>}
+            /&gt; 
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo-name&#34;</span>&gt;
+          {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">name</span>}
+        &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-text&#34;</span>&gt;
+        {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">text</span>}
+      &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-date&#34;</span>&gt;
+        {<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>)}
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+}
+</code></pre></div><p>This component <em><!-- raw HTML omitted -->can be tricky to change because of all the nesting,  and it is also hard to reuse individual parts<!-- raw HTML omitted --></em> of it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Avatar</span>(<span style="color:#a6e22e">props</span>) {
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Avatar&#34;</span>
+      <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">avatarUrl</span>}
+      <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>}
+    /&gt;
+  );
+}
+</code></pre></div><p>We recommend <strong>naming props from the component’s own point of view</strong> rather than the context in which it is being used.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserInfo</span>(<span style="color:#a6e22e">props</span>){
+    <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;UserInfo&#34;</span>&gt;
+        &lt;<span style="color:#f92672">Avatar</span> <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>} /&gt; 
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo-name&#34;</span>&gt;
+            {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>} 
+            &lt;/<span style="color:#f92672">div</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    );
+};
+</code></pre></div><p>Then the <code>comment</code> gets simplified:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Comment</span>(<span style="color:#a6e22e">props</span>) {
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment&#34;</span>&gt;
+      &lt;<span style="color:#f92672">UserInfo</span> <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>} /&gt; <span style="color:#75715e">//pass  in a user props 
+</span><span style="color:#75715e"></span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-text&#34;</span>&gt;
+        {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">text</span>}
+      &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-date&#34;</span>&gt;
+        {<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>)}
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+}
+</code></pre></div><h2 id="props-are-read-only">Props are Read-Only</h2>
+<p>Whether you declare a component <a href="https://reactjs.org/docs/components-and-props.html#function-and-class-components">as a function or a class</a>, it must never modify its own props. Consider this <code>sum</code> function:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+}
+</code></pre></div><p>Such functions are called <a href="https://en.wikipedia.org/wiki/Pure_function">“pure”</a> because they do not attempt to change their inputs, and always return the same result for the same inputs.</p>
+<p>In contrast, this function is <strong>impure</strong> because it changes its own input:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// this is not recommended in react 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">withdraw</span>(<span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">amount</span>) {
+  <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">total</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">amount</span>;
+}
+</code></pre></div><p>React is pretty flexible but it has a single strict rule:</p>
+<p><strong>All React components must act like pure functions with respect to their props.</strong></p>
+<h1 id="state-and-lifecycle">State and Lifecycle</h1>
+<p>Consider the <code>tick</code> example mentioned above, we will now learn how to make the <code>Clock</code> component truly reusable and encapsulated.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Clock</span>(<span style="color:#a6e22e">props</span>){
+    <span style="color:#66d9ef">return</span>(
+      &lt;<span style="color:#f92672">div</span>&gt;
+          &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">World</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+          &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    );
+}
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">tick</span>(){
+    <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+    &lt;<span style="color:#f92672">Clock</span> <span style="color:#a6e22e">date</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">new</span> Date()} /&gt;, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+    );
+}
+</code></pre></div><h2 id="converting-a-function-to-a-class">Converting a Function to a Class</h2>
+<p>You can convert a function component like <code>Clock</code> to a class in five steps:</p>
+<ol>
+<li>Create an <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6 class</a>, that extends <code>React.Component</code>.</li>
+<li>Add a single empty method to it called <code>render()</code>.</li>
+<li>Move the body of the function into the <code>render()</code> method.</li>
+<li>Replace <code>props</code> with <code>this.props</code> in the <code>render()</code> body.</li>
+<li>Delete the remaining empty function declaration.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">//react.component already has lots of lifecycle functions
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> { <span style="color:#75715e">// doesn&#39;t need (props), but it will need props as a member in the class
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> (
+      &lt;<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; 
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    );
+  }
+}
+</code></pre></div><p>But at this moment the function only a single instance of the <code>Clock</code> will be used. Will need to do the following:</p>
+<h2 id="adding-local-state-to-a-class">Adding Local State to a Class</h2>
+<p>State that contains in the component is called local state.</p>
+<p>We will move the <code>date</code> from props to state in three steps:</p>
+<ol>
+<li>Replace <code>this.props.date</code> with <code>this.state.date</code> in the <code>render()</code> method:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> (
+      &lt;<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; <span style="color:#75715e">//use states instead of props, and will assign states later, since props is read-only and state is mutable so we could make changes, as time is suppose to changes in this component. 
+</span><span style="color:#75715e"></span>      &lt;/<span style="color:#f92672">div</span>&gt;
+    );
+  }
+}
+</code></pre></div><ol start="2">
+<li>Add a <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor">class constructor</a> that assigns the initial <code>this.state</code>:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+    <span style="color:#75715e">//Note how we pass `props` to the base constructor:
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) { <span style="color:#75715e">//do some initialization here 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);	<span style="color:#75715e">// to inherent props from React.Component
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">//date is a state
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()}; <span style="color:#75715e">//Date() is a global variable       
+</span><span style="color:#75715e"></span>  }
+
+  <span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> (
+      &lt;<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; <span style="color:#75715e">//toLocaleTimeString() is a member function of Date()
+</span><span style="color:#75715e"></span>      &lt;/<span style="color:#f92672">div</span>&gt;
+    );
+  }
+}
+</code></pre></div><p>Class components should always call the base constructor with <code>props</code> first.</p>
+<ol start="3">
+<li>Remove the <code>date</code> prop from the <code>&lt;Clock /&gt;</code> element, and the code looks like this:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()};
+  }
+
+  <span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> (
+      &lt;<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    );
+  }
+}
+
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+  &lt;<span style="color:#f92672">Clock</span> /&gt;, <span style="color:#75715e">//since Clock is a class now instead of a function 
+</span><span style="color:#75715e"></span>  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+);
+</code></pre></div><p>Next, we’ll make the <code>Clock</code> set up its own timer and update itself every second.</p>
+<h2 id="adding-lifecycle-methods-to-a-class">Adding Lifecycle Methods to a Class</h2>
+<p>We want to <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval">set up a timer</a> whenever the <code>Clock</code> is rendered to the DOM for the first time. This is called “<strong>mounting</strong>” in React.  (0-&gt;1)</p>
+<p>We also want to <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval">clear that timer</a> whenever the DOM produced by the <code>Clock</code> is removed. This is called “<strong>unmounting</strong>” in React.</p>
+<p><img src="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ogimage.201804100050.png" alt=""></p>
+<p>We can declare special methods on the component class to run some code when a component mounts and unmounts: These methods are called “<strong>lifecycle methods</strong>”.</p>
+<p>The <code>componentDidMount()</code> method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#a6e22e">componentDidMount</span>() { <span style="color:#75715e">//is where you can load data 
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">//we save the timer ID right on `this` (`this.timerID`).
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>( <span style="color:#75715e">//two params, first is a function, second is 1000
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tick</span>(),<span style="color:#ae81ff">1000</span>);
+  }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#a6e22e">componentWillUnmount</span>() {
+    <span style="color:#a6e22e">clearInterval</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span>);
+  }
+</code></pre></div><p>Finally, we will implement a method called <code>tick()</code> that the <code>Clock</code> component will run every second.</p>
+<p>It will use <code>this.setState()</code> to schedule updates to the component local state, and now the clock ticks every second.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()};
+  }
+
+  <span style="color:#a6e22e">componentDidMount</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>(
+      () =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tick</span>(),<span style="color:#75715e">// will call tick() every second
+</span><span style="color:#75715e"></span>      <span style="color:#ae81ff">1000</span>
+    );
+  }
+
+  <span style="color:#a6e22e">componentWillUnmount</span>() {
+    <span style="color:#a6e22e">clearInterval</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span>);
+  }
+
+  <span style="color:#a6e22e">tick</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+      <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()
+    });
+  }
+
+  <span style="color:#a6e22e">render</span>() {
+    <span style="color:#66d9ef">return</span> (
+      &lt;<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    );
+  }
+}
+
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+  &lt;<span style="color:#f92672">Clock</span> /&gt;,
+  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+);
+</code></pre></div><p>Let’s quickly recap what’s going on and the order in which the methods are called:</p>
+<ol>
+<li>
+<p>When <code>&lt;Clock /&gt;</code> is passed to <code>ReactDOM.render()</code>, React calls the <strong>constructor</strong> of the <code>Clock</code> component. Since <code>Clock</code> needs to display the current time, it initializes <code>this.state</code> with an object including the current time. We will later update this state.</p>
+</li>
+<li>
+<p>React then calls the <code>Clock</code> component’s <code>render()</code> method. This is how React learns <!-- raw HTML omitted -->what should be displayed<!-- raw HTML omitted --> on the screen. React then updates the DOM to match the <code>Clock</code>’s render output.</p>
+</li>
+<li>
+<p>When the <code>Clock</code> output is inserted in the DOM, React calls the <code>componentDidMount()</code> <strong>lifecycle</strong> method. Inside it, the <code>Clock</code> component asks the browser to set up a timer to call the component’s <code>tick()</code> method once a second.</p>
+</li>
+<li>
+<p>Every second the browser calls the <code>tick()</code> method. Inside it, the <code>Clock</code> component schedules a UI update by calling <code>setState()</code> with an object containing the current time. Thanks to the <code>setState()</code> call, React knows the state has changed, and calls the <code>render()</code> method again to learn what should be on the screen. This time, <code>this.state.date</code> in the <code>render()</code> method will be different, and so the render output will include the updated time. React updates the DOM accordingly.</p>
+</li>
+<li>
+<p>If the <code>Clock</code> component is ever removed from the DOM, React calls the <code>componentWillUnmount()</code> lifecycle method so the timer is stopped.</p>
+<p>Use a <code>if...else</code> statement to check if the clock component is removed from the DOM.</p>
+</li>
+</ol>
+<h2 id="using-state-correctly">Using State Correctly</h2>
+<p>There are three things you should know about <code>setState()</code>.</p>
+<h3 id="do-not-modify-state-directly">Do Not Modify State Directly</h3>
+<p>For example, this will not re-render a component:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Wrong
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">comment</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hello&#39;</span>;
+</code></pre></div><p><strong>WARNING</strong>: The only place where you can assign <code>this.state</code> is the <strong>constructor.</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#75715e">// Correct
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({<span style="color:#a6e22e">comment</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello&#39;</span>});
+</code></pre></div><h3 id="state-updates-may-be-asynchronous">State Updates May Be Asynchronous</h3>
+<p>React may batch multiple <code>setState()</code> calls into a single update for performance.</p>
+<p>Because <code>this.props</code> and <code>this.state</code> may be updated asynchronously, you should not rely on their values for calculating the next state.</p>
+<p>For example, this code may fail to update the counter:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Wrong
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+  <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>,
+});
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Correct
+</span><span style="color:#75715e">// That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) =&gt; ({<span style="color:#75715e">// these two are pre-props
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>
+}));
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Correct, this is equivalent as the previous one
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) { 
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>
+  };
+});
+</code></pre></div><h3 id="state-updates-are-merged">State Updates are Merged</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#75715e">// state contains several independent variables:
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">posts</span><span style="color:#f92672">:</span> [],
+      <span style="color:#a6e22e">comments</span><span style="color:#f92672">:</span> []
+    };
+  }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#75715e">//you can update them independently with separate `setState()` calls:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">componentDidMount</span>() {
+    <span style="color:#a6e22e">fetchPosts</span>().<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+        <span style="color:#a6e22e">posts</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">posts</span>
+      });
+    });
+
+    <span style="color:#a6e22e">fetchComments</span>().<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+        <span style="color:#a6e22e">comments</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">comments</span>
+      });
+    });
+  }
+</code></pre></div><p>The merging is shallow, so <code>this.setState({comments})</code> leaves <code>this.state.posts</code> intact, but completely replaces <code>this.state.comments</code>.</p>
+<h3 id="state-or-prop"><strong>state or prop</strong>?</h3>
+<ol>
+<li>Check if this variable is getable via props from the Father components? If yes, then it is not a state.</li>
+<li>Check if this variable is not changing in the whole lifecycle in the component, if yes, then it is not a state.</li>
+<li>Is this variable could be calculated via other state or props? If yes, then it is not a state.</li>
+<li>Could this variable be used in <code>render()</code>? If so, then it is not a state.</li>
+</ol>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/tags/notes/">Notes</a></span>
+        <span class="tag"><a href="https://ffflora.cat/tags/react.js/">React.js</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/categories/front-end/">Front-End</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1877 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2020-01-26 23:08
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=React.js%20Notes%20%281%29&amp;caption=React.js%20Notes%20%281%29&amp;canonicalUrl=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=React.js%20Notes%20%281%29&amp;body=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f&amp;media=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f;description=React.js%20Notes%20%281%29" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f&amp;title=React.js%20Notes%20%281%29&amp;summary=React.js%20Notes%20%281%29&amp;source=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f&amp;resubmit=true&amp;title=React.js%20Notes%20%281%29" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f;title=React.js%20Notes%20%281%29" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=React.js%20Notes%20%281%29%20https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f&amp;t=React.js%20Notes%20%281%29" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=React.js%20Notes%20%281%29&amp;url=https%3a%2f%2fffflora.cat%2fposts%2f2020%2f01%2freact.js-notes-1%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://ffflora.cat/posts/2020/01/react.js-notes-2/">
+                <span class="button__icon">←</span>
+                <span class="button__text">React.js Notes (2)</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://ffflora.cat/posts/2019/08/how-to-use-auto-completion-in-gcp/">
+                <span class="button__text">How to Use Auto Completion in GCP</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ffflora-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://ffflora.cat/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084;</span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188012091-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

@@ -1,5 +1,5 @@
 ---
-title: "React.js Related Notes (1)"
+title: "React.js Problem Solving Notes "
 date: 2021-03-24T00:08:29-07:00
 draft: false
 toc: false

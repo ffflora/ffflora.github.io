@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 06 Dec 2021 21:43:17 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jan 2022 23:03:46 -0800</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Parachute</title>
+      <link>https://ffflora.cat/posts/2022/01/parachute/</link>
+      <pubDate>Sun, 09 Jan 2022 23:03:46 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2022/01/parachute/</guid>
+      <description>This blog post consists of the notes and summary from the book called What Color is Your Parachute?
+Chapter 2 Cover letter - make it personal and specific to the job you are applying for.
+Chapter 3 You are not as powerless as you think. If you&amp;rsquo;re currently out of work, and looking for a job, you have every reason in the world to think you are up against overwhelming forces and the situation you face is rather hopeless.</description>
+    </item>
     
     <item>
       <title>SQL Notes (3)</title>
@@ -22,11 +33,11 @@
     </item>
     
     <item>
-      <title>React.js Related Notes (1)</title>
-      <link>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</link>
+      <title>React.js Problem Solving Notes </title>
+      <link>https://ffflora.cat/posts/2021/03/react.js-problem-solving-notes/</link>
       <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
       
-      <guid>https://ffflora.cat/posts/2021/03/react.js-related-notes-1/</guid>
+      <guid>https://ffflora.cat/posts/2021/03/react.js-problem-solving-notes/</guid>
       <description>This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
   How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
@@ -51,6 +62,40 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
       <description>Useful Commands DESCRIBE: to look at how the table is constructed. This shows if a column is a primary key and what type of data is being srored in each column.
 Database level： A. representation of all the structures, such as tables and colimns, in your database, along with how they connect, is known as schema.
 CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databases USE test; -- use some specific database In a Database: The foreign key is a column in a table that reference the primary key of another table.</description>
+    </item>
+    
+    <item>
+      <title>React.js Notes (3)</title>
+      <link>https://ffflora.cat/posts/2020/03/react.js-notes-3/</link>
+      <pubDate>Wed, 04 Mar 2020 00:08:29 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2020/03/react.js-notes-3/</guid>
+      <description>Components Components Communicate with Server It&amp;rsquo;s safe that the communication happens in the componentDidMount, since this moment the component has already been loaded, and the DOM has been rendered. It is recommended by React.
+Reasons:
+ componentDidMount中执行服务器通信可以保证获取到数据时，组件已经处于挂载状态，这时即使要直接操作DOM也是安全的，而componentWillMount无法保证这一点。 当组件在服务器端渲染时，componentWillMount会被调用两次，一次是在服务器端，另一次是在浏览器端，而componentDidMount能保证在任何情况下只会被调用一次，从而不会发送多余的数据请求。  class UserListContainer extends from React.Component{ //// 	componentWillMount(){ var that = this; fetch(&amp;#39;/path/to/user-api&amp;#39;) .then(response=&amp;gt;{ response.json().then(data=&amp;gt;{ that.setState({users:data}) }); }); } } Components Update from Server componentWillReceiveProps非常适合做这个工作。假设UserListContainer在获取用户列表时还需要一个参数category，用来根据用户的职业做筛选，category这个参数是从props中获取的，实现代码如下：
+class UserListContainer extends from React.Component{ //// 	componentWillReceiveProps(nextProps){ if(nextProps.</description>
+    </item>
+    
+    <item>
+      <title>React.js Notes (2)</title>
+      <link>https://ffflora.cat/posts/2020/01/react.js-notes-2/</link>
+      <pubDate>Tue, 28 Jan 2020 00:08:29 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2020/01/react.js-notes-2/</guid>
+      <description>Handling Events When you define a component using an ES6 class, a common pattern is for an event handler to be a method on the class. For example, this Toggle component renders a button that lets the user toggle between “ON” and “OFF” states:
+class Toggle extends React.Component { constructor(props) { super(props); this.state = {isToggleOn: true}; // This binding is necessary to make `this` work in the callback  this.handleClick = this.</description>
+    </item>
+    
+    <item>
+      <title>React.js Notes (1)</title>
+      <link>https://ffflora.cat/posts/2020/01/react.js-notes-1/</link>
+      <pubDate>Mon, 27 Jan 2020 00:08:29 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2020/01/react.js-notes-1/</guid>
+      <description>Basics of React (Most of the materials come from React Official Document) JSX Represents Objects Babel compiles JSX down to React.createElement() calls.
+These two examples are identical:
+const element = ( &amp;lt;h1 className=&amp;#34;greeting&amp;#34;&amp;gt; Hello, world! &amp;lt;/h1&amp;gt; ); const element = React.createElement( &amp;#39;h1&amp;#39;, {className: &amp;#39;greeting&amp;#39;}, &amp;#39;Hello, world!&amp;#39; ); React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+// Note: this structure is simplified const element = { type: &amp;#39;h1&amp;#39;, props: { className: &amp;#39;greeting&amp;#39;, children: &amp;#39;Hello, world!</description>
     </item>
     
   </channel>
