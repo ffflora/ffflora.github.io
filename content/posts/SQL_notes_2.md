@@ -32,7 +32,7 @@ LIMIT 5 OFFSET 5; // return 5 results start from line 5
 
 
 
-```SQL
+```mysql
 SELECT prod_name
 FROM Products
 ORDER BY prod_name;
@@ -49,6 +49,26 @@ ORDER BY 2,3 DESC ;
 SELECT prod_id, prod_price, prod_name
 FROM Products
 ORDER BY prod_price DESC, prod_name; -- DESC only works on col name that listed in front.
+
+--------------------------------
+1 select ename,sal,comm
+2 from (
+3 	select ename,sal,comm,
+4 	case when comm is null then 0 else 1 end as is_null
+5 	from emp
+6 	) x
+7 order by is_null desc,comm
+-- Use CASE to flag all the NULL and Non-NIll values, and sort all the non-NULL values first, then attach all NULLs in the end. 
+-- Unless your RDBMS provides you with a way to easily sort NULL values first or last without modifying non-NULL values in the same column (as Oracle does), you’ll need an auxiliary column.
+
+--------------------------------
+1 select ename,sal,job,comm
+2 from emp
+3 order by case 
+	when job = 'SALESMAN' then comm 
+	else sal 
+	end
+-- if JOB is SALESMAN, you sort on COMM; otherwise, you want to sort by SAL.
 
 ```
 
@@ -533,6 +553,7 @@ NATURAL JOIN boys as b -- only works if they both have `toy_id` column or so
 - The datatype of the selection must be compatible when use `UNION`
 - It is by default that `UNION` would remove duplicated rows, to avoid that, use `UNION ALL`.
 - `UNION` can only take one `ORDER BY` at the end go the statement. This is because `UNION` concatenates and groups the results from the multiple `SELECT` statements. 
+- MySQL doesn't have `OUTER JOIN`, it needs to be implemented with `LEFT JOIN`, `RIGHT JOIN` and `UNION`.
 
 ```SQL
 SELECT cust_name, cust_contact, cust_email FROM Customers
@@ -571,6 +592,12 @@ SELECT title FROM job_desired
 UNION 
 SELECT title FROM job_listings
 ORDER BY title;
+--------------------------------
+SELECT * FROM t1
+LEFT JOIN t2 ON t1.id = t2.id
+UNION
+SELECT * FROM t1
+RIGHT JOIN t2 ON t1.id = t2.id
 ```
 
 #### INTERSECT, EXCEPT
@@ -737,9 +764,17 @@ SELECT standard_amt_usd,
 FROM orders
 ```
 
+##### `RANK()`, `DENSE_RANK()`, `ROW_NUMBER()`
 
+> SQL RANK functions to specify rank for individual fields as per the categorizations. It returns an aggregated value for each participating row.
 
+`RANK()` It assigns the rank number to each row in a partition. It **skips** the number for similar values.
 
+`DENSE_RANK()` It assigns the rank number to each row in a partition. It **does not skip** the number for similar values.
+
+`ROW_NUMBER()` 	It assigns the **sequential rank** number to each **unique** record.
+
+![1.png](https://pic.leetcode-cn.com/d6f89b608476612c0e70ebc9c2ce521f29342be6d466270bd4e13827c37dc2bd-1.png)
 
 
 

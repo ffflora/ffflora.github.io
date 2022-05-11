@@ -16,7 +16,7 @@ categories:
 
 # Basics of React
 
-###### (Most of the materials come from [React Official Document](https://reactjs.org/docs/))
+###### (Most of the materials come from  [React Official Document](https://reactjs.org/docs/))
 
 ### JSX Represents Objects 
 
@@ -50,9 +50,9 @@ const element = {
 };
 ```
 
-# Rendering Elements
+## Rendering Elements
 
-## Rendering an Element into the DOM 
+### Rendering an Element into the DOM 
 
 ```html
 <div id="root"></div>
@@ -63,7 +63,7 @@ const element = <h1>Hello, world</h1>;
 ReactDOM.render(element, document.getElementById('root'));
 ```
 
-## Updating the Rendered Element 
+### Updating the Rendered Element 
 
 React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object). Once you create an element, you can’t change its children or  attributes. An element is like a single frame in a movie: it represents  the UI at a certain point in time.
 
@@ -87,7 +87,7 @@ setInterval(tick, 1000);
 
 It calls `ReactDOM.render()` every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
 
-# Components and Props
+## Components and Props
 
  [Detailed component API reference goes here](https://reactjs.org/docs/react-component.html).
 
@@ -272,7 +272,7 @@ React is pretty flexible but it has a single strict rule:
 
 **All React components must act like pure functions with respect to their props.**
 
-# State and Lifecycle
+## State and Lifecycle
 
 Consider the `tick` example mentioned above, we will now learn how to make the `Clock` component truly reusable and encapsulated.
 
