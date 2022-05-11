@@ -1,7 +1,7 @@
 ---
-title: "Parachute"
+title: "What Color Is Your Parachute?"
 date: 2022-01-09T23:03:46-08:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
