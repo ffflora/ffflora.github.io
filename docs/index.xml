@@ -7,17 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 09 Jan 2022 23:03:46 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 May 2022 12:59:53 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Parachute</title>
-      <link>https://ffflora.cat/posts/2022/01/parachute/</link>
+      <title>Environmental Related Glossary</title>
+      <link>https://ffflora.cat/cn/env/</link>
+      <pubDate>Wed, 11 May 2022 12:59:53 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/cn/env/</guid>
+      <description>A - N Exclusionary Screening: 负面筛选。筛选详细解释
+O - Z  《ESG投资》- Invest for Good ESG投资目前主要是在欧洲市场，主要手段仍是负面筛选，即将未通过ESG测试的公司从投资组合中剔除。然而，作者们认为，只有将ESG投资与积极投资结合起来并将其推广到新兴市场，ESG投资对管理和公司治理的影响才能发挥最大的作用，进而使ESG投资的正面效用最大化。</description>
+    </item>
+    
+    <item>
+      <title>CDP OR Reverse ETL, one or both?</title>
+      <link>https://ffflora.cat/posts/2022/03/cdp-or-reverse-etl-one-or-both/</link>
+      <pubDate>Thu, 10 Mar 2022 23:18:51 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2022/03/cdp-or-reverse-etl-one-or-both/</guid>
+      <description>By definition,
+ ETL is a data integration process that synchronizes multiple data sources into a single destination, such as a data warehouse. It stands for extract, load, and transform, which are the three steps that occur in the process
+  Extract: Take the desired data from numerous tools and sources
+  Transform: Clean (or reorient) the data into a standard format to store it in
+  Load: Put the transformed data into organized tables that will live inside a data warehouse</description>
+    </item>
+    
+    <item>
+      <title>What Color Is Your Parachute?</title>
+      <link>https://ffflora.cat/posts/2022/01/what-color-is-your-parachute/</link>
       <pubDate>Sun, 09 Jan 2022 23:03:46 -0800</pubDate>
       
-      <guid>https://ffflora.cat/posts/2022/01/parachute/</guid>
+      <guid>https://ffflora.cat/posts/2022/01/what-color-is-your-parachute/</guid>
       <description>This blog post consists of the notes and summary from the book called What Color is Your Parachute?
 Chapter 2 Cover letter - make it personal and specific to the job you are applying for.
 Chapter 3 You are not as powerless as you think. If you&amp;rsquo;re currently out of work, and looking for a job, you have every reason in the world to think you are up against overwhelming forces and the situation you face is rather hopeless.</description>

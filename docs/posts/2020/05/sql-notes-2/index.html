@@ -45,7 +45,7 @@
 <meta itemprop="description" content="SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.">
 <meta itemprop="datePublished" content="2020-05-24T00:00:43-07:00" />
 <meta itemprop="dateModified" content="2020-05-24T00:00:43-07:00" />
-<meta itemprop="wordCount" content="2850">
+<meta itemprop="wordCount" content="3095">
 <meta itemprop="image" content="https://ffflora.cat/"/>
 
 
@@ -143,7 +143,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        14 minutes
+        15 minutes
 
         
       </p>
@@ -170,7 +170,7 @@
 <li>Default is ordering from A - Z, if descending, need to add <code>DESC</code> in the end.</li>
 <li>DESC only works on col name that listed in front. If want to order multiple cols descendingly, need to add <code>DESC</code> after each col listed.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> prod_name
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">SELECT</span> prod_name
 <span style="color:#66d9ef">FROM</span> Products
 <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_name;
 
@@ -182,10 +182,30 @@
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span> <span style="color:#66d9ef">DESC</span> ;
 
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> prod_id, prod_price, prod_name
-<span style="color:#66d9ef">FROM</span> Products
+<span style="color:#f92672">------------------------------</span><span style="color:#75715e">--
+</span><span style="color:#75715e">SELECT prod_id, prod_price, prod_name
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">FROM</span> Products
 <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> prod_price <span style="color:#66d9ef">DESC</span>, prod_name; <span style="color:#75715e">-- DESC only works on col name that listed in front.
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">------------------------------</span><span style="color:#75715e">--
+</span><span style="color:#75715e">1 select ename,sal,comm
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">from</span> (
+<span style="color:#ae81ff">3</span> 	<span style="color:#66d9ef">select</span> ename,sal,comm,
+<span style="color:#ae81ff">4</span> 	<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">when</span> comm <span style="color:#66d9ef">is</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">then</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">1</span> end <span style="color:#66d9ef">as</span> is_null
+<span style="color:#ae81ff">5</span> 	<span style="color:#66d9ef">from</span> emp
+<span style="color:#ae81ff">6</span> 	) x
+<span style="color:#ae81ff">7</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> is_null <span style="color:#66d9ef">desc</span>,comm
+<span style="color:#75715e">-- Use CASE to flag all the NULL and Non-NIll values, and sort all the non-NULL values first, then attach all NULLs in the end. 
+</span><span style="color:#75715e">-- Unless your RDBMS provides you with a way to easily sort NULL values first or last without modifying non-NULL values in the same column (as Oracle does), you’ll need an auxiliary column.
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">------------------------------</span><span style="color:#75715e">--
+</span><span style="color:#75715e">1 select ename,sal,job,comm
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">from</span> emp
+<span style="color:#ae81ff">3</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">case</span> 
+	<span style="color:#66d9ef">when</span> job <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SALESMAN&#39;</span> <span style="color:#66d9ef">then</span> comm 
+	<span style="color:#66d9ef">else</span> sal 
+	end
+<span style="color:#75715e">-- if JOB is SALESMAN, you sort on COMM; otherwise, you want to sort by SAL.
 </span><span style="color:#75715e"></span>
 </code></pre></div><h4 id="where">WHERE</h4>
 <ul>
@@ -725,6 +745,7 @@ WHERE, GROUP BY, ORDER BY</li>
 <li>The datatype of the selection must be compatible when use <code>UNION</code></li>
 <li>It is by default that <code>UNION</code> would remove duplicated rows, to avoid that, use <code>UNION ALL</code>.</li>
 <li><code>UNION</code> can only take one <code>ORDER BY</code> at the end go the statement. This is because <code>UNION</code> concatenates and groups the results from the multiple <code>SELECT</code> statements.</li>
+<li>MySQL doesn&rsquo;t have <code>OUTER JOIN</code>, it needs to be implemented with <code>LEFT JOIN</code>, <code>RIGHT JOIN</code> and <code>UNION</code>.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> cust_name, cust_contact, cust_email <span style="color:#66d9ef">FROM</span> Customers
 <span style="color:#66d9ef">WHERE</span> cust_state <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;IL&#39;</span>,<span style="color:#e6db74">&#39;IN&#39;</span>,<span style="color:#e6db74">&#39;MI&#39;</span>);
@@ -762,6 +783,12 @@ WHERE, GROUP BY, ORDER BY</li>
 <span style="color:#66d9ef">UNION</span> 
 <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_listings
 <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> title;
+<span style="color:#75715e">--------------------------------
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> t1
+<span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> t2 <span style="color:#66d9ef">ON</span> t1.id <span style="color:#f92672">=</span> t2.id
+<span style="color:#66d9ef">UNION</span>
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> t1
+<span style="color:#66d9ef">RIGHT</span> <span style="color:#66d9ef">JOIN</span> t2 <span style="color:#66d9ef">ON</span> t1.id <span style="color:#f92672">=</span> t2.id
 </code></pre></div><h4 id="intersect-except">INTERSECT, EXCEPT</h4>
 <p>They are used in much the same way as <code>UNION</code> - to find parts of queries that overlap.</p>
 <ul>
@@ -911,7 +938,15 @@ WHERE, GROUP BY, ORDER BY</li>
        DATE_TRUNC(<span style="color:#e6db74">&#39;year&#39;</span>, occurred_at) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">year</span>,
        <span style="color:#66d9ef">SUM</span>(standard_amt_usd) OVER (PARTITION <span style="color:#66d9ef">BY</span> DATE_TRUNC(<span style="color:#e6db74">&#39;year&#39;</span>, occurred_at) <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> occurred_at) <span style="color:#66d9ef">AS</span> running_total
 <span style="color:#66d9ef">FROM</span> orders
-</code></pre></div><p>Quick Links:</p>
+</code></pre></div><h5 id="rank-dense_rank-row_number"><code>RANK()</code>, <code>DENSE_RANK()</code>, <code>ROW_NUMBER()</code></h5>
+<blockquote>
+<p>SQL RANK functions to specify rank for individual fields as per the categorizations. It returns an aggregated value for each participating row.</p>
+</blockquote>
+<p><code>RANK()</code> It assigns the rank number to each row in a partition. It <strong>skips</strong> the number for similar values.</p>
+<p><code>DENSE_RANK()</code> It assigns the rank number to each row in a partition. It <strong>does not skip</strong> the number for similar values.</p>
+<p><code>ROW_NUMBER()</code> 	It assigns the <strong>sequential rank</strong> number to each <strong>unique</strong> record.</p>
+<p><img src="https://pic.leetcode-cn.com/d6f89b608476612c0e70ebc9c2ce521f29342be6d466270bd4e13827c37dc2bd-1.png" alt="1.png"></p>
+<p>Quick Links:</p>
 <p><a href="https://ffflora.cat/posts/2020/05/sql-notes-1/">SQL Notes (1)</a></p>
 <p><a href="https://ffflora.cat/posts/2021/12/sql-notes-3/">SQL Notes (3)</a></p>
 
@@ -948,7 +983,7 @@ WHERE, GROUP BY, ORDER BY</li>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        2850 Words
+        3095 Words
       </p>
 
       <p>
