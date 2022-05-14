@@ -1,7 +1,7 @@
 ---
 title: "CDP OR Reverse ETL, one or both?"
 date: 2022-03-10T23:18:51-08:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
