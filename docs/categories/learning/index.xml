@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 11 May 2022 12:59:53 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 14 May 2022 12:05:46 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/categories/learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Invest For Good - Reading Notes</title>
+      <link>https://ffflora.cat/cn/invest_for_good/</link>
+      <pubDate>Sat, 14 May 2022 12:05:46 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/cn/invest_for_good/</guid>
+      <description>《ESG投资》- Invest for Good Intro ESG投资目前主要是在欧洲市场，主要手段仍是负面筛选，即将未通过ESG测试的公司从投资组合中剔除。然而，作者们认为，只有将ESG投资与积极投资结合起来并将其推广到新兴市场，ESG投资对管理和公司治理的影响才能发挥最大的作用，进而使ESG投资的正面效用最大化。
+“积极”在投资中意味着参与投资组合中的公司事务，而不是被动地跟踪指数。
+据估计，亚洲仅有不到50%的公司披露了碳排放数据，而在欧洲这一比例是90%。在透明国际建立的国际清廉指数（CPI）排行榜上，除去个别例外情况，新兴市场国家的排名往往低于成熟市场。</description>
+    </item>
     
     <item>
       <title>Environmental Related Glossary</title>
@@ -18,8 +29,13 @@
       <pubDate>Wed, 11 May 2022 12:59:53 -0700</pubDate>
       
       <guid>https://ffflora.cat/cn/env/</guid>
-      <description>A - N Exclusionary Screening: 负面筛选。筛选详细解释
-O - Z  《ESG投资》- Invest for Good ESG投资目前主要是在欧洲市场，主要手段仍是负面筛选，即将未通过ESG测试的公司从投资组合中剔除。然而，作者们认为，只有将ESG投资与积极投资结合起来并将其推广到新兴市场，ESG投资对管理和公司治理的影响才能发挥最大的作用，进而使ESG投资的正面效用最大化。</description>
+      <description>A - N Active Investment: 积极投资
+CSR - Corporate Social Responsibility（企业社会责任）: self-regulating business model that helps a company be socially accountable to itself, its stakeholders, and the public.
+Exclusionary Screening: 负面筛选。筛选详细解释
+Emerging market: 新兴市场
+Mature Market: 成熟市场
+O - Z Peak carbon dioxide emissions 碳达峰
+ 2021年中国消费行业ESG发展研究报告</description>
     </item>
     
   </channel>

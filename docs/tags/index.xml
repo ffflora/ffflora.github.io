@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 10 Mar 2022 23:18:51 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 May 2022 14:44:17 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>debugging</title>
+      <link>https://ffflora.cat/tags/debugging/</link>
+      <pubDate>Fri, 27 May 2022 14:44:17 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/tags/debugging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Notes</title>
+      <link>https://ffflora.cat/tags/notes/</link>
+      <pubDate>Sun, 22 May 2022 08:17:26 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/tags/notes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ETL</title>
@@ -18,15 +36,6 @@
       <pubDate>Thu, 10 Mar 2022 23:18:51 -0800</pubDate>
       
       <guid>https://ffflora.cat/tags/etl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Notes</title>
-      <link>https://ffflora.cat/tags/notes/</link>
-      <pubDate>Sun, 09 Jan 2022 23:03:46 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/tags/notes/</guid>
       <description></description>
     </item>
     

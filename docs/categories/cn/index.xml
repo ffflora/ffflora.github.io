@@ -7,10 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 11 May 2022 12:59:53 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 22 May 2022 08:17:26 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/categories/cn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Design of Everyday Things - Notes</title>
+      <link>https://ffflora.cat/cn/design/</link>
+      <pubDate>Sun, 22 May 2022 08:17:26 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/cn/design/</guid>
+      <description>《设计心理学1：日常的设计（增订版）》 唐纳德·A·诺曼
+2002年版序  设计中的弊端导致了错误的发生。
+ 第一章 日用品中的设计问题 日常生活中的烦恼  以上例子说明了设计中的一项重要原则：可视性。正确的操作部位必须显而易见，而且还要向用户传达出正确的信息。
+  可视性问题的其他表现形式是关于用户操作意图和可能的操作方法之间的匹配。
+  可视性要表现的就是操作意图和实际操作之间的匹配，并且要让用户看出物品之间的关键差异。
+ 易理解性和易使用性的设计原则  现在我们来探讨设计的两个基本原则：1.提供一个好的概念模型；2.可视性。
+  设计模型是指设计人员所使用的概念模型，用户模型是指用户在与系统交互作用的过程中形成的概念模型。系统表象基于系统的物理结构（包括用户使用手册和各种标示）。设计人员希望用户模型与设计模型完全一样，但问题是，设计人员无法与用户直接交流，必须通过系统表象这一渠道。如果系统表象不能清晰、准确地反映出设计模型，用户就会在使用过程中，建立错误的概念模型。
+  每个控制器都有适当的位置，一个控制器负责一项功能，这是多么好的设计原则。当然，这个原则说起来容易做起来难。不过这是一条基本的自然匹配原则：应当让用户清楚地看到控制器和操作方法之间的关系。要做到自然匹配不容易，但这对设计来说却非常关键。
+  反馈是控制科学和信息理论中一个常用的概念，其含义为：向用户提供信息，使用户知道某一操作是否已经完成以及操作所产生的结果。
+  贝尔电话实验室的设计人员在反馈原则上花费了很多心思，使用户接触电话上的按键时会有一种特殊的感觉。按下一个键时，用户就会听到某种声音，以确定刚才的按键方法是否正确。一旦电话被接通，就会听到喀嚓声或其他声音，使用者就能知道电话的工作状态。说话人的声音也能适度地反馈到听筒，从而帮助他调整自己的音量。
+ 第二章 日常操作心理学 日常生活中的错误观念  人类习惯于对外界事物加以解释
+  我们习惯对事物加以解释，这就形成了针对事物作用方式、事件发生过程和人类行为方式的概念模型，即心理模型。这类心理模型有助于我们理解自己的经历，预测我们的行为结果，应对出乎意料的情况。我们拥有什么样的心理模型取决于我们的知识结构，而不论这些知识是真实的还是想像中的，是粗浅的还是精深的。
+  心理模型经常是根据零碎的事实构建而成的，对事实的来龙去脉只有一种肤浅的理解，并依据某种通俗心理学，形成对事物起因、机制和相互关系等各个因素的看法，而这些因素或许并不存在。一些错误的模型会导致人们在日常生活中受挫.
+  并非只有某些人才会形成错误的观念，人人都在用心理模型来解释它们所观察到的一切。
+ 找错怪罪对象  习得的无助感（learned helplessness）可用来解释人们的自责心理。**它是指人们在做某事时多次经历失败，便认为自己实在无法做好这件事，结果陷入无助的状态，不再进行尝试。**若是经常遇到这种情况，人们就会产生严重的心理障碍。习得的无助感发展到极限，会导致忧郁症，使人无法过日常生活。
+ 第三章 头脑中的知识与外界知识  人们依靠着两种类型的知识：陈述性知识（declarative knowledge）和程序性知识（procedural knowledge）。前者包括各类事实和规则。
+  不需要高度精确的知识 - 人们通常不需要非常精确地记忆某些信息
+ 第四章 知道要做什么 ◆ 可视性和反馈</description>
+    </item>
+    
+    <item>
+      <title>Invest For Good - Reading Notes</title>
+      <link>https://ffflora.cat/cn/invest_for_good/</link>
+      <pubDate>Sat, 14 May 2022 12:05:46 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/cn/invest_for_good/</guid>
+      <description>《ESG投资》- Invest for Good Intro ESG投资目前主要是在欧洲市场，主要手段仍是负面筛选，即将未通过ESG测试的公司从投资组合中剔除。然而，作者们认为，只有将ESG投资与积极投资结合起来并将其推广到新兴市场，ESG投资对管理和公司治理的影响才能发挥最大的作用，进而使ESG投资的正面效用最大化。
+“积极”在投资中意味着参与投资组合中的公司事务，而不是被动地跟踪指数。
+据估计，亚洲仅有不到50%的公司披露了碳排放数据，而在欧洲这一比例是90%。在透明国际建立的国际清廉指数（CPI）排行榜上，除去个别例外情况，新兴市场国家的排名往往低于成熟市场。</description>
+    </item>
     
     <item>
       <title>Environmental Related Glossary</title>
@@ -18,8 +55,13 @@
       <pubDate>Wed, 11 May 2022 12:59:53 -0700</pubDate>
       
       <guid>https://ffflora.cat/cn/env/</guid>
-      <description>A - N Exclusionary Screening: 负面筛选。筛选详细解释
-O - Z  《ESG投资》- Invest for Good ESG投资目前主要是在欧洲市场，主要手段仍是负面筛选，即将未通过ESG测试的公司从投资组合中剔除。然而，作者们认为，只有将ESG投资与积极投资结合起来并将其推广到新兴市场，ESG投资对管理和公司治理的影响才能发挥最大的作用，进而使ESG投资的正面效用最大化。</description>
+      <description>A - N Active Investment: 积极投资
+CSR - Corporate Social Responsibility（企业社会责任）: self-regulating business model that helps a company be socially accountable to itself, its stakeholders, and the public.
+Exclusionary Screening: 负面筛选。筛选详细解释
+Emerging market: 新兴市场
+Mature Market: 成熟市场
+O - Z Peak carbon dioxide emissions 碳达峰
+ 2021年中国消费行业ESG发展研究报告</description>
     </item>
     
   </channel>

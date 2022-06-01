@@ -6,8 +6,35 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 10 Mar 2022 23:18:51 -0800</lastBuildDate>
+        <lastBuildDate>Fri, 27 May 2022 14:44:17 -0700</lastBuildDate>
         <atom:link href="https://ffflora.cat/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Error When Copy Table to PostgreSQL</title>
+            <link>https://ffflora.cat/posts/2022/05/error-when-copy-table-to-postgresql/</link>
+            <pubDate>Fri, 27 May 2022 14:44:17 -0700</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2022/05/error-when-copy-table-to-postgresql/</guid>
+            <description>I have encountered these error messages when uploading a table from local to a remote server:
+COPY schemaname.tablename FROM &amp;#39;path/src/data/file.csv&amp;#39; WITH delimiter E&amp;#39;\t&amp;#39; CSV QUOTE AS &amp;#39;&amp;#34;&amp;#39; HEADER; ERROR ..... HINT: COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql&amp;#39;s \copy. And when I added the backslash to the copy command, this shown:
+error: \copy: parse error at end of line psql:sql/file.</description>
+            <content type="html"><![CDATA[<p>I have encountered these error messages when uploading a table from local to a remote server:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">COPY</span> schemaname.tablename 
+<span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#39;path/src/data/file.csv&#39;</span> <span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">delimiter</span> E<span style="color:#e6db74">&#39;\t&#39;</span> CSV QUOTE <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> HEADER;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ERROR .....
+HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql<span style="color:#960050;background-color:#1e0010">&#39;</span>s <span style="color:#ae81ff">\c</span>opy.
+</code></pre></div><p>And when I added the backslash to the <code>copy</code> command, this shown:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">error: <span style="color:#ae81ff">\c</span>opy: parse error at end of line
+psql:sql/file.sql:60: ERROR:  syntax error at or near <span style="color:#e6db74">&#34;FROM&#34;</span>
+LINE 1: FROM <span style="color:#960050;background-color:#1e0010">&#39;</span>path/src/data/file.c...
+</code></pre></div><p>QUICK FIX:</p>
+<ul>
+<li>Add the backslash in front of the <code>copy</code> command - <code>\COPY</code></li>
+<li>Make the whole command in <strong><!-- raw HTML omitted -->one<!-- raw HTML omitted --></strong> line instead of two.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">\C</span>OPY schemaname.tablename FROM <span style="color:#e6db74">&#39;path/src/data/file.csv&#39;</span> WITH delimiter E<span style="color:#e6db74">&#39;\t&#39;</span> CSV QUOTE AS <span style="color:#e6db74">&#39;&#34;&#39;</span> HEADER;
+</code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>CDP OR Reverse ETL, one or both?</title>
