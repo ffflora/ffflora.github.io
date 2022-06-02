@@ -1,5 +1,5 @@
 ---
-title: "Error When Copy Table to PostgreSQL"
+title: "PostgreSQL：Error When Copying Table"
 date: 2022-05-27T14:44:17-07:00
 draft: false
 toc: false
@@ -42,5 +42,21 @@ QUICK FIX:
 
 ```shell
 \COPY schemaname.tablename FROM 'path/src/data/file.csv' WITH delimiter E'\t' CSV QUOTE AS '"' HEADER;
+```
+
+---
+
+Another error 
+
+```shell
+ERROR: unquoted carriage return found in data
+HINT: Use quoted CSV field to represent carriage return.
+CONTEXT: COPY filename, line 123456
+```
+
+My fix:
+
+```shell
+sed -i '' '123456s/\r//' data/filename.csv data/filename.csv
 ```
 
