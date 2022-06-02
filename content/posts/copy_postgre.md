@@ -1,5 +1,5 @@
 ---
-title: "PostgreSQL：Error When Copying Table"
+title: "PostgreSQL: Error When Copying Table"
 date: 2022-05-27T14:44:17-07:00
 draft: false
 toc: false
