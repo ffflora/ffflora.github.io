@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 27 May 2022 14:44:17 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jun 2022 15:00:59 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mastering Git</title>
+      <link>https://ffflora.cat/posts/2022/06/mastering-git/</link>
+      <pubDate>Thu, 02 Jun 2022 15:00:59 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2022/06/mastering-git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>PostgreSQL: Error When Copying Table</title>
@@ -29,7 +38,7 @@ error: \copy: parse error at end of line psql:sql/file.</description>
       <pubDate>Sun, 22 May 2022 08:17:26 -0700</pubDate>
       
       <guid>https://ffflora.cat/cn/design/</guid>
-      <description>《设计心理学1：日常的设计（增订版）》 唐纳德·A·诺曼
+      <description>《设计心理学1：日常的设计》 唐纳德·A·诺曼
 2002年版序  设计中的弊端导致了错误的发生。
  第一章 日用品中的设计问题 日常生活中的烦恼  以上例子说明了设计中的一项重要原则：可视性。正确的操作部位必须显而易见，而且还要向用户传达出正确的信息。
   可视性问题的其他表现形式是关于用户操作意图和可能的操作方法之间的匹配。

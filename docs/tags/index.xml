@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 27 May 2022 14:44:17 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jun 2022 15:00:59 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>untagged</title>
+      <link>https://ffflora.cat/tags/untagged/</link>
+      <pubDate>Thu, 02 Jun 2022 15:00:59 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/tags/untagged/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>debugging</title>
@@ -90,15 +99,6 @@
       <pubDate>Wed, 24 Mar 2021 00:08:29 -0700</pubDate>
       
       <guid>https://ffflora.cat/tags/react.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>untagged</title>
-      <link>https://ffflora.cat/tags/untagged/</link>
-      <pubDate>Sat, 06 Feb 2021 17:02:04 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/tags/untagged/</guid>
       <description></description>
     </item>
     
