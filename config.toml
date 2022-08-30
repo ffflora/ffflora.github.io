@@ -1,6 +1,6 @@
 baseURL = "https://ffflora.cat/"
 languageCode = "en-us"
-title = "Flora Wenyao Jiang"
+title = "Flora Jiang"
 theme = "hello-friend-ng"
 publishdir = "docs"
 staticDir = "static"
@@ -36,7 +36,7 @@ disableHugoGeneratorInject = false
 
 [permalinks]
   posts = "/posts/:year/:month/:title/"
-
+	
 [author]
   name = "Flora Jiang"
 
@@ -158,3 +158,8 @@ disableHugoGeneratorInject = false
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
+  [[menu.main]]
+    identifier = "cn"
+    name       = "CN"
+    url        = "cn/"
+
