@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Product on Flora Wenyao Jiang</title>
+    <link>https://ffflora.cat/categories/product/</link>
+    <description>Recent content in Product on Flora Wenyao Jiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 29 Aug 2022 20:36:36 -0700</lastBuildDate>
+    
+	<atom:link href="https://ffflora.cat/categories/product/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Product Documents</title>
+      <link>https://ffflora.cat/cn/product-documents/</link>
+      <pubDate>Mon, 29 Aug 2022 20:36:36 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/cn/product-documents/</guid>
+      <description>产品的生命周期：   初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）
+  竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。
+把下面三类总结好。
+ 数据（排行榜？看水平落在哪里。行业水平。） 图片、功能截图对比 表格    考虑商业要求
+  付费动机点
+  产品范围- 线上 vs 线下？
+  需求大纲 - 细化
+  原型设计
+  原型约束、需求规格的说明
+  与最初的业务方确认
+  需求的研发评审
+  开发
+ 交互设计 - 增加事件的设计 视觉设计 - 视觉规范、色彩等等 代码    测试
+ 开发环境测试 beta 上线    产品经理的输出文档   结构分析</description>
+    </item>
+    
+  </channel>
+</rss>

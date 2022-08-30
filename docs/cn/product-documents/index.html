@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Flora Jiang ">
+<meta name="description" content="产品的生命周期：   初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）
+  竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。
+把下面三类总结好。
+ 数据（排行榜？看水平落在哪里。行业水平。） 图片、功能截图对比 表格    考虑商业要求
+  付费动机点
+  产品范围- 线上 vs 线下？
+  需求大纲 - 细化
+  原型设计
+  原型约束、需求规格的说明
+  与最初的业务方确认
+  需求的研发评审
+  开发
+ 交互设计 - 增加事件的设计 视觉设计 - 视觉规范、色彩等等 代码    测试
+ 开发环境测试 beta 上线    产品经理的输出文档   结构分析" />
+<meta name="keywords" content=", Notes" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://ffflora.cat/cn/product-documents/" />
+
+
+    <title>
+        
+            Product Documents :: Flora Wenyao Jiang  — Personal Website⛱️
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://ffflora.cat/main.093694338139dc6afa9bdd416fb9b7247fd08fdee908221f27b7def46f109265.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ffflora.cat/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ffflora.cat/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ffflora.cat/favicon-16x16.png">
+    <link rel="manifest" href="https://ffflora.cat/site.webmanifest">
+    <link rel="mask-icon" href="https://ffflora.cat/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://ffflora.cat/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Product Documents">
+<meta itemprop="description" content="产品的生命周期：   初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）
+  竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。
+把下面三类总结好。
+ 数据（排行榜？看水平落在哪里。行业水平。） 图片、功能截图对比 表格    考虑商业要求
+  付费动机点
+  产品范围- 线上 vs 线下？
+  需求大纲 - 细化
+  原型设计
+  原型约束、需求规格的说明
+  与最初的业务方确认
+  需求的研发评审
+  开发
+ 交互设计 - 增加事件的设计 视觉设计 - 视觉规范、色彩等等 代码    测试
+ 开发环境测试 beta 上线    产品经理的输出文档   结构分析">
+<meta itemprop="datePublished" content="2022-08-29T20:36:36-07:00" />
+<meta itemprop="dateModified" content="2022-08-29T20:36:36-07:00" />
+<meta itemprop="wordCount" content="167">
+<meta itemprop="image" content="https://ffflora.cat/"/>
+
+
+
+<meta itemprop="keywords" content="Notes," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ffflora.cat/"/>
+
+<meta name="twitter:title" content="Product Documents"/>
+<meta name="twitter:description" content="产品的生命周期：   初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）
+  竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。
+把下面三类总结好。
+ 数据（排行榜？看水平落在哪里。行业水平。） 图片、功能截图对比 表格    考虑商业要求
+  付费动机点
+  产品范围- 线上 vs 线下？
+  需求大纲 - 细化
+  原型设计
+  原型约束、需求规格的说明
+  与最初的业务方确认
+  需求的研发评审
+  开发
+ 交互设计 - 增加事件的设计 视觉设计 - 视觉规范、色彩等等 代码    测试
+ 开发环境测试 beta 上线    产品经理的输出文档   结构分析"/>
+
+
+
+    <meta property="og:title" content="Product Documents" />
+<meta property="og:description" content="产品的生命周期：   初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）
+  竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。
+把下面三类总结好。
+ 数据（排行榜？看水平落在哪里。行业水平。） 图片、功能截图对比 表格    考虑商业要求
+  付费动机点
+  产品范围- 线上 vs 线下？
+  需求大纲 - 细化
+  原型设计
+  原型约束、需求规格的说明
+  与最初的业务方确认
+  需求的研发评审
+  开发
+ 交互设计 - 增加事件的设计 视觉设计 - 视觉规范、色彩等等 代码    测试
+ 开发环境测试 beta 上线    产品经理的输出文档   结构分析" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ffflora.cat/cn/product-documents/" />
+<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="article:published_time" content="2022-08-29T20:36:36-07:00" />
+<meta property="article:modified_time" content="2022-08-29T20:36:36-07:00" />
+
+
+
+
+    <meta property="article:section" content="Product" />
+
+    <meta property="article:section" content="CN" />
+
+
+
+    <meta property="article:published_time" content="2022-08-29 20:36:36 -0700 PDT" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://ffflora.cat/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://ffflora.cat/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://ffflora.cat/cn/product-documents/">Product Documents</a></h2>
+
+            
+
+            
+
+            <div class="post-content">
+                <h3 id="产品的生命周期">产品的生命周期：</h3>
+<ol>
+<li>
+<p>初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）</p>
+</li>
+<li>
+<p>竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。</p>
+<p>把下面三类总结好。</p>
+<ol>
+<li>数据（排行榜？看水平落在哪里。行业水平。）</li>
+<li>图片、功能截图对比</li>
+<li>表格</li>
+</ol>
+</li>
+<li>
+<p>考虑商业要求</p>
+</li>
+<li>
+<p>付费动机点</p>
+</li>
+<li>
+<p>产品范围- 线上 vs 线下？</p>
+</li>
+<li>
+<p>需求大纲 - 细化</p>
+</li>
+<li>
+<p>原型设计</p>
+</li>
+<li>
+<p>原型约束、需求规格的说明</p>
+</li>
+<li>
+<p>与最初的业务方确认</p>
+</li>
+<li>
+<p>需求的研发评审</p>
+</li>
+<li>
+<p>开发</p>
+<ol>
+<li>交互设计 - 增加事件的设计</li>
+<li>视觉设计 - 视觉规范、色彩等等</li>
+<li>代码</li>
+</ol>
+</li>
+<li>
+<p>测试</p>
+<ol>
+<li>开发环境测试</li>
+<li>beta</li>
+<li>上线</li>
+</ol>
+</li>
+</ol>
+<h3 id="产品经理的输出文档"><strong>产品经理的输出文档</strong></h3>
+<ul>
+<li>
+<p>结构分析</p>
+</li>
+<li>
+<p>需求说明，需求大纲</p>
+</li>
+<li>
+<p>测试结果文档</p>
+</li>
+</ul>
+<p>需求：</p>
+<p>业务方提出的要求，提供产品的更新和开发。</p>
+<p>判断产品接下来的发展趋势，并且有应对的方案。</p>
+<h4 id="商业需求文档"><strong>商业需求文档</strong></h4>
+<ol>
+<li>
+<p>项目背景：阐述想法、原因、相关调研分析报告、描述现状：</p>
+<p>培育新业务增长点？</p>
+</li>
+<li>
+<p>用户需求：解决哪方面需求，对客服产生什么方面的价值，客户的群体特征是什么？</p>
+<p>让客户使用产品的全流程</p>
+<p>帮助客户价值最大化</p>
+<p>对我们有什么好处：</p>
+<p>客户群体特征</p>
+</li>
+<li>
+<p>调研市场的大环境：</p>
+<ol>
+<li>
+<p>竞争对手</p>
+</li>
+<li>
+<p>商业价值：</p>
+<p>打败竞争对手？</p>
+<p>创收？</p>
+<p>是否符合公司整体战略目标</p>
+<p>会为企业创造什么价值</p>
+</li>
+<li>
+<p>why now</p>
+<p>多头未现</p>
+<p>环境到来</p>
+<p>部门战略</p>
+</li>
+</ol>
+</li>
+<li>
+<p>项目规划的核心需求</p>
+<p>现在和未来的需求。两周为一版，列一年的版。</p>
+</li>
+<li>
+<p>产品收益和投入成本</p>
+<p>收益：</p>
+<p>多少用户，多少高质量内容</p>
+<p>成本：</p>
+<p>运营，研发，服务器</p>
+<p>风险：</p>
+<p>内部风险/政治风险？</p>
+</li>
+</ol>
+<h4 id="市场需求文档-mrd"><strong>市场需求文档 MRD</strong></h4>
+<p>明确需求范围，目标，提出如何实现需求，时间线，运营目标，是早于产品需求文档的 PRD</p>
+<p>目录结构：</p>
+<ol>
+<li>文档介绍：文档目的，内容概要</li>
+<li>市场、产品、技术的问题和机会（6个部分）</li>
+<li>市场概述，市场目标，趋势，细分，时间约束</li>
+<li>客户和购买者，使用动机，共性是什么，影响决策的因素是什么，出于什么目的使用产品？</li>
+<li>购买者、决策者、使用者是否为同一人，他们各自的特征是什么</li>
+<li>知识信息</li>
+</ol>
+<h4 id="产品需求文档-prd-">**产品需求文档 PRD **</h4>
+<p>产品结构是逻辑上的。</p>
+<p>确认核心业务的流程：（涉及到多个角色的业务流程时，可以用泳道图 - <a href="https://zhuanlan.zhihu.com/p/139206226">https://zhuanlan.zhihu.com/p/139206226</a>；单个角色可以使用活动图。还可以使用状态图和顺序图。）</p>
+<ul>
+<li>
+<p>直接决定产品的精细度、规格、验收标准</p>
+</li>
+<li>
+<p>列出所有清单，每项都要达到达到最小颗粒度 - 需求的细粒度，细节要列出来。</p>
+</li>
+<li>
+<p>写明白需求的验收标准</p>
+</li>
+<li>
+<p>研发、测试、上线的时间线。</p>
+<p>-&ndash;</p>
+</li>
+</ul>
+<ol>
+<li>目录
+<ol>
+<li>文档的目的、参考的文档、产品命名规范</li>
+<li>产品介绍：产品的概要说明，用户定位，用户产品决策</li>
+<li>产品流程图</li>
+<li>产品功能结构图</li>
+<li><strong>功能需求</strong>
+<ol>
+<li>登录</li>
+<li>流程图、说明，详细描述</li>
+<li>首页</li>
+<li>我</li>
+<li>私信？</li>
+</ol>
+</li>
+<li>非功能需求
+<ol>
+<li>产品性能需求（访问速度达到多少、支持多少人同时访问）</li>
+<li>设计需求（风格：小清新？成熟稳重？）</li>
+<li>统计需求（字段、报表）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>流程图、结构图</li>
+<li>功能点（每个功能点有几个颗粒度）</li>
+<li>原型</li>
+</ol>
+<p>-&ndash;</p>
+<p>后端的PRD偏向 UML，用例，活动图，时序图，前端的PRD偏向流程图，界面一点，更带有交互性的说明。</p>
+<p>比较容易忽略的两个点：</p>
+<p>版本说明：对文档的修改删减要有不同版本的记录。</p>
+<p>名词解释：名词解释，或一些约定俗成的规定提前约束好。</p>
+<p><strong>产品规划、产品架构</strong></p>
+<p>产品规划：一般发生的时间是：在本版本规划下一个版本</p>
+<ul>
+<li>小版本：从需求池里找点（平时注意需求收集）增、减。</li>
+<li>大版本：行业形势、同类产品、动向。如果想要有趋势的更改、向哪个方向靠拢的话，要有完整的想法，不能想一点是一点。</li>
+</ul>
+<p>-&ndash;</p>
+<p>容易被忽视的10个点：</p>
+<ol>
+<li>
+<p>要设置默认选项，尽量同时满足小白用户和专家用户需求</p>
+</li>
+<li>
+<p>上限下限：文字图片数量限制等等，是否换行？最多换几行？超过限制后如何显示？</p>
+</li>
+<li>
+<p>误操作提醒：尤其是删除、拉黑、举报等不可逆转的功能，要有确认提醒。</p>
+</li>
+<li>
+<p>网络状况：考虑网络不稳定或者没有网络时候的功能和提醒，引导用户重新联网。</p>
+</li>
+<li>
+<p>权限禁用：开启一些默认关闭的权限。</p>
+</li>
+<li>
+<p>无响应状态：要在【无响应状态时】提醒用户应用还在运行，需要耐心等待，也要给用户返回上一层的选项。</p>
+</li>
+<li>
+<p>多语言配置</p>
+</li>
+<li>
+<p>规则后台可控</p>
+</li>
+<li>
+<p>数据统计埋点：界面的停留时长，用户路径等等</p>
+</li>
+<li>
+<p>运营扩展：是否有运营扩展的可能。</p>
+</li>
+</ol>
+<h4 id="周报月报"><strong>周报/月报</strong></h4>
+<p>每天日志。</p>
+<p>要写详细。</p>
+<p>“今天画了个圆”。</p>
+<p>要有开发进度更进：圆画到哪了？到了哪个进度、页面、接口。</p>
+<hr>
+<h3 id="项目管理"><strong>项目管理</strong></h3>
+<ol>
+<li>规定时间 - 统筹，用最低的成本也最高的质量</li>
+<li>规定任务 - 要明确任务内容和数量</li>
+<li>最低的成本 - 项目管理的精髓</li>
+</ol>
+<h4 id="项目管理流程">项目管理流程</h4>
+<ol>
+<li>立项会</li>
+<li>启动：把项目的干系人聚集在一起开会
+<ul>
+<li>跟大家明确项目已经被 approve, 可以开始开发流程了，我们要做到什么阶段和目标</li>
+<li>明确每个人的职责</li>
+<li>振奋人心</li>
+</ul>
+</li>
+<li>输出相关文档，规划评审会，明确事情、要求、评估工期</li>
+<li>执行阶段：每天 follow up ，以天/周为单位“监控”</li>
+<li>结项</li>
+</ol>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/tags/notes/">Notes</a></span>
+        
+    </p>
+
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://ffflora.cat/categories/product/">Product</a></span>
+        <span class="tag"><a href="https://ffflora.cat/categories/cn/">CN</a></span>
+        
+    </p>
+
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://ffflora.cat/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084;</span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-188012091-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

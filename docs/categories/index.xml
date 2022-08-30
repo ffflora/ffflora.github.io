@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 28 Aug 2022 23:48:29 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 29 Aug 2022 20:36:36 -0700</lastBuildDate>
     
 	<atom:link href="https://ffflora.cat/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>CN</title>
       <link>https://ffflora.cat/categories/cn/</link>
-      <pubDate>Sun, 28 Aug 2022 23:48:29 -0700</pubDate>
+      <pubDate>Mon, 29 Aug 2022 20:36:36 -0700</pubDate>
       
       <guid>https://ffflora.cat/categories/cn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Product</title>
+      <link>https://ffflora.cat/categories/product/</link>
+      <pubDate>Mon, 29 Aug 2022 20:36:36 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/categories/product/</guid>
       <description></description>
     </item>
     
