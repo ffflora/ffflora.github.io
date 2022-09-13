@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 02 Jun 2022 15:00:59 -0700</lastBuildDate>
-    
-	<atom:link href="https://ffflora.cat/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 08 Sep 2022 16:48:32 -0700</lastBuildDate><atom:link href="https://ffflora.cat/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Things To Know About Docker</title>
+      <link>https://ffflora.cat/posts/2022/09/things-to-know-about-docker/</link>
+      <pubDate>Thu, 08 Sep 2022 16:48:32 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2022/09/things-to-know-about-docker/</guid>
+      <description>Runs natively on Linux and Windows Server
+Not the same as using Virtual Machines
+Key benefits to web developers:
+Accelerate developer onboarding Simplify working with multiple apps Consistency between envs. ship faster Quick Start Clone a repo
+docker run --name repo alpine/git clone https://github.com/docker/getting-started.git
+Build the image:
+cd getting-started docker build -t docker101tutorial .
+Run the container
+docker run -d -p 80:80 --name docker -tutorial docker101tutorial
+Save and push the image</description>
+    </item>
     
     <item>
       <title>Mastering Git</title>
@@ -41,10 +55,10 @@ error: \copy: parse error at end of line psql:sql/file.</description>
       
       <guid>https://ffflora.cat/posts/2022/03/cdp-or-reverse-etl-one-or-both/</guid>
       <description>By definition,
- ETL is a data integration process that synchronizes multiple data sources into a single destination, such as a data warehouse. It stands for extract, load, and transform, which are the three steps that occur in the process
-  Extract: Take the desired data from numerous tools and sources
-  Transform: Clean (or reorient) the data into a standard format to store it in
-  Load: Put the transformed data into organized tables that will live inside a data warehouse</description>
+ETL is a data integration process that synchronizes multiple data sources into a single destination, such as a data warehouse. It stands for extract, load, and transform, which are the three steps that occur in the process
+Extract: Take the desired data from numerous tools and sources
+Transform: Clean (or reorient) the data into a standard format to store it in
+Load: Put the transformed data into organized tables that will live inside a data warehouse</description>
     </item>
     
     <item>
@@ -53,7 +67,7 @@ error: \copy: parse error at end of line psql:sql/file.</description>
       <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/12/sql-notes-3/</guid>
-      <description>Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.</description>
+      <description>Smart Table Design Here are some very broad steps for creating new tables: Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table. And here are some rules of atomic data, which should be the most important part of your table.</description>
     </item>
     
     <item>
@@ -62,10 +76,10 @@ error: \copy: parse error at end of line psql:sql/file.</description>
       <pubDate>Wed, 03 Nov 2021 14:47:21 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/</guid>
-      <description>ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
-  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+      <description>ML Implementation and Operation Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
 https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
-  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data.</description>
+An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data.</description>
     </item>
     
     <item>
@@ -74,10 +88,10 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-
       <pubDate>Wed, 03 Nov 2021 14:47:15 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/</guid>
-      <description>Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
-  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
-  Incremental Training in Amazon SageMaker
-Over time, you might find that a model generates inference that are not as good as they were in the past.</description>
+      <description>Modeling Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model.</description>
     </item>
     
     <item>
@@ -86,7 +100,7 @@ Over time, you might find that a model generates inference that are not as good 
       <pubDate>Wed, 03 Nov 2021 14:34:57 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/</guid>
-      <description>Exploratory Data Analysis   In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.</description>
+      <description>Exploratory Data Analysis In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.</description>
     </item>
     
     <item>
@@ -95,11 +109,11 @@ Over time, you might find that a model generates inference that are not as good 
       <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-cheatsheet1/</guid>
-      <description>Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+      <description>Data Engineering In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
+Glue cannot write the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
     </item>
     
     <item>
@@ -111,12 +125,14 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
       <description>Here are some resources I collected for better preparing the AWS Machine Learning Specialty Exam.
 Practical experience aws/amazon-sagemaker-examples
 Object Detection with Amazon Sagemaker
-AWS Training offers digital courses on machine learning (ML).   Data Analytics Fundamentals
-  Exam Readiness: AWS Certified Machine Learning - Specialty
-  Deep Learning on AWS
-  Elements of Data Science
-  Math for Machine Learning
-  Linear and Logistic Regression</description>
+AWS Training offers digital courses on machine learning (ML). Data Analytics Fundamentals
+Exam Readiness: AWS Certified Machine Learning - Specialty
+Deep Learning on AWS
+Elements of Data Science
+Math for Machine Learning
+Linear and Logistic Regression
+Machine Learning Use Case
+AWS whitepapers The following are whitepapers that have been written about ML and deep learning that you will want to read as part of your exam study:</description>
     </item>
     
     <item>
@@ -128,7 +144,7 @@ AWS Training offers digital courses on machine learning (ML).   Data Analytics F
       <description>These are my study notes directly from AWS Training cource - AWS Machine Learning Exam Readiness.
 Domain 1: Data Engineering Create Data Repo for Machine Learning Identify and implement a data ingestion solution To use the data for ML, you need to ingest it into a service like Amazon S3
 Batch and stream processing are two kinds of data ingestion.
-Batch processing Batch processing periodically collects and groups source data.With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3.</description>
+Batch processing Batch processing periodically collects and groups source data.</description>
     </item>
     
     <item>
@@ -138,7 +154,7 @@ Batch processing Batch processing periodically collects and groups source data.W
       
       <guid>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</guid>
       <description>The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
-Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
+Volume - Data Storage Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
     </item>
     
     <item>
@@ -147,7 +163,7 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
       <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2020/05/sql-notes-2/</guid>
-      <description>SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
+      <description>SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
     </item>
     
     <item>

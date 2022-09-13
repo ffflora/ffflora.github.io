@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Flora Jiang ">
-<meta name="description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
-  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
-  Incremental Training in Amazon SageMaker
-Over time, you might find that a model generates inference that are not as good as they were in the past." />
+<meta name="description" content="Modeling Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model." />
 <meta name="keywords" content=", AWS, Machine Learning" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -45,40 +45,34 @@ Over time, you might find that a model generates inference that are not as good 
 
 
 <meta itemprop="name" content="AWS Machine Learning Specialty Cheatsheet(3)">
-<meta itemprop="description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
-  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
-  Incremental Training in Amazon SageMaker
-Over time, you might find that a model generates inference that are not as good as they were in the past.">
-<meta itemprop="datePublished" content="2021-11-03T14:47:15-07:00" />
+<meta itemprop="description" content="Modeling Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model."><meta itemprop="datePublished" content="2021-11-03T14:47:15-07:00" />
 <meta itemprop="dateModified" content="2021-11-03T14:47:15-07:00" />
-<meta itemprop="wordCount" content="3529">
-<meta itemprop="image" content="https://ffflora.cat/"/>
-
-
-
+<meta itemprop="wordCount" content="3531"><meta itemprop="image" content="https://ffflora.cat/"/>
 <meta itemprop="keywords" content="AWS,Machine Learning," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ffflora.cat/"/>
 
 <meta name="twitter:title" content="AWS Machine Learning Specialty Cheatsheet(3)"/>
-<meta name="twitter:description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
-  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
-  Incremental Training in Amazon SageMaker
-Over time, you might find that a model generates inference that are not as good as they were in the past."/>
+<meta name="twitter:description" content="Modeling Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model."/>
 
 
 
     <meta property="og:title" content="AWS Machine Learning Specialty Cheatsheet(3)" />
-<meta property="og:description" content="Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
-  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
-  Incremental Training in Amazon SageMaker
-Over time, you might find that a model generates inference that are not as good as they were in the past." />
+<meta property="og:description" content="Modeling Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/" />
-<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="og:url" content="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/" /><meta property="og:image" content="https://ffflora.cat/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-03T14:47:15-07:00" />
 <meta property="article:modified_time" content="2021-11-03T14:47:15-07:00" />
+
 
 
 
@@ -420,46 +414,46 @@ Over time, you might find that a model generates inference that are not as good 
 <table>
 <thead>
 <tr>
-<th align="left">ContentTypes for Built-in Algorithms</th>
-<th align="left"></th>
+<th style="text-align:left">ContentTypes for Built-in Algorithms</th>
+<th style="text-align:left"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">ContentType</td>
-<td align="left">Algorithm</td>
+<td style="text-align:left">ContentType</td>
+<td style="text-align:left">Algorithm</td>
 </tr>
 <tr>
-<td align="left">application/x-image</td>
-<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+<td style="text-align:left">application/x-image</td>
+<td style="text-align:left">Object Detection Algorithm, Semantic Segmentation</td>
 </tr>
 <tr>
-<td align="left">application/x-recordio</td>
-<td align="left">Object Detection Algorithm</td>
+<td style="text-align:left">application/x-recordio</td>
+<td style="text-align:left">Object Detection Algorithm</td>
 </tr>
 <tr>
-<td align="left">application/x-recordio-protobuf</td>
-<td align="left">Factorization Machines, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, Sequence-to-Sequence</td>
+<td style="text-align:left">application/x-recordio-protobuf</td>
+<td style="text-align:left">Factorization Machines, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, Sequence-to-Sequence</td>
 </tr>
 <tr>
-<td align="left">application/<strong>jsonlines</strong></td>
-<td align="left">BlazingText, DeepAR</td>
+<td style="text-align:left">application/<strong>jsonlines</strong></td>
+<td style="text-align:left">BlazingText, DeepAR</td>
 </tr>
 <tr>
-<td align="left">image/<strong>jpeg</strong></td>
-<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+<td style="text-align:left">image/<strong>jpeg</strong></td>
+<td style="text-align:left">Object Detection Algorithm, Semantic Segmentation</td>
 </tr>
 <tr>
-<td align="left">image/<strong>png</strong></td>
-<td align="left">Object Detection Algorithm, Semantic Segmentation</td>
+<td style="text-align:left">image/<strong>png</strong></td>
+<td style="text-align:left">Object Detection Algorithm, Semantic Segmentation</td>
 </tr>
 <tr>
-<td align="left">text/<strong>csv</strong></td>
-<td align="left">IP Insights, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, XGBoost</td>
+<td style="text-align:left">text/<strong>csv</strong></td>
+<td style="text-align:left">IP Insights, K-Means, k-NN, Latent Dirichlet Allocation, Linear Learner, NTM, PCA, RCF, XGBoost</td>
 </tr>
 <tr>
-<td align="left">text/<strong>libsvm</strong></td>
-<td align="left">XGBoost</td>
+<td style="text-align:left">text/<strong>libsvm</strong></td>
+<td style="text-align:left">XGBoost</td>
 </tr>
 </tbody>
 </table>
@@ -509,7 +503,7 @@ Over time, you might find that a model generates inference that are not as good 
 <p>For <code>supervised</code> mode, the training/validation file should contain a training sentence per line along with the labels. Labels are words that are prefixed by the string <em><strong>label</strong></em>. Here is an example of a training/validation file:</p>
 </li>
 </ul>
-<pre><code>__label__4  linux ready for prime time , intel says , despite all the linux hype , the open-source movement has yet to make a huge splash in the desktop market . that may be about to change , thanks to chipmaking giant intel corp .
+<pre tabindex="0"><code>__label__4  linux ready for prime time , intel says , despite all the linux hype , the open-source movement has yet to make a huge splash in the desktop market . that may be about to change , thanks to chipmaking giant intel corp .
 
 __label__2  bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly as the indian skippers return to international cricket was short lived .
 </code></pre><p>​	<strong>Note</strong></p>
@@ -517,11 +511,11 @@ __label__2  bowled by the slower one again , kolkata , november 14 the past caug
 <p>​	Upload the training file under the train channel, and optionally upload the validation file under the 	validation channel.</p>
 <h6 id="train-with-augmented-manifest-text-format">Train with Augmented Manifest Text Format</h6>
 <p>The supervised mode also supports the augmented manifest format, which enables you to do training in <strong>pipe</strong> mode without needing to create RecordIO files. While using the format, an S3 manifest file needs to be generated that contains the list of sentences and their corresponding labels. The manifest file format should be in <a href="http://jsonlines.org/">JSON Lines</a> format in which each line represents one sample. The sentences are specified using the <code>source</code> tag and the label can be specified using the <code>label</code> tag. Both <code>source</code> and <code>label</code> tags should be provided under the <code>AttributeNames</code> parameter value as specified in the request.</p>
-<pre><code>{&quot;source&quot;:&quot;linux ready for prime time , intel says , despite all the linux hype&quot;, &quot;label&quot;:1}
-{&quot;source&quot;:&quot;bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly&quot;, &quot;label&quot;:2}
+<pre tabindex="0"><code>{&#34;source&#34;:&#34;linux ready for prime time , intel says , despite all the linux hype&#34;, &#34;label&#34;:1}
+{&#34;source&#34;:&#34;bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly&#34;, &#34;label&#34;:2}
 </code></pre><p>Multi-label training is also supported by specifying a JSON array of labels.</p>
-<pre><code>{&quot;source&quot;:&quot;linux ready for prime time , intel says , despite all the linux hype&quot;, &quot;label&quot;: [1, 3]}
-{&quot;source&quot;:&quot;bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly&quot;, &quot;label&quot;: [2, 4, 5]}
+<pre tabindex="0"><code>{&#34;source&#34;:&#34;linux ready for prime time , intel says , despite all the linux hype&#34;, &#34;label&#34;: [1, 3]}
+{&#34;source&#34;:&#34;bowled by the slower one again , kolkata , november 14 the past caught up with sourav ganguly&#34;, &#34;label&#34;: [2, 4, 5]}
 </code></pre><h5 id="hyperparameters">Hyperparameters</h5>
 <ul>
 <li>Word2vec:
@@ -965,7 +959,7 @@ __label__2  bowled by the slower one again , kolkata , november 14 the past caug
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        3529 Words
+        3531 Words
       </p>
 
       <p>
@@ -1113,7 +1107,7 @@ __label__2  bowled by the slower one again , kolkata , november 14 the past caug
         <div id="comments">
           <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -1168,7 +1162,7 @@ __label__2  bowled by the slower one again , kolkata , november 14 the past caug
 
 
 
-<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.188af889e916d7182e7bf4af7bed9ff4c9b70dd61a69188cb044d25745a4ffc32b82cbec846336503520a7716e619cb46848931205cfa3176a691ff9152d4947.js" integrity="sha512-GIr4iekW1xgue/Sve&#43;2f9Mm3DdYaaRiMsETSV0Wk/8MrgsvshGM2UDUgp3FuYZy0aEiTEgXPoxdqaR/5FS1JRw=="></script>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -1182,7 +1176,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
 
 

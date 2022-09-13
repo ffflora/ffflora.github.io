@@ -7,15 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 29 Aug 2022 20:36:36 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 08 Sep 2022 16:48:32 -0700</lastBuildDate><atom:link href="https://ffflora.cat/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ETL</title>
+      <link>https://ffflora.cat/tags/etl/</link>
+      <pubDate>Thu, 08 Sep 2022 16:48:32 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/tags/etl/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://ffflora.cat/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>GCP</title>
+      <link>https://ffflora.cat/tags/gcp/</link>
+      <pubDate>Thu, 08 Sep 2022 16:48:32 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/tags/gcp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Notes</title>
       <link>https://ffflora.cat/tags/notes/</link>
-      <pubDate>Mon, 29 Aug 2022 20:36:36 -0700</pubDate>
+      <pubDate>Thu, 08 Sep 2022 16:48:32 -0700</pubDate>
       
       <guid>https://ffflora.cat/tags/notes/</guid>
       <description></description>
@@ -27,15 +41,6 @@
       <pubDate>Fri, 27 May 2022 14:44:17 -0700</pubDate>
       
       <guid>https://ffflora.cat/tags/debugging/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ETL</title>
-      <link>https://ffflora.cat/tags/etl/</link>
-      <pubDate>Thu, 10 Mar 2022 23:18:51 -0800</pubDate>
-      
-      <guid>https://ffflora.cat/tags/etl/</guid>
       <description></description>
     </item>
     
@@ -108,15 +113,6 @@
       <pubDate>Thu, 14 Jan 2021 00:19:31 -0800</pubDate>
       
       <guid>https://ffflora.cat/tags/data-analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GCP</title>
-      <link>https://ffflora.cat/tags/gcp/</link>
-      <pubDate>Wed, 28 Aug 2019 21:30:55 -0700</pubDate>
-      
-      <guid>https://ffflora.cat/tags/gcp/</guid>
       <description></description>
     </item>
     

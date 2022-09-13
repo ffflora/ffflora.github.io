@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 27 May 2022 14:44:17 -0700</lastBuildDate>
-    
-	<atom:link href="https://ffflora.cat/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 27 May 2022 14:44:17 -0700</lastBuildDate><atom:link href="https://ffflora.cat/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PostgreSQL: Error When Copying Table</title>
       <link>https://ffflora.cat/posts/2022/05/postgresql-error-when-copying-table/</link>

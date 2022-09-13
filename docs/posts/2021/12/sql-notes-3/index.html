@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Flora Jiang ">
-<meta name="description" content="Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table." />
+<meta name="description" content="Smart Table Design Here are some very broad steps for creating new tables: Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table. And here are some rules of atomic data, which should be the most important part of your table." />
 <meta name="keywords" content=", Notes, SQL" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -42,31 +42,25 @@
 
 
 <meta itemprop="name" content="SQL Notes (3)">
-<meta itemprop="description" content="Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.">
-<meta itemprop="datePublished" content="2021-12-06T21:43:17-08:00" />
+<meta itemprop="description" content="Smart Table Design Here are some very broad steps for creating new tables: Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table. And here are some rules of atomic data, which should be the most important part of your table."><meta itemprop="datePublished" content="2021-12-06T21:43:17-08:00" />
 <meta itemprop="dateModified" content="2021-12-06T21:43:17-08:00" />
-<meta itemprop="wordCount" content="906">
-<meta itemprop="image" content="https://ffflora.cat/"/>
-
-
-
+<meta itemprop="wordCount" content="906"><meta itemprop="image" content="https://ffflora.cat/"/>
 <meta itemprop="keywords" content="Notes,SQL," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ffflora.cat/"/>
 
 <meta name="twitter:title" content="SQL Notes (3)"/>
-<meta name="twitter:description" content="Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table."/>
+<meta name="twitter:description" content="Smart Table Design Here are some very broad steps for creating new tables: Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table. And here are some rules of atomic data, which should be the most important part of your table."/>
 
 
 
     <meta property="og:title" content="SQL Notes (3)" />
-<meta property="og:description" content="Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table." />
+<meta property="og:description" content="Smart Table Design Here are some very broad steps for creating new tables: Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table. And here are some rules of atomic data, which should be the most important part of your table." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ffflora.cat/posts/2021/12/sql-notes-3/" />
-<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="og:url" content="https://ffflora.cat/posts/2021/12/sql-notes-3/" /><meta property="og:image" content="https://ffflora.cat/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-06T21:43:17-08:00" />
 <meta property="article:modified_time" content="2021-12-06T21:43:17-08:00" />
+
 
 
 
@@ -197,45 +191,45 @@
 <p>A <strong>partial functional dependency</strong> means that a <strong>non-key</strong> column is dependent <strong>on some, but not all,</strong> of the columns in a composite primary key.</p>
 <p>If changing any of the non-key columns might cause any of the other columns to changem you have a <strong>transitive dependency.</strong></p>
 <p>You can review and (potentially reuse) the code to recreate the current table by</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> m_table;
-</code></pre></div><h5 id="create-table-with-a-primary-key">CREATE TABLE with a PRIMARY KEY</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_contacts
-(
-	contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
-  aaa VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
-  bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
-);
-
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_contacts
-(
-	contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT, <span style="color:#75715e">-- goes up by 1 autometically
-</span><span style="color:#75715e"></span>  aaa VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
-  bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
-);
-</code></pre></div><h5 id="create-a-table-with-a-foreign-key">Create a table with a FOREIGN KEY</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> interests(
-int_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-  interest VARCHAR(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
-  contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#66d9ef">CONSTRAINT</span> my_contact_id 
-  <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span>(contact_id)
-  <span style="color:#66d9ef">REFERENCES</span> my_contacts(contact_id)
-)
-</code></pre></div><h5 id="adding-a-primary-key-to-an-existing-table---alter">Adding a PRIMARY KEY to an existing table - ALTER</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> my_table
-<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>, <span style="color:#75715e">-- FIRST makes the column goes first in the table
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(contact_id);
-</code></pre></div><h5 id="create-a-table-from-union">Create a table from UNION</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_union <span style="color:#66d9ef">AS</span>
-  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> jc
-  <span style="color:#66d9ef">UNION</span>
-  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_desired
-  <span style="color:#66d9ef">UNION</span> 
-  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_listings
-</code></pre></div><h4 id="table-maintenance">Table Maintenance</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> m_table;
+</span></span></code></pre></div><h5 id="create-table-with-a-primary-key">CREATE TABLE with a PRIMARY KEY</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_contacts
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span>	contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  aaa VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_contacts
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span>	contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT, <span style="color:#75715e">-- goes up by 1 autometically
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  aaa VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  bbb char(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (contact_id)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h5 id="create-a-table-with-a-foreign-key">Create a table with a FOREIGN KEY</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> interests(
+</span></span><span style="display:flex;"><span>int_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>  interest VARCHAR(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">CONSTRAINT</span> my_contact_id 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span>(contact_id)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">REFERENCES</span> my_contacts(contact_id)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h5 id="adding-a-primary-key-to-an-existing-table---alter">Adding a PRIMARY KEY to an existing table - ALTER</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> my_table
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> contact_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>, <span style="color:#75715e">-- FIRST makes the column goes first in the table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(contact_id);
+</span></span></code></pre></div><h5 id="create-a-table-from-union">Create a table from UNION</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_union <span style="color:#66d9ef">AS</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> jc
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNION</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_desired
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">UNION</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> job_listings
+</span></span></code></pre></div><h4 id="table-maintenance">Table Maintenance</h4>
 <ul>
 <li>
 <p>Make changes to the created table: <code>ALTER TABLE</code>.</p>
@@ -263,30 +257,30 @@ int_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NU
 <p><code>RENAME</code> the column name.</p>
 </li>
 <li>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
-<span style="color:#66d9ef">ADD</span> vend_phone CHAR(<span style="color:#ae81ff">20</span>);
-<span style="color:#66d9ef">AFTER</span> first_name <span style="color:#75715e">-- indicates the position
-</span><span style="color:#75715e"></span>  
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
-<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vend_phone;
-  
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
-<span style="color:#66d9ef">RENAME</span> <span style="color:#66d9ef">TO</span> VendorsList; <span style="color:#75715e">-- renaming the table
-</span><span style="color:#75715e"></span>  
-<span style="color:#75715e">/*Update the column name from number -&gt; project_id, and same to the other. You can perform many column changes in one SQL statement*/</span>
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Projects
-CHANGE <span style="color:#66d9ef">COLUMN</span> number project_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
-CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
-<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(project_id)
-  
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> project_list
-<span style="color:#66d9ef">MODIFY</span> <span style="color:#66d9ef">COLUMN</span> vendors VARCHAR(<span style="color:#ae81ff">100</span>)
-  
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> project_list
-<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vendors
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ADD</span> vend_phone CHAR(<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">AFTER</span> first_name <span style="color:#75715e">-- indicates the position
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vend_phone;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Vendors
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RENAME</span> <span style="color:#66d9ef">TO</span> VendorsList; <span style="color:#75715e">-- renaming the table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*Update the column name from number -&gt; project_id, and same to the other. You can perform many column changes in one SQL statement*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> Projects
+</span></span><span style="display:flex;"><span>CHANGE <span style="color:#66d9ef">COLUMN</span> number project_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span>CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span style="color:#ae81ff">30</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(project_id)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> project_list
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MODIFY</span> <span style="color:#66d9ef">COLUMN</span> vendors VARCHAR(<span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> project_list
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">COLUMN</span> vendors
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> CustCopy;
+</span></span></code></pre></div></li>
 </ul>
 <h3 id="multi-table-database-design">Multi-table database design</h3>
 <h4 id="when-to-use-one-to-one-tables">When to use one-to-one tables</h4>
@@ -298,39 +292,39 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 <li>If you have a large piece of data.</li>
 </ol>
 <p>Many-to-Many: a junction table holds a key from each table.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#75715e">/*Three ways to the same end*/</span>
-<span style="color:#75715e">/*1.	CREATE TABLE, then INSERT with SELECT. */</span>
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession(
-	id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> SUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-  profession VARCHAR(<span style="color:#ae81ff">20</span>)
-);
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> peofession(profession)
-	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
-	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
-	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span><span style="color:#75715e">/*2.	CREATE TABLE with SELECT, then ALTER to add primary key */</span>
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession <span style="color:#66d9ef">AS</span>
-	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
-	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
-	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
-<span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> profession
-<span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>,
-<span style="color:#66d9ef">ADD</span> PRAMARY <span style="color:#66d9ef">KEY</span>(id);
-<span style="color:#75715e">--------------------------------
-</span><span style="color:#75715e"></span><span style="color:#75715e">/*3. CREATE TABLE, SELECT and INSERT at the same time*/</span>
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession
-(
-  id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-  profession varchar(<span style="color:#ae81ff">20</span>)
-) <span style="color:#66d9ef">AS</span> <span style="color:#75715e">-- it&#39;s funneling all the output of the SELECT into the new table. 
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">AS</span> prof <span style="color:#66d9ef">FROM</span> my_contacts <span style="color:#75715e">-- this AS could be skipped 
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
-	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
-
-
-<span style="color:#75715e">--------------------------------
-</span></code></pre></div><p>Note:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#75715e">/*Three ways to the same end*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*1.	CREATE TABLE, then INSERT with SELECT. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession(
+</span></span><span style="display:flex;"><span>	id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> SUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>  profession VARCHAR(<span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> peofession(profession)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">/*2.	CREATE TABLE with SELECT, then ALTER to add primary key */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession <span style="color:#66d9ef">AS</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">FROM</span> my_contacts
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> profession
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">FIRST</span>,
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ADD</span> PRAMARY <span style="color:#66d9ef">KEY</span>(id);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">/*3. CREATE TABLE, SELECT and INSERT at the same time*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> profession
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span>  id INT(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>  profession varchar(<span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">AS</span> <span style="color:#75715e">-- it&#39;s funneling all the output of the SELECT into the new table. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">SELECT</span> profession <span style="color:#66d9ef">AS</span> prof <span style="color:#66d9ef">FROM</span> my_contacts <span style="color:#75715e">-- this AS could be skipped 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> profession
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> profession;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--------------------------------
+</span></span></span></code></pre></div><p>Note:</p>
 <p><code>AS</code> populates a new table with the result of the <code>SELECT</code>. If we hadn&rsquo;t specified that the new table have two columns with new names, <code>AS</code> would have created just one column, filled with the same name and data type as the column that&rsquo;s the result of <code>SELECT</code>.</p>
 <p>Quick Links:</p>
 <p><a href="https://ffflora.cat/posts/2020/05/sql-notes-1/">SQL Notes (1)</a></p>
@@ -517,7 +511,7 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
         <div id="comments">
           <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -572,7 +566,7 @@ CHANGE <span style="color:#66d9ef">COLUMN</span> cont contractor VARCHAR(<span s
 
 
 
-<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.188af889e916d7182e7bf4af7bed9ff4c9b70dd61a69188cb044d25745a4ffc32b82cbec846336503520a7716e619cb46848931205cfa3176a691ff9152d4947.js" integrity="sha512-GIr4iekW1xgue/Sve&#43;2f9Mm3DdYaaRiMsETSV0Wk/8MrgsvshGM2UDUgp3FuYZy0aEiTEgXPoxdqaR/5FS1JRw=="></script>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -586,7 +580,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
 
 

@@ -7,18 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 06 Dec 2021 21:43:17 -0800</lastBuildDate>
-    
-	<atom:link href="https://ffflora.cat/tags/sql/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 06 Dec 2021 21:43:17 -0800</lastBuildDate><atom:link href="https://ffflora.cat/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SQL Notes (3)</title>
       <link>https://ffflora.cat/posts/2021/12/sql-notes-3/</link>
       <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/12/sql-notes-3/</guid>
-      <description>Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.</description>
+      <description>Smart Table Design Here are some very broad steps for creating new tables: Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table. And here are some rules of atomic data, which should be the most important part of your table.</description>
     </item>
     
     <item>
@@ -27,7 +23,7 @@
       <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2020/05/sql-notes-2/</guid>
-      <description>SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
+      <description>SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
     </item>
     
     <item>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Engineering on Flora Jiang</title>
+    <link>https://ffflora.cat/categories/data-engineering/</link>
+    <description>Recent content in Data Engineering on Flora Jiang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 08 Sep 2022 16:48:32 -0700</lastBuildDate><atom:link href="https://ffflora.cat/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Things To Know About Docker</title>
+      <link>https://ffflora.cat/posts/2022/09/things-to-know-about-docker/</link>
+      <pubDate>Thu, 08 Sep 2022 16:48:32 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2022/09/things-to-know-about-docker/</guid>
+      <description>Runs natively on Linux and Windows Server
+Not the same as using Virtual Machines
+Key benefits to web developers:
+Accelerate developer onboarding Simplify working with multiple apps Consistency between envs. ship faster Quick Start Clone a repo
+docker run --name repo alpine/git clone https://github.com/docker/getting-started.git
+Build the image:
+cd getting-started docker build -t docker101tutorial .
+Run the container
+docker run -d -p 80:80 --name docker -tutorial docker101tutorial
+Save and push the image</description>
+    </item>
+    
+  </channel>
+</rss>

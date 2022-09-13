@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Flora Jiang ">
 <meta name="description" content="This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
+How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
 type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&amp;gt; { if (data." />
 <meta name="keywords" content=", Notes, Problem Solving, React.js" />
@@ -46,24 +46,18 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
 
 <meta itemprop="name" content="React.js Problem Solving Notes ">
 <meta itemprop="description" content="This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
+How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
-type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&gt; { if (data.">
-<meta itemprop="datePublished" content="2021-03-24T00:08:29-07:00" />
+type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&gt; { if (data."><meta itemprop="datePublished" content="2021-03-24T00:08:29-07:00" />
 <meta itemprop="dateModified" content="2021-03-24T00:08:29-07:00" />
-<meta itemprop="wordCount" content="434">
-<meta itemprop="image" content="https://ffflora.cat/"/>
-
-
-
+<meta itemprop="wordCount" content="434"><meta itemprop="image" content="https://ffflora.cat/"/>
 <meta itemprop="keywords" content="Notes,Problem Solving,React.js," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ffflora.cat/"/>
 
 <meta name="twitter:title" content="React.js Problem Solving Notes "/>
 <meta name="twitter:description" content="This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
+How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
 type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&gt; { if (data."/>
 
@@ -71,14 +65,14 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
 
     <meta property="og:title" content="React.js Problem Solving Notes " />
 <meta property="og:description" content="This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
+How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
 type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&gt; { if (data." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ffflora.cat/posts/2021/03/react.js-problem-solving-notes/" />
-<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="og:url" content="https://ffflora.cat/posts/2021/03/react.js-problem-solving-notes/" /><meta property="og:image" content="https://ffflora.cat/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-03-24T00:08:29-07:00" />
 <meta property="article:modified_time" content="2021-03-24T00:08:29-07:00" />
+
 
 
 
@@ -172,105 +166,105 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
 <li>
 <p>How do I parse a <code>.json</code> data file to pass into <a href="https://js.devexpress.com/Demos/WidgetsGallery/Demo/Charts/Area/React/Light/">this</a> DevExtreme component and render out a series of area charts?</p>
 <p>Data looks like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">type</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">period_index</span>: <span style="color:#66d9ef">number</span>,
-  <span style="color:#a6e22e">breakdown</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">sessions</span>: <span style="color:#66d9ef">number</span>,
-    <span style="color:#a6e22e">conversions</span>: <span style="color:#66d9ef">number</span>,
-    <span style="color:#a6e22e">avg_page_views</span>: <span style="color:#66d9ef">number</span>,
-    <span style="color:#a6e22e">avg_time_on_page</span>: <span style="color:#66d9ef">number</span>,
-    <span style="color:#a6e22e">new_users</span>: <span style="color:#66d9ef">number</span>,
-  }
-}[]
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#a6e22e">parseData</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">any</span>) =&gt; {
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sampleData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>];
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">sampleData</span>.<span style="color:#a6e22e">breakdown</span>);
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">resultWithMonth</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">period_index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>; <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>; <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>; }) =&gt; {
-   
-      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">period_index</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">12</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moment</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">month</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#e6db74">&#34;M&#34;</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;MMM&#39;</span>)
-      <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">month</span>
-      <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>
-      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">d</span>
-    })
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">keys</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">key</span> =&gt; {
-      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dataSource</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">resultWithMonth</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">period_index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>; <span style="color:#a6e22e">breakdown</span><span style="color:#f92672">:</span> { [<span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>; }; <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>; }) =&gt; {
-        <span style="color:#66d9ef">return</span> {
-          <span style="color:#a6e22e">period_index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">period_index</span>,
-          [<span style="color:#a6e22e">key</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">breakdown</span>[<span style="color:#a6e22e">key</span>],
-          <span style="color:#a6e22e">monthString</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">date</span>
-        }
-      })
-   
-      <span style="color:#66d9ef">return</span> {
-   
-        <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">key</span>,
-        <span style="color:#a6e22e">subtitle</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">dataSource</span>[<span style="color:#a6e22e">dataSource</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">key</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;0,0&#39;</span>),
-        <span style="color:#a6e22e">dataSource</span>
-      }
-    })
-   
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
-  }
-  <span style="color:#66d9ef">return</span> []
-}
-<span style="color:#a6e22e">parseMonthData</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">period</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>) =&gt; {
-   
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> (parseInt(<span style="color:#a6e22e">period</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">12</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1900</span> <span style="color:#f92672">+</span> (parseInt(<span style="color:#a6e22e">period</span>) <span style="color:#f92672">-</span> (parseInt(<span style="color:#a6e22e">period</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">12</span>)) <span style="color:#f92672">/</span> <span style="color:#ae81ff">12</span>
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moment</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">month</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#e6db74">&#34;M&#34;</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;MMMM&#39;</span>)
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">date</span>
-}
-</code></pre></div><p>Chart looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">period_index</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">breakdown</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sessions</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">conversions</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">avg_page_views</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">avg_time_on_page</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">new_users</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}[]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-react" data-lang="react"><span style="display:flex;"><span><span style="color:#a6e22e">parseData</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Data</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">any</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sampleData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">sampleData</span>.<span style="color:#a6e22e">breakdown</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">resultWithMonth</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">period_index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>; <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>; <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>; }) =&gt; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">period_index</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">12</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moment</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">month</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#e6db74">&#34;M&#34;</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;MMM&#39;</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">month</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">d</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">keys</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">key</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dataSource</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">resultWithMonth</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">period_index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>; <span style="color:#a6e22e">breakdown</span><span style="color:#f92672">:</span> { [<span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>; }; <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>; }) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">period_index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">period_index</span>,
+</span></span><span style="display:flex;"><span>          [<span style="color:#a6e22e">key</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">breakdown</span>[<span style="color:#a6e22e">key</span>],
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">monthString</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">date</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">key</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subtitle</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">dataSource</span>[<span style="color:#a6e22e">dataSource</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">key</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;0,0&#39;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">dataSource</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> []
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">parseMonthData</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">period</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>) =&gt; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> (parseInt(<span style="color:#a6e22e">period</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">12</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1900</span> <span style="color:#f92672">+</span> (parseInt(<span style="color:#a6e22e">period</span>) <span style="color:#f92672">-</span> (parseInt(<span style="color:#a6e22e">period</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">12</span>)) <span style="color:#f92672">/</span> <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moment</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">month</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#e6db74">&#34;M&#34;</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;MMMM&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">date</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Chart looks like:</p>
 <p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/blog/1.png?raw=true" alt="image-20210324014548148"></p>
 </li>
 <li>
 <p>How to parse data and get color ranges so that the colors in the table are dynamically changed based on the value in the cell?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">COLUMNS</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#e6db74">&#39;count&#39;</span>, <span style="color:#e6db74">&#39;Clicks&#39;</span>, <span style="color:#e6db74">&#39;Conversions&#39;</span>, <span style="color:#e6db74">&#39;Cost&#39;</span>, <span style="color:#e6db74">&#39;avg_cpm&#39;</span>, <span style="color:#e6db74">&#39;avg_cpc&#39;</span>, <span style="color:#e6db74">&#39;avg_cpa&#39;</span>]
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">COLOR</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;#1c558e&#39;</span>
-   
-   
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getColorRanges</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DataType</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>[][] =&gt; {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRanges</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLUMNS</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">col</span> =&gt; {
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">col</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;value&#39;</span>) <span style="color:#66d9ef">return</span> [] <span style="color:#75715e">//keywords, do nothing. 
-</span><span style="color:#75715e"></span>   
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sorted</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>
-      .<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DataType</span>) =&gt; <span style="color:#a6e22e">x</span>[<span style="color:#a6e22e">col</span>])
-      .<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>, <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>);
-   
-    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">sorted</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">sorted</span>[<span style="color:#a6e22e">sorted</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]];
-  })
-   
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">colorRanges</span>
-}
-   
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRanges</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getColorRanges</span>(<span style="color:#a6e22e">data</span>);
-   
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getBackgroundColor</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">column</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) =&gt; {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLUMNS</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">column</span>);
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorRanges</span>[<span style="color:#a6e22e">columnIndex</span>];
-  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">min</span>, <span style="color:#a6e22e">max</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorRange</span>;
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">value</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">min</span>) <span style="color:#f92672">/</span> (<span style="color:#a6e22e">max</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">min</span>);
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLOR</span> <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">ceil</span>(<span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">127</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">16</span>);
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">opacity</span> <span style="color:#f92672">=</span> (<span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">127</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">255</span>
-  <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">color</span>, <span style="color:#a6e22e">opacity</span>];
-}
-<span style="color:#75715e">// inside the devExpress data Grid component, there&#39;s a config is called `cellRender`, where you can adjust the style and/or render config for cells.
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">cellRender</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">cell</span> =&gt; {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">columnWithDollar</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Cost&#39;</span>, <span style="color:#e6db74">&#39;CPC&#39;</span>, <span style="color:#e6db74">&#39;CPM&#39;</span>, <span style="color:#e6db74">&#39;CPA&#39;</span>]
-  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">caption</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">column</span>
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">col</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;value&#39;</span>) {
-          <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">backgroundColor</span>, <span style="color:#a6e22e">opacity</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">getBackgroundColor</span>(<span style="color:#a6e22e">col</span>, <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]);
-         <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">cellElement</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">backgroundColor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">backgroundColor</span>
-         <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">opacity</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.9</span>) {
-           <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">cellElement</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;#ddd&#39;</span>
-  }
-  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">columnWithDollar</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">caption</span>) <span style="color:#f92672">?</span> 		(<span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;$0,0.00&#39;</span>)) <span style="color:#f92672">:</span> (<span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;0,0&#39;</span>)));
-  }
-  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]
-  }}
-</code></pre></div><p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/blog/2.png?raw=true" alt="image-20210330155336896"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-react" data-lang="react"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">COLUMNS</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#e6db74">&#39;count&#39;</span>, <span style="color:#e6db74">&#39;Clicks&#39;</span>, <span style="color:#e6db74">&#39;Conversions&#39;</span>, <span style="color:#e6db74">&#39;Cost&#39;</span>, <span style="color:#e6db74">&#39;avg_cpm&#39;</span>, <span style="color:#e6db74">&#39;avg_cpc&#39;</span>, <span style="color:#e6db74">&#39;avg_cpa&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">COLOR</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;#1c558e&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getColorRanges</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DataType</span>[] <span style="color:#f92672">|</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>[][] =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRanges</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLUMNS</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">col</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">col</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;value&#39;</span>) <span style="color:#66d9ef">return</span> [] <span style="color:#75715e">//keywords, do nothing. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sorted</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DataType</span>) =&gt; <span style="color:#a6e22e">x</span>[<span style="color:#a6e22e">col</span>])
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>, <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">sorted</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">sorted</span>[<span style="color:#a6e22e">sorted</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]];
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">colorRanges</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRanges</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getColorRanges</span>(<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getBackgroundColor</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">column</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLUMNS</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">column</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorRange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorRanges</span>[<span style="color:#a6e22e">columnIndex</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">min</span>, <span style="color:#a6e22e">max</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">colorRange</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">value</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">min</span>) <span style="color:#f92672">/</span> (<span style="color:#a6e22e">max</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">min</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">COLOR</span> <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">ceil</span>(<span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">127</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">16</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">opacity</span> <span style="color:#f92672">=</span> (<span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">colorWeight</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">127</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">255</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">color</span>, <span style="color:#a6e22e">opacity</span>];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// inside the devExpress data Grid component, there&#39;s a config is called `cellRender`, where you can adjust the style and/or render config for cells.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">cellRender</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">cell</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">columnWithDollar</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Cost&#39;</span>, <span style="color:#e6db74">&#39;CPC&#39;</span>, <span style="color:#e6db74">&#39;CPM&#39;</span>, <span style="color:#e6db74">&#39;CPA&#39;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">caption</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">column</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">col</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;value&#39;</span>) {
+</span></span><span style="display:flex;"><span> 		 <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">backgroundColor</span>, <span style="color:#a6e22e">opacity</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">getBackgroundColor</span>(<span style="color:#a6e22e">col</span>, <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]);
+</span></span><span style="display:flex;"><span>  		<span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">cellElement</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">backgroundColor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">backgroundColor</span>
+</span></span><span style="display:flex;"><span>  		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">opacity</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.9</span>) {
+</span></span><span style="display:flex;"><span>  		  <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">cellElement</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;#ddd&#39;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">columnWithDollar</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">caption</span>) <span style="color:#f92672">?</span> 		(<span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;$0,0.00&#39;</span>)) <span style="color:#f92672">:</span> (<span style="color:#a6e22e">numeral</span>(<span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;0,0&#39;</span>)));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">cell</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">col</span>]
+</span></span><span style="display:flex;"><span>  }}
+</span></span></code></pre></div><p><img src="https://github.com/ffflora/data-science-notes/blob/master/archived-pics/blog/2.png?raw=true" alt="image-20210330155336896"></p>
 </li>
 </ol>
 
@@ -455,7 +449,7 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
         <div id="comments">
           <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -510,7 +504,7 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
 
 
 
-<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.188af889e916d7182e7bf4af7bed9ff4c9b70dd61a69188cb044d25745a4ffc32b82cbec846336503520a7716e619cb46848931205cfa3176a691ff9152d4947.js" integrity="sha512-GIr4iekW1xgue/Sve&#43;2f9Mm3DdYaaRiMsETSV0Wk/8MrgsvshGM2UDUgp3FuYZy0aEiTEgXPoxdqaR/5FS1JRw=="></script>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -524,7 +518,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
 
 

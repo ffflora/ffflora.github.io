@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Flora Jiang ">
-<meta name="description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
-  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+<meta name="description" content="ML Implementation and Operation Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
 https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
-  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data." />
+An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data." />
 <meta name="keywords" content=", AWS, Machine Learning" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -45,40 +45,34 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-
 
 
 <meta itemprop="name" content="AWS Machine Learning Specialty Cheatsheet(4)">
-<meta itemprop="description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
-  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+<meta itemprop="description" content="ML Implementation and Operation Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
 https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
-  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data.">
-<meta itemprop="datePublished" content="2021-11-03T14:47:21-07:00" />
+An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data."><meta itemprop="datePublished" content="2021-11-03T14:47:21-07:00" />
 <meta itemprop="dateModified" content="2021-11-03T14:47:21-07:00" />
-<meta itemprop="wordCount" content="2801">
-<meta itemprop="image" content="https://ffflora.cat/"/>
-
-
-
+<meta itemprop="wordCount" content="2810"><meta itemprop="image" content="https://ffflora.cat/"/>
 <meta itemprop="keywords" content="AWS,Machine Learning," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ffflora.cat/"/>
 
 <meta name="twitter:title" content="AWS Machine Learning Specialty Cheatsheet(4)"/>
-<meta name="twitter:description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
-  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+<meta name="twitter:description" content="ML Implementation and Operation Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
 https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
-  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data."/>
+An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data."/>
 
 
 
     <meta property="og:title" content="AWS Machine Learning Specialty Cheatsheet(4)" />
-<meta property="og:description" content="ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
-  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+<meta property="og:description" content="ML Implementation and Operation Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
 https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
-  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data." />
+An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/" />
-<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="og:url" content="https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/" /><meta property="og:image" content="https://ffflora.cat/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-03T14:47:21-07:00" />
 <meta property="article:modified_time" content="2021-11-03T14:47:21-07:00" />
+
 
 
 
@@ -410,7 +404,7 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-
 </li>
 <li>
 <p>The ML <strong>algorithm</strong> should be available in <strong>/opt/program</strong> directory of the Docker container. Three main files there are <strong>train, serve, and predictor.py.</strong></p>
-<p><!-- raw HTML omitted -->***train/***<!-- raw HTML omitted --> contains the <!-- raw HTML omitted -->logic for training the model and storing the trained model<!-- raw HTML omitted -->.</p>
+<p><!-- raw HTML omitted --><em><strong>train/</strong></em><!-- raw HTML omitted --> contains the <!-- raw HTML omitted -->logic for training the model and storing the trained model<!-- raw HTML omitted -->.</p>
 <p>If the train file runs successfully, it will save a model to <strong>/opt/ml/model</strong> directory. Deployment code for inference goes here.</p>
 <p><strong>/opt/ml/code</strong> training script files goes here.</p>
 <p><em><strong>serve/</strong></em> essentially runs the <strong>logic written in predictor.py.</strong></p>
@@ -557,7 +551,7 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        2801 Words
+        2810 Words
       </p>
 
       <p>
@@ -705,7 +699,7 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-
         <div id="comments">
           <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -760,7 +754,7 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-
 
 
 
-<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.188af889e916d7182e7bf4af7bed9ff4c9b70dd61a69188cb044d25745a4ffc32b82cbec846336503520a7716e619cb46848931205cfa3176a691ff9152d4947.js" integrity="sha512-GIr4iekW1xgue/Sve&#43;2f9Mm3DdYaaRiMsETSV0Wk/8MrgsvshGM2UDUgp3FuYZy0aEiTEgXPoxdqaR/5FS1JRw=="></script>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -774,7 +768,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
 
 

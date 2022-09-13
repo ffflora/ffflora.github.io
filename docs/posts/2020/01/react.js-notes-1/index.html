@@ -48,16 +48,10 @@ const element = ( &amp;lt;h1 className=&amp;#34;greeting&amp;#34;&amp;gt; Hello,
 <meta itemprop="description" content="Basics of React (Most of the materials come from React Official Document) JSX Represents Objects Babel compiles JSX down to React.createElement() calls.
 These two examples are identical:
 const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&gt; ); const element = React.createElement( &#39;h1&#39;, {className: &#39;greeting&#39;}, &#39;Hello, world!&#39; ); React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
-// Note: this structure is simplified const element = { type: &#39;h1&#39;, props: { className: &#39;greeting&#39;, children: &#39;Hello, world!">
-<meta itemprop="datePublished" content="2020-01-27T00:08:29-07:00" />
+// Note: this structure is simplified const element = { type: &#39;h1&#39;, props: { className: &#39;greeting&#39;, children: &#39;Hello, world!"><meta itemprop="datePublished" content="2020-01-27T00:08:29-07:00" />
 <meta itemprop="dateModified" content="2020-01-27T00:08:29-07:00" />
-<meta itemprop="wordCount" content="1877">
-<meta itemprop="image" content="https://ffflora.cat/"/>
-
-
-
+<meta itemprop="wordCount" content="1878"><meta itemprop="image" content="https://ffflora.cat/"/>
 <meta itemprop="keywords" content="Notes,React.js," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ffflora.cat/"/>
 
@@ -75,10 +69,10 @@ These two examples are identical:
 const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&gt; ); const element = React.createElement( &#39;h1&#39;, {className: &#39;greeting&#39;}, &#39;Hello, world!&#39; ); React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
 // Note: this structure is simplified const element = { type: &#39;h1&#39;, props: { className: &#39;greeting&#39;, children: &#39;Hello, world!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ffflora.cat/posts/2020/01/react.js-notes-1/" />
-<meta property="og:image" content="https://ffflora.cat/"/>
+<meta property="og:url" content="https://ffflora.cat/posts/2020/01/react.js-notes-1/" /><meta property="og:image" content="https://ffflora.cat/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-01-27T00:08:29-07:00" />
 <meta property="article:modified_time" content="2020-01-27T00:08:29-07:00" />
+
 
 
 
@@ -172,75 +166,75 @@ const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&
 <h3 id="jsx-represents-objects">JSX Represents Objects</h3>
 <p>Babel compiles JSX down to <code>React.createElement()</code> calls.</p>
 <p>These two examples are identical:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> (
-  &lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;greeting&#34;</span>&gt;
-    <span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>
-  &lt;/<span style="color:#f92672">h1</span>&gt;
-);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
-  <span style="color:#e6db74">&#39;h1&#39;</span>,
-  {<span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;greeting&#39;</span>},
-  <span style="color:#e6db74">&#39;Hello, world!&#39;</span>
-);
-</code></pre></div><p><code>React.createElement()</code> performs a few checks to help you write bug-free code but essentially it creates an object like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#75715e">// Note: this structure is simplified
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h1&#39;</span>,
-  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;greeting&#39;</span>,
-    <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello, world!&#39;</span>
-  }
-};
-</code></pre></div><h2 id="rendering-elements">Rendering Elements</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;greeting&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;h1&#39;</span>,
+</span></span><span style="display:flex;"><span>  {<span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;greeting&#39;</span>},
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;Hello, world!&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p><code>React.createElement()</code> performs a few checks to help you write bug-free code but essentially it creates an object like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-react" data-lang="react"><span style="display:flex;"><span><span style="color:#75715e">// Note: this structure is simplified
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h1&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;greeting&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello, world!&#39;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="rendering-elements">Rendering Elements</h2>
 <h3 id="rendering-an-element-into-the-dom">Rendering an Element into the DOM</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span>&lt;/<span style="color:#f92672">h1</span>&gt;;
-<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>));
-</code></pre></div><h3 id="updating-the-rendered-element">Updating the Rendered Element</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-react" data-lang="react"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span>&lt;/<span style="color:#f92672">h1</span>&gt;;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>));
+</span></span></code></pre></div><h3 id="updating-the-rendered-element">Updating the Rendered Element</h3>
 <p>React elements are <a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>. Once you create an element, you can’t change its children or  attributes. An element is like a single frame in a movie: it represents  the UI at a certain point in time.</p>
 <p>With our knowledge so far, the only way to update the UI is to create a new element, and pass it to <code>ReactDOM.render()</code>.</p>
 <p>Consider this ticking clock example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">tick</span>() {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> (
-    &lt;<span style="color:#f92672">div</span>&gt;
-      &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
-      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
-    &lt;/<span style="color:#f92672">div</span>&gt;
-  );
-  <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>));
-}
-
-<span style="color:#a6e22e">setInterval</span>(<span style="color:#a6e22e">tick</span>, <span style="color:#ae81ff">1000</span>);
-</code></pre></div><p>It calls <code>ReactDOM.render()</code> every second from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval"><code>setInterval()</code></a> callback.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">tick</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setInterval</span>(<span style="color:#a6e22e">tick</span>, <span style="color:#ae81ff">1000</span>);
+</span></span></code></pre></div><p>It calls <code>ReactDOM.render()</code> every second from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval"><code>setInterval()</code></a> callback.</p>
 <h2 id="components-and-props">Components and Props</h2>
 <p><a href="https://reactjs.org/docs/react-component.html">Detailed component API reference goes here</a>.</p>
 <p>JavaScript function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// prefer this method 
-</span><span style="color:#75715e">// function component
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
-  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
-}
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Welcome</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
-  }
-}
-</code></pre></div><p>The above two components are equivalent from React’s point of view.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// prefer this method 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// function component
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Welcome</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The above two components are equivalent from React’s point of view.</p>
 <h2 id="rendering-a-component">Rendering a Component</h2>
 <p>Elements can also represent user-defined components:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt; <span style="color:#75715e">//&lt;.../&gt; if component doesn&#39;t have any children, then can close like this
-</span></code></pre></div><p>When React sees an element representing a user-defined component, it  passes JSX attributes to this component as a single object. We call this object “props”.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt; <span style="color:#75715e">//&lt;.../&gt; if component doesn&#39;t have any children, then can close like this
+</span></span></span></code></pre></div><p>When React sees an element representing a user-defined component, it  passes JSX attributes to this component as a single object. We call this object “props”.</p>
 <p>For example, this code renders “Hello, Sara” on the page:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
-  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
-}
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt;;
-<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
-  <span style="color:#a6e22e">element</span>,
-  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
-);
-</code></pre></div><p>Let’s recap what happens in this example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt;;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">element</span>,
+</span></span><span style="display:flex;"><span>  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>Let’s recap what happens in this example:</p>
 <ol>
 <li>We call <code>ReactDOM.render()</code> with the `` element.</li>
 <li>React calls the <code>Welcome</code> component with <code>{name: 'Sara'}</code> as the props.</li>
@@ -251,110 +245,110 @@ const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&
 <p>React treats components starting with lowercase letters as DOM <strong>tags</strong>.</p>
 <h2 id="composing-components">Composing Components</h2>
 <p>For example, we can create an <code>App</code> component that renders <code>Welcome</code> many times:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
-  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
-}
-
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
-  <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">div</span>&gt;
-      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt;
-      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cahal&#34;</span> /&gt;
-      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Edite&#34;</span> /&gt;
-    &lt;/<span style="color:#f92672">div</span>&gt;
-  );
-}
-
-<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
-  &lt;<span style="color:#f92672">App</span> /&gt;,
-  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
-);
-</code></pre></div><h2 id="extracting-components">Extracting Components</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Welcome</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">h1</span>&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sara&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cahal&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Welcome</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Edite&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">App</span> /&gt;,
+</span></span><span style="display:flex;"><span>  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h2 id="extracting-components">Extracting Components</h2>
 <p>Split components into smaller components: consider this <code>Comment</code> component:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Comment</span>(<span style="color:#a6e22e">props</span>) {
-  <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment&#34;</span>&gt;
-      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo&#34;</span>&gt;
-        &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Avatar&#34;</span>
-          <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">avatarUrl</span>}
-          <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">name</span>}
-            /&gt; 
-        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo-name&#34;</span>&gt;
-          {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">name</span>}
-        &lt;/<span style="color:#f92672">div</span>&gt;
-      &lt;/<span style="color:#f92672">div</span>&gt;
-      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-text&#34;</span>&gt;
-        {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">text</span>}
-      &lt;/<span style="color:#f92672">div</span>&gt;
-      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-date&#34;</span>&gt;
-        {<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>)}
-      &lt;/<span style="color:#f92672">div</span>&gt;
-    &lt;/<span style="color:#f92672">div</span>&gt;
-  );
-}
-</code></pre></div><p>This component <em><!-- raw HTML omitted -->can be tricky to change because of all the nesting,  and it is also hard to reuse individual parts<!-- raw HTML omitted --></em> of it.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Avatar</span>(<span style="color:#a6e22e">props</span>) {
-  <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Avatar&#34;</span>
-      <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">avatarUrl</span>}
-      <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>}
-    /&gt;
-  );
-}
-</code></pre></div><p>We recommend <strong>naming props from the component’s own point of view</strong> rather than the context in which it is being used.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserInfo</span>(<span style="color:#a6e22e">props</span>){
-    <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;UserInfo&#34;</span>&gt;
-        &lt;<span style="color:#f92672">Avatar</span> <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>} /&gt; 
-        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo-name&#34;</span>&gt;
-            {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>} 
-            &lt;/<span style="color:#f92672">div</span>&gt;
-        &lt;/<span style="color:#f92672">div</span>&gt;
-    );
-};
-</code></pre></div><p>Then the <code>comment</code> gets simplified:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Comment</span>(<span style="color:#a6e22e">props</span>) {
-  <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment&#34;</span>&gt;
-      &lt;<span style="color:#f92672">UserInfo</span> <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>} /&gt; <span style="color:#75715e">//pass  in a user props 
-</span><span style="color:#75715e"></span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-text&#34;</span>&gt;
-        {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">text</span>}
-      &lt;/<span style="color:#f92672">div</span>&gt;
-      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-date&#34;</span>&gt;
-        {<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>)}
-      &lt;/<span style="color:#f92672">div</span>&gt;
-    &lt;/<span style="color:#f92672">div</span>&gt;
-  );
-}
-</code></pre></div><h2 id="props-are-read-only">Props are Read-Only</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Comment</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Avatar&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">avatarUrl</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">name</span>}
+</span></span><span style="display:flex;"><span>            /&gt; 
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo-name&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>          {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>.<span style="color:#a6e22e">name</span>}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-text&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">text</span>}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-date&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>)}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This component <em><!-- raw HTML omitted -->can be tricky to change because of all the nesting,  and it is also hard to reuse individual parts<!-- raw HTML omitted --></em> of it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Avatar</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Avatar&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">avatarUrl</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>}
+</span></span><span style="display:flex;"><span>    /&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We recommend <strong>naming props from the component’s own point of view</strong> rather than the context in which it is being used.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-react" data-lang="react"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserInfo</span>(<span style="color:#a6e22e">props</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;UserInfo&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Avatar</span> <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>} /&gt; 
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UserInfo-name&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>} 
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Then the <code>comment</code> gets simplified:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Comment</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">UserInfo</span> <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">author</span>} /&gt; <span style="color:#75715e">//pass  in a user props 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-text&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">text</span>}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Comment-date&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>)}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="props-are-read-only">Props are Read-Only</h2>
 <p>Whether you declare a component <a href="https://reactjs.org/docs/components-and-props.html#function-and-class-components">as a function or a class</a>, it must never modify its own props. Consider this <code>sum</code> function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
-}
-</code></pre></div><p>Such functions are called <a href="https://en.wikipedia.org/wiki/Pure_function">“pure”</a> because they do not attempt to change their inputs, and always return the same result for the same inputs.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Such functions are called <a href="https://en.wikipedia.org/wiki/Pure_function">“pure”</a> because they do not attempt to change their inputs, and always return the same result for the same inputs.</p>
 <p>In contrast, this function is <strong>impure</strong> because it changes its own input:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// this is not recommended in react 
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">withdraw</span>(<span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">amount</span>) {
-  <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">total</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">amount</span>;
-}
-</code></pre></div><p>React is pretty flexible but it has a single strict rule:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// this is not recommended in react 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">withdraw</span>(<span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">amount</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">total</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">amount</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>React is pretty flexible but it has a single strict rule:</p>
 <p><strong>All React components must act like pure functions with respect to their props.</strong></p>
 <h2 id="state-and-lifecycle">State and Lifecycle</h2>
 <p>Consider the <code>tick</code> example mentioned above, we will now learn how to make the <code>Clock</code> component truly reusable and encapsulated.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Clock</span>(<span style="color:#a6e22e">props</span>){
-    <span style="color:#66d9ef">return</span>(
-      &lt;<span style="color:#f92672">div</span>&gt;
-          &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">World</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
-          &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
-      &lt;/<span style="color:#f92672">div</span>&gt;
-    );
-}
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">tick</span>(){
-    <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
-    &lt;<span style="color:#f92672">Clock</span> <span style="color:#a6e22e">date</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">new</span> Date()} /&gt;, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
-    );
-}
-</code></pre></div><h2 id="converting-a-function-to-a-class">Converting a Function to a Class</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Clock</span>(<span style="color:#a6e22e">props</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>(
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">World</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">tick</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">Clock</span> <span style="color:#a6e22e">date</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">new</span> Date()} /&gt;, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="converting-a-function-to-a-class">Converting a Function to a Class</h2>
 <p>You can convert a function component like <code>Clock</code> to a class in five steps:</p>
 <ol>
 <li>Create an <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6 class</a>, that extends <code>React.Component</code>.</li>
@@ -363,133 +357,133 @@ const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&
 <li>Replace <code>props</code> with <code>this.props</code> in the <code>render()</code> body.</li>
 <li>Delete the remaining empty function declaration.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">//react.component already has lots of lifecycle functions
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> { <span style="color:#75715e">// doesn&#39;t need (props), but it will need props as a member in the class
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> (
-      &lt;<span style="color:#f92672">div</span>&gt;
-        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
-        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; 
-      &lt;/<span style="color:#f92672">div</span>&gt;
-    );
-  }
-}
-</code></pre></div><p>But at this moment the function only a single instance of the <code>Clock</code> will be used. Will need to do the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">//react.component already has lots of lifecycle functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> { <span style="color:#75715e">// doesn&#39;t need (props), but it will need props as a member in the class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; 
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>But at this moment the function only a single instance of the <code>Clock</code> will be used. Will need to do the following:</p>
 <h2 id="adding-local-state-to-a-class">Adding Local State to a Class</h2>
 <p>State that contains in the component is called local state.</p>
 <p>We will move the <code>date</code> from props to state in three steps:</p>
 <ol>
 <li>Replace <code>this.props.date</code> with <code>this.state.date</code> in the <code>render()</code> method:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> (
-      &lt;<span style="color:#f92672">div</span>&gt;
-        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
-        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; <span style="color:#75715e">//use states instead of props, and will assign states later, since props is read-only and state is mutable so we could make changes, as time is suppose to changes in this component. 
-</span><span style="color:#75715e"></span>      &lt;/<span style="color:#f92672">div</span>&gt;
-    );
-  }
-}
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; <span style="color:#75715e">//use states instead of props, and will assign states later, since props is read-only and state is mutable so we could make changes, as time is suppose to changes in this component. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
 <li>Add a <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor">class constructor</a> that assigns the initial <code>this.state</code>:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
-    <span style="color:#75715e">//Note how we pass `props` to the base constructor:
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) { <span style="color:#75715e">//do some initialization here 
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);	<span style="color:#75715e">// to inherent props from React.Component
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">//date is a state
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()}; <span style="color:#75715e">//Date() is a global variable       
-</span><span style="color:#75715e"></span>  }
-
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> (
-      &lt;<span style="color:#f92672">div</span>&gt;
-        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
-        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; <span style="color:#75715e">//toLocaleTimeString() is a member function of Date()
-</span><span style="color:#75715e"></span>      &lt;/<span style="color:#f92672">div</span>&gt;
-    );
-  }
-}
-</code></pre></div><p>Class components should always call the base constructor with <code>props</code> first.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//Note how we pass `props` to the base constructor:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) { <span style="color:#75715e">//do some initialization here 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);	<span style="color:#75715e">// to inherent props from React.Component
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">//date is a state
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()}; <span style="color:#75715e">//Date() is a global variable       
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt; <span style="color:#75715e">//toLocaleTimeString() is a member function of Date()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Class components should always call the base constructor with <code>props</code> first.</p>
 <ol start="3">
 <li>Remove the <code>date</code> prop from the <code>&lt;Clock /&gt;</code> element, and the code looks like this:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
-  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
-    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()};
-  }
-
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> (
-      &lt;<span style="color:#f92672">div</span>&gt;
-        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
-        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
-      &lt;/<span style="color:#f92672">div</span>&gt;
-    );
-  }
-}
-
-<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
-  &lt;<span style="color:#f92672">Clock</span> /&gt;, <span style="color:#75715e">//since Clock is a class now instead of a function 
-</span><span style="color:#75715e"></span>  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
-);
-</code></pre></div><p>Next, we’ll make the <code>Clock</code> set up its own timer and update itself every second.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()};
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Clock</span> /&gt;, <span style="color:#75715e">//since Clock is a class now instead of a function 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>Next, we’ll make the <code>Clock</code> set up its own timer and update itself every second.</p>
 <h2 id="adding-lifecycle-methods-to-a-class">Adding Lifecycle Methods to a Class</h2>
 <p>We want to <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval">set up a timer</a> whenever the <code>Clock</code> is rendered to the DOM for the first time. This is called “<strong>mounting</strong>” in React.  (0-&gt;1)</p>
 <p>We also want to <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval">clear that timer</a> whenever the DOM produced by the <code>Clock</code> is removed. This is called “<strong>unmounting</strong>” in React.</p>
 <p><img src="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ogimage.201804100050.png" alt=""></p>
 <p>We can declare special methods on the component class to run some code when a component mounts and unmounts: These methods are called “<strong>lifecycle methods</strong>”.</p>
 <p>The <code>componentDidMount()</code> method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#a6e22e">componentDidMount</span>() { <span style="color:#75715e">//is where you can load data 
-</span><span style="color:#75715e"></span>      <span style="color:#75715e">//we save the timer ID right on `this` (`this.timerID`).
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>( <span style="color:#75715e">//two params, first is a function, second is 1000
-</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tick</span>(),<span style="color:#ae81ff">1000</span>);
-  }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#a6e22e">componentWillUnmount</span>() {
-    <span style="color:#a6e22e">clearInterval</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span>);
-  }
-</code></pre></div><p>Finally, we will implement a method called <code>tick()</code> that the <code>Clock</code> component will run every second.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>  <span style="color:#a6e22e">componentDidMount</span>() { <span style="color:#75715e">//is where you can load data 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">//we save the timer ID right on `this` (`this.timerID`).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>( <span style="color:#75715e">//two params, first is a function, second is 1000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tick</span>(),<span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>  <span style="color:#a6e22e">componentWillUnmount</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">clearInterval</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Finally, we will implement a method called <code>tick()</code> that the <code>Clock</code> component will run every second.</p>
 <p>It will use <code>this.setState()</code> to schedule updates to the component local state, and now the clock ticks every second.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
-  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
-    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()};
-  }
-
-  <span style="color:#a6e22e">componentDidMount</span>() {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>(
-      () =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tick</span>(),<span style="color:#75715e">// will call tick() every second
-</span><span style="color:#75715e"></span>      <span style="color:#ae81ff">1000</span>
-    );
-  }
-
-  <span style="color:#a6e22e">componentWillUnmount</span>() {
-    <span style="color:#a6e22e">clearInterval</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span>);
-  }
-
-  <span style="color:#a6e22e">tick</span>() {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
-      <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()
-    });
-  }
-
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> (
-      &lt;<span style="color:#f92672">div</span>&gt;
-        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
-        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
-      &lt;/<span style="color:#f92672">div</span>&gt;
-    );
-  }
-}
-
-<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
-  &lt;<span style="color:#f92672">Clock</span> /&gt;,
-  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
-);
-</code></pre></div><p>Let’s quickly recap what’s going on and the order in which the methods are called:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Clock</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()};
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">componentDidMount</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setInterval</span>(
+</span></span><span style="display:flex;"><span>      () =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tick</span>(),<span style="color:#75715e">// will call tick() every second
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">componentWillUnmount</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">clearInterval</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timerID</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tick</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">It</span> <span style="color:#a6e22e">is</span> {<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">toLocaleTimeString</span>()}.&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Clock</span> /&gt;,
+</span></span><span style="display:flex;"><span>  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>Let’s quickly recap what’s going on and the order in which the methods are called:</p>
 <ol>
 <li>
 <p>When <code>&lt;Clock /&gt;</code> is passed to <code>ReactDOM.render()</code>, React calls the <strong>constructor</strong> of the <code>Clock</code> component. Since <code>Clock</code> needs to display the current time, it initializes <code>this.state</code> with an object including the current time. We will later update this state.</p>
@@ -512,53 +506,53 @@ const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&
 <p>There are three things you should know about <code>setState()</code>.</p>
 <h3 id="do-not-modify-state-directly">Do Not Modify State Directly</h3>
 <p>For example, this will not re-render a component:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Wrong
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">comment</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hello&#39;</span>;
-</code></pre></div><p><strong>WARNING</strong>: The only place where you can assign <code>this.state</code> is the <strong>constructor.</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react"><span style="color:#75715e">// Correct
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({<span style="color:#a6e22e">comment</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello&#39;</span>});
-</code></pre></div><h3 id="state-updates-may-be-asynchronous">State Updates May Be Asynchronous</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// Wrong
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">comment</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hello&#39;</span>;
+</span></span></code></pre></div><p><strong>WARNING</strong>: The only place where you can assign <code>this.state</code> is the <strong>constructor.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-react" data-lang="react"><span style="display:flex;"><span><span style="color:#75715e">// Correct
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({<span style="color:#a6e22e">comment</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello&#39;</span>});
+</span></span></code></pre></div><h3 id="state-updates-may-be-asynchronous">State Updates May Be Asynchronous</h3>
 <p>React may batch multiple <code>setState()</code> calls into a single update for performance.</p>
 <p>Because <code>this.props</code> and <code>this.state</code> may be updated asynchronously, you should not rely on their values for calculating the next state.</p>
 <p>For example, this code may fail to update the counter:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Wrong
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
-  <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>,
-});
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Correct
-</span><span style="color:#75715e">// That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) =&gt; ({<span style="color:#75715e">// these two are pre-props
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>
-}));
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Correct, this is equivalent as the previous one
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) { 
-  <span style="color:#66d9ef">return</span> {
-    <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>
-  };
-});
-</code></pre></div><h3 id="state-updates-are-merged">State Updates are Merged</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
-    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#75715e">// state contains several independent variables:
-</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">posts</span><span style="color:#f92672">:</span> [],
-      <span style="color:#a6e22e">comments</span><span style="color:#f92672">:</span> []
-    };
-  }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">  <span style="color:#75715e">//you can update them independently with separate `setState()` calls:
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">componentDidMount</span>() {
-    <span style="color:#a6e22e">fetchPosts</span>().<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
-      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
-        <span style="color:#a6e22e">posts</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">posts</span>
-      });
-    });
-
-    <span style="color:#a6e22e">fetchComments</span>().<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
-      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
-        <span style="color:#a6e22e">comments</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">comments</span>
-      });
-    });
-  }
-</code></pre></div><p>The merging is shallow, so <code>this.setState({comments})</code> leaves <code>this.state.posts</code> intact, but completely replaces <code>this.state.comments</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// Wrong
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// Correct
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) =&gt; ({<span style="color:#75715e">// these two are pre-props
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>
+</span></span><span style="display:flex;"><span>}));
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// Correct, this is equivalent as the previous one
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) { 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">counter</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">increment</span>
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h3 id="state-updates-are-merged">State Updates are Merged</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#75715e">// state contains several independent variables:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">posts</span><span style="color:#f92672">:</span> [],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">comments</span><span style="color:#f92672">:</span> []
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>  <span style="color:#75715e">//you can update them independently with separate `setState()` calls:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">componentDidMount</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fetchPosts</span>().<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">posts</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">posts</span>
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fetchComments</span>().<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">comments</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">comments</span>
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>The merging is shallow, so <code>this.setState({comments})</code> leaves <code>this.state.posts</code> intact, but completely replaces <code>this.state.comments</code>.</p>
 <h3 id="state-or-prop"><strong>state or prop</strong>?</h3>
 <ol>
 <li>Check if this variable is getable via props from the Father components? If yes, then it is not a state.</li>
@@ -599,7 +593,7 @@ const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1877 Words
+        1878 Words
       </p>
 
       <p>
@@ -747,7 +741,7 @@ const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&
         <div id="comments">
           <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -802,7 +796,7 @@ const element = ( &lt;h1 className=&#34;greeting&#34;&gt; Hello, world! &lt;/h1&
 
 
 
-<script type="text/javascript" src="https://ffflora.cat/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="https://ffflora.cat/bundle.min.188af889e916d7182e7bf4af7bed9ff4c9b70dd61a69188cb044d25745a4ffc32b82cbec846336503520a7716e619cb46848931205cfa3176a691ff9152d4947.js" integrity="sha512-GIr4iekW1xgue/Sve&#43;2f9Mm3DdYaaRiMsETSV0Wk/8MrgsvshGM2UDUgp3FuYZy0aEiTEgXPoxdqaR/5FS1JRw=="></script>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -816,7 +810,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
 
 

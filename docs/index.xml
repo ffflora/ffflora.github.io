@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 29 Aug 2022 20:36:36 -0700</lastBuildDate>
-    
-	<atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 08 Sep 2022 16:48:32 -0700</lastBuildDate><atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Things To Know About Docker</title>
+      <link>https://ffflora.cat/posts/2022/09/things-to-know-about-docker/</link>
+      <pubDate>Thu, 08 Sep 2022 16:48:32 -0700</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2022/09/things-to-know-about-docker/</guid>
+      <description>Runs natively on Linux and Windows Server
+Not the same as using Virtual Machines
+Key benefits to web developers:
+Accelerate developer onboarding Simplify working with multiple apps Consistency between envs. ship faster Quick Start Clone a repo
+docker run --name repo alpine/git clone https://github.com/docker/getting-started.git
+Build the image:
+cd getting-started docker build -t docker101tutorial .
+Run the container
+docker run -d -p 80:80 --name docker -tutorial docker101tutorial
+Save and push the image</description>
+    </item>
     
     <item>
       <title>Product Documents</title>
@@ -18,20 +32,49 @@
       <pubDate>Mon, 29 Aug 2022 20:36:36 -0700</pubDate>
       
       <guid>https://ffflora.cat/cn/product-documents/</guid>
-      <description>产品的生命周期：   初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）
-  竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。
+      <description>产品的生命周期： 初步功能的设定 （登录注册，第三方登录注册，图文信息；个人信息的部分：个人 profile 的修改，头像密码修改，绑定第三方账号）
+竞品分析 - 以此验证最初的假设是否是合理正确的，预估市场规模。竞品分析的体验报告：言之有物就可以。保留【对标】竞品新版本的习惯。分析背后的融资情况、职位招聘。要有**分析。**猜想也行，但是一定要有想法的罗列，只有数据没有意义。
 把下面三类总结好。
- 数据（排行榜？看水平落在哪里。行业水平。） 图片、功能截图对比 表格    考虑商业要求
-  付费动机点
-  产品范围- 线上 vs 线下？
-  需求大纲 - 细化
-  原型设计
-  原型约束、需求规格的说明
-  与最初的业务方确认
-  需求的研发评审
-  开发
- 交互设计 - 增加事件的设计 视觉设计 - 视觉规范、色彩等等 代码    测试
- 开发环境测试 beta 上线    产品经理的输出文档   结构分析</description>
+数据（排行榜？看水平落在哪里。行业水平。） 图片、功能截图对比 表格 考虑商业要求
+付费动机点
+产品范围- 线上 vs 线下？
+需求大纲 - 细化
+原型设计
+原型约束、需求规格的说明
+与最初的业务方确认
+需求的研发评审
+开发
+交互设计 - 增加事件的设计 视觉设计 - 视觉规范、色彩等等 代码 测试
+开发环境测试 beta 上线 产品经理的输出文档 结构分析
+需求说明，需求大纲
+测试结果文档
+需求：
+业务方提出的要求，提供产品的更新和开发。
+判断产品接下来的发展趋势，并且有应对的方案。
+商业需求文档 项目背景：阐述想法、原因、相关调研分析报告、描述现状：
+培育新业务增长点？
+用户需求：解决哪方面需求，对客服产生什么方面的价值，客户的群体特征是什么？
+让客户使用产品的全流程
+帮助客户价值最大化
+对我们有什么好处：
+客户群体特征
+调研市场的大环境：
+竞争对手
+商业价值：
+打败竞争对手？
+创收？
+是否符合公司整体战略目标
+会为企业创造什么价值
+why now
+多头未现
+环境到来
+部门战略
+项目规划的核心需求
+现在和未来的需求。两周为一版，列一年的版。
+产品收益和投入成本
+收益：
+多少用户，多少高质量内容
+成本：</description>
     </item>
     
     <item>
@@ -52,23 +95,48 @@
 5．早上放慢速度。醒来之后立马陷入一团忙乱之中，早晚会毁了你的身体。睡眠质量和我们早上醒来之后的所作所为息息相关。
 6．在晚上，蓝光是一种不合时宜的光线，尽量让蓝光变得暗淡。不妨多利用红光和黄光，甚至是蜡烛光。
 7．想象自己此刻在一个岛屿上、坐在篝火边的场景：在你目前正在做的事情中，哪些和这一场景起了冲突？你打算如何纠正过来？对目前的日常安排做出一些简单的改变，使你自己的身体状态更加吻合人体昼夜节律。
-[02] 走慢与走快——睡眠类型  如果你是一个喜欢早起的人，你的生物钟会相对快一点。如果你是一个习惯晚睡的人，你的生物钟会相对慢一点。
-  20岁后，我们已经度过了晚睡晚起的高峰时期，生物节律开始向遗传类型回归。随着年龄的增长，生物节律开始慢慢往前移。
-  “社交时差”形容的就是这种情况。
-  由于天生习惯早起，早起星人会更早感到疲倦，并且更早睡觉。这意味着，凌晨2—3点是他们睡得最深的时候。在早晨到来时，他们已经经历了一段修复性的深度睡眠。
-  咖啡因的半衰期是6小时。
- [03] 90分钟睡眠法——睡眠周期  我们会做梦，所做的绝大多数梦都发生在这一阶段。这一阶段也被认为有益于开发创造力。
-  试图通过早点睡觉或晚点起床来补觉，其实是在浪费时间。失去的睡眠，无法再补回来，但我们的身体非常善于对此进行补救。
-  事实上，如果想提高睡眠修复的质量，那么设置固定时间的闹铃，正是我们能采取的最有效的方法。
-  在理想状态下，你的固定起床时间，应该比你必须上班、上学或做其他事的时间早至少90分钟。这样在睡醒之后，你才有充分的准备时间。
-  现在，你可以根据你的起床时间和90分钟时长的睡眠周期，再回过头去计算一下，你应该在什么时候入睡。如果你和大多数人一样，希望每晚能获得大约8小时的睡眠，那就大致相当于每晚经历5个睡眠周期（等于7.5个小时）。如果你选择在早上7点半醒来，那么就该在午夜时分睡着。但是，你应该提前15分钟躺下休息——或者，你需要多久才能睡着，就该提前多久上床睡觉。
-  对于其他人来说，有可能是回家的列车晚点了、吃饭晚了、在看一本放不下的好书或者老朋友打来了电话。你必须灵活机动地适应这些，继续好好享受你的人生并且好好工作，而不是过多地担心你的上床时间。
-  你每天在同一时间起床，但每天上床睡觉前有90分钟的缓冲时间，尽管你不该在理想的睡眠时间到来之前就上床睡觉。我们已经说过，失去的睡眠是补不回来的。
-  我们会尽量避免连续3个晚上缺失睡眠周期的情况出现。如果能够保证每周至少有4个晚上拥有完美的时间安排，那么就没问题了。
-  你可以先从每晚5个睡眠周期开始，看看7天之后感觉如何。如果觉得5个周期太多了，可以减少到4个周期。反之，如果没有睡够，可以增加到6个周期。你会知道什么最适合自己，因为当你适应这样的安排之后，感觉会好极了
- [04] 热身与舒缓——睡眠前后的例行程序  如果你想在睡前看一会儿书，可以考虑在卧室外面看书，这样就能实现从明亮环境（看书的房间）到昏暗卧室环境的完美转移。如果躺在床上看书，有可能会导致整晚辗转难眠，还不如走到房间外面看书，看完书后关灯离开那个房间，回到昏暗的卧室中，准备睡觉。
-  模拟日出自然唤醒灯能实现从明亮向昏暗的过渡，你也可以利用这样的灯具。
-  科学家们认为，人类需要睡眠的一大关键原因，就是睡眠能加工我们的各种经历，把它们转化成记忆，并且巩固那些已经习得的技能。</description>
+[02] 走慢与走快——睡眠类型 如果你是一个喜欢早起的人，你的生物钟会相对快一点。如果你是一个习惯晚睡的人，你的生物钟会相对慢一点。
+20岁后，我们已经度过了晚睡晚起的高峰时期，生物节律开始向遗传类型回归。随着年龄的增长，生物节律开始慢慢往前移。
+“社交时差”形容的就是这种情况。
+由于天生习惯早起，早起星人会更早感到疲倦，并且更早睡觉。这意味着，凌晨2—3点是他们睡得最深的时候。在早晨到来时，他们已经经历了一段修复性的深度睡眠。
+咖啡因的半衰期是6小时。
+[03] 90分钟睡眠法——睡眠周期 我们会做梦，所做的绝大多数梦都发生在这一阶段。这一阶段也被认为有益于开发创造力。
+试图通过早点睡觉或晚点起床来补觉，其实是在浪费时间。失去的睡眠，无法再补回来，但我们的身体非常善于对此进行补救。
+事实上，如果想提高睡眠修复的质量，那么设置固定时间的闹铃，正是我们能采取的最有效的方法。
+在理想状态下，你的固定起床时间，应该比你必须上班、上学或做其他事的时间早至少90分钟。这样在睡醒之后，你才有充分的准备时间。
+现在，你可以根据你的起床时间和90分钟时长的睡眠周期，再回过头去计算一下，你应该在什么时候入睡。如果你和大多数人一样，希望每晚能获得大约8小时的睡眠，那就大致相当于每晚经历5个睡眠周期（等于7.5个小时）。如果你选择在早上7点半醒来，那么就该在午夜时分睡着。但是，你应该提前15分钟躺下休息——或者，你需要多久才能睡着，就该提前多久上床睡觉。
+对于其他人来说，有可能是回家的列车晚点了、吃饭晚了、在看一本放不下的好书或者老朋友打来了电话。你必须灵活机动地适应这些，继续好好享受你的人生并且好好工作，而不是过多地担心你的上床时间。
+你每天在同一时间起床，但每天上床睡觉前有90分钟的缓冲时间，尽管你不该在理想的睡眠时间到来之前就上床睡觉。我们已经说过，失去的睡眠是补不回来的。
+我们会尽量避免连续3个晚上缺失睡眠周期的情况出现。如果能够保证每周至少有4个晚上拥有完美的时间安排，那么就没问题了。
+你可以先从每晚5个睡眠周期开始，看看7天之后感觉如何。如果觉得5个周期太多了，可以减少到4个周期。反之，如果没有睡够，可以增加到6个周期。你会知道什么最适合自己，因为当你适应这样的安排之后，感觉会好极了
+[04] 热身与舒缓——睡眠前后的例行程序 如果你想在睡前看一会儿书，可以考虑在卧室外面看书，这样就能实现从明亮环境（看书的房间）到昏暗卧室环境的完美转移。如果躺在床上看书，有可能会导致整晚辗转难眠，还不如走到房间外面看书，看完书后关灯离开那个房间，回到昏暗的卧室中，准备睡觉。
+模拟日出自然唤醒灯能实现从明亮向昏暗的过渡，你也可以利用这样的灯具。
+科学家们认为，人类需要睡眠的一大关键原因，就是睡眠能加工我们的各种经历，把它们转化成记忆，并且巩固那些已经习得的技能。
+刚醒来时，我们有点不在状态，并且在刚刚醒来后的一段时间内，皮质醇水平是最高的。皮质醇是我们面临压力后，身体分泌的一种激素。我们没必要让它进一步飙升，然后一整天保持这样一个高水平，从而彻底打乱生理节律。总之，没必要在醒来之后的瞬间，就让自己背负上重重压力。
+吃早餐能给我们带来一天的能量，还能让我们在之后的午餐时分和晚餐时分饥肠辘辘。换句话说，我们会在合适的时间感到饥饿，而不是在不合适的时间总想着吃零食。吃零食百害而无一利，并且让人感到疲倦乏力、精神懈怠。
+在早上，应该循序渐进地把你的大脑慢慢发动起来。因此，一些锻炼脑力的简单行为，比如听听广播、熨烫衬衣或做一些别的家务，都能够帮上忙。在上班路上看看书报新闻或听听播客，都是开始新的一天、再度融入这个世界的好办法。
+[05] 暂停片刻，该休息了！——日间小睡 咖啡因会在摄入后约20分钟后作用于人体，而且如果用量适当，咖啡因是一种很有效的表现增强剂。
+我的建议是，我们可以利用傍晚的一段时间，下午5—7点（对于晚睡星人，可以向后延迟一会儿）休息一会儿。在这段时间，尽管睡眠冲动在不断下降，但我们的睡眠需求却处于峰值，特别是如果前一天晚上睡得偏少的话。如果错过了午后的小睡，可以利用这一时机，小憩30分钟左右（插入一个可控修复期）。但此时不适合睡上90分钟（即一个完整的睡眠周期），否则会影响夜间的睡眠。
+从长远来看，这些日间小睡并不能代替夜间的睡眠。因此R90方案给出的建议是，每周你至少应该确保，有4个晚上获得了理想的睡眠周期。但这些日间小睡能和你的生理节律保持协调，补充夜间睡眠周期、促进身心的全面修复，并让你保持良好的精神状态和较高的工作效率。
+[06] 改造你的床铺——寝具套装 如果你习惯使用右手，你该向左侧睡，反之亦然。如果你真的是那种左右手同等灵活的人，你可以试着想想，你会本能地使用哪一侧来保护自己。
+胎儿睡姿的要点包括：膝盖自然弯曲、两条手臂放在身前，并轻轻交叠在一起，颈部、脊柱和臀部形成一条平滑的直线。夜间睡眠时，采用这种睡姿的时间越长越好。
+如果你两周洗一次，为何不改成一周洗一次？勤洗床单，你就会尝到甜头。只要稍微勤快一点，你就能睡在干净的床单上，你的床也会变得更有吸引力。换床单也应该成为一项睡眠前的例行程序。
+纳米技术能制造出比任何自然物微小得多的纤维，这种纤维透气、速干，是其他材质无法超越的。如果你不习惯使用这种材质，或非得用埃及棉不可，那么可以选择织物密度在300上下的埃及棉，这种密度的透气性能是最佳的。
+寝具套装：智慧睡眠的7个要点
+1．学会以胎儿姿势睡眠，躺向非主要的身体一侧（惯用左手的人向右侧睡，惯用右手的人向左侧睡）。
+2．检测床垫，了解什么样的床垫对你来说软硬适中。让你的伴侣也这样做。
+3．循序渐进：7年间分两次各花500英镑在你的床垫上，而不是一次花1000英镑。可以考虑购买能够经常换洗的床垫。
+4．使用低过敏性、透气舒适的床上用品，无论你是否属于过敏体质。避免潜在的睡眠障碍因素，并注意调节好温度。
+5．床的尺寸很重要——能买多大，就买多大。特大号床垫是值得一对儿夫妇考虑的最小型号（只要卧室中放得下）。双人床是给一个人睡的。
+6．不要盲目购置寝具！可以根据销售人员的介绍，了解你能买到什么样的寝具。但在做出最后决定时，记得运用你在本章中学到的知识。
+7．记住床垫和床架重要性比率：你可以把100%的预算全部花在购置床垫上，因为床架主要是装饰性的。
+[07] 修复室——睡眠环境 睡眠环境：智慧睡眠的7个要点
+1．你的卧室不应该成为你生活空间的延伸。如果可以的话，把它重新命名为你的身心修复室。
+2．清空你的房间（哪怕只在你的脑海中），只把睡眠、修复、休息所必需的东西拿回房间。
+3．让你的房间隔离外界光源，这样室外的光线就不会干扰你的睡眠。
+4．让你的房间比家中其他地方更凉爽，但不是更寒冷。
+5．你的房间能给你带来安全感——放上你最爱的泰迪熊或者爱人的照片，或者再次去查看一下门窗是否锁好，都有助于营造安全感。
+6．让房间的装饰风格保持中性，保持房间洁净，避免任何可能刺激大脑的东西（色彩鲜明的图片，或让你产生可怕联想的书籍）。</description>
     </item>
     
     <item>
@@ -78,23 +146,34 @@
       
       <guid>https://ffflora.cat/cn/being-mortal/</guid>
       <description>最好的告别：关于衰老与死亡，你必须知道的常识 Being Mortal - Medicine and What Matters in the End 阿图·葛文德
-赞誉  在人近黄昏之时，所需的不仅仅是医药，还有生活——有意义的生活，在当时情形下尽可能丰富和充分的生活。
- 自序 一介凡夫 医生也许都想错了  记得我们只有一次讨论到死亡。当时，我们用了一个小时讨论托尔斯泰的中篇小说《伊万·伊里奇之死》。那是在每周一次的医患关系论坛上——学校希望借此把我们培养成更全面、更人道的医生。
-  可见一个理智的人在死亡降临的时候还是无法舍弃求生的欲望。
-  到那一天，生的愉悦与死的坦然都将成为生命圆满的标志。
- 田园牧歌式的老年生活  健康专业人员有一个系统的标准来评估一个人的身体功能。如果在没有他人帮助的情况下不能如厕、进食、穿衣、洗浴、整容、下床、离开座椅、行走（所谓“八大日常生活活动”），那么，说明你缺少基本的生活自理能力。
+赞誉 在人近黄昏之时，所需的不仅仅是医药，还有生活——有意义的生活，在当时情形下尽可能丰富和充分的生活。
+自序 一介凡夫 医生也许都想错了 记得我们只有一次讨论到死亡。当时，我们用了一个小时讨论托尔斯泰的中篇小说《伊万·伊里奇之死》。那是在每周一次的医患关系论坛上——学校希望借此把我们培养成更全面、更人道的医生。
+可见一个理智的人在死亡降临的时候还是无法舍弃求生的欲望。
+到那一天，生的愉悦与死的坦然都将成为生命圆满的标志。
+田园牧歌式的老年生活 健康专业人员有一个系统的标准来评估一个人的身体功能。如果在没有他人帮助的情况下不能如厕、进食、穿衣、洗浴、整容、下床、离开座椅、行走（所谓“八大日常生活活动”），那么，说明你缺少基本的生活自理能力。
 如果不能自行购物、做饭、清理房间、洗衣服、服药、打电话、独自旅行、处理财务（所谓“八大日常生活独立活动”），那么，你就缺少安全地独自生活的能力。
- 02 崩溃 接受变老这件事  但是，实际上，并不是某一种疾病导致了生命的消亡；罪魁祸首乃是在医学实施其维持措施和打补丁工作的时候，身体系统累积的摧毁力量。我们时而降低血压，时而抗击骨质疏松，控制这种病，发现那种病，置换坏掉的关节、瓣膜，眼看着“中央处理器”渐渐衰竭。生命衰亡的过程变成一条长长的、缓缓的曲线。
-  某种意义上，现代医学的进步带来两场革命：我们经历了生命过程的生物学转换，也经历了如何认识这一过程的文化转换。
- 人如何衰老以及为什么会老  30岁的时候，脑是一个1400克的器官，颅骨刚好容纳得下；到我们70岁的时候，大脑灰质丢失使头颅空出了差不多2.5厘米的空间。所以像我祖父那样的老年人在头部受到撞击后，会很容易发生颅内出血——实际上，大脑在他们颅内晃动。最先萎缩的部分一般是额叶（掌管判断和计划）和海马体（组织记忆的场所）。于是，记忆力和收集、衡量各种想法（即多任务处理）的能力在中年时期达到顶峰，然后就逐渐下降。处理速度早在40岁之前就开始降低（所以数学家和物理学家通常在年轻时取得最大的成就）。到了85岁，工作记忆力和判断力受到严重损伤，40%的人都患有教科书所定义的老年失智（痴呆症）。
-  头发变白只是因为给头发提供颜色的色素细胞枯竭了。头皮的色素细胞只有几年的自然寿命，我们是依靠头皮以下的干细胞代替色素细胞。然而，干细胞池也会逐渐枯竭。于是，到50岁的时候，一般人会有约一半的头发变白。
-  我询问西尔弗斯通老年病学家是否搞清楚了导致衰老的特定的、可复制的途径。他说：“没有。我们就是一下子崩溃了。”
- 连医生都避之不及的老年病  我们坚持65岁退休的观念——在65岁的人只占人口一小部分的时候，这是合理的，但是，在这部分人群接近20%的时候，则越来越站不住脚。人们为老年积攒的钱是大萧条以来最少的。一多半的高龄老年人独居无伴，而且我们的子女数量比任何时候都少，然而，我们根本没考虑过如何独自度过最后的岁月。
- 脚才是老年人真正的危险  医生的工作是维护病人的生命质量。这包含两层意思：尽可能免除疾病的困扰，以及维持足够的活力及能力去积极生活。
-  身体的衰退像藤蔓一样悄悄蔓延，一天一天，变化微小，不易察觉。人会适应变化，直到某天某件事情发生了，才终于明白情况已经不同了。
- 承认“年纪大了”才能活得自然  衰老是我们的宿命，死亡总有一天会降临。但是在我们体内的最后一个备用系统失灵之前，医学护理可以决定这条道路是猛然下降，还是舒展平缓地下降，使我们可以更长久地保持至关重要的生活能力。
-  它要求我们每个人思考我们生活中不可以治愈的情况——我们将面对的不可避免的衰老，以便作出一些必要的小小改变来重塑衰老。在长生不老的幻觉大行其道的情况下，老年病学医生要求我们承认自己会衰老，这个举动很不讨巧。
- 03 依赖 我们为老做好准备了吗  高龄老人告诉我，他们最害怕的并不是死亡，而是那之前的种种状况——丧失听力、记忆力，失去最好的朋友和固有的生活方式。正如菲利克斯对我说的：“老年是一系列连续不断的丧失。”</description>
+02 崩溃 接受变老这件事 但是，实际上，并不是某一种疾病导致了生命的消亡；罪魁祸首乃是在医学实施其维持措施和打补丁工作的时候，身体系统累积的摧毁力量。我们时而降低血压，时而抗击骨质疏松，控制这种病，发现那种病，置换坏掉的关节、瓣膜，眼看着“中央处理器”渐渐衰竭。生命衰亡的过程变成一条长长的、缓缓的曲线。
+某种意义上，现代医学的进步带来两场革命：我们经历了生命过程的生物学转换，也经历了如何认识这一过程的文化转换。
+人如何衰老以及为什么会老 30岁的时候，脑是一个1400克的器官，颅骨刚好容纳得下；到我们70岁的时候，大脑灰质丢失使头颅空出了差不多2.5厘米的空间。所以像我祖父那样的老年人在头部受到撞击后，会很容易发生颅内出血——实际上，大脑在他们颅内晃动。最先萎缩的部分一般是额叶（掌管判断和计划）和海马体（组织记忆的场所）。于是，记忆力和收集、衡量各种想法（即多任务处理）的能力在中年时期达到顶峰，然后就逐渐下降。处理速度早在40岁之前就开始降低（所以数学家和物理学家通常在年轻时取得最大的成就）。到了85岁，工作记忆力和判断力受到严重损伤，40%的人都患有教科书所定义的老年失智（痴呆症）。
+头发变白只是因为给头发提供颜色的色素细胞枯竭了。头皮的色素细胞只有几年的自然寿命，我们是依靠头皮以下的干细胞代替色素细胞。然而，干细胞池也会逐渐枯竭。于是，到50岁的时候，一般人会有约一半的头发变白。
+我询问西尔弗斯通老年病学家是否搞清楚了导致衰老的特定的、可复制的途径。他说：“没有。我们就是一下子崩溃了。”
+连医生都避之不及的老年病 我们坚持65岁退休的观念——在65岁的人只占人口一小部分的时候，这是合理的，但是，在这部分人群接近20%的时候，则越来越站不住脚。人们为老年积攒的钱是大萧条以来最少的。一多半的高龄老年人独居无伴，而且我们的子女数量比任何时候都少，然而，我们根本没考虑过如何独自度过最后的岁月。
+脚才是老年人真正的危险 医生的工作是维护病人的生命质量。这包含两层意思：尽可能免除疾病的困扰，以及维持足够的活力及能力去积极生活。
+身体的衰退像藤蔓一样悄悄蔓延，一天一天，变化微小，不易察觉。人会适应变化，直到某天某件事情发生了，才终于明白情况已经不同了。
+承认“年纪大了”才能活得自然 衰老是我们的宿命，死亡总有一天会降临。但是在我们体内的最后一个备用系统失灵之前，医学护理可以决定这条道路是猛然下降，还是舒展平缓地下降，使我们可以更长久地保持至关重要的生活能力。
+它要求我们每个人思考我们生活中不可以治愈的情况——我们将面对的不可避免的衰老，以便作出一些必要的小小改变来重塑衰老。在长生不老的幻觉大行其道的情况下，老年病学医生要求我们承认自己会衰老，这个举动很不讨巧。
+03 依赖 我们为老做好准备了吗 高龄老人告诉我，他们最害怕的并不是死亡，而是那之前的种种状况——丧失听力、记忆力，失去最好的朋友和固有的生活方式。正如菲利克斯对我说的：“老年是一系列连续不断的丧失。”
+04 帮助 适应从家到老人院生活的转变 什么时候可以考虑去老人院看一看 跌跤是无法阻止的麻烦的前奏。
+一旦衰老导致衰弱，似乎就没人可以活得快乐。
+老人的渴求：一扇能上锁的门 她心目中的关键词是“家”。家是你的优先顺序中占主导地位的唯一地方。在家里，你可以决定怎么安排时间、怎么分享空间、怎么打理自己的物品。在家之外的地方，你决定不了。这种自由的丧失是路·桑德斯和威尔逊的妈妈杰茜这类人最害怕的。
+有没有一个真正像家的“老年之家” 我们如何使用时间可能取决于我们觉得自己还有多少时间。
+但随着你的视野收缩，当你开始觉得未来是有限的、不确定的时候，你的关注点开始转向此时此地，放在了日常生活的愉悦和最亲近的人身上。
+05 更好的生活 抗击养老院的三大瘟疫 用两条狗、4只猫、100只鸟发起的革命 针对厌倦感，生物会体现出自发性；针对孤独感，生物能提供陪伴；针对无助感，生物会提供照顾其他生命的机会。
+托马斯实验最重要的发现不是说有个活下去的理由可以降低残障老人的死亡率，而是为他们提供活着的理由是可能的。即便那些患有严重老年痴呆症、已经丧失了理解周围情况的居民，也能够体验到更有意义、更愉悦和更具满足感的生活。衡量人们对药物的依赖下降了多少、多活了多久比较容易，而衡量人们从生活当中得到的价值感则困难得多。
+修复健康，也需滋养心灵 随着年龄增长，我们都学会从简单的愉悦中寻求慰藉——友情、日常的例行公事、好食物的味道，以及阳光照在脸上的那种温暖。我们对于实现和积累的奖赏兴趣变小了，对于仅仅活着的奖赏兴趣加大了。然而，一方面我们感觉没那么雄心勃勃了，同时，我们对于我们的遗产又更加关心了。我们深深感到一种需要，必须确认外在于我们，使我们觉得活着更有意义、更有价值的目标。
+医学的重心很狭窄。医学专业人士专注于修复健康，而不是心灵的滋养。
+战胜老年生活的无聊与无助 对疾病和老年的恐惧不仅仅是被迫忍受对种种丧失的恐惧，同样也是对孤独的恐惧。当人意识到生命的有限，他们就不再要求太多。他们不再寻求更多的财富，不再寻求更多的权力。他们只要求，在可能的情况下，被允许保留塑造自己在这个世界的生命故事的权利——根据自己的优先顺序作出选择，维持与他人的联系。
+06 放手 什么时候努力医治，什么时候放弃治疗 大限来临该做什么 虽然研究表明化疗可以显著延长一些病人的存活期，但实际上，只有小部分人效果显著，而且它平均只能延长两个月的生命——这些病人跟萨拉不一样，他们对一线化疗是有反应的。</description>
     </item>
     
     <item>
@@ -126,23 +205,44 @@ error: \copy: parse error at end of line psql:sql/file.</description>
       
       <guid>https://ffflora.cat/cn/design/</guid>
       <description>《设计心理学1：日常的设计》 唐纳德·A·诺曼
-2002年版序  设计中的弊端导致了错误的发生。
- 第一章 日用品中的设计问题 日常生活中的烦恼  以上例子说明了设计中的一项重要原则：可视性。正确的操作部位必须显而易见，而且还要向用户传达出正确的信息。
-  可视性问题的其他表现形式是关于用户操作意图和可能的操作方法之间的匹配。
-  可视性要表现的就是操作意图和实际操作之间的匹配，并且要让用户看出物品之间的关键差异。
- 易理解性和易使用性的设计原则  现在我们来探讨设计的两个基本原则：1.提供一个好的概念模型；2.可视性。
-  设计模型是指设计人员所使用的概念模型，用户模型是指用户在与系统交互作用的过程中形成的概念模型。系统表象基于系统的物理结构（包括用户使用手册和各种标示）。设计人员希望用户模型与设计模型完全一样，但问题是，设计人员无法与用户直接交流，必须通过系统表象这一渠道。如果系统表象不能清晰、准确地反映出设计模型，用户就会在使用过程中，建立错误的概念模型。
-  每个控制器都有适当的位置，一个控制器负责一项功能，这是多么好的设计原则。当然，这个原则说起来容易做起来难。不过这是一条基本的自然匹配原则：应当让用户清楚地看到控制器和操作方法之间的关系。要做到自然匹配不容易，但这对设计来说却非常关键。
-  反馈是控制科学和信息理论中一个常用的概念，其含义为：向用户提供信息，使用户知道某一操作是否已经完成以及操作所产生的结果。
-  贝尔电话实验室的设计人员在反馈原则上花费了很多心思，使用户接触电话上的按键时会有一种特殊的感觉。按下一个键时，用户就会听到某种声音，以确定刚才的按键方法是否正确。一旦电话被接通，就会听到喀嚓声或其他声音，使用者就能知道电话的工作状态。说话人的声音也能适度地反馈到听筒，从而帮助他调整自己的音量。
- 第二章 日常操作心理学 日常生活中的错误观念  人类习惯于对外界事物加以解释
-  我们习惯对事物加以解释，这就形成了针对事物作用方式、事件发生过程和人类行为方式的概念模型，即心理模型。这类心理模型有助于我们理解自己的经历，预测我们的行为结果，应对出乎意料的情况。我们拥有什么样的心理模型取决于我们的知识结构，而不论这些知识是真实的还是想像中的，是粗浅的还是精深的。
-  心理模型经常是根据零碎的事实构建而成的，对事实的来龙去脉只有一种肤浅的理解，并依据某种通俗心理学，形成对事物起因、机制和相互关系等各个因素的看法，而这些因素或许并不存在。一些错误的模型会导致人们在日常生活中受挫.
-  并非只有某些人才会形成错误的观念，人人都在用心理模型来解释它们所观察到的一切。
- 找错怪罪对象  习得的无助感（learned helplessness）可用来解释人们的自责心理。**它是指人们在做某事时多次经历失败，便认为自己实在无法做好这件事，结果陷入无助的状态，不再进行尝试。**若是经常遇到这种情况，人们就会产生严重的心理障碍。习得的无助感发展到极限，会导致忧郁症，使人无法过日常生活。
- 第三章 头脑中的知识与外界知识  人们依靠着两种类型的知识：陈述性知识（declarative knowledge）和程序性知识（procedural knowledge）。前者包括各类事实和规则。
-  不需要高度精确的知识 - 人们通常不需要非常精确地记忆某些信息
- 第四章 知道要做什么 可视性和反馈  操作竟然会如此困难，其实原因很简单，即用户看不到任何反馈。其结果是：1.</description>
+2002年版序 设计中的弊端导致了错误的发生。
+第一章 日用品中的设计问题 日常生活中的烦恼 以上例子说明了设计中的一项重要原则：可视性。正确的操作部位必须显而易见，而且还要向用户传达出正确的信息。
+可视性问题的其他表现形式是关于用户操作意图和可能的操作方法之间的匹配。
+可视性要表现的就是操作意图和实际操作之间的匹配，并且要让用户看出物品之间的关键差异。
+易理解性和易使用性的设计原则 现在我们来探讨设计的两个基本原则：1.提供一个好的概念模型；2.可视性。
+设计模型是指设计人员所使用的概念模型，用户模型是指用户在与系统交互作用的过程中形成的概念模型。系统表象基于系统的物理结构（包括用户使用手册和各种标示）。设计人员希望用户模型与设计模型完全一样，但问题是，设计人员无法与用户直接交流，必须通过系统表象这一渠道。如果系统表象不能清晰、准确地反映出设计模型，用户就会在使用过程中，建立错误的概念模型。
+每个控制器都有适当的位置，一个控制器负责一项功能，这是多么好的设计原则。当然，这个原则说起来容易做起来难。不过这是一条基本的自然匹配原则：应当让用户清楚地看到控制器和操作方法之间的关系。要做到自然匹配不容易，但这对设计来说却非常关键。
+反馈是控制科学和信息理论中一个常用的概念，其含义为：向用户提供信息，使用户知道某一操作是否已经完成以及操作所产生的结果。
+贝尔电话实验室的设计人员在反馈原则上花费了很多心思，使用户接触电话上的按键时会有一种特殊的感觉。按下一个键时，用户就会听到某种声音，以确定刚才的按键方法是否正确。一旦电话被接通，就会听到喀嚓声或其他声音，使用者就能知道电话的工作状态。说话人的声音也能适度地反馈到听筒，从而帮助他调整自己的音量。
+第二章 日常操作心理学 日常生活中的错误观念 人类习惯于对外界事物加以解释
+我们习惯对事物加以解释，这就形成了针对事物作用方式、事件发生过程和人类行为方式的概念模型，即心理模型。这类心理模型有助于我们理解自己的经历，预测我们的行为结果，应对出乎意料的情况。我们拥有什么样的心理模型取决于我们的知识结构，而不论这些知识是真实的还是想像中的，是粗浅的还是精深的。
+心理模型经常是根据零碎的事实构建而成的，对事实的来龙去脉只有一种肤浅的理解，并依据某种通俗心理学，形成对事物起因、机制和相互关系等各个因素的看法，而这些因素或许并不存在。一些错误的模型会导致人们在日常生活中受挫.
+并非只有某些人才会形成错误的观念，人人都在用心理模型来解释它们所观察到的一切。
+找错怪罪对象 习得的无助感（learned helplessness）可用来解释人们的自责心理。**它是指人们在做某事时多次经历失败，便认为自己实在无法做好这件事，结果陷入无助的状态，不再进行尝试。**若是经常遇到这种情况，人们就会产生严重的心理障碍。习得的无助感发展到极限，会导致忧郁症，使人无法过日常生活。
+第三章 头脑中的知识与外界知识 人们依靠着两种类型的知识：陈述性知识（declarative knowledge）和程序性知识（procedural knowledge）。前者包括各类事实和规则。
+不需要高度精确的知识 - 人们通常不需要非常精确地记忆某些信息
+第四章 知道要做什么 可视性和反馈 操作竟然会如此困难，其实原因很简单，即用户看不到任何反馈。其结果是：1.所需操作步骤太多，用户记不清楚已经完成了哪一步；2.很难记住下一步如何操作；3.不易确定刚才输入的信息是否正确。万一发现错误，要想纠正也不容易。
+用声音增强可视性 有时无法让用户看到物品的某些部位，那就用声音来提供信息。声音可以告诉用户物品的运转是否正常，是否需要维修，甚至可以避免事故的发生。以下是各种声音所能提供的信息：
+门插销插好时发出的“喀嚓”声。
+拉链拉动自如时发出的“嗤啦”声。
+门未关好时发出的微弱金属声。
+汽车消声器出现漏洞时，汽车发出的轰鸣声。
+东西未固定好时发出的碰撞声。
+水煮开时，茶壶发出的哨声。
+面包片烤好时，从烤面包机里跳出来的声音。
+吸尘器堵塞时，突然变大的声音。
+一部复杂的机器出现故障时，产生异样变化的声音。
+声音应该反映机器的工作状态，尤其是那些用户看不到的操作过程。打电话时听到的蜂鸣声和喀嗒声就是很好的例子。
+真实自然的声音与视觉信息同等重要，因为声音可以告诉我们一些看不到的东西，当我们的目光注视在别处，无法观察某一事物时，声音便可告诉我们所需要的信息。
+要想合理利用声音，必须了解声音与所要传达的信息之间的自然关系。人造的声音应该同自然的声音一样有用。盖弗认为声音可以在计算机应用设备上发挥重要的作用。那些不易用其他方式表达的概念信息可以通过丰富的、自然的模拟声音表现出来。
+声音可以提供有用的反馈信息，没有声音就意味着没有反馈。
+第五章 人非圣贤，孰能无过 差错有几种形式，其中最基本的两种类型是失误（slip）和错误（mistake）。
+失误因习惯行为引起，本来想做某件事，用于实现目标的下意识行为却在中途出了问题。失误是下意识的行为，错误则产生于意识行为中。
+失误的种类 一些失误是由动作之间的相似性造成的，有时是因为外界发生的某件事自动引发了一个动作，而有些时候，是我们脑中所想的、手中所做的触发了我们原本无意去做的动作。失误可以分成六类：撷取性失误（capture errors）、描述性失误（description errors）、数据干扰失误（data-driven errors）、联想失误（associative activation errors）、忘记动作目的造成的失误（loss-of-activation errors）和功能状态失误（mode errors）。
+撷取性失误很常见，是指某个经常做的动作突然取代了想要做的动作。
+无意识的行为是在环境刺激下产生的，也就是说感官上的刺激引发了无意识行为。有时这种因外界刺激而引发的动作会干扰某个正在进行着的动作，使人做出本来未曾计划要做的事。
+忘记了本来要做的事是一种比较常见的失误。更有趣的是，有时我们只会忘记其中的一部分，就像上面所举的例子，虽然忘记了去卧室的目的，但是还记得要去一下卧室。曾有人对我说，他有一次走到厨房，打开冰箱门，却忘了自己要干什么。这种失误是由于激发目标的机制已经衰退，说得通俗一点就是“健忘”。
+因此，在设计一个能够承受失误的系统时，最好将该项性能设计得可靠一些。</description>
     </item>
     
     <item>
@@ -168,7 +268,7 @@ Exclusionary Screening: 负面筛选。筛选详细解释
 Emerging market: 新兴市场
 Mature Market: 成熟市场
 O - Z Peak carbon dioxide emissions 碳达峰
- 2021年中国消费行业ESG发展研究报告</description>
+2021年中国消费行业ESG发展研究报告</description>
     </item>
     
     <item>
@@ -178,10 +278,10 @@ O - Z Peak carbon dioxide emissions 碳达峰
       
       <guid>https://ffflora.cat/posts/2022/03/cdp-or-reverse-etl-one-or-both/</guid>
       <description>By definition,
- ETL is a data integration process that synchronizes multiple data sources into a single destination, such as a data warehouse. It stands for extract, load, and transform, which are the three steps that occur in the process
-  Extract: Take the desired data from numerous tools and sources
-  Transform: Clean (or reorient) the data into a standard format to store it in
-  Load: Put the transformed data into organized tables that will live inside a data warehouse</description>
+ETL is a data integration process that synchronizes multiple data sources into a single destination, such as a data warehouse. It stands for extract, load, and transform, which are the three steps that occur in the process
+Extract: Take the desired data from numerous tools and sources
+Transform: Clean (or reorient) the data into a standard format to store it in
+Load: Put the transformed data into organized tables that will live inside a data warehouse</description>
     </item>
     
     <item>
@@ -201,7 +301,7 @@ Chapter 3 You are not as powerless as you think. If you&amp;rsquo;re currently o
       <pubDate>Mon, 06 Dec 2021 21:43:17 -0800</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/12/sql-notes-3/</guid>
-      <description>Smart Table Design Here are some very broad steps for creating new tables:  Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table.  And here are some rules of atomic data, which should be the most important part of your table.</description>
+      <description>Smart Table Design Here are some very broad steps for creating new tables: Pick the one thing you want your table to describe. Make a list of the information you need to know about that one thing when you are using the table. Using the list, break down the information about your thing into pieces you can use for organizing your table. And here are some rules of atomic data, which should be the most important part of your table.</description>
     </item>
     
     <item>
@@ -219,10 +319,10 @@ Chapter 3 You are not as powerless as you think. If you&amp;rsquo;re currently o
       <pubDate>Wed, 03 Nov 2021 14:47:21 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet4/</guid>
-      <description>ML Implementation and Operation   Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
-  You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
+      <description>ML Implementation and Operation Inference Pipeline can be considered as an Amazon SageMaker model that you can use to make either real-time predictions or to process batch transforms directly without any external preprocessing.
+You can use Inference Pipeline to package Spark and scikit-learn based preprocessors into containers:
 https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-learn-containers.html
-  An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data.</description>
+An inference pipeline is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data.</description>
     </item>
     
     <item>
@@ -231,10 +331,10 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-mleap-scikit-
       <pubDate>Wed, 03 Nov 2021 14:47:15 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet3/</guid>
-      <description>Modeling   Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
-  mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
-  Incremental Training in Amazon SageMaker
-Over time, you might find that a model generates inference that are not as good as they were in the past.</description>
+      <description>Modeling Object2Vec can be used to find semantically similar objects such as questions. BlazingText Word2Vec can only find semantically similar words.
+mode is the mandatory hyperparameter for both the Word2Vec (unsupervised) and Text Classification (supervised) modes of the SageMaker BlazingText algorithm.
+Incremental Training in Amazon SageMaker
+Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model.</description>
     </item>
     
     <item>
@@ -243,7 +343,7 @@ Over time, you might find that a model generates inference that are not as good 
       <pubDate>Wed, 03 Nov 2021 14:34:57 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/11/aws-machine-learning-specialty-cheatsheet2/</guid>
-      <description>Exploratory Data Analysis   In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.</description>
+      <description>Exploratory Data Analysis In case of a binary classification model with strongly unbalanced classes, we need to over-sample from the minority class, collect more training data for the minority class and create more samples using algorithms such as SMOTE which effectively uses a k-nearest neighbours approach to exclude members of the majority class while in a similar way creating synthetic examples of a minority class. Over-sampling from the positive class or collecting more training data for the positive class would further aggravate the situation.</description>
     </item>
     
     <item>
@@ -252,11 +352,11 @@ Over time, you might find that a model generates inference that are not as good 
       <pubDate>Tue, 13 Apr 2021 23:26:49 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2021/04/aws-machine-learning-specialty-cheatsheet1/</guid>
-      <description>Data Engineering   In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+      <description>Data Engineering In Kinesis Data Stream, number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
 where
 incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds.
 outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers.
-  Glue cannotwrite the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
+Glue cannot write the output in RecordIO-Protobuf format. Lambda is not suited for long-running processes such as the task of transforming 1TB data into RecordIO-Protobuf format. Kinesis Firehose is not meant to be used for batch processing use cases and it cannot write data in RecorIO-Protobuf format.</description>
     </item>
     
     <item>
@@ -266,7 +366,7 @@ outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the
       
       <guid>https://ffflora.cat/posts/2021/03/react.js-problem-solving-notes/</guid>
       <description>This series of posts summaries the problems/issues I met during work, and the solutions of how I solved these problems.
-  How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
+How do I parse a .json data file to pass into this DevExtreme component and render out a series of area charts?
 Data looks like:
 type Data = { period_index: number, breakdown: { sessions: number, conversions: number, avg_page_views: number, avg_time_on_page: number, new_users: number, } }[] parseData = (data: Data | any) =&amp;gt; { if (data.</description>
     </item>
@@ -279,7 +379,7 @@ type Data = { period_index: number, breakdown: { sessions: number, conversions: 
       <guid>https://ffflora.cat/posts/2021/02/aws-sagemaker-deep-dive/</guid>
       <description>This post consist of the notes that are based on the series of AWS SageMaker videos provided by Amazon Web Services Amazon SageMaker Technical Deep Dive Series.
 Fully-Managed Notebook Instances with Amazon SageMaker Create your Notebook Instance:
- Pick the right family:  t - tiny &amp;lt; m, c - computed optimized, p - GPU   Pick the right size:  From medium to very very large.   Pick the right version:  ml.</description>
+Pick the right family: t - tiny &amp;lt; m, c - computed optimized, p - GPU Pick the right size: From medium to very very large. Pick the right version: ml.t3.medium: 3 means the latest version in the T family There are ~200 example notebooks in SageMaker Notebook, definitely try them out.</description>
     </item>
     
     <item>
@@ -291,12 +391,14 @@ Fully-Managed Notebook Instances with Amazon SageMaker Create your Notebook Inst
       <description>Here are some resources I collected for better preparing the AWS Machine Learning Specialty Exam.
 Practical experience aws/amazon-sagemaker-examples
 Object Detection with Amazon Sagemaker
-AWS Training offers digital courses on machine learning (ML).   Data Analytics Fundamentals
-  Exam Readiness: AWS Certified Machine Learning - Specialty
-  Deep Learning on AWS
-  Elements of Data Science
-  Math for Machine Learning
-  Linear and Logistic Regression</description>
+AWS Training offers digital courses on machine learning (ML). Data Analytics Fundamentals
+Exam Readiness: AWS Certified Machine Learning - Specialty
+Deep Learning on AWS
+Elements of Data Science
+Math for Machine Learning
+Linear and Logistic Regression
+Machine Learning Use Case
+AWS whitepapers The following are whitepapers that have been written about ML and deep learning that you will want to read as part of your exam study:</description>
     </item>
     
     <item>
@@ -308,7 +410,7 @@ AWS Training offers digital courses on machine learning (ML).   Data Analytics F
       <description>These are my study notes directly from AWS Training cource - AWS Machine Learning Exam Readiness.
 Domain 1: Data Engineering Create Data Repo for Machine Learning Identify and implement a data ingestion solution To use the data for ML, you need to ingest it into a service like Amazon S3
 Batch and stream processing are two kinds of data ingestion.
-Batch processing Batch processing periodically collects and groups source data.With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3.</description>
+Batch processing Batch processing periodically collects and groups source data.</description>
     </item>
     
     <item>
@@ -318,7 +420,7 @@ Batch processing Batch processing periodically collects and groups source data.W
       
       <guid>https://ffflora.cat/posts/2021/01/intro-to-data-analytics-fundamental-with-aws-solutions/</guid>
       <description>The challenges identified in many data analysis solutions can be summarized by five key challenges: volume, velocity, variety, veracity, and value.
-Volume - Data Storage  Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
+Volume - Data Storage Structured(10%) data is organized and stored in the form of values that are grouped into rows and columns of a table. Semistructured(10%) data is often stored in a series of key-value pairs that are grouped into elements within a file. Unstructured(80%) data is not structured in a consistent way.</description>
     </item>
     
     <item>
@@ -327,7 +429,7 @@ Volume - Data Storage  Structured(10%) data is organized and stored in the form 
       <pubDate>Sun, 24 May 2020 00:00:43 -0700</pubDate>
       
       <guid>https://ffflora.cat/posts/2020/05/sql-notes-2/</guid>
-      <description>SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY  This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
+      <description>SELECT SELECT DISTINCT vend_id FROM Vendors LIMIT 5; LIMIT 5 OFFSET 5; // return 5 results start from line 5 ORDER BY This should be the last clause after the SELECT statement. It is legal to ORDER BY the columns that are not being selected. Default is ordering from A - Z, if descending, need to add DESC in the end. DESC only works on col name that listed in front.</description>
     </item>
     
     <item>
@@ -349,8 +451,8 @@ CREATE DATABASE test; DROP DATABASE test; SHOW DATABASE; -- show all the databas
       <guid>https://ffflora.cat/posts/2020/03/react.js-notes-3/</guid>
       <description>Components Components Communicate with Server It&amp;rsquo;s safe that the communication happens in the componentDidMount, since this moment the component has already been loaded, and the DOM has been rendered. It is recommended by React.
 Reasons:
- componentDidMount中执行服务器通信可以保证获取到数据时，组件已经处于挂载状态，这时即使要直接操作DOM也是安全的，而componentWillMount无法保证这一点。 当组件在服务器端渲染时，componentWillMount会被调用两次，一次是在服务器端，另一次是在浏览器端，而componentDidMount能保证在任何情况下只会被调用一次，从而不会发送多余的数据请求。  class UserListContainer extends from React.Component{ //// 	componentWillMount(){ var that = this; fetch(&amp;#39;/path/to/user-api&amp;#39;) .then(response=&amp;gt;{ response.json().then(data=&amp;gt;{ that.setState({users:data}) }); }); } } Components Update from Server componentWillReceiveProps非常适合做这个工作。假设UserListContainer在获取用户列表时还需要一个参数category，用来根据用户的职业做筛选，category这个参数是从props中获取的，实现代码如下：
-class UserListContainer extends from React.Component{ //// 	componentWillReceiveProps(nextProps){ if(nextProps.</description>
+componentDidMount中执行服务器通信可以保证获取到数据时，组件已经处于挂载状态，这时即使要直接操作DOM也是安全的，而componentWillMount无法保证这一点。 当组件在服务器端渲染时，componentWillMount会被调用两次，一次是在服务器端，另一次是在浏览器端，而componentDidMount能保证在任何情况下只会被调用一次，从而不会发送多余的数据请求。 class UserListContainer extends from React.Component{ //// componentWillMount(){ var that = this; fetch(&amp;#39;/path/to/user-api&amp;#39;) .then(response=&amp;gt;{ response.json().then(data=&amp;gt;{ that.setState({users:data}) }); }); } } Components Update from Server componentWillReceiveProps非常适合做这个工作。假设UserListContainer在获取用户列表时还需要一个参数category，用来根据用户的职业做筛选，category这个参数是从props中获取的，实现代码如下：
+class UserListContainer extends from React.Component{ //// componentWillReceiveProps(nextProps){ if(nextProps.category!==this.props.category){ fetch(&amp;#39;/path/to/user-api?category&amp;#39;+nextprops.category) then(response=&amp;gt;{ response.</description>
     </item>
     
     <item>
@@ -360,7 +462,7 @@ class UserListContainer extends from React.Component{ //// 	componentWillReceive
       
       <guid>https://ffflora.cat/posts/2020/01/react.js-notes-2/</guid>
       <description>Handling Events When you define a component using an ES6 class, a common pattern is for an event handler to be a method on the class. For example, this Toggle component renders a button that lets the user toggle between “ON” and “OFF” states:
-class Toggle extends React.Component { constructor(props) { super(props); this.state = {isToggleOn: true}; // This binding is necessary to make `this` work in the callback  this.handleClick = this.</description>
+class Toggle extends React.Component { constructor(props) { super(props); this.state = {isToggleOn: true}; // This binding is necessary to make `this` work in the callback this.handleClick = this.</description>
     </item>
     
     <item>
