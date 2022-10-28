@@ -6,8 +6,44 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 08 Sep 2022 16:48:32 -0700</lastBuildDate>
+        <lastBuildDate>Sat, 22 Oct 2022 13:26:03 -0400</lastBuildDate>
         <atom:link href="https://ffflora.cat/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Project Management</title>
+            <link>https://ffflora.cat/posts/2022/10/project-management/</link>
+            <pubDate>Sat, 22 Oct 2022 13:26:03 -0400</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2022/10/project-management/</guid>
+            <description>Project Requirements Make Project Sponsors Write Their Own Requirements It&amp;rsquo;s up to the project manager to spend time with those who are funding the software project to help them defind exactly what they want before the peoject starts.
+Without serious, specific consideration of what is to be created on this project during the requirement definition phase, the success of the project is severely jeopardized. The project owners need to convey what they want this software to do, not how the programmers will go about producing that result.</description>
+            <content type="html"><![CDATA[<h2 id="project-requirements">Project Requirements</h2>
+<h4 id="make-project-sponsors-write-their-own-requirements">Make Project Sponsors Write Their Own Requirements</h4>
+<p>It&rsquo;s up to the project manager to spend time with those who are funding the software project to help them defind exactly what they want before the peoject starts.</p>
+<p>Without serious, specific consideration of what is to be created on this project during the requirement definition phase, the success of the project is severely jeopardized. The project owners need to convey what they want this software to do, not how the programmers will go about producing that result.</p>
+<p>Convince the project owners that they must be involved in the process from start to finish. Solid requirements planning establishes a clear connection between the business case, project goals, and the project outcome. Otherwise, the project cannot produce the satisfactory result they are expecting.</p>
+<h4 id="favor-the-simple-over-the-complex">Favor the Simple Over the Complex</h4>
+<p>The best softwareproject managers absorb complexity from all sides - from the programmers, end-users, managements - and never amplify it.
+Simplicity doesn&rsquo;t happen accidently. It needs to be actively cultivated. Complexity is what happens when you aren&rsquo;t paying attention.</p>
+<h4 id="keep-it-simple">Keep it Simple</h4>
+<p>If your software is not flexible enough to quickly adapt to changing requirements, the project is dead even before it has begun.
+Do prototype.</p>
+<p>Production cycle: defining a small set of requirements, producing a prototype of the stated requirements, and obtaining feedback ensures that all project stakeholders are always on the same page and everyone is comfortable with what is going on. By religiously following these simple techniques, every software project can reach a successful conclusion. Especially if success is defined as a happy customer and working software that provides the useful business function for which it was created.
+Each cycle should be as short as possible - not longer than 2-3 weeks.</p>
+<p>Questions to think about:</p>
+<ol>
+<li>Is it more important that the project is down quickly, with few bugs, or on small budget as possible?</li>
+<li>What resources and skill sets are crucial to create the software they want?</li>
+<li>Are they making these resources available to the team?</li>
+<li>How will the software be used to run the infrustructure or make money for the company?</li>
+<li>Are the time realistic?</li>
+<li>Are they written into a customer contract, tied to an important holiday date, or part of the elaborate marketing plan?</li>
+<li>How easy is it to use your application?</li>
+<li>How easy is it to add a new feature to your application?</li>
+<li>How easy is it to request a new feature? Report a bug? Deploy a new version? Roll back to a bad version?</li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>Things To Know About Docker</title>

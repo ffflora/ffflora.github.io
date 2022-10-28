@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ffflora.cat/</loc>
+    <lastmod>2022-10-22T13:26:03-04:00</lastmod>
+  </url><url>
+    <loc>https://ffflora.cat/tags/notes/</loc>
+    <lastmod>2022-10-22T13:26:03-04:00</lastmod>
+  </url><url>
+    <loc>https://ffflora.cat/posts/</loc>
+    <lastmod>2022-10-22T13:26:03-04:00</lastmod>
+  </url><url>
+    <loc>https://ffflora.cat/posts/2022/10/project-management/</loc>
+    <lastmod>2022-10-22T13:26:03-04:00</lastmod>
+  </url><url>
+    <loc>https://ffflora.cat/tags/</loc>
+    <lastmod>2022-10-22T13:26:03-04:00</lastmod>
+  </url><url>
     <loc>https://ffflora.cat/categories/</loc>
     <lastmod>2022-09-08T16:48:32-07:00</lastmod>
   </url><url>
@@ -14,19 +29,7 @@
     <loc>https://ffflora.cat/tags/etl/</loc>
     <lastmod>2022-09-08T16:48:32-07:00</lastmod>
   </url><url>
-    <loc>https://ffflora.cat/</loc>
-    <lastmod>2022-09-08T16:48:32-07:00</lastmod>
-  </url><url>
     <loc>https://ffflora.cat/tags/gcp/</loc>
-    <lastmod>2022-09-08T16:48:32-07:00</lastmod>
-  </url><url>
-    <loc>https://ffflora.cat/tags/notes/</loc>
-    <lastmod>2022-09-08T16:48:32-07:00</lastmod>
-  </url><url>
-    <loc>https://ffflora.cat/posts/</loc>
-    <lastmod>2022-09-08T16:48:32-07:00</lastmod>
-  </url><url>
-    <loc>https://ffflora.cat/tags/</loc>
     <lastmod>2022-09-08T16:48:32-07:00</lastmod>
   </url><url>
     <loc>https://ffflora.cat/posts/2022/09/things-to-know-about-docker/</loc>
