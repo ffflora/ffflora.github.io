@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 22 Oct 2022 13:26:03 -0400</lastBuildDate><atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Nov 2022 23:05:55 -0800</lastBuildDate><atom:link href="https://ffflora.cat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS for JS Notes (1)</title>
+      <link>https://ffflora.cat/posts/2022/11/css-for-js-notes-1/</link>
+      <pubDate>Wed, 30 Nov 2022 23:05:55 -0800</pubDate>
+      
+      <guid>https://ffflora.cat/posts/2022/11/css-for-js-notes-1/</guid>
+      <description>Course: CSS for JS
+Module 0 - Fundamentals Media Queries /* CSS */ @media (condition) { /* Some CSS that&amp;#39;ll run if the condition is met. */ } Hiding content It&amp;rsquo;s common to use media queries to have alternative interfaces depending on the screen size. display: none is a declaration that removes an element from the rendering process; it&amp;rsquo;s as if it doesn&amp;rsquo;t exist.
+By default, we&amp;rsquo;ll hide any elements with the large-screens class.</description>
+    </item>
+    
     <item>
       <title>Project Management</title>
       <link>https://ffflora.cat/posts/2022/10/project-management/</link>

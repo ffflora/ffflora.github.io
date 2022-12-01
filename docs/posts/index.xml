@@ -6,8 +6,81 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 22 Oct 2022 13:26:03 -0400</lastBuildDate>
+        <lastBuildDate>Wed, 30 Nov 2022 23:05:55 -0800</lastBuildDate>
         <atom:link href="https://ffflora.cat/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>CSS for JS Notes (1)</title>
+            <link>https://ffflora.cat/posts/2022/11/css-for-js-notes-1/</link>
+            <pubDate>Wed, 30 Nov 2022 23:05:55 -0800</pubDate>
+            
+            <guid>https://ffflora.cat/posts/2022/11/css-for-js-notes-1/</guid>
+            <description>Course: CSS for JS
+Module 0 - Fundamentals Media Queries /* CSS */ @media (condition) { /* Some CSS that&amp;#39;ll run if the condition is met. */ } Hiding content It&amp;rsquo;s common to use media queries to have alternative interfaces depending on the screen size. display: none is a declaration that removes an element from the rendering process; it&amp;rsquo;s as if it doesn&amp;rsquo;t exist.
+By default, we&amp;rsquo;ll hide any elements with the large-screens class.</description>
+            <content type="html"><![CDATA[<p>Course: <a href="https://css-for-js.dev/">CSS for JS</a></p>
+<h2 id="module-0---fundamentals">Module 0 - Fundamentals</h2>
+<h2 id="media-queries">Media Queries</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* CSS */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">condition</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* Some CSS that&#39;ll run if the condition is met. */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="hiding-content">Hiding content</h4>
+<p>It&rsquo;s common to use media queries to have alternative interfaces depending on the screen size.
+<img src="/2.png" alt="demo 1"></p>
+<p><code>display</code>: none is a declaration that removes an element from the rendering process; it&rsquo;s as if it doesn&rsquo;t exist.</p>
+<p>By default, we&rsquo;ll hide any elements with the <code>large-screens</code> class.</p>
+<p>If our window is at least 300px wide, however, we apply special overrides. This includes showing <code>large-screens</code> elements, and hiding <code>small-screens</code> elements.</p>
+<p>This trick is often used for navigation. Desktop users see a list of links, whereas mobile users see a hamburger icon.</p>
+<h2 id="selectors">Selectors</h2>
+<h3 id="pseudo-classes">Pseudo-classes</h3>
+<p>Pseudo-classes let us apply a chunk of CSS based on an element&rsquo;s current state. In this case, we&rsquo;re adding a blue text color when the element is hovered.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* Any button over which the user&#39;s pointer is hovering */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">button</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="focus">focus</h4>
+<p>The <code>:focus</code> pseudo-class allows us to apply styles exclusively when an interactive element has focus:</p>
+<p><img src="/3.png" alt="demo 2"></p>
+<blockquote>
+<p>Focus styles are primarily useful for folks who don&rsquo;t use a &ldquo;pointer-style&rdquo; input device (like a mouse, a trackpad, or a finger on a touchscreen). The focus styles show you where you are on the page, which element is selected.</p>
+</blockquote>
+<h4 id="checked">checked</h4>
+<p>The <code>:checked</code> pseudo-class only applies to checkboxes and radio buttons that are &ldquo;filled in&rdquo;. You can apply additional styles to indicate that the input is activated:</p>
+<p><img src="/4.png" alt="demo 3"></p>
+<h4 id="firstlast-child-firstlast-of-type">first/last-child; first/last-of-type</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">li</span>:<span style="color:#a6e22e">last-child</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="/5.png" alt="demo 4"></p>
+<p><code>:first-of-type</code> depends on the <em>type</em> of the HTML tag. For example, let&rsquo;s suppose we have the following setup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">p</span>:<span style="color:#a6e22e">first-child</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">section</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h1</span>&gt;Hello world!&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span>&gt;This is a paragraph!&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span>&gt;This is another paragraph!&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">section</span>&gt;
+</span></span></code></pre></div><p>The first child within the parent <code>&lt;section&gt;</code> tag is an <code>&lt;h1&gt;</code>. Our <code>p:first-child</code> is looking for situations where a <em>paragraph</em> is the first child within a parent container. It doesn&rsquo;t work in this case.</p>
+<p>But, if we switch the selector to <code>p:first-of-type</code>, it <em>does</em> work:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">p</span>:<span style="color:#a6e22e">first-of-type</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">section</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h1</span>&gt;Hello world!&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span>&gt;This is a paragraph!&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span>&gt;This is another paragraph!&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">section</span>&gt;
+</span></span></code></pre></div><p>The <code>:first-of-type</code> pseudo-class ignores any siblings that aren&rsquo;t of the same type. In this case, <code>p:first-of-type</code> is going to select the first <em>paragraph</em> within a container, regardless of whether or not it&rsquo;s the first <em>child</em>.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Project Management</title>
