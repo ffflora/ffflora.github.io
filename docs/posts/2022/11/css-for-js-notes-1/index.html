@@ -48,7 +48,7 @@ By default, we&amp;rsquo;ll hide any elements with the large-screens class." />
 Module 0 - Fundamentals Media Queries /* CSS */ @media (condition) { /* Some CSS that&#39;ll run if the condition is met. */ } Hiding content It&rsquo;s common to use media queries to have alternative interfaces depending on the screen size. display: none is a declaration that removes an element from the rendering process; it&rsquo;s as if it doesn&rsquo;t exist.
 By default, we&rsquo;ll hide any elements with the large-screens class."><meta itemprop="datePublished" content="2022-11-30T23:05:55-08:00" />
 <meta itemprop="dateModified" content="2022-11-30T23:05:55-08:00" />
-<meta itemprop="wordCount" content="389"><meta itemprop="image" content="https://ffflora.cat/"/>
+<meta itemprop="wordCount" content="646"><meta itemprop="image" content="https://ffflora.cat/"/>
 <meta itemprop="keywords" content="Notes,CSS," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ffflora.cat/"/>
@@ -143,7 +143,7 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        2 minutes
+        4 minutes
 
         
       </p>
@@ -218,7 +218,62 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span>&gt;This is another paragraph!&lt;/<span style="color:#f92672">p</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">section</span>&gt;
 </span></span></code></pre></div><p>The <code>:first-of-type</code> pseudo-class ignores any siblings that aren&rsquo;t of the same type. In this case, <code>p:first-of-type</code> is going to select the first <em>paragraph</em> within a container, regardless of whether or not it&rsquo;s the first <em>child</em>.</p>
-
+<h3 id="pseudo-elements">Pseudo-elements</h3>
+<p>In terms of syntax, pseudo-elements use two colons instead of one (<code>::</code>), though some pseudo-elements also support single-colon syntax.</p>
+<h4 id="before-and-after">before and after</h4>
+<p>Two of the most common pseudo-elements are <code>::before</code> and <code>::after</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">p</span>::<span style="color:#a6e22e">before</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#39;→ &#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">deeppink</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">p</span>::<span style="color:#a6e22e">after</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#39; ←&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">deeppink</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p>In general, <strong>we probably shouldn&rsquo;t use these two pseudo-elements.</strong> In a vanilla HTML/CSS world, it can be helpful to &ldquo;bundle&rdquo; content in with a CSS selector. In the era of components, however, we have better ways of bundling content.</p>
+<p>There are also some accessibility concerns with <code>::before</code> and <code>::after</code>. Some screen readers will try to vocalize the <code>content</code>. Others will ignore them entirely. This inconsistency is problematic.</p>
+<p>That said, if the effect is entirely decorative (eg. colorful shapes), I believe it&rsquo;s fine to create them with an empty <code>content</code> string:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">p</span>::<span style="color:#a6e22e">before</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">32</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">32</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">peachpuff</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>  This paragraph has a decorative circle.
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span></code></pre></div><h3 id="combinators">Combinators</h3>
+<p>In CSS, we can differentiate between <em>children</em> and <em>descendants</em>. Think of a family tree: a child is only one level down from the parent. A descendant might be 1 level down (child), 2 levels down (grandchild), 3 levels down…</p>
+<p>What if we only want to target children, and not deeper descendants? Using <strong><code>&gt;</code></strong> will apply the style on the child only.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">main-list</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">dotted</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;main-list&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">li</span>&gt;Salt&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">li</span>&gt;Pepper&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    Fruits <span style="color:#960050;background-color:#1e0010">&amp;</span> Veg:
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">li</span>&gt;Apple&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span></code></pre></div>
       </div>
     </article>
 
@@ -251,7 +306,7 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        389 Words
+        646 Words
       </p>
 
       <p>

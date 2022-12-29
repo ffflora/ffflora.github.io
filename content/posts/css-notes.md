@@ -105,9 +105,83 @@ But, if we switch the selector to `p:first-of-type`, it *does* work:
 
 The `:first-of-type` pseudo-class ignores any siblings that aren't of the same type. In this case, `p:first-of-type` is going to select the first *paragraph* within a container, regardless of whether or not it's the first *child*.
 
+### Pseudo-elements
+
+In terms of syntax, pseudo-elements use two colons instead of one (`::`), though some pseudo-elements also support single-colon syntax.
+
+#### before and after
+
+Two of the most common pseudo-elements are `::before` and `::after`.
+
+```html
+<style>
+  p::before {
+    content: '→ ';
+    color: deeppink;
+  }
+  
+  p::after {
+    content: ' ←';
+    color: deeppink;
+  }
+</style>
+```
 
 
 
+In general, **we probably shouldn't use these two pseudo-elements.** In a vanilla HTML/CSS world, it can be helpful to "bundle" content in with a CSS selector. In the era of components, however, we have better ways of bundling content.
+
+There are also some accessibility concerns with `::before` and `::after`. Some screen readers will try to vocalize the `content`. Others will ignore them entirely. This inconsistency is problematic.
+
+That said, if the effect is entirely decorative (eg. colorful shapes), I believe it's fine to create them with an empty `content` string:
+
+```html
+<style>
+  p::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: peachpuff;
+    margin: 8px;
+  }
+</style>
+
+<p>
+  This paragraph has a decorative circle.
+</p>
+```
+
+
+
+### Combinators
+
+In CSS, we can differentiate between *children* and *descendants*. Think of a family tree: a child is only one level down from the parent. A descendant might be 1 level down (child), 2 levels down (grandchild), 3 levels down…
+
+What if we only want to target children, and not deeper descendants? Using **`>`** will apply the style on the child only. 
+
+```html
+<style>
+  li {
+    margin-bottom: 8px;
+  }
+  
+  .main-list > li {
+    border: 2px dotted;
+  }
+</style>
+
+<ul class="main-list">
+  <li>Salt</li>
+  <li>Pepper</li>
+  <li>
+    Fruits & Veg:
+    <ul>
+      <li>Apple</li>
+    </ul>
+  </li>
+```
 
 
 
