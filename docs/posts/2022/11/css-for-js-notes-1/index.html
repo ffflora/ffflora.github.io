@@ -48,7 +48,7 @@ By default, we&amp;rsquo;ll hide any elements with the large-screens class." />
 Module 0 - Fundamentals Media Queries /* CSS */ @media (condition) { /* Some CSS that&#39;ll run if the condition is met. */ } Hiding content It&rsquo;s common to use media queries to have alternative interfaces depending on the screen size. display: none is a declaration that removes an element from the rendering process; it&rsquo;s as if it doesn&rsquo;t exist.
 By default, we&rsquo;ll hide any elements with the large-screens class."><meta itemprop="datePublished" content="2022-11-30T23:05:55-08:00" />
 <meta itemprop="dateModified" content="2022-11-30T23:05:55-08:00" />
-<meta itemprop="wordCount" content="646"><meta itemprop="image" content="https://ffflora.cat/"/>
+<meta itemprop="wordCount" content="1600"><meta itemprop="image" content="https://ffflora.cat/"/>
 <meta itemprop="keywords" content="Notes,CSS," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ffflora.cat/"/>
@@ -143,7 +143,7 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        4 minutes
+        8 minutes
 
         
       </p>
@@ -159,7 +159,7 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
       <div class="post-content">
         <p>Course: <a href="https://css-for-js.dev/">CSS for JS</a></p>
 <h2 id="module-0---fundamentals">Module 0 - Fundamentals</h2>
-<h2 id="media-queries">Media Queries</h2>
+<h3 id="media-queries">Media Queries</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* CSS */</span>
 </span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">condition</span><span style="color:#f92672">)</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* Some CSS that&#39;ll run if the condition is met. */</span>
@@ -171,8 +171,8 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
 <p>By default, we&rsquo;ll hide any elements with the <code>large-screens</code> class.</p>
 <p>If our window is at least 300px wide, however, we apply special overrides. This includes showing <code>large-screens</code> elements, and hiding <code>small-screens</code> elements.</p>
 <p>This trick is often used for navigation. Desktop users see a list of links, whereas mobile users see a hamburger icon.</p>
-<h2 id="selectors">Selectors</h2>
-<h3 id="pseudo-classes">Pseudo-classes</h3>
+<h3 id="selectors">Selectors</h3>
+<h4 id="pseudo-classes">Pseudo-classes</h4>
 <p>Pseudo-classes let us apply a chunk of CSS based on an element&rsquo;s current state. In this case, we&rsquo;re adding a blue text color when the element is hovered.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* Any button over which the user&#39;s pointer is hovering */</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">button</span>:<span style="color:#a6e22e">hover</span> {
@@ -273,6 +273,134 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
 </span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">li</span>&gt;Apple&lt;/<span style="color:#f92672">li</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">ul</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span></code></pre></div><h2 id="module-1---rendering-logic-i">Module 1 - Rendering Logic I</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">box-sizing</span><span style="color:#f92672">:</span> <span style="color:#f92672">content-box</span> <span style="color:#75715e">/*default*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">box-sizing</span><span style="color:#f92672">:</span> <span style="color:#f92672">border-box</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><h3 id="the-box-model">The Box Model</h3>
+<h4 id="winter-layers">Winter Layers</h4>
+<p>The four aspects that make up the box model are:</p>
+<ol>
+<li>Content</li>
+<li>Padding</li>
+<li>Border</li>
+<li>Margin</li>
+</ol>
+<h4 id="padding">Padding</h4>
+<p>Many developers believe that pixels are bad for accessibility. This is true when it comes to <em>font size</em>, but pixels are the best unit to use for padding (and other box model properties like margin/border).</p>
+<h5 id="shorthand-properties">Shorthand properties</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">two-way-padding</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">asymmetric-padding</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If two values are passed, the first value is used for both vertical directions (top/bottom), and the second value is used for horizontal directions (left/right).</p>
+<p>If all 4 values are passed, it applies them in a specific order: top, right, bottom, left.(clock-wise direction)</p>
+<p>When fewer than 4 values are passed, it &ldquo;fills in the gaps&rdquo;. If you pass it two values, it mirrors the top to the bottom, and the right to the left. With only 3 values, we set top/right/bottom explicitly, and mirror the right value to the left.</p>
+<blockquote>
+<p><strong>Beyond padding</strong></p>
+<p>This pattern is shared amongst other CSS properties that have shorthand values. For example:</p>
+<ul>
+<li>margin (<code>margin: 10px 20px 30px 40px</code>)</li>
+<li>border-style (<code>border-style: dotted solid dashed solid</code>)</li>
+</ul>
+</blockquote>
+<h4 id="border">Border</h4>
+<p>There are three styles specific to border: width, style, color; the only required field is <code>border-style</code>. Without it, no border will be shown!</p>
+<p>If we don&rsquo;t specify a border color, <em>it&rsquo;ll use the font&rsquo;s color by default</em>. This isn&rsquo;t well-known, but it can be useful in cases where those things should be synchronized!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">box</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">box</span>.<span style="color:#a6e22e">one</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Setting TEXT color,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    not border color, but border color goes the same with the text color. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">hotpink</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="border-radius">Border radius</h5>
+<p>It actually means corner radius.</p>
+<p>You can also use percentages; 50% will turn your shape into a circle or oval, since each corner&rsquo;s radius is 50% of the total width/height:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">box</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">hotpink</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="border-vs-outline">Border vs. Outline</h5>
+<p>A common stumbling block for devs is the distinction between <code>outline</code> and <code>border</code>. In some respects, they&rsquo;re quite similar! They both add a visual edge to a given element.</p>
+<p>The core difference is that <em>outline doesn&rsquo;t affect layout</em>. Outline is kinda more like box-shadow; it&rsquo;s a cosmetic effect draped over an element, without nudging it around, or changing its size.</p>
+<p>Outlines are stacked outside border, and can sometimes be used as a &ldquo;second border&rdquo;, for effect:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">box</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">darkviolet</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">outline</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">deeppink</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A couple more quick tidbits about outlines:</p>
+<ul>
+<li>Outlines will follow the curve set with <code>border-radius</code> in all browsers except Safari. This is a recent change; before September 2021, most browsers kept outlines straight and boxy.</li>
+<li><strong>Outlines have a special <code>outline-offset</code> property</strong>. It allows you to add a bit of a gap between the element and its outline.</li>
+</ul>
+<h4 id="margin">Margin</h4>
+<p>Negative margins can also pull an element&rsquo;s sibling closer.</p>
+<p>It&rsquo;s easy to fall into the trap of thinking that margin is exclusively about changing the selected element&rsquo;s position. Really, though, it&rsquo;s about changing <em>the gap between elements</em>. Negative margin shrinks the gap below an element, causing the next element to scoot up closer.</p>
+<h5 id="auto-margins">Auto Margins</h5>
+<p>The <code>auto</code> value seeks to fill the <em>maximum available space</em>. It works the same way for the <code>width</code> property.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">content</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-left</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-right</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">palevioletred</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>When we set both <code>margin-left</code> and <code>margin-right</code> to <code>auto</code>, we&rsquo;re telling them each to take up as much space as possible.</p>
+<p><img src="https://courses.joshwcomeau.com/cfj-mats/auto-margin-element.png" alt="A screenshot of the above playground, with yellow boxes showing margin"></p>
+<p>Two caveats:</p>
+<ul>
+<li><strong>This only works for horizontal margin.</strong> Setting top/bottom margin to <code>auto</code> is equivalent to setting it to <code>0px</code>*.</li>
+<li><strong>This only works on elements with an explicit width</strong>. Block elements will naturally grow to fill the available horizontal space, so we need to give our element a <code>width</code> in order to center it.</li>
+</ul>
+<h3 id="flow-layout">Flow Layout</h3>
+<p>Flow layout is the default layout mode. Everything we&rsquo;ve seen so far has used Flow layout. A plain HTML document, with no CSS applied, uses Flow layout exclusively.</p>
+<p>I like to think of Flow layout as the “Microsoft Word” layout algorithm. It&rsquo;s intended to be used for document type layouts.</p>
+<p>There are two main element types in Flow layout:</p>
+<ul>
+<li><strong>Block elements:</strong> things like headings, paragraphs, footers, asides. The chunks of content that make up a page.</li>
+<li><strong>Inline elements:</strong> things like links, or a string of bold text. Generally, inline elements are meant to highlight bits of text, or elements within a block container.</li>
+</ul>
+<p>Each HTML tag has a default type. <code>&lt;div&gt;</code> and <code>&lt;header&gt;</code> are block elements, <code>span</code> and <code>&lt;a&gt;</code> are inline elements.</p>
+<p>We can toggle any particular element with the <code>display</code> property:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* Transform a particular &lt;a&gt; tag from `inline` to `block`: */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">a</span>.<span style="color:#a6e22e">nav-link</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="block-level-elements">Block level elements:</h5>
+<p>What if we force it to shrink down to the minimum size required for the letters? We can do this with the special width keyword <code>fit-content</code>*:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">h2</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: fit-content;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">dotted</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="inline-level-elements">Inline level elements:</h5>
+<p>It has &ldquo;extra space&rdquo; for free - the browser treats inline elements as if they&rsquo;re typography.</p>
+<p>There are two ways we can fix this problem:</p>
+<ol>
+<li>Set images to <code>display: block</code> — if you&rsquo;re noticing this problem, there&rsquo;s a good chance your images aren&rsquo;t interspersed with text, so setting them to display as blocks makes sense.</li>
+<li>Set the <code>line-height</code> on the wrapping div to <code>0</code>.</li>
+</ol>
+<h5 id="inline-elements-can-line-wrap">Inline elements can line-wrap</h5>
+<p>Inline elements have one pretty big trick up their sleeves; they can line-wrap.</p>
+<h5 id="inline-block-doesnt-line-wrap">Inline-block doesn&rsquo;t line-wrap</h5>
+<p><img src="https://courses.joshwcomeau.com/cfj-mats/inline-block-links.png" alt="A comparison of inline-block and inline links. The inline-block causes a 2-line paragraph to split awkwardly across 3 lines"></p>
+<p>You may be tempted to pick really-short link text, to avoid this problem, but that would be a mistake; descriptive link text is <a href="https://www.a11yproject.com/posts/2019-02-15-creating-valid-and-accessible-links/">important for accessibility</a>.</p>
+<h4 id="width-algorithms">Width Algorithms</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">width</span><span style="color:#f92672">:</span> <span style="color:#f92672">max-content</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">width</span><span style="color:#f92672">:</span> <span style="color:#f92672">min-content</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">width</span><span style="color:#f92672">:</span> <span style="color:#f92672">fit-content</span>
 </span></span></code></pre></div>
       </div>
     </article>
@@ -306,7 +434,7 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        646 Words
+        1600 Words
       </p>
 
       <p>
@@ -477,7 +605,7 @@ By default, we&rsquo;ll hide any elements with the large-screens class." />
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2023</span>
             
                 <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
             
@@ -519,5 +647,32 @@ if (!doNotTrack) {
 
 
 
+<script type="application/javascript">
+const cool = () => {
+    const name = "Flora Jiang";
+    const letters = "qwertyuiopasdfghjklzxcvbnm";
+    let iterations = 0;
+    const el = document.querySelector("body > div > div > main > div > h1");
+    if (!el?.textContent) return;
+    const interval = setInterval(() => {
+        el.textContent = el.textContent
+            .split("")
+            .map((letter, index) => {
+                if (index < iterations) {
+                    const value = name[index];
+                    return value;
+                }
+                return letters[Math.floor(Math.random() * 26)];
+            })
+            .join("");
+
+        iterations += 2 / 3;
+        if (iterations >= name.length) clearInterval(interval);
+    }, 30);
+}
+
+document.querySelector("body > div > div > main > div > h1").addEventListener('mouseover', cool)
+
+</script>
     </body>
 </html>

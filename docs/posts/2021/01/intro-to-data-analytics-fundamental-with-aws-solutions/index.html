@@ -865,7 +865,7 @@ Volume - Data Storage Structured(10%) data is organized and stored in the form o
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2023</span>
             
                 <span><a href="https://ffflora.cat/">Flora Jiang</a></span>
             
@@ -907,5 +907,32 @@ if (!doNotTrack) {
 
 
 
+<script type="application/javascript">
+const cool = () => {
+    const name = "Flora Jiang";
+    const letters = "qwertyuiopasdfghjklzxcvbnm";
+    let iterations = 0;
+    const el = document.querySelector("body > div > div > main > div > h1");
+    if (!el?.textContent) return;
+    const interval = setInterval(() => {
+        el.textContent = el.textContent
+            .split("")
+            .map((letter, index) => {
+                if (index < iterations) {
+                    const value = name[index];
+                    return value;
+                }
+                return letters[Math.floor(Math.random() * 26)];
+            })
+            .join("");
+
+        iterations += 2 / 3;
+        if (iterations >= name.length) clearInterval(interval);
+    }, 30);
+}
+
+document.querySelector("body > div > div > main > div > h1").addEventListener('mouseover', cool)
+
+</script>
     </body>
 </html>
